@@ -1,0 +1,5 @@
+77;20104;0c#!/usr/bin/make -f
+
+%:
+	dh $@ --with autoreconf,systemd
+

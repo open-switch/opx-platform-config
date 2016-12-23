@@ -1,0 +1,7 @@
+usr/bin/s6k_platform.sh
+etc/opx/env-tmpctl/*
+etc/opx/nas/*
+etc/opx/pas/*
+etc/opx/sdi/*
+etc/opx/sai/*
+etc/opx/system-mgmt-interface/*
