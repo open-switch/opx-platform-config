@@ -15,23 +15,7 @@
 # permissions and limitations under the License.
 #
 
-# Make sure GPIO and I2C devices are created
-modprobe gpio_sch
-modprobe i2c_dev
-
-sleep 1
-
 /usr/bin/pcisysfs.py --set --val 0x00000005 --offset 0x300 --res "/sys/devices/pci0000:00/0000:00:13.1/resource0"
 #SM Bus HCLK divider register set 0x59 to tune 90khz frequency
 /usr/bin/portiocfg.py --set --offset 0x402 --val 0x59
 /usr/bin/portiocfg.py --set --offset 0x403 --val 0x0
-
-while true;
-do
-    if [ -e /dev/i2c-0 ]; then
-	break
-    fi
-    sleep 1
-done
-
-sleep 5

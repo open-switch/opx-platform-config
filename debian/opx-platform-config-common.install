@@ -1,2 +1,3 @@
 usr/bin/common/*		usr/bin
+etc/modules-load.d/common/*	etc/modules-load.d
 etc/common/*			etc

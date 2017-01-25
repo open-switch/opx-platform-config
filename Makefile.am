@@ -18,11 +18,14 @@ systemd_common_service_DATA =	common/lib/systemd/system/*
 systemd_shutdown_dell_s6000dir =	$(systemddir)/system-shutdown/dell-s6000-hw
 systemd_shutdown_dell_s6000_DATA =	dell-s6000-hw/lib/systemd/system-shutdown/*
 
+conf_common_modulesdir =	$(sysconfdir)/modules-load.d/common
+conf_common_modules_DATA =	common/etc/modules-load.d/*
+
 conf_common_opxdir =	$(sysconfdir)/common/opx
 conf_common_opx_DATA =	common/etc/opx/*
 
-conf_dell_s6000_hwdir =		$(sysconfdir)/dell-s6000-hw
-conf_dell_s6000_hw_DATA =	dell-s6000-hw/etc/modules
+conf_dell_s6000_modulesdir =	$(sysconfdir)/modules-load.d/dell-s6000-hw
+conf_dell_s6000_modules_DATA =	dell-s6000-hw/etc/modules-load.d/*
 
 conf_dell_s6000_env_tmpctldir =		$(sysconfdir)/opx/dell-s6000/env-tmpctl
 conf_dell_s6000_env_tmpctl_DATA =	dell-s6000/etc/opx/env-tmpctl/*
