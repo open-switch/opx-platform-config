@@ -1,14 +1,15 @@
 [Unit]
-Description= Platform initialize, first service run
+Description=Platform initialization service
+Before=opx-pas.service opx-nas.service
 DefaultDependencies=no
 
 [Service]
 Type=oneshot
 ExecStart=/usr/bin/opx_platform_init.sh
+RemainAfterExit=yes
 
 # Resource Limitations
-LimitCORE=infinity
+LimitNOFILE=16384
 
 [Install]
 WantedBy=multi-user.target
-
