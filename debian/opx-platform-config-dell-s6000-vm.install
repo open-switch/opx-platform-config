@@ -1,0 +1,3 @@
+usr/bin/common-vm/*				usr/bin
+etc/dell-s6000/*				etc/opx
+etc/dell-s6000-vm/*				etc/opx

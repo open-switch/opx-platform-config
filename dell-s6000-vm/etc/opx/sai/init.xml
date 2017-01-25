@@ -1,0 +1,1026 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--=======================================================-->
+<!--     SAI VM Platform Initialization configuration         -->
+<!--=======================================================-->
+
+<SAI>
+
+    <!--=======================================================-->
+    <!--              Generic Platform Info                    -->
+    <!--=======================================================-->
+
+    <PLATFORM_INFO type="generic">
+
+        <!--=======================================================-->
+        <!--               Switch Level info                       -->
+        <!--=======================================================-->
+
+        <SWITCH instance="0">
+            <PORT_INFO cpu_port="0" max_logical_ports="104"
+                max_physical_ports="32" max_lane_per_port="4"/>
+            <TABLE_SIZE l2_table="32000" l3_table="16000"/>
+            <QOS hierarchy_levels="3" max_hierarchy_node_childs="48"
+                traffic_class="16" max_buffer_size="12188" num_pg="8"
+                cell_size="208" ing_max_buf_pools="4" egr_max_buf_pools="4"/>
+            <PORT_QUEUE queue_count="20" uc_count="10" mc_count="10"/>
+            <CPU_PORT_QUEUE queue_count="43" uc_count="0" mc_count="43"/>
+        </SWITCH>
+        <!--========================================================-->
+        <!-- Scheduler group hierarchy levels for default qos init  -->
+        <!-- Levels 3; Level-0:Port Level-1:L0 Level-2:L1           -->
+        <!-- Port has 1 L0 node as child                            -->
+        <!-- L0.0 has 1 L1 node as child                            -->
+        <!-- L1 node has 43 multicast queues as child               -->
+        <!--========================================================-->
+        <CPU_SCHEDULER_HIERARCHY_TREE num_levels="3">
+            <LEVEL level_idx="0" scheduler_group_count="1">
+                <SCHEDULER_GROUP index="0" child_count="1">
+                    <child-scheduler-group child_level ="1" index="0"/>
+                </SCHEDULER_GROUP>
+            </LEVEL>
+
+            <LEVEL level_idx="1" scheduler_group_count="1">
+                <SCHEDULER_GROUP index="0" child_count="1">
+                    <child-scheduler-group child_level="2" index="0"/>
+                </SCHEDULER_GROUP>
+            </LEVEL>
+
+            <LEVEL level_idx="2" scheduler_group_count="1">
+                <SCHEDULER_GROUP index="0" child_count="43">
+                    <child-queue queue-number="0" type="MCAST" index="0"/>
+                    <child-queue queue-number="1" type="MCAST" index="1"/>
+                    <child-queue queue-number="2" type="MCAST" index="2"/>
+                    <child-queue queue-number="3" type="MCAST" index="3"/>
+                    <child-queue queue-number="4" type="MCAST" index="4"/>
+                    <child-queue queue-number="5" type="MCAST" index="5"/>
+                    <child-queue queue-number="6" type="MCAST" index="6"/>
+                    <child-queue queue-number="7" type="MCAST" index="7"/>
+                    <child-queue queue-number="8" type="MCAST" index="8"/>
+                    <child-queue queue-number="9" type="MCAST" index="9"/>
+                    <child-queue queue-number="10" type="MCAST" index="10"/>
+                    <child-queue queue-number="11" type="MCAST" index="11"/>
+                    <child-queue queue-number="12" type="MCAST" index="12"/>
+                    <child-queue queue-number="13" type="MCAST" index="13"/>
+                    <child-queue queue-number="14" type="MCAST" index="14"/>
+                    <child-queue queue-number="15" type="MCAST" index="15"/>
+                    <child-queue queue-number="16" type="MCAST" index="16"/>
+                    <child-queue queue-number="17" type="MCAST" index="17"/>
+                    <child-queue queue-number="18" type="MCAST" index="18"/>
+                    <child-queue queue-number="19" type="MCAST" index="19"/>
+                    <child-queue queue-number="20" type="MCAST" index="20"/>
+                    <child-queue queue-number="21" type="MCAST" index="21"/>
+                    <child-queue queue-number="22" type="MCAST" index="22"/>
+                    <child-queue queue-number="23" type="MCAST" index="23"/>
+                    <child-queue queue-number="24" type="MCAST" index="24"/>
+                    <child-queue queue-number="25" type="MCAST" index="25"/>
+                    <child-queue queue-number="26" type="MCAST" index="26"/>
+                    <child-queue queue-number="27" type="MCAST" index="27"/>
+                    <child-queue queue-number="28" type="MCAST" index="28"/>
+                    <child-queue queue-number="29" type="MCAST" index="29"/>
+                    <child-queue queue-number="30" type="MCAST" index="30"/>
+                    <child-queue queue-number="31" type="MCAST" index="31"/>
+                    <child-queue queue-number="32" type="MCAST" index="32"/>
+                    <child-queue queue-number="33" type="MCAST" index="33"/>
+                    <child-queue queue-number="34" type="MCAST" index="34"/>
+                    <child-queue queue-number="35" type="MCAST" index="35"/>
+                    <child-queue queue-number="36" type="MCAST" index="36"/>
+                    <child-queue queue-number="37" type="MCAST" index="37"/>
+                    <child-queue queue-number="38" type="MCAST" index="38"/>
+                    <child-queue queue-number="39" type="MCAST" index="39"/>
+                    <child-queue queue-number="40" type="MCAST" index="40"/>
+                    <child-queue queue-number="41" type="MCAST" index="41"/>
+                    <child-queue queue-number="42" type="MCAST" index="42"/>
+                </SCHEDULER_GROUP>
+            </LEVEL>
+
+        </CPU_SCHEDULER_HIERARCHY_TREE>
+        <!--========================================================-->
+        <!-- Scheduler group hierarchy levels for default qos init  -->
+        <!-- Levels 3; Level-0:Port Level-1:L0 Level-2:L1           -->
+        <!-- Port has 5 L0 nodes as child                           -->
+        <!-- L0.0 has 8 L1 nodes as child                           -->
+        <!-- L0.4 has 2 L1 nodes as child . This is a control node  -->
+        <!-- Each L1 node has unicast and multicast queue as child  -->
+        <!--========================================================-->
+        <SCHEDULER_HIERARCHY_TREE num_levels="3">
+            <LEVEL level_idx="0" scheduler_group_count="1">
+                <SCHEDULER_GROUP index="0" child_count="5">
+                    <child-scheduler-group child_level ="1" index="0"/>
+                    <child-scheduler-group child_level ="1" index="1"/>
+                    <child-scheduler-group child_level ="1" index="2"/>
+                    <child-scheduler-group child_level ="1" index="3"/>
+                    <child-scheduler-group child_level ="1" index="4"/>
+                </SCHEDULER_GROUP>
+            </LEVEL>
+
+            <LEVEL level_idx="1" scheduler_group_count="5">
+                <SCHEDULER_GROUP index="0" child_count="8">
+                    <child-scheduler-group child_level="2" index="0"/>
+                    <child-scheduler-group child_level="2" index="1"/>
+                    <child-scheduler-group child_level="2" index="2"/>
+                    <child-scheduler-group child_level="2" index="3"/>
+                    <child-scheduler-group child_level="2" index="4"/>
+                    <child-scheduler-group child_level="2" index="5"/>
+                    <child-scheduler-group child_level="2" index="6"/>
+                    <child-scheduler-group child_level="2" index="7"/>
+                </SCHEDULER_GROUP>
+
+                <SCHEDULER_GROUP index="1" child_count="0">
+                </SCHEDULER_GROUP>
+
+                <SCHEDULER_GROUP index="2" child_count="0">
+                </SCHEDULER_GROUP>
+
+                <SCHEDULER_GROUP index="3" child_count="0">
+                </SCHEDULER_GROUP>
+
+                <SCHEDULER_GROUP index="4" child_count="2">
+                    <child-scheduler-group child_level="2" index="8"/>
+                    <child-scheduler-group child_level="2" index="9"/>
+                </SCHEDULER_GROUP>
+            </LEVEL>
+
+            <LEVEL level_idx="2" scheduler_group_count="10">
+                <SCHEDULER_GROUP index="0" child_count="2">
+                    <child-queue queue-number="0" type="UCAST" index="0"/>
+                    <child-queue queue-number="0" type="MCAST" index="1"/>
+                </SCHEDULER_GROUP>
+
+                <SCHEDULER_GROUP index="1" child_count="2">
+                    <child-queue queue-number="1" type="UCAST" index="0"/>
+                    <child-queue queue-number="1" type="MCAST" index="1"/>
+                </SCHEDULER_GROUP>
+
+                <SCHEDULER_GROUP index="2" child_count="2">
+                    <child-queue queue-number="2" type="UCAST" index="0"/>
+                    <child-queue queue-number="2" type="MCAST" index="1"/>
+                </SCHEDULER_GROUP>
+
+                <SCHEDULER_GROUP index="3" child_count="2">
+                    <child-queue queue-number="3" type="UCAST" index="0"/>
+                    <child-queue queue-number="3" type="MCAST" index="1"/>
+                </SCHEDULER_GROUP>
+
+                <SCHEDULER_GROUP index="4" child_count="2">
+                    <child-queue queue-number="4" type="UCAST" index="0"/>
+                    <child-queue queue-number="4" type="MCAST" index="1"/>
+                </SCHEDULER_GROUP>
+
+                <SCHEDULER_GROUP index="5" child_count="2">
+                    <child-queue queue-number="5" type="UCAST" index="0"/>
+                    <child-queue queue-number="5" type="MCAST" index="1"/>
+                </SCHEDULER_GROUP>
+
+                <SCHEDULER_GROUP index="6" child_count="2">
+                    <child-queue queue-number="6" type="UCAST" index="0"/>
+                    <child-queue queue-number="6" type="MCAST" index="1"/>
+                </SCHEDULER_GROUP>
+
+                <SCHEDULER_GROUP index="7" child_count="2">
+                    <child-queue queue-number="7" type="UCAST" index="0"/>
+                    <child-queue queue-number="7" type="MCAST" index="1"/>
+                </SCHEDULER_GROUP>
+
+                <SCHEDULER_GROUP index="8" child_count="2">
+                    <child-queue queue-number="8" type="UCAST" index="0"/>
+                    <child-queue queue-number="8" type="MCAST" index="1"/>
+                </SCHEDULER_GROUP>
+
+                <SCHEDULER_GROUP index="9" child_count="2">
+                    <child-queue queue-number="9" type="UCAST" index="0"/>
+                    <child-queue queue-number="9" type="MCAST" index="1"/>
+                </SCHEDULER_GROUP>
+             </LEVEL>
+
+        </SCHEDULER_HIERARCHY_TREE>
+
+    </PLATFORM_INFO>
+
+    <!--=======================================================-->
+    <!--               Vendor Specific Info                    -->
+    <!--=======================================================-->
+
+    <PLATFORM_INFO type="vendor">
+
+        <!--=======================================================-->
+        <!--               Switch Level info                       -->
+        <!--=======================================================-->
+
+        <SWITCH instance="0">
+            <CAPABILITIES bitmask="0x1f"/>
+        </SWITCH>
+
+        <!--=======================================================-->
+        <!--               Port Level info                         -->
+        <!--=======================================================-->
+        <!--  32 Physical ports   ; 104 Logical ports              -->
+        <!--=======================================================-->
+        <!--  128 port instances  ; 104 active port instances      -->
+        <!--  8 Non-breakout port ; 24 inactive ports              -->
+        <!--=======================================================-->
+
+        <PORT instance="0" active="true">
+            <ID valid="true" logical_port="1" hw_port="25" port_group="0"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="40" count="4" bitmap="0xf"/>
+        </PORT>
+
+        <PORT instance="1" active="true">
+            <ID valid="false" logical_port="2" hw_port="26" port_group="0"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x2"/>
+        </PORT>
+
+        <PORT instance="2" active="true">
+            <ID valid="false" logical_port="3" hw_port="27" port_group="0"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x4"/>
+        </PORT>
+
+        <PORT instance="3" active="true">
+            <ID valid="false" logical_port="4" hw_port="28" port_group="0"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x8"/>
+        </PORT>
+
+        <PORT instance="4" active="true">
+            <ID valid="true" logical_port="5" hw_port="29" port_group="1"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="40" count="4" bitmap="0xf"/>
+        </PORT>
+
+        <PORT instance="5" active="true">
+            <ID valid="false" logical_port="6" hw_port="30" port_group="1"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x2"/>
+        </PORT>
+
+        <PORT instance="6" active="true">
+            <ID valid="false" logical_port="7" hw_port="31" port_group="1"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x4"/>
+        </PORT>
+
+        <PORT instance="7" active="true">
+            <ID valid="false" logical_port="8" hw_port="32" port_group="1"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x8"/>
+        </PORT>
+
+        <PORT instance="8" active="true">
+            <ID valid="true" logical_port="9" hw_port="33" port_group="2"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="40" count="4" bitmap="0xf"/>
+        </PORT>
+
+        <PORT instance="9" active="true">
+            <ID valid="false" logical_port="10" hw_port="34" port_group="2"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x2"/>
+        </PORT>
+
+        <PORT instance="10" active="true">
+            <ID valid="false" logical_port="11" hw_port="35" port_group="2"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x4"/>
+        </PORT>
+
+        <PORT instance="11" active="true">
+            <ID valid="false" logical_port="12" hw_port="36" port_group="2"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x8"/>
+        </PORT>
+
+        <PORT instance="12" active="true">
+            <ID valid="true" logical_port="13" hw_port="37" port_group="3"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="40" count="4" bitmap="0xf"/>
+        </PORT>
+
+        <PORT instance="13" active="true">
+            <ID valid="false" logical_port="14" hw_port="38" port_group="3"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x2"/>
+        </PORT>
+
+        <PORT instance="14" active="true">
+            <ID valid="false" logical_port="15" hw_port="39" port_group="3"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x4"/>
+        </PORT>
+
+        <PORT instance="15" active="true">
+            <ID valid="false" logical_port="16" hw_port="40" port_group="3"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x8"/>
+        </PORT>
+
+        <PORT instance="16" active="true">
+            <ID valid="true" logical_port="17" hw_port="45" port_group="4"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="40" count="4" bitmap="0xf"/>
+        </PORT>
+
+        <PORT instance="17" active="true">
+            <ID valid="false" logical_port="18" hw_port="46" port_group="4"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x2"/>
+        </PORT>
+
+        <PORT instance="18" active="true">
+            <ID valid="false" logical_port="19" hw_port="47" port_group="4"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x4"/>
+        </PORT>
+
+        <PORT instance="19" active="true">
+            <ID valid="false" logical_port="20" hw_port="48" port_group="4"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x8"/>
+        </PORT>
+
+        <PORT instance="20" active="true">
+            <ID valid="true" logical_port="21" hw_port="41" port_group="5"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="40" count="4" bitmap="0xf"/>
+        </PORT>
+
+        <PORT instance="21" active="true">
+            <ID valid="false" logical_port="22" hw_port="42" port_group="5"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x2"/>
+        </PORT>
+
+        <PORT instance="22" active="true">
+            <ID valid="false" logical_port="23" hw_port="43" port_group="5"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="40" count="1" bitmap="0x4"/>
+        </PORT>
+
+        <PORT instance="23" active="true">
+            <ID valid="false" logical_port="24" hw_port="44" port_group="5"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x8"/>
+        </PORT>
+
+        <PORT instance="24" active="true">
+            <ID valid="true" logical_port="25" hw_port="1" port_group="6"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="40" count="4" bitmap="0xf"/>
+        </PORT>
+
+
+        <PORT instance="25" active="true">
+            <ID valid="false" logical_port="26" hw_port="2" port_group="6"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x2"/>
+        </PORT>
+
+        <PORT instance="26" active="true">
+            <ID valid="false" logical_port="27" hw_port="3" port_group="6"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x4"/>
+        </PORT>
+
+        <PORT instance="27" active="true">
+            <ID valid="false" logical_port="28" hw_port="4" port_group="6"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x8"/>
+        </PORT>
+
+        <PORT instance="28" active="true">
+            <ID valid="true" logical_port="29" hw_port="5" port_group="7"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="40" count="4" bitmap="0xf"/>
+        </PORT>
+
+        <PORT instance="29" active="true">
+            <ID valid="false" logical_port="30" hw_port="6" port_group="7"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x2"/>
+        </PORT>
+
+        <PORT instance="30" active="true">
+            <ID valid="false" logical_port="31" hw_port="7" port_group="7"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x4"/>
+        </PORT>
+
+        <PORT instance="31" active="true">
+            <ID valid="false" logical_port="32" hw_port="8" port_group="7"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x8"/>
+        </PORT>
+
+        <PORT instance="32" active="true">
+            <ID valid="true" logical_port="33" hw_port="13" port_group="8"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="40" count="4" bitmap="0xf"/>
+        </PORT>
+
+        <PORT instance="33" active="true">
+            <ID valid="false" logical_port="34" hw_port="14" port_group="8"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x2"/>
+        </PORT>
+
+        <PORT instance="34" active="true">
+            <ID valid="false" logical_port="35" hw_port="15" port_group="8"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x4"/>
+        </PORT>
+
+        <PORT instance="35" active="true">
+            <ID valid="false" logical_port="36" hw_port="16" port_group="8"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x8"/>
+        </PORT>
+
+        <PORT instance="36" active="true">
+            <ID valid="true" logical_port="37" hw_port="9" port_group="9"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="40" count="4" bitmap="0xf"/>
+        </PORT>
+
+        <PORT instance="37" active="true">
+            <ID valid="false" logical_port="38" hw_port="10" port_group="9"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x2"/>
+        </PORT>
+
+        <PORT instance="38" active="true">
+            <ID valid="false" logical_port="39" hw_port="11" port_group="9"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x4"/>
+        </PORT>
+
+        <PORT instance="39" active="true">
+            <ID valid="false" logical_port="40" hw_port="12" port_group="9"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x8"/>
+        </PORT>
+
+        <PORT instance="40" active="true">
+            <ID valid="true" logical_port="41" hw_port="17" port_group="10"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="40" count="4" bitmap="0xf"/>
+        </PORT>
+
+        <PORT instance="41" active="true">
+            <ID valid="false" logical_port="42" hw_port="18" port_group="10"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x2"/>
+        </PORT>
+
+        <PORT instance="42" active="true">
+            <ID valid="false" logical_port="43" hw_port="19" port_group="10"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x4"/>
+        </PORT>
+
+        <PORT instance="43" active="true">
+            <ID valid="false" logical_port="44" hw_port="20" port_group="10"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x8"/>
+        </PORT>
+
+        <PORT instance="44" active="true">
+            <ID valid="true" logical_port="45" hw_port="21" port_group="11"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="40" count="4" bitmap="0xf"/>
+        </PORT>
+
+        <PORT instance="45" active="true">
+            <ID valid="false" logical_port="46" hw_port="22" port_group="11"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x2"/>
+        </PORT>
+
+        <PORT instance="46" active="true">
+            <ID valid="false" logical_port="47" hw_port="23" port_group="11"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x4"/>
+        </PORT>
+
+        <PORT instance="47" active="true">
+            <ID valid="false" logical_port="48" hw_port="24" port_group="11"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x8"/>
+        </PORT>
+
+        <!-- Breakout support disabled port -->
+        <PORT instance="48" active="true">
+            <ID valid="true" logical_port="49" hw_port="53" port_group="12"/>
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="40" count="4" bitmap="0xf"/>
+        </PORT>
+
+        <!-- Inactive port -->
+        <PORT instance="49" active="false">
+            <ID valid="false" logical_port="invalid" hw_port="54" port_group="12"/>
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="10" count="1" bitmap="0x2"/>
+        </PORT>
+
+        <!-- Inactive port -->
+        <PORT instance="50" active="false">
+            <ID valid="false" logical_port="invalid" hw_port="55" port_group="12"/>
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="10" count="1" bitmap="0x4"/>
+        </PORT>
+
+        <!-- Inactive port -->
+        <PORT instance="51" active="false">
+            <ID valid="false" logical_port="invalid" hw_port="56" port_group="12"/>
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="10" count="1" bitmap="0x8"/>
+        </PORT>
+
+        <!-- Breakout support disabled port -->
+        <PORT instance="52" active="true">
+            <ID valid="true" logical_port="50" hw_port="49" port_group="13"/>
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="40" count="4" bitmap="0xf"/>
+        </PORT>
+
+        <!-- Inactive port -->
+        <PORT instance="53" active="false">
+            <ID valid="false" logical_port="invalid" hw_port="50" port_group="13"/>
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="10" count="1" bitmap="0x2"/>
+        </PORT>
+
+        <!-- Inactive port -->
+        <PORT instance="54" active="false">
+            <ID valid="false" logical_port="invalid" hw_port="51" port_group="13"/>
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="10" count="1" bitmap="0x4"/>
+        </PORT>
+
+        <!-- Inactive port -->
+        <PORT instance="55" active="false">
+            <ID valid="false" logical_port="invalid" hw_port="52" port_group="13"/>
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="10" count="1" bitmap="0x8"/>
+        </PORT>
+
+        <!-- Breakout support disabled port -->
+        <PORT instance="56" active="true">
+            <ID valid="true" logical_port="51" hw_port="57" port_group="14"/>
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="40" count="4" bitmap="0xf"/>
+        </PORT>
+
+        <!-- Inactive port -->
+        <PORT instance="57" active="false">
+            <ID valid="false" logical_port="invalid" hw_port="58" port_group="14"/>
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="10" count="1" bitmap="0x2"/>
+        </PORT>
+
+        <!-- Inactive port -->
+        <PORT instance="58" active="false">
+            <ID valid="false" logical_port="invalid" hw_port="59" port_group="14"/>
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="10" count="1" bitmap="0x4"/>
+        </PORT>
+
+        <!-- Inactive port -->
+        <PORT instance="59" active="false">
+            <ID valid="false" logical_port="invalid" hw_port="60" port_group="14"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x8"/>
+        </PORT>
+
+        <!-- Breakout support disabled port -->
+        <PORT instance="60" active="true">
+            <ID valid="true" logical_port="52" hw_port="61" port_group="15"/>
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="40" count="4" bitmap="0xf"/>
+        </PORT>
+
+        <!-- Inactive port -->
+        <PORT instance="61" active="false">
+            <ID valid="false" logical_port="invalid" hw_port="62" port_group="15"/>
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="10" count="1" bitmap="0x2"/>
+        </PORT>
+
+        <!-- Inactive port -->
+        <PORT instance="62" active="false">
+            <ID valid="false" logical_port="invalid" hw_port="63" port_group="15"/>
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="10" count="1" bitmap="0x4"/>
+        </PORT>
+
+        <!-- Inactive port -->
+        <PORT instance="63" active="false">
+            <ID valid="false" logical_port="invalid" hw_port="64" port_group="15"/>
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="10" count="1" bitmap="0x8"/>
+        </PORT>
+
+        <PORT instance="64" active="true">
+            <ID valid="true" logical_port="53" hw_port="69" port_group="16"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="40" count="4" bitmap="0xf"/>
+        </PORT>
+
+        <PORT instance="65" active="true">
+            <ID valid="false" logical_port="54" hw_port="70" port_group="16"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x2"/>
+        </PORT>
+
+        <PORT instance="66" active="true">
+            <ID valid="false" logical_port="55" hw_port="71" port_group="16"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x4"/>
+        </PORT>
+
+        <PORT instance="67" active="true">
+            <ID valid="false" logical_port="56" hw_port="72" port_group="16"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x8"/>
+        </PORT>
+
+        <PORT instance="68" active="true">
+            <ID valid="true" logical_port="57" hw_port="65" port_group="17"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="40" count="4" bitmap="0xf"/>
+        </PORT>
+
+        <PORT instance="69" active="true">
+            <ID valid="false" logical_port="58" hw_port="66" port_group="17"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x2"/>
+        </PORT>
+
+        <PORT instance="70" active="true">
+            <ID valid="false" logical_port="59" hw_port="67" port_group="17"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x4"/>
+        </PORT>
+
+        <PORT instance="71" active="true">
+            <ID valid="false" logical_port="60" hw_port="68" port_group="17"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x8"/>
+        </PORT>
+
+        <PORT instance="72" active="true">
+            <ID valid="true" logical_port="61" hw_port="73" port_group="18"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="40" count="4" bitmap="0xf"/>
+        </PORT>
+
+        <PORT instance="73" active="true">
+            <ID valid="false" logical_port="62" hw_port="74" port_group="18"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x2"/>
+        </PORT>
+
+        <PORT instance="74" active="true">
+            <ID valid="false" logical_port="63" hw_port="75" port_group="18"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x4"/>
+        </PORT>
+
+        <PORT instance="75" active="true">
+            <ID valid="false" logical_port="64" hw_port="76" port_group="18"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x8"/>
+        </PORT>
+
+        <PORT instance="76" active="true">
+            <ID valid="true" logical_port="65" hw_port="77" port_group="19"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="40" count="4" bitmap="0xf"/>
+        </PORT>
+
+        <PORT instance="77" active="true">
+            <ID valid="false" logical_port="66" hw_port="78" port_group="19"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x2"/>
+        </PORT>
+
+        <PORT instance="78" active="true">
+            <ID valid="false" logical_port="67" hw_port="79" port_group="19"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x4"/>
+        </PORT>
+
+        <PORT instance="79" active="true">
+            <ID valid="false" logical_port="68" hw_port="80" port_group="19"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x8"/>
+        </PORT>
+
+        <PORT instance="80" active="true">
+            <ID valid="true" logical_port="69" hw_port="109" port_group="20"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="40" count="4" bitmap="0xf"/>
+        </PORT>
+
+        <PORT instance="81" active="true">
+            <ID valid="false" logical_port="70" hw_port="110" port_group="20"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x2"/>
+        </PORT>
+
+        <PORT instance="82" active="true">
+            <ID valid="false" logical_port="71" hw_port="111" port_group="20"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x4"/>
+        </PORT>
+
+        <PORT instance="83" active="true">
+            <ID valid="false" logical_port="72" hw_port="112" port_group="20"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x8"/>
+        </PORT>
+
+        <PORT instance="84" active="true">
+            <ID valid="true" logical_port="73" hw_port="105" port_group="21"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="40" count="4" bitmap="0xf"/>
+        </PORT>
+
+        <PORT instance="85" active="true">
+            <ID valid="false" logical_port="74" hw_port="106" port_group="21"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x2"/>
+        </PORT>
+
+        <PORT instance="86" active="true">
+            <ID valid="false" logical_port="75" hw_port="107" port_group="21"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x4"/>
+        </PORT>
+
+        <PORT instance="87" active="true">
+            <ID valid="false" logical_port="76" hw_port="108" port_group="21"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x8"/>
+        </PORT>
+
+        <PORT instance="88" active="true">
+            <ID valid="true" logical_port="77" hw_port="113" port_group="22"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="40" count="4" bitmap="0xf"/>
+        </PORT>
+
+        <PORT instance="89" active="true">
+            <ID valid="false" logical_port="78" hw_port="114" port_group="22"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x2"/>
+        </PORT>
+
+        <PORT instance="90" active="true">
+            <ID valid="false" logical_port="79" hw_port="115" port_group="22"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x4"/>
+        </PORT>
+
+        <PORT instance="91" active="true">
+            <ID valid="false" logical_port="80" hw_port="116" port_group="22"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x8"/>
+        </PORT>
+
+        <PORT instance="92" active="true">
+            <ID valid="true" logical_port="81" hw_port="117" port_group="23"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="40" count="4" bitmap="0xf"/>
+        </PORT>
+
+        <PORT instance="93" active="true">
+            <ID valid="false" logical_port="82" hw_port="118" port_group="23"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x2"/>
+        </PORT>
+
+        <PORT instance="94" active="true">
+            <ID valid="false" logical_port="83" hw_port="119" port_group="23"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x4"/>
+        </PORT>
+
+        <PORT instance="95" active="true">
+            <ID valid="false" logical_port="84" hw_port="120" port_group="23"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x8"/>
+        </PORT>
+
+        <PORT instance="96" active="true">
+            <ID valid="true" logical_port="85" hw_port="125" port_group="24"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="40" count="4" bitmap="0xf"/>
+        </PORT>
+
+        <PORT instance="97" active="true">
+            <ID valid="false" logical_port="86" hw_port="126" port_group="24"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x2"/>
+        </PORT>
+
+        <PORT instance="98" active="true">
+            <ID valid="false" logical_port="87" hw_port="127" port_group="24"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x4"/>
+        </PORT>
+
+        <PORT instance="99" active="true">
+            <ID valid="false" logical_port="88" hw_port="128" port_group="24"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x8"/>
+        </PORT>
+
+        <PORT instance="100" active="true">
+            <ID valid="true" logical_port="89" hw_port="121" port_group="25"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="40" count="4" bitmap="0xf"/>
+        </PORT>
+
+        <PORT instance="101" active="true">
+            <ID valid="false" logical_port="90" hw_port="122" port_group="25"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x2"/>
+        </PORT>
+
+        <PORT instance="102" active="true">
+            <ID valid="false" logical_port="91" hw_port="123" port_group="25"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x4"/>
+        </PORT>
+
+        <PORT instance="103" active="true">
+            <ID valid="false" logical_port="92" hw_port="124" port_group="25"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x8"/>
+        </PORT>
+
+        <PORT instance="104" active="true">
+            <ID valid="true" logical_port="93" hw_port="81" port_group="26"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="40" count="4" bitmap="0xf"/>
+        </PORT>
+
+        <PORT instance="105" active="true">
+            <ID valid="false" logical_port="94" hw_port="82" port_group="26"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x2"/>
+        </PORT>
+
+        <PORT instance="106" active="true">
+            <ID valid="false" logical_port="95" hw_port="83" port_group="26"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x4"/>
+        </PORT>
+
+        <PORT instance="107" active="true">
+            <ID valid="false" logical_port="96" hw_port="84" port_group="26"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x8"/>
+        </PORT>
+
+        <PORT instance="108" active="true">
+            <ID valid="true" logical_port="97" hw_port="85" port_group="27"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="40" count="4" bitmap="0xf"/>
+        </PORT>
+
+        <PORT instance="109" active="true">
+            <ID valid="false" logical_port="98" hw_port="86" port_group="27"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x2"/>
+        </PORT>
+
+        <PORT instance="110" active="true">
+            <ID valid="false" logical_port="99" hw_port="87" port_group="27"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x4"/>
+        </PORT>
+
+        <PORT instance="111" active="true">
+            <ID valid="false" logical_port="100" hw_port="88" port_group="27"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10" count="1" bitmap="0x8"/>
+        </PORT>
+
+        <!-- Breakout support disabled port -->
+        <PORT instance="112" active="true">
+            <ID valid="true" logical_port="101" hw_port="93" port_group="28"/>
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="40" count="4" bitmap="0xf"/>
+        </PORT>
+
+        <!-- Inactive port -->
+        <PORT instance="113" active="false">
+            <ID valid="false" logical_port="invalid" hw_port="94" port_group="28"/>
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="10" count="1" bitmap="0x2"/>
+        </PORT>
+
+        <!-- Inactive port -->
+        <PORT instance="114" active="false">
+            <ID valid="false" logical_port="invalid" hw_port="95" port_group="28"/>
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="10" count="1" bitmap="0x4"/>
+        </PORT>
+
+        <!-- Inactive port -->
+        <PORT instance="115" active="false">
+            <ID valid="false" logical_port="invalid" hw_port="96" port_group="28"/>
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="10" count="1" bitmap="0x8"/>
+        </PORT>
+
+        <!-- Breakout support disabled port -->
+        <PORT instance="116" active="true">
+            <ID valid="true" logical_port="102" hw_port="89" port_group="29"/>
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="40" count="4" bitmap="0xf"/>
+        </PORT>
+
+        <!-- Inactive port -->
+        <PORT instance="117" active="false">
+            <ID valid="false" logical_port="invalid" hw_port="90" port_group="29"/>
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="10" count="1" bitmap="0x2"/>
+        </PORT>
+
+        <!-- Inactive port -->
+        <PORT instance="118" active="false">
+            <ID valid="false" logical_port="invalid" hw_port="91" port_group="29"/>
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="10" count="1" bitmap="0x4"/>
+        </PORT>
+
+        <!-- Inactive port -->
+        <PORT instance="119" active="false">
+            <ID valid="false" logical_port="invalid" hw_port="92" port_group="29"/>
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="10" count="1" bitmap="0x8"/>
+        </PORT>
+
+        <!-- Breakout support disabled port -->
+        <PORT instance="120" active="true">
+            <ID valid="true" logical_port="103" hw_port="101" port_group="30"/>
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="40" count="4" bitmap="0xf"/>
+        </PORT>
+
+        <!-- Inactive port -->
+        <PORT instance="121" active="false">
+            <ID valid="false" logical_port="invalid" hw_port="102" port_group="30"/>
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="10" count="1" bitmap="0x2"/>
+        </PORT>
+
+        <!-- Inactive port -->
+        <PORT instance="122" active="false">
+            <ID valid="false" logical_port="invalid" hw_port="103" port_group="30"/>
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="10" count="1" bitmap="0x4"/>
+        </PORT>
+
+        <!-- Inactive port -->
+        <PORT instance="123" active="false">
+            <ID valid="false" logical_port="invalid" hw_port="104" port_group="30"/>
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="10" count="1" bitmap="0x8"/>
+        </PORT>
+
+        <!-- Breakout support disabled port -->
+        <PORT instance="124" active="true">
+            <ID valid="true" logical_port="104" hw_port="97" port_group="31"/>
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="40" count="4" bitmap="0xf"/>
+        </PORT>
+
+        <!-- Inactive port -->
+        <PORT instance="125" active="false">
+            <ID valid="false" logical_port="invalid" hw_port="98" port_group="31"/>
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="10" count="1" bitmap="0x2"/>
+        </PORT>
+
+        <!-- Inactive port -->
+        <PORT instance="126" active="false">
+            <ID valid="false" logical_port="invalid" hw_port="99" port_group="31"/>
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="10" count="1" bitmap="0x4"/>
+        </PORT>
+
+        <!-- Inactive port -->
+        <PORT instance="127" active="false">
+            <ID valid="false" logical_port="invalid" hw_port="100" port_group="31"/>
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="10" count="1" bitmap="0x8"/>
+        </PORT>
+
+    </PLATFORM_INFO>
+
+</SAI>

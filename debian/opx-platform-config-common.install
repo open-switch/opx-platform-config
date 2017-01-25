@@ -1,2 +1,2 @@
-usr/bin/pcisysfs.py
-usr/bin/portiocfg.py
+usr/bin/common/*		usr/bin
+etc/common/*			etc
