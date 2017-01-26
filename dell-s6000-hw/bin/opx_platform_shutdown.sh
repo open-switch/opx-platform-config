@@ -18,19 +18,26 @@
 # Platform specific script to trigger reset/shdutdown of all hw components
 # in addition to the CPU.
 
+i2c_bus=0
+for f in /sys/bus/i2c/devices/*; do
+    if [ "`cat $f/name`" = 'SMBus SCH adapter at 0400' ]; then
+        i2c_bus=`basename $f | sed 's/i2c-//'`
+	break
+    fi
+done
 
 function platform_reset {
     count=0;
 
     while [ $count -lt 3 ]
     do
-        echo 0 > /sys/class/gpio/gpio1/value
-        echo 0 > /sys/class/gpio/gpio2/value
+	echo 0 > /sys/class/gpio/gpio1/value
+	echo 0 > /sys/class/gpio/gpio2/value
 
-        # Now reset via SYSTEM_CPLD FORCE_RST
-        i2cset  -y 0 0x31 1 0xfd
+	# Now reset via SYSTEM_CPLD FORCE_RST
+	i2cset  -y $i2c_bus 0x31 1 0xfd
 
-        let "count = count + 1"
+	let "count = count + 1"
     done
 
     # If reset was successful, this line will not be reached.
@@ -42,20 +49,19 @@ function platform_reset {
 function platform_poweroff {
     echo 0 > /sys/class/gpio/gpio1/value
     echo 0 > /sys/class/gpio/gpio2/value
-    
+
     # Now reset via PS0_ON and PS1_ON registers of MASTER_CPLD
     # But then right now the CPLD seems to reset instead of power-down
     # Hence keeping it commented for now.
     # i2cset  -y 0 0x32 3 0x11
-    
+
 }
 
 case "$1" in
     "poweroff")
-        platform_poweroff
-        ;;
+	platform_poweroff
+	;;
     "reboot")
-        platform_reset
-        ;;
+	platform_reset
+	;;
 esac
-

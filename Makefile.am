@@ -1,22 +1,74 @@
-bin_SCRIPTS =	common/bin/pcisysfs.py common/bin/portiocfg.py \
-		dell/S6000/cfg/s6k_platform.sh dell/S6000/cfg/lib/systemd/system-shutdown/platform_shutdown.sh
+bin_commondir =		$(bindir)/common
+bin_common_DATA =	common/bin/*
 
-data_env_tmpctldir =	$(sysconfdir)/opx/env-tmpctl
-data_env_tmpctl_DATA =	dell/S6000/cfg/env-tmpctl/config.json
+bin_common_hwdir =	$(bindir)/common-hw
+bin_common_hw_DATA =	common-hw/bin/*
 
-data_nasdir =	$(sysconfdir)/opx/nas
-data_nas_DATA =	dell/S6000/cfg/nas/base_port_physical_mapping_table.xml dell/S6000/cfg/nas/base_qos_init.xml \
-		dell/S6000/cfg/nas/mac_address_alloc.xml dell/S6000/cfg/nas/phy_media_default_npu_setting.xml \
-		dell/S6000/cfg/nas/switch.xml
+bin_common_vmdir =	$(bindir)/common-vm
+bin_common_vm_DATA =	common-vm/bin/*
 
-data_pasdir =	$(sysconfdir)/opx/pas
-data_pas_DATA =	dell/S6000/cfg/pas/config.xml
+bin_dell_s6000_hwdir =		$(bindir)/dell-s6000-hw
+bin_dell_s6000_hw_DATA =	dell-s6000-hw/bin/*
 
-data_saidir =	$(sysconfdir)/opx/sai
-data_sai_DATA =	dell/S6000/cfg/sai/init.xml
+systemddir =	/lib/systemd
 
-data_sdidir =	$(sysconfdir)/opx/sdi
-data_sdi_DATA =	dell/S6000/cfg/sdi/device.xml dell/S6000/cfg/sdi/entity.xml
+systemd_common_servicedir =	$(systemddir)/system/common
+systemd_common_service_DATA =	common/lib/systemd/system/*
 
-data_system_mgmt_interfacedir =		$(sysconfdir)/opx/system-mgmt-interface
-data_system_mgmt_interface_DATA =	dell/S6000/cfg/system-mgmt-interface/mgmt-intf.xml
+systemd_shutdowndir =	$(systemddir)/system-shutdown/common
+systemd_shutdown_DATA =	common/lib/systemd/system-shutdown/*
+
+conf_common_modulesdir =	$(sysconfdir)/modules-load.d/common
+conf_common_modules_DATA =	common/etc/modules-load.d/*
+
+conf_common_opxdir =	$(sysconfdir)/common/opx
+conf_common_opx_DATA =	common/etc/opx/*
+
+conf_dell_s6000_modulesdir =	$(sysconfdir)/modules-load.d/dell-s6000-hw
+conf_dell_s6000_modules_DATA =	dell-s6000-hw/etc/modules-load.d/*
+
+conf_dell_s6000_env_tmpctldir =		$(sysconfdir)/opx/dell-s6000/env-tmpctl
+conf_dell_s6000_env_tmpctl_DATA =	dell-s6000/etc/opx/env-tmpctl/*
+
+conf_dell_s6000_nasdir =	$(sysconfdir)/opx/dell-s6000/nas
+conf_dell_s6000_nas_DATA =	dell-s6000/etc/opx/nas/*
+
+conf_dell_s6000_pasdir =	$(sysconfdir)/opx/dell-s6000/pas
+conf_dell_s6000_pas_DATA =	dell-s6000/etc/opx/pas/*
+
+conf_dell_s6000_hw_saidir =	$(sysconfdir)/opx/dell-s6000-hw/sai
+conf_dell_s6000_hw_sai_DATA =	dell-s6000-hw/etc/opx/sai/*
+
+conf_dell_s6000_hw_sdidir =	$(sysconfdir)/opx/dell-s6000-hw/sdi
+conf_dell_s6000_hw_sdi_DATA =	dell-s6000-hw/etc/opx/sdi/*
+
+conf_dell_s6000_vm_saidir =	$(sysconfdir)/opx/dell-s6000-vm/sai
+conf_dell_s6000_vm_sai_DATA =	dell-s6000-hw/etc/opx/sai/*
+
+conf_dell_s6000_vm_sdidir =	$(sysconfdir)/opx/dell-s6000-vm/sdi
+conf_dell_s6000_vm_sdi_DATA =	dell-s6000-hw/etc/opx/sdi/*
+
+
+lib_LTLIBRARIES =	libopx_nas_platform_vm.la libopx_nas_platform_dell_s6000.la
+
+libopx_nas_platform_la_ldflags =	-shared -version-info 1:1:0
+
+libopx_nas_platform_la_cppflags =	-D_FILE_OFFSET_BITS=64 -I$(top_srcdir)/inc/opx -I$(includedir)/opx
+
+libopx_nas_platform_la_cxxflags =	-std=c++11
+
+libopx_nas_platform_vm_la_SOURCES =	dell-s6000-vm/src/hal_npu_platform_init.c
+
+libopx_nas_platform_vm_la_LDFLAGS =	$(libopx_nas_platform_la_ldflags)
+
+libopx_nas_platform_vm_la_CPPFLAGS =	$(libopx_nas_platform_la_cppflags)
+
+libopx_nas_platform_vm_la_CXXFLAGS =	$(libopx_nas_platform_la_cxxflags)
+
+libopx_nas_platform_dell_s6000_la_SOURCES =	dell-s6000-hw/src/nas_ndi_plat_stat.c
+
+libopx_nas_platform_dell_s6000_la_LDFLAGS =	$(libopx_nas_platform_la_ldflags)
+
+libopx_nas_platform_dell_s6000_la_CPPFLAGS =	$(libopx_nas_platform_la_cppflags)
+
+libopx_nas_platform_dell_s6000_la_CXXFLAGS =	$(libopx_nas_platform_la_cxxflags)
