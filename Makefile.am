@@ -15,8 +15,8 @@ systemddir =	/lib/systemd
 systemd_common_servicedir =	$(systemddir)/system/common
 systemd_common_service_DATA =	common/lib/systemd/system/*
 
-systemd_shutdown_dell_s6000dir =	$(systemddir)/system-shutdown/dell-s6000-hw
-systemd_shutdown_dell_s6000_DATA =	dell-s6000-hw/lib/systemd/system-shutdown/*
+systemd_shutdowndir =	$(systemddir)/system-shutdown/common
+systemd_shutdown_DATA =	common/lib/systemd/system-shutdown/*
 
 conf_common_modulesdir =	$(sysconfdir)/modules-load.d/common
 conf_common_modules_DATA =	common/etc/modules-load.d/*

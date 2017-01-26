@@ -1,4 +1,5 @@
-lib/systemd/system/common/*	lib/systemd/system
-usr/bin/common/*		usr/bin
-etc/modules-load.d/common/*	etc/modules-load.d
-etc/common/*			etc
+lib/systemd/system/common/*		lib/systemd/system
+lib/systemd/system-shutdown/common/*	lib/systemd/system-shutdown
+usr/bin/common/*			usr/bin
+etc/modules-load.d/common/*		etc/modules-load.d
+etc/common/*				etc
