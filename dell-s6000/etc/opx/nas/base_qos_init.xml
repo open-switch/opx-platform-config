@@ -212,8 +212,5 @@
 
         </scheduler-hierarchy-tree>
 
-        <!-- priority group settings -->
-        <priority-group local-id="7"  buffer-profile="default-none"/>
-
     </CPU-PORT>
 </root>
