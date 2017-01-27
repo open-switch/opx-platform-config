@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Copyright (c) 2015 Dell Inc.
 #
@@ -21,7 +21,7 @@
 i2c_bus=0
 for f in /sys/bus/i2c/devices/*; do
     if [ "`cat $f/name`" = 'SMBus SCH adapter at 0400' ]; then
-        i2c_bus=`basename $f | sed 's/i2c-//'`
+	i2c_bus=`basename $f | sed 's/i2c-//'`
 	break
     fi
 done

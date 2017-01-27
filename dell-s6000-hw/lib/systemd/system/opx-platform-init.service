@@ -1,6 +1,6 @@
 [Unit]
 Description=Platform initialization service
-Before=opx-pas.service opx-nas.service
+Before=opx-pas.service
 DefaultDependencies=no
 
 [Service]

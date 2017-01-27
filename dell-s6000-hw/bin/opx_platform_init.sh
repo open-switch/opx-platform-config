@@ -17,14 +17,6 @@
 
 . /etc/opx/opx-environment.sh
 
-if [ -e /usr/bin/opx_platform_common_init.sh ]; then
-    . /usr/bin/opx_platform_common_init.sh
-fi
-
-if [ -e /usr/bin/opx_platform_hw_init.sh ]; then
-    . /usr/bin/opx_platform_hw_init.sh
-fi
-
 /usr/bin/pcisysfs.py --set --val 0x00000005 --offset 0x300 --res "/sys/devices/pci0000:00/0000:00:13.1/resource0"
 #SM Bus HCLK divider register set 0x59 to tune 90khz frequency
 /usr/bin/portiocfg.py --set --offset 0x402 --val 0x59
