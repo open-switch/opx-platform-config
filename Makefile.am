@@ -2,11 +2,14 @@ systemddir =	/lib/systemd
 
 # common - Common to all platforms
 
-conf_common_modulesdir =	$(sysconfdir)/modules-load.d/common
+conf_common_modulesdir =	$(sysconfdir)/common/modules-load.d
 conf_common_modules_DATA =	common/etc/modules-load.d/*
 
 conf_common_opxdir =	$(sysconfdir)/common/opx
 conf_common_opx_DATA =	common/etc/opx/*
+
+conf_common_sudoersdir =	$(sysconfdir)/common/sudoers.d
+conf_common_sudoers_DATA =	common/etc/sudoers.d/*
 
 # common-hw - Common to all hardware platforms
 
