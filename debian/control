@@ -6,7 +6,7 @@ Build-Depends: debhelper (>= 9),dh-autoreconf,dh-systemd,autotools-dev,libopx-co
 Standards-Version: 3.9.3
 
 Package: opx-platform-config-common
-Architecture: any
+Architecture: all
 Description: Platform specific files and packages for  Dell Networking S6000-ON
 
 # Package: opx-platform-config-dell-s6000-vm

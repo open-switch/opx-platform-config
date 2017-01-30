@@ -1,2 +1,1 @@
-etc/modules-load.d/common/*		etc/modules-load.d
-etc/common/*				etc
+etc/common/*	etc
