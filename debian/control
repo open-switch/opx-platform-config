@@ -2,7 +2,7 @@ Source: opx-platform-config
 Section: net
 Priority: optional
 Maintainer: Dell <support@dell.com>
-Build-Depends: debhelper (>= 9),dh-autoreconf,dh-systemd,autotools-dev,libopx-common-dev,libopx-base-model-dev,opx-ndi-api-dev
+Build-Depends: debhelper (>= 9),dh-systemd
 Standards-Version: 3.9.3
 
 Package: opx-platform-config-common
@@ -11,12 +11,12 @@ Description: Platform specific files and packages for  Dell Networking S6000-ON
 
 # Package: opx-platform-config-dell-s6000-vm
 # Architecture: any
-# Depends: ${shlibs:Depends}, ${misc:Depends}, libopx-sdi-sys-vm1, libopx-sai-vm1
+# Depends: ${shlibs:Depends}, ${misc:Depends}, libopx-sdi-sys-vm1, libopx-sai-vm1, opx-platform-config-common
 # Description: Platform specific files and packages for VM simulation of Dell Networking S6000-ON
 
 # Package: opx-dell-s6000-vm
 # Architecture: any
-# Depends: ${shlibs:Depends}, ${misc:Depends}, opx-platform-config-dell-s6000-vm, opx-platform-config-common, opx-core
+# Depends: ${shlibs:Depends}, ${misc:Depends}, opx-platform-config-dell-s6000-vm, opx-core
 # Description: All packages for VM simulation of Dell Networking S6000-ON
 
 Package: opx-platform-config-dell-s6000
