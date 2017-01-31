@@ -1,10 +1,8 @@
 common/etc/*						etc
 common-hw/bin/*						usr/bin
+vendor/dell/s6000/etc/opx/*				etc/opx
 vendor/dell/s6000-hw/bin/*				usr/bin
 vendor/dell/s6000-hw/etc/modules-load.d/*		etc/modules-load.d
-vendor/dell/s6000/etc/opx/env-tmpctl/*			etc/opx/env-tmpctl
-vendor/dell/s6000/etc/opx/nas/*				etc/opx/nas
-vendor/dell/s6000/etc/opx/pas/*				etc/opx/pas
 vendor/dell/s6000-hw/etc/opx/sai/*			etc/opx/sai
 vendor/dell/s6000-hw/etc/opx/sdi/*			etc/opx/sdi
 vendor/dell/s6000-hw/lib/systemd/system/*		lib/systemd/system
