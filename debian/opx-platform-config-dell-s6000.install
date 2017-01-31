@@ -1,3 +1,4 @@
+common/etc/*						etc
 common-hw/bin/*						usr/bin
 vendor/dell/s6000-hw/bin/*				usr/bin
 vendor/dell/s6000-hw/etc/modules-load.d/*		etc/modules-load.d
