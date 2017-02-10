@@ -5,22 +5,22 @@ Maintainer: Dell EMC <ops-dev@lists.openswitch.net>
 Build-Depends: debhelper (>= 9),dh-systemd
 Standards-Version: 3.9.3
 
-# Package: opx-platform-config-dell-s6000-vm
-# Architecture: any
-# Depends: ${shlibs:Depends}, ${misc:Depends}, libopx-sdi-sys-vm1, libopx-sai-vm1, libopx-nas-platform-vm1
-# Description: Platform specific files and packages for VM simulation of Dell Networking S6000-ON
+Package: opx-platform-config-dell-vm
+Architecture: all
+Depends: libopx-sdi-sys-vm1, libopx-sai-vm1, libopx-nas-platform-vm1
+Description: Platform specific files and packages for VM simulation of Dell Networking S6000-ON
 
-# Package: opx-dell-s6000-vm
-# Architecture: any
-# Depends: ${shlibs:Depends}, ${misc:Depends}, opx-platform-config-dell-s6000-vm, opx-core
-# Description: All packages for VM simulation of Dell Networking S6000-ON
+Package: opx-dell-vm
+Architecture: all
+Depends: opx-platform-config-dell-vm, opx-core
+Description: All packages for VM simulation of Dell Networking S6000-ON
 
 Package: opx-platform-config-dell-s6000
-Architecture: any
+Architecture: all
 Depends: opx-dell-s6000-modules, i2c-tools, dmidecode, libopx-sdi-device-drivers1, libopx-sdi-sys1, libopx-nas-platform-s6000-1
-Description: Package to install on a Dell Networking S6000-ON
+Description: Platform-specific files and packages for Dell Networking S6000-ON
 
 Package: opx-dell-s6000
-Architecture: any
-Depends: opx-platform-config-dell-s6000,opx-core
-Description: Package to install on a Dell Networking S6000-ON
+Architecture: all
+Depends: opx-bcm-lkm, libopx-sai-bcm-esw1, opx-platform-config-dell-s6000, opx-core
+Description: All packages for Dell Networking S6000-ON

@@ -1,4 +1,0 @@
-common/etc/*					etc
-common-vm/bin/*					usr/bin
-vendor/dell/s6000/etc/opx/*			etc/opx
-vendor/dell/s6000-vm/*				etc/opx
