@@ -1,5 +1,13 @@
-opx-platform-config (1.0.1) main; urgency=medium
+opx-platform-config (1.0.2) unstable; urgency=medium
 
-	 * Initial release
+  [ Howard Persh ]
+  * Cleaned up and corrected VM package
+  * Metapackages should be architecture "all"; added BCM-related packages to overall Dell S6000-ON metapckage
 
- -- Dell Team <support@dell.com> Mon, 29 Feb 2016 11:12:18 -0800
+ -- Dell EMC <opx-dev@lists.openswitch.net>  Fri, 10 Feb 2017 21:23:27 +0000
+
+opx-platform-config (1.0.1) unstable; urgency=medium
+
+  * Initial release.
+
+ -- Dell EMC <ops-dev@lists.openswitch.net>  Wed, 01 Feb 2017 09:45:27 -0800

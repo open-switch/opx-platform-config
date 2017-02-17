@@ -1,0 +1,15 @@
+[Unit]
+Description=Platform initialization service
+Before=opx-pas.service
+DefaultDependencies=no
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/opx_platform_init.sh
+RemainAfterExit=yes
+
+# Resource Limitations
+LimitNOFILE=16384
+
+[Install]
+WantedBy=multi-user.target
