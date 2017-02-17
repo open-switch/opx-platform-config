@@ -7,7 +7,7 @@ Standards-Version: 3.9.3
 
 Package: opx-platform-config-dell-vm
 Architecture: all
-Depends: libopx-sdi-sys-vm1, libopx-sai-vm1, libopx-nas-platform-vm1
+Depends: libopx-sdi-sys-vm1, libopx-sai-vm1
 Description: Platform specific files and packages for VM simulation of Dell Networking S6000-ON
 
 Package: opx-dell-vm
@@ -17,7 +17,7 @@ Description: All packages for VM simulation of Dell Networking S6000-ON
 
 Package: opx-platform-config-dell-s6000
 Architecture: all
-Depends: opx-dell-s6000-modules, i2c-tools, dmidecode, libopx-sdi-device-drivers1, libopx-sdi-sys1, libopx-nas-platform-s6000-1
+Depends: opx-dell-s6000-modules, i2c-tools, dmidecode, libopx-sdi-device-drivers1, libopx-sdi-sys1
 Description: Platform-specific files and packages for Dell Networking S6000-ON
 
 Package: opx-dell-s6000
