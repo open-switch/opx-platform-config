@@ -1,3 +1,10 @@
+opx-platform-config (1.0.3) unstable; urgency=medium
+
+  [ Satish Mynam ]
+  * Cleaned up NAS platform files to depricate old repos
+
+ -- Dell EMC <opx-dev@lists.openswitch.net>  Fri, 17 Feb 2017 13:23:27 +0000
+
 opx-platform-config (1.0.2) unstable; urgency=medium
 
   [ Howard Persh ]
