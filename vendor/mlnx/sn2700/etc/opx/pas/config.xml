@@ -1,0 +1,55 @@
+<!-- Copyright Mellanox Technologies, Ltd. 2001-2017.
+ This software product is licensed under Apache version 2, as detailed in
+ the LICENSE file.
+-->
+<pas>
+        <subcat id="chassis"/>
+        <subcat id="entity"/>
+        <subcat id="psu"/>
+        <subcat id="fan-tray"/>
+        <subcat id="card"/>
+        <subcat id="fan"/>
+        <subcat id="led" entity-type="fan-tray"/>
+        <subcat id="led" entity-type="card"/>
+        <subcat id="temperature" entity-type="card"/>
+        <subcat id="temp-threshold" entity-type="card"/>
+        <subcat id="temperature" entity-type="psu"/>
+        <subcat id="temp-threshold" entity-type="psu"/>
+        <subcat id="media"/>
+        <subcat id="media-channel"/>
+        <subcat id="media-config"/>
+
+        <entity entity-type="psu" poll-interval="2000"/>
+        <entity entity-type="fan-tray" poll-interval="2000"/>
+        <entity entity-type="card" poll-interval="5000"/>
+
+        <fan entity-type="fan-tray" margin="25" incr="1" decr="15" limit="45"/>
+
+        <led-groups entity-type="fan-tray">
+          <led-group>
+            <led id="fantray_fault_led"/>
+          </led-group>
+        </led-groups>
+
+        <led-groups entity-type="card">
+           <led-group>
+             <led id="system_status_led"/>
+           </led-group>
+          <led-group>
+            <led id="psu_fault_led"/>
+          </led-group>
+        </led-groups>
+
+       <media poll-interval="2000" rtd-interval="60" lr-restriction="enable"/>
+
+        <phy-config>
+            <media-type-config type="PLATFORM_MEDIA_TYPE_AR_QSFP28_100GBASE_CR4" type-enum-value="75" media-type-lr="yes" media-state="disable" />
+            <media-type-config type="PLATFORM_MEDIA_TYPE_AR_QSFP28_100GBASE_SR4" type-enum-value="71" media-type-lr="yes" media-state="disable" />
+            <media-type-config type="PLATFORM_MEDIA_TYPE_AR_QSFP28_100GBASE_LR4" type-enum-value="72" media-type-lr="yes" media-state="disable" />
+            <media-type-config type="PLATFORM_MEDIA_TYPE_AR_QSFP_40GBASE_CR4" type-enum-value="43" media-type-lr="yes" media-state="disable" />
+            <media-type-config type="PLATFORM_MEDIA_TYPE_AR_QSFP_40GBASE_SR4" type-enum-value="25" media-type-lr="yes" media-state="disable" />
+            <media-type-config type="PLATFORM_MEDIA_TYPE_AR_QSFP_40GBASE_LR4" type-enum-value="27" media-type-lr="yes" media-state="disable" />
+            <media-type-config type="PLATFORM_MEDIA_TYPE_SFP28_25GBASE_CR1" type-enum-value="98" media-type-lr="yes" media-state="disable" />
+            <media-type-config type="PLATFORM_MEDIA_TYPE_2X50_50GBASE_CR2" type-enum-value="97" media-type-lr="yes" media-state="disable" />
+        </phy-config>
+</pas>

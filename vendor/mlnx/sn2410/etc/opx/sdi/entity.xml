@@ -1,0 +1,107 @@
+<!-- Copyright Mellanox Technologies, Ltd. 2001-2017.
+ This software product is licensed under Apache version 2, as detailed in
+ the LICENSE file.
+-->
+<root>
+    <entity instance="1" type="SDI_ENTITY_SYSTEM_BOARD" presence="fixed" alias="System Board" >
+        <resource type="SDI_RESOURCE_ENTITY_INFO" reference="sys_eeprom" name="Entity Info" />
+        <resource type="SDI_RESOURCE_LED" reference="led_status" name="system_status_led" />
+        <resource type="SDI_RESOURCE_LED" reference="led_psu" name="psu_fault_led" />
+        <resource type="SDI_RESOURCE_TEMPERATURE" reference="asic" name="ASIC temp sensor" />
+        <resource type="SDI_RESOURCE_TEMPERATURE" reference="cpu_core0" name="CPU core 0 temp sensor" />
+        <resource type="SDI_RESOURCE_TEMPERATURE" reference="cpu_core1" name="CPU core 1 temp sensor" />
+        <resource type="SDI_RESOURCE_TEMPERATURE" reference="cpu_pack" name="CPU pack temp sensor" />
+        <resource type="SDI_RESOURCE_TEMPERATURE" reference="board_amb" name="Board ambient temp sensor" />
+        <resource type="SDI_RESOURCE_TEMPERATURE" reference="port_amb" name="Port ambient temp sensor" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp1" name="Optics Media 1" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp2" name="Optics Media 2" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp3" name="Optics Media 3" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp4" name="Optics Media 4" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp5" name="Optics Media 5" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp6" name="Optics Media 6" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp7" name="Optics Media 7" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp8" name="Optics Media 8" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp9" name="Optics Media 9" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp10" name="Optics Media 10" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp11" name="Optics Media 11" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp12" name="Optics Media 12" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp13" name="Optics Media 13" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp14" name="Optics Media 14" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp15" name="Optics Media 15" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp16" name="Optics Media 16" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp17" name="Optics Media 17" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp18" name="Optics Media 18" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp19" name="Optics Media 19" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp20" name="Optics Media 20" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp21" name="Optics Media 21" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp22" name="Optics Media 22" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp23" name="Optics Media 23" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp24" name="Optics Media 24" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp25" name="Optics Media 25" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp26" name="Optics Media 26" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp27" name="Optics Media 27" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp28" name="Optics Media 28" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp29" name="Optics Media 29" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp30" name="Optics Media 30" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp31" name="Optics Media 31" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp32" name="Optics Media 32" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp33" name="Optics Media 33" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp34" name="Optics Media 34" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp35" name="Optics Media 35" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp36" name="Optics Media 36" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp37" name="Optics Media 37" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp38" name="Optics Media 38" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp39" name="Optics Media 39" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp40" name="Optics Media 40" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp41" name="Optics Media 41" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp42" name="Optics Media 42" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp43" name="Optics Media 43" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp44" name="Optics Media 44" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp45" name="Optics Media 45" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp46" name="Optics Media 46" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp47" name="Optics Media 47" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp48" name="Optics Media 48" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp49" name="Optics Media 49" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp50" name="Optics Media 50" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp51" name="Optics Media 51" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp52" name="Optics Media 52" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp53" name="Optics Media 53" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp54" name="Optics Media 54" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp55" name="Optics Media 55" />
+        <resource type="SDI_RESOURCE_MEDIA" reference="qsfp56" name="Optics Media 56" />
+    </entity>
+    <entity instance="1" type="SDI_ENTITY_FAN_TRAY" presence="fan1_status" alias="Fan Tray 1">
+        <resource type="SDI_RESOURCE_ENTITY_INFO" reference="fan1_info" name="Entity Info" />
+        <resource type="SDI_RESOURCE_FAN" reference="fan1" name="Fan 1" />
+        <resource type="SDI_RESOURCE_FAN" reference="fan2" name="Fan 2" />
+        <resource type="SDI_RESOURCE_LED" reference="led_fan1" name="fantray_fault_led" />
+    </entity>
+    <entity instance="2" type="SDI_ENTITY_FAN_TRAY" presence="fan2_status" alias="Fan Tray 2">
+    <resource type="SDI_RESOURCE_ENTITY_INFO" reference="fan2_info" name="Entity Info" />
+        <resource type="SDI_RESOURCE_FAN" reference="fan3" name="Fan 1" />
+        <resource type="SDI_RESOURCE_FAN" reference="fan4" name="Fan 2" />
+        <resource type="SDI_RESOURCE_LED" reference="led_fan2" name="fantray_fault_led" />
+    </entity>
+    <entity instance="3" type="SDI_ENTITY_FAN_TRAY" presence="fan3_status" alias="Fan Tray 3">
+    <resource type="SDI_RESOURCE_ENTITY_INFO" reference="fan3_info" name="Entity Info" />
+        <resource type="SDI_RESOURCE_FAN" reference="fan5" name="Fan 1" />
+        <resource type="SDI_RESOURCE_FAN" reference="fan6" name="Fan 2" />
+        <resource type="SDI_RESOURCE_LED" reference="led_fan3" name="fantray_fault_led" />
+    </entity>
+    <entity instance="4" type="SDI_ENTITY_FAN_TRAY" presence="fan4_status" alias="Fan Tray 4">
+        <resource type="SDI_RESOURCE_ENTITY_INFO" reference="fan4_info" name="Entity Info" />
+        <resource type="SDI_RESOURCE_FAN" reference="fan7" name="Fan 1" />
+        <resource type="SDI_RESOURCE_FAN" reference="fan8" name="Fan 2" />
+        <resource type="SDI_RESOURCE_LED" reference="led_fan4" name="fantray_fault_led" />
+    </entity>
+    <entity instance="1" type="SDI_ENTITY_PSU_TRAY" presence="psu1_status" alias="PSU Tray 1">
+        <resource type="SDI_RESOURCE_ENTITY_INFO" reference="psu1_info" name="Entity Info" />
+        <resource type="SDI_RESOURCE_FAN" reference="psu1_fan1" name="Fan of PSU 1" />
+        <resource type="SDI_RESOURCE_TEMPERATURE" reference="psu1" name="PSU 1 temp sensor" />
+    </entity>
+    <entity instance="2" type="SDI_ENTITY_PSU_TRAY" presence="psu2_status" alias="PSU Tray 2">
+        <resource type="SDI_RESOURCE_ENTITY_INFO" reference="psu2_info" name="Entity Info" />
+        <resource type="SDI_RESOURCE_FAN" reference="psu2_fan1" name="Fan of PSU 2" />
+        <resource type="SDI_RESOURCE_TEMPERATURE" reference="psu2" name="PSU 2 temp sensor" />
+    </entity>
+</root>

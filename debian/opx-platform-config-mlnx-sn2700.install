@@ -1,0 +1,4 @@
+common/etc/*                            etc
+vendor/mlnx/sn2700/etc/opx/*            etc/opx
+vendor/mlnx/sn2700/bin/*                usr/bin
+vendor/mlnx/sn2700/lib/systemd/system/* lib/systemd/system
