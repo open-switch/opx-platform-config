@@ -1,0 +1,184 @@
+<!-- Copyright Mellanox Technologies, Ltd. 2001-2017.
+ This software product is licensed under Apache version 2, as detailed in
+ the LICENSE file.
+-->
+<root>
+
+    <!-- System board settings -->
+    <system_board name="System Board" >
+        <info name="sys_eeprom" path="/bsp/eeprom/" type="SDI_EEPROM_SYS_ONIE" />
+        <led name="led_status" path="/bsp/led/" >
+            <state off="none" on="green" />
+        </led>
+        <led name="led_psu" path="/bsp/led/" >
+            <state off="none" on="red" />
+        </led>
+        <temp name="asic" path="/bsp/thermal/" >
+            <thresholds low="0" high="120" />
+        </temp>
+        <temp name="cpu_core0" path="/bsp/thermal/" >
+            <thresholds low="0" high="105" />
+        </temp>
+        <temp name="cpu_core1" path="/bsp/thermal/" >
+            <thresholds low="0" high="105" />
+        </temp>
+        <temp name="cpu_pack" path="/bsp/thermal/" >
+            <thresholds low="0" high="105" />
+        </temp>
+        <temp name="board_amb" path="/bsp/thermal/" />
+        <temp name="port_amb" path="/bsp/thermal/" />
+
+        <media name="qsfp1" path="/bsp/qsfp/" status="qsfp1_status" not_present="not_connected" module="0" />
+        <media name="qsfp2" path="/bsp/qsfp/" status="qsfp2_status" not_present="not_connected" module="1" />
+        <media name="qsfp3" path="/bsp/qsfp/" status="qsfp3_status" not_present="not_connected" module="2" />
+        <media name="qsfp4" path="/bsp/qsfp/" status="qsfp4_status" not_present="not_connected" module="3" />
+        <media name="qsfp5" path="/bsp/qsfp/" status="qsfp5_status" not_present="not_connected" module="4" />
+        <media name="qsfp6" path="/bsp/qsfp/" status="qsfp6_status" not_present="not_connected" module="5" />
+        <media name="qsfp7" path="/bsp/qsfp/" status="qsfp7_status" not_present="not_connected" module="6" />
+        <media name="qsfp8" path="/bsp/qsfp/" status="qsfp8_status" not_present="not_connected" module="7" />
+        <media name="qsfp9" path="/bsp/qsfp/" status="qsfp9_status" not_present="not_connected" module="8" />
+        <media name="qsfp10" path="/bsp/qsfp/" status="qsfp10_status" not_present="not_connected" module="9" />
+        <media name="qsfp11" path="/bsp/qsfp/" status="qsfp11_status" not_present="not_connected" module="10" />
+        <media name="qsfp12" path="/bsp/qsfp/" status="qsfp12_status" not_present="not_connected" module="11" />
+        <media name="qsfp13" path="/bsp/qsfp/" status="qsfp13_status" not_present="not_connected" module="12" />
+        <media name="qsfp14" path="/bsp/qsfp/" status="qsfp14_status" not_present="not_connected" module="13" />
+        <media name="qsfp15" path="/bsp/qsfp/" status="qsfp15_status" not_present="not_connected" module="14" />
+        <media name="qsfp16" path="/bsp/qsfp/" status="qsfp16_status" not_present="not_connected" module="15" />
+        <media name="qsfp17" path="/bsp/qsfp/" status="qsfp17_status" not_present="not_connected" module="16" />
+        <media name="qsfp18" path="/bsp/qsfp/" status="qsfp18_status" not_present="not_connected" module="17" />
+        <media name="qsfp19" path="/bsp/qsfp/" status="qsfp19_status" not_present="not_connected" module="18" />
+        <media name="qsfp20" path="/bsp/qsfp/" status="qsfp20_status" not_present="not_connected" module="19" />
+        <media name="qsfp21" path="/bsp/qsfp/" status="qsfp21_status" not_present="not_connected" module="20" />
+        <media name="qsfp22" path="/bsp/qsfp/" status="qsfp22_status" not_present="not_connected" module="21" />
+        <media name="qsfp23" path="/bsp/qsfp/" status="qsfp23_status" not_present="not_connected" module="22" />
+        <media name="qsfp24" path="/bsp/qsfp/" status="qsfp24_status" not_present="not_connected" module="23" />
+        <media name="qsfp25" path="/bsp/qsfp/" status="qsfp25_status" not_present="not_connected" module="24" />
+        <media name="qsfp26" path="/bsp/qsfp/" status="qsfp26_status" not_present="not_connected" module="25" />
+        <media name="qsfp27" path="/bsp/qsfp/" status="qsfp27_status" not_present="not_connected" module="26" />
+        <media name="qsfp28" path="/bsp/qsfp/" status="qsfp28_status" not_present="not_connected" module="27" />
+        <media name="qsfp29" path="/bsp/qsfp/" status="qsfp29_status" not_present="not_connected" module="28" />
+        <media name="qsfp30" path="/bsp/qsfp/" status="qsfp30_status" not_present="not_connected" module="29" />
+        <media name="qsfp31" path="/bsp/qsfp/" status="qsfp31_status" not_present="not_connected" module="30" />
+        <media name="qsfp32" path="/bsp/qsfp/" status="qsfp32_status" not_present="not_connected" module="31" />
+        <media name="qsfp33" path="/bsp/qsfp/" status="qsfp33_status" not_present="not_connected" module="32" />
+        <media name="qsfp34" path="/bsp/qsfp/" status="qsfp34_status" not_present="not_connected" module="33" />
+        <media name="qsfp35" path="/bsp/qsfp/" status="qsfp35_status" not_present="not_connected" module="34" />
+        <media name="qsfp36" path="/bsp/qsfp/" status="qsfp36_status" not_present="not_connected" module="35" />
+        <media name="qsfp37" path="/bsp/qsfp/" status="qsfp37_status" not_present="not_connected" module="36" />
+        <media name="qsfp38" path="/bsp/qsfp/" status="qsfp38_status" not_present="not_connected" module="37" />
+        <media name="qsfp39" path="/bsp/qsfp/" status="qsfp39_status" not_present="not_connected" module="38" />
+        <media name="qsfp40" path="/bsp/qsfp/" status="qsfp40_status" not_present="not_connected" module="39" />
+        <media name="qsfp41" path="/bsp/qsfp/" status="qsfp41_status" not_present="not_connected" module="40" />
+        <media name="qsfp42" path="/bsp/qsfp/" status="qsfp42_status" not_present="not_connected" module="41" />
+        <media name="qsfp43" path="/bsp/qsfp/" status="qsfp43_status" not_present="not_connected" module="42" />
+        <media name="qsfp44" path="/bsp/qsfp/" status="qsfp44_status" not_present="not_connected" module="43" />
+        <media name="qsfp45" path="/bsp/qsfp/" status="qsfp45_status" not_present="not_connected" module="44" />
+        <media name="qsfp46" path="/bsp/qsfp/" status="qsfp46_status" not_present="not_connected" module="45" />
+        <media name="qsfp47" path="/bsp/qsfp/" status="qsfp47_status" not_present="not_connected" module="46" />
+        <media name="qsfp48" path="/bsp/qsfp/" status="qsfp48_status" not_present="not_connected" module="47" />
+        <media name="qsfp49" path="/bsp/qsfp/" status="qsfp49_status" not_present="not_connected" module="48" />
+        <media name="qsfp50" path="/bsp/qsfp/" status="qsfp50_status" not_present="not_connected" module="49" />
+        <media name="qsfp51" path="/bsp/qsfp/" status="qsfp51_status" not_present="not_connected" module="50" />
+        <media name="qsfp52" path="/bsp/qsfp/" status="qsfp52_status" not_present="not_connected" module="51" />
+        <media name="qsfp53" path="/bsp/qsfp/" status="qsfp53_status" not_present="not_connected" module="52" />
+        <media name="qsfp54" path="/bsp/qsfp/" status="qsfp54_status" not_present="not_connected" module="53" />
+        <media name="qsfp55" path="/bsp/qsfp/" status="qsfp55_status" not_present="not_connected" module="54" />
+        <media name="qsfp56" path="/bsp/qsfp/" status="qsfp56_status" not_present="not_connected" module="55" />
+
+    </system_board>
+
+    <!-- Fan tray 1 settings -->
+    <fan_tray name="Fan Tray 1">
+        <info name="fan1_info" path="/bsp/eeprom/" type="SDI_EEPROM_FAN_MLNX" />
+        <presence name="fan1_status" path="/bsp/module/" present="1" not_present="0" />
+        <fan name="fan1" path="/bsp/fan/" >
+            <speed get="fan1_speed_get" set="fan1_speed_set" max_get="fan1_max" max_pwm="255" />
+            <status get="fan1_speed_get" fault="0" />
+        </fan>
+        <fan name="fan2" path="/bsp/fan/" >
+            <speed get="fan2_speed_get" set="fan2_speed_set" max_get="fan2_max" max_pwm="255" />
+            <status get="fan2_speed_get" fault="0" />
+        </fan>
+        <led name="led_fan1" path="/bsp/led/" >
+            <state off="none" on="red" />
+        </led>
+    </fan_tray>
+
+    <!-- Fan tray 2 settings -->
+    <fan_tray name="Fan Tray 2">
+        <info name="fan2_info" path="/bsp/eeprom/" type="SDI_EEPROM_FAN_MLNX" />
+        <presence name="fan2_status" path="/bsp/module/" present="1" not_present="0" />
+        <fan name="fan3" path="/bsp/fan/" >
+            <speed get="fan3_speed_get" set="fan3_speed_set" max_get="fan3_max" max_pwm="255" />
+            <status get="fan3_speed_get" fault="0" />
+        </fan>
+        <fan name="fan4" path="/bsp/fan/" >
+            <speed get="fan4_speed_get" set="fan4_speed_set" max_get="fan4_max" max_pwm="255" />
+            <status get="fan4_speed_get" fault="0" />
+        </fan>
+        <led name="led_fan2" path="/bsp/led/" >
+            <state off="none" on="red" />
+        </led>
+    </fan_tray>
+
+    <!-- Fan tray 3 settings -->
+    <fan_tray name="Fan Tray 3">
+        <info name="fan3_info" path="/bsp/eeprom/" type="SDI_EEPROM_FAN_MLNX" />
+        <presence name="fan3_status" path="/bsp/module/" present="1" not_present="0" />
+        <fan name="fan5" path="/bsp/fan/" >
+            <speed get="fan5_speed_get" set="fan5_speed_set" max_get="fan5_max" max_pwm="255" />
+            <status get="fan5_speed_get" fault="0" />
+        </fan>
+        <fan name="fan6" path="/bsp/fan/" >
+            <speed get="fan6_speed_get" set="fan6_speed_set" max_get="fan6_max" max_pwm="255" />
+            <status get="fan6_speed_get" fault="0" />
+        </fan>
+        <led name="led_fan3" path="/bsp/led/" >
+            <state off="none" on="red" />
+        </led>
+    </fan_tray>
+
+    <!-- Fan tray 4 settings -->
+    <fan_tray name="Fan Tray 4">
+        <info name="fan4_info" path="/bsp/eeprom/" type="SDI_EEPROM_FAN_MLNX" />
+        <presence name="fan4_status" path="/bsp/module/" present="1" not_present="0" />
+        <fan name="fan7" path="/bsp/fan/" >
+            <speed get="fan7_speed_get" set="fan7_speed_set" max_get="fan7_max" max_pwm="255" />
+            <status get="fan7_speed_get" fault="0" />
+        </fan>
+        <fan name="fan8" path="/bsp/fan/" >
+            <speed get="fan8_speed_get" set="fan8_speed_set" max_get="fan8_max" max_pwm="255" />
+            <status get="fan8_speed_get" fault="0" />
+        </fan>
+        <led name="led_fan4" path="/bsp/led/" >
+            <state off="none" on="red" />
+        </led>
+    </fan_tray>
+    
+    <!-- PSU tray 1 settings -->
+    <psu_tray name="PSU Tray 1" type="AC">
+        <info name="psu1_info" path="/bsp/eeprom/" type="SDI_EEPROM_PSU_MLNX" />
+        <presence name="psu1_status" path="/bsp/module/" present="1" not_present="0" />
+        <power name="psu1_pwr_status" path="/bsp/module/" present="1" not_present="0" />
+        <rating name="psu1_volt_in" path="/bsp/power/" />
+        <fan name="psu1_fan1" path="/bsp/fan/" >
+            <speed get="psu1_fan1_speed_get" max_rpm="23000" />
+            <status get="psu1_fan1_fault" fault="1" />
+        </fan>
+        <temp name="psu1" path="/bsp/thermal/" />
+    </psu_tray>
+    
+    <!-- PSU tray 2 settings -->
+    <psu_tray name="PSU Tray 2" type="AC">
+        <info name="psu2_info" path="/bsp/eeprom/" type="SDI_EEPROM_PSU_MLNX" />
+        <presence name="psu2_status" path="/bsp/module/" present="1" not_present="0" />
+        <power name="psu2_pwr_status" path="/bsp/module/" present="1" not_present="0" />
+        <rating name="psu2_volt_in" path="/bsp/power/" />
+        <fan name="psu2_fan1" path="/bsp/fan/" >
+            <speed get="psu2_fan1_speed_get" max_rpm="23000" />
+            <status get="psu2_fan1_fault" fault="1" />
+        </fan>
+        <temp name="psu2" path="/bsp/thermal/" />
+    </psu_tray>        
+
+</root>

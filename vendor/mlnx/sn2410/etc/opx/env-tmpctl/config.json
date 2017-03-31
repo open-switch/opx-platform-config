@@ -1,0 +1,45 @@
+{ "cooling": {
+    "options": [
+        "fault-full-speed",
+        "absent-full-speed"
+    ],
+
+    "levels": {
+        "zone1": [
+            [ { "entity-type": "fan-tray", "airflow": "normal", "speed": 13800 } ],
+            [ { "entity-type": "fan-tray", "airflow": "normal", "speed": 14950 } ],
+            [ { "entity-type": "fan-tray", "airflow": "normal", "speed": 16100 } ],
+            [ { "entity-type": "fan-tray", "airflow": "normal", "speed": 17250 } ],
+            [ { "entity-type": "fan-tray", "airflow": "normal", "speed": 18400 } ],
+            [ { "entity-type": "fan-tray", "airflow": "normal", "speed": 19550 } ],
+            [ { "entity-type": "fan-tray", "airflow": "normal", "speed": 20700 } ],
+            [ { "entity-type": "fan-tray", "airflow": "normal", "speed": 21850 } ],
+            [ { "entity-type": "fan-tray", "airflow": "normal", "speed": 23000 } ]
+        ]
+    },
+      
+    "thresholds": [
+        { "sensor": "ASIC temp sensor", "temperature": { "hi":  85, "lo": 75 }, "level": [ { "zone": "zone1", "hi": 1, "lo": 0 } ] },
+        { "sensor": "ASIC temp sensor", "temperature": { "hi":  87, "lo": 86 }, "level": [ { "zone": "zone1", "hi": 2, "lo": 1 } ] },
+        { "sensor": "ASIC temp sensor", "temperature": { "hi":  89, "lo": 88 }, "level": [ { "zone": "zone1", "hi": 3, "lo": 2 } ] },
+        { "sensor": "ASIC temp sensor", "temperature": { "hi":  91, "lo": 90 }, "level": [ { "zone": "zone1", "hi": 4, "lo": 3 } ] },
+        { "sensor": "ASIC temp sensor", "temperature": { "hi":  93, "lo": 92 }, "level": [ { "zone": "zone1", "hi": 5, "lo": 4 } ] },
+        { "sensor": "ASIC temp sensor", "temperature": { "hi":  95, "lo": 94 }, "level": [ { "zone": "zone1", "hi": 6, "lo": 5 } ] },
+        { "sensor": "ASIC temp sensor", "temperature": { "hi":  97, "lo": 96 }, "level": [ { "zone": "zone1", "hi": 7, "lo": 6 } ] },
+        { "sensor": "ASIC temp sensor", "temperature": { "hi": 100, "lo": 98 }, "level": [ { "zone": "zone1", "hi": 8, "lo": 7 } ] }
+    ]
+  },
+  
+  "faults": [
+      { "sensor": "ASIC temp sensor",
+        "thresholds": [ { "hi": 100, "lo": 100 }, { "hi": 105, "lo": 105 }, { "hi": 110, "lo": 110 }, { "hi": 115, "lo": 115 } ],
+        "master-thresholds": true
+      },
+      { "sensor": "CPU pack temp sensor",
+        "thresholds": [ { "hi": 85, "lo": 85 }, { "hi": 90, "lo": 90 }, { "hi": 95, "lo": 95 }, { "hi": 100, "lo": 100 } ]
+      },
+      { "sensor": "Board ambient temp sensor",
+        "thresholds": [ { "hi": 100, "lo": 100 }, { "hi": 105, "lo": 105 }, { "hi": 110, "lo": 110 }, { "hi": 115, "lo": 115 } ]
+      }
+  ]
+}
