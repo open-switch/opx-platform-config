@@ -1,3 +1,10 @@
+opx-platform-config (1.0.4) unstable; urgency=medium
+
+  * Update: Config files for Dell S6000 and VM
+  * Bugfix: Added OPX environment to /etc/profile
+
+ -- Dell EMC <opx-dev@lists.openswitch.net>  Mon, 5 Jun 2017 16:20:00 +0000
+
 opx-platform-config (1.0.3) unstable; urgency=medium
 
   [ Satish Mynam ]

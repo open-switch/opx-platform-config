@@ -27,6 +27,18 @@
         <resource reference="locator_function_enable_led" name="Beacon" />
         <resource reference="psu_failed_led" name="PSU Fault" />
         <resource reference="fan_failed_led" name="Fan Fault" />
+        <resource reference="fan1_fwd_failed_led" name="Fantray 1 Fault (forward)" />
+        <resource reference="fan1_fwd_present_led" name="Fantray 1 Present (forward)" />
+        <resource reference="fan1_rev_failed_led" name="Fantray 1 Fault (reverse)" />
+        <resource reference="fan1_rev_present_led" name="Fantray 1 Present (reverse)" />
+        <resource reference="fan2_fwd_failed_led" name="Fantray 2 Fault (forward)" />
+        <resource reference="fan2_fwd_present_led" name="Fantray 2 Present (forward)" />
+        <resource reference="fan2_rev_failed_led" name="Fantray 2 Fault (reverse)" />
+        <resource reference="fan2_rev_present_led" name="Fantray 2 Present (reverse)" />
+        <resource reference="fan3_fwd_failed_led" name="Fantray 3 Fault (forward)" />
+        <resource reference="fan3_fwd_present_led" name="Fantray 3 Present (forward)" />
+        <resource reference="fan3_rev_failed_led" name="Fantray 3 Fault (reverse)" />
+        <resource reference="fan3_rev_present_led" name="Fantray 3 Present (reverse)" />
         <resource reference="stack_led" name="Stack ID" />
         <resource reference="sys_eeprom" name="Entity Info" />
         <resource reference="qsfp-1" name="Optics Media 1" />
@@ -67,19 +79,16 @@
         <resource reference="fan-1" name="Fan 1" />
         <resource reference="fan-2" name="Fan 2" />
         <resource reference="fan_tray_fru0" name="Entity Info" />
-        <resource reference="fan0_failed_led" name="Fantray Fault" />
     </entity>
     <entity instance="2" type="SDI_ENTITY_FAN_TRAY" presence="fantray2_presence" alias="Fan Tray-2">
         <resource reference="fan-3" name="Fan 1" />
         <resource reference="fan-4" name="Fan 2" />
         <resource reference="fan_tray_fru1" name="Entity Info" />
-        <resource reference="fan1_failed_led" name="Fantray Fault" />
     </entity>
     <entity instance="3" type="SDI_ENTITY_FAN_TRAY" presence="fantray3_presence" alias="Fan Tray-3">
         <resource reference="fan-5" name="Fan 1" />
         <resource reference="fan-6" name="Fan 2" />
         <resource reference="fan_tray_fru2" name="Entity Info" />
-        <resource reference="fan2_failed_led" name="Fantray Fault" />
     </entity>
     <entity instance="1" type="SDI_ENTITY_PSU_TRAY" presence="psu1_presence" power_output_status="psu1_output_power_status" fault="psu1_fault" alias="PSU Tray-1" power="psu1_status_ctrl">
         <resource reference="psu-0-Fan-1" name="Fan of PSU-1" />

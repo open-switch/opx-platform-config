@@ -33,7 +33,7 @@
             <!-- Trident2 Supports maximum MTU of 9216 Bytes. BCM56850 Errata -->
             <PORT_INFO cpu_port="0" max_logical_ports="104"
                 max_physical_ports="32" max_lane_per_port="4" max_port_mtu="9216"/>
-            <TABLE_SIZE l2_table="163840" l3_table="90112"/>
+            <TABLE_SIZE l2_table="163840" l3_host_table="147456" l3_route_table="16384"/>
             <QOS hierarchy_levels="3" max_hierarchy_node_childs="48"
                 traffic_class="16" max_buffer_size="12188" num_pg="8"
                 cell_size="208" ing_max_buf_pools="4" egr_max_buf_pools="4"/>

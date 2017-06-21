@@ -71,17 +71,26 @@
                 <sdi_cpld_pin_group instance="5" start_addr="0x7" start_offset="1" end_offset="2" bus_name="power_led" direction="out" level="2" polarity="normal">
                     <sdi_mono_color_pin_led instance="4" led_on_value="3" led_off_value="2" alias="psu_failed_led" />
                 </sdi_cpld_pin_group>
-                <sdi_cpld_pin_group instance="6" start_addr="0x8" start_offset="0" end_offset="1" bus_name="fan0_led" direction="out" level="1" polarity="normal">
-                    <sdi_mono_color_pin_led instance="5" led_on_value="2" led_off_value="1" alias="fan0_failed_led" />
+                <sdi_cpld_pin_group instance="6" start_addr="0x8" start_offset="0" end_offset="1" bus_name="fan1_led" direction="out" level="1" polarity="normal">
+                  <sdi_mono_color_pin_led instance="5" led_on_value="2" led_off_value="0" alias="fan1_fwd_failed_led" />
+                  <sdi_mono_color_pin_led instance="6" led_on_value="1" led_off_value="0" alias="fan1_fwd_present_led" />
+                  <sdi_mono_color_pin_led instance="7" led_on_value="2" led_off_value="0" alias="fan1_rev_failed_led" />
+                  <sdi_mono_color_pin_led instance="8" led_on_value="1" led_off_value="0" alias="fan1_rev_present_led" />
                 </sdi_cpld_pin_group>
-                <sdi_cpld_pin_group instance="7" start_addr="0x8" start_offset="2" end_offset="3" bus_name="fan1_led" direction="out" level="1" polarity="normal">
-                    <sdi_mono_color_pin_led instance="6" led_on_value="2" led_off_value="1" alias="fan1_failed_led" />
+                <sdi_cpld_pin_group instance="7" start_addr="0x8" start_offset="2" end_offset="3" bus_name="fan2_led" direction="out" level="1" polarity="normal">
+                  <sdi_mono_color_pin_led instance="9"  led_on_value="2" led_off_value="0" alias="fan2_fwd_failed_led" />
+                  <sdi_mono_color_pin_led instance="10" led_on_value="1" led_off_value="0" alias="fan2_fwd_present_led" />
+                  <sdi_mono_color_pin_led instance="11" led_on_value="2" led_off_value="0" alias="fan2_rev_failed_led" />
+                  <sdi_mono_color_pin_led instance="12" led_on_value="1" led_off_value="0" alias="fan2_rev_present_led" />
                 </sdi_cpld_pin_group>
-                <sdi_cpld_pin_group instance="8" start_addr="0x8" start_offset="4" end_offset="5" bus_name="fan2_led" direction="out" level="1" polarity="normal">
-                    <sdi_mono_color_pin_led instance="7" led_on_value="2" led_off_value="1" alias="fan2_failed_led" />
+                <sdi_cpld_pin_group instance="8" start_addr="0x8" start_offset="4" end_offset="5" bus_name="fan3_led" direction="out" level="1" polarity="normal">
+                  <sdi_mono_color_pin_led instance="13" led_on_value="2" led_off_value="0" alias="fan3_fwd_failed_led" />
+                  <sdi_mono_color_pin_led instance="14" led_on_value="1" led_off_value="0" alias="fan3_fwd_present_led" />
+                  <sdi_mono_color_pin_led instance="15" led_on_value="2" led_off_value="0" alias="fan3_rev_failed_led" />
+                  <sdi_mono_color_pin_led instance="16" led_on_value="1" led_off_value="0" alias="fan3_rev_present_led" />
                 </sdi_cpld_pin_group>
                 <sdi_cpld_pin_group instance="9" start_addr="0x9" start_offset="3" end_offset="4" bus_name="front_fan_led" direction="out" level="2" polarity="normal">
-                    <sdi_mono_color_pin_led instance="8" led_on_value="3" led_off_value="2" alias="fan_failed_led" />
+                    <sdi_mono_color_pin_led instance="17" led_on_value="3" led_off_value="2" alias="fan_failed_led" />
                 </sdi_cpld_pin_group>
                 <sdi_cpld_pin_group instance="10" start_addr="0xA" end_addr="0xB" start_offset="0" end_offset="7" bus_name="qsfp_mod_sel2" direction="out" level="0xffff" polarity="inverted">
                 </sdi_cpld_pin_group>

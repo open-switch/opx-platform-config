@@ -20,9 +20,13 @@
 
     <SWITCH-GLOBALS total-buffer="12480">
 
-        <dot1p-to-tc-color-map tag="DOT1P-ALL-TO-TC-0" min="0" max="7">
-            <entry dot1p="all"   tc="0" color="GREEN"/>
-        </dot1p-to-tc-color-map>
+        <dot1p-to-tc-map tag="DOT1P-ALL-TO-TC-0" min="0" max="7">
+            <entry dot1p="all"   tc="0"/>
+        </dot1p-to-tc-map>
+
+        <dot1p-to-color-map tag="DOT1P-ALL-TO-COLOR-GREEN" min="0" max="7">
+            <entry dot1p="all"   color="GREEN"/>
+        </dot1p-to-color-map>
 
         <tc-to-queue-map tag="TC-TO-Q-ONE-TO-ONE">
             <entry tc="0" type="UCAST"  queue-number="0"/>
@@ -41,8 +45,6 @@
             <entry tc="6" type="MULTICAST"  queue-number="6"/>
             <entry tc="7" type="UCAST"  queue-number="7"/>
             <entry tc="7" type="MULTICAST"  queue-number="7"/>
-            <entry tc="8" type="UCAST"  queue-number="8"/>
-            <entry tc="8" type="MULTICAST"  queue-number="8"/>
         </tc-to-queue-map>
 
         <!-- default TC-to-PG map for LLFC -->
@@ -67,7 +69,7 @@
         <scheduler-profile name="WRR-EQ"  algorithm="WRR" weight="1"/>
 
         <!-- WRR profiles with shaping -->
-        <scheduler-profile name="CPU-Q0"  algorithm="WRR" weight="1"   min-rate="100"  min-burst="50" max-rate="100"  max-burst="50" meter-type="PACKET"/>
+        <scheduler-profile name="CPU-Q0"  algorithm="WRR" weight="1"   min-rate="600"  min-burst="50" max-rate="600"  max-burst="50" meter-type="PACKET"/>
         <scheduler-profile name="CPU-Q1"  algorithm="WRR" weight="2"   min-rate="1000" min-burst="50"  max-rate="1000" max-burst="50"  meter-type="PACKET"/>
         <scheduler-profile name="CPU-Q2"  algorithm="WRR" weight="4"   min-rate="300"  min-burst="50"  max-rate="300"  max-burst="50"  meter-type="PACKET"/>
         <scheduler-profile name="CPU-Q3"  algorithm="WRR" weight="64"  min-rate="1300" min-burst="50"  max-rate="1300" max-burst="50"  meter-type="PACKET"/>
@@ -86,8 +88,8 @@
         <buffer-profile name="default-none-ing-40g"  buffer-size="36"   threshold-mode="STATIC"   shared-static-threshold="12480"   xoff-threshold="0"   xon-threshold="0"  />
 
         <!-- default egress buffer profiles for different interface speeds -->
-        <buffer-profile name="default-none-egr-10g"     buffer-size="2"     threshold-mode="DYNAMIC"   shared-dynamic-threshold="0" />
-        <buffer-profile name="default-none-egr-40g"     buffer-size="8"     threshold-mode="DYNAMIC"   shared-dynamic-threshold="0" />
+        <buffer-profile name="default-none-egr-10g"     buffer-size="2"     threshold-mode="DYNAMIC"   shared-dynamic-threshold="8" />
+        <buffer-profile name="default-none-egr-40g"     buffer-size="8"     threshold-mode="DYNAMIC"   shared-dynamic-threshold="8" />
         <buffer-profile name="default-none-egr-cpu"     buffer-size="20"    threshold-mode="STATIC"    shared-static-threshold="20" />
 
     </SWITCH-GLOBALS>
@@ -101,7 +103,8 @@
     <FRONT-PANEL-PORTS>
 
         <ingress>
-            <dot1p-to-tc-color-map>DOT1P-ALL-TO-TC-0</dot1p-to-tc-color-map>
+            <dot1p-to-tc-map>DOT1P-ALL-TO-TC-0</dot1p-to-tc-map>
+            <dot1p-to-color-map>DOT1P-ALL-TO-COLOR-GREEN</dot1p-to-color-map>
             <tc-to-queue-map>TC-TO-Q-ONE-TO-ONE</tc-to-queue-map>
             <tc-to-priority-group-map>TC-ALL-TO-PG-7</tc-to-priority-group-map>
         </ingress>
@@ -211,6 +214,8 @@
             </nodes>
 
         </scheduler-hierarchy-tree>
+        <!-- priority group settings -->
+        <priority-group local-id="7"  buffer-profile="default-none"/>
 
     </CPU-PORT>
 </root>

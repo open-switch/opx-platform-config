@@ -38,13 +38,25 @@
         <fan entity-type="psu" margin="15" incr="1" decr="15" limit="45"/>
         <fan entity-type="fan-tray" margin="15" incr="1" decr="15" limit="45"/>
 
-        <led-groups entity-type="fan-tray">
-          <led-group>
-            <led id="Fantray Fault"/>
-          </led-group>
-        </led-groups>
-
         <led-groups entity-type="card">
+          <led-group>
+            <led id="Fantray 1 Present (forward)"/>
+            <led id="Fantray 1 Fault (forward)"/>
+            <led id="Fantray 1 Present (reverse)"/>
+            <led id="Fantray 1 Fault (reverse)"/>
+          </led-group>
+          <led-group>
+            <led id="Fantray 2 Present (forward)"/>
+            <led id="Fantray 2 Fault (forward)"/>
+            <led id="Fantray 2 Present (reverse)"/>
+            <led id="Fantray 2 Fault (reverse)"/>
+          </led-group>
+          <led-group>
+            <led id="Fantray 3 Present (forward)"/>
+            <led id="Fantray 3 Fault (forward)"/>
+            <led id="Fantray 3 Present (reverse)"/>
+            <led id="Fantray 3 Fault (reverse)"/>
+          </led-group>
           <led-group>
             <led id="Fan Fault"/>
           </led-group>
@@ -88,10 +100,6 @@
 
             <phy-config-for-media-type type="PLATFORM_MEDIA_TYPE_SFP_T" type-enum-value="58">
                 <internal-phy mode="SGMII" autoneg="1" supported-speeds="10M/100M/1000M" />
-            </phy-config-for-media-type>
-
-            <phy-config-for-media-type type="PLATFORM_MEDIA_TYPE_AR_SFPPLUS_10GBASE_T" type-enum-value="11">
-                <internal-phy mode="SFI" autoneg="1" supported-speeds="100M/1G/10G" />
             </phy-config-for-media-type>
 
             <phy-config-for-media-type type="PLATFORM_MEDIA_TYPE_AR_4X1_1000BASE_T" type-enum-value="34">

@@ -71,6 +71,7 @@ INSERT INTO "Entity_Resource" VALUES(5, 72, 1, "Fan of PSU-1");
 INSERT INTO "Entity_Resource" VALUES(5, 73, 4, "Entity Info");
 INSERT INTO "Entity_Resource" VALUES(6, 74, 1, "Fan of PSU-2");
 INSERT INTO "Entity_Resource" VALUES(6, 75, 4, "Entity Info");
+INSERT INTO "Entity_Resource" VALUES(1, 76, 7, "NVRAM");
 
 /* All fans have no fault and are stopped (speed is 0) */
 DELETE FROM "Fan";
@@ -247,4 +248,8 @@ INSERT INTO "Media_Monitor_Thresholds"
         FROM "Entity_Resource", "Temp_Monitor_Thresholds"
         WHERE "Entity_Resource".Resource_Type = 6;
 DROP TABLE "Temp_Monitor_Thresholds";
+
+DELETE FROM "NVRAM";
+INSERT INTO "NVRAM" VALUES(76, 512, "/dev/sda", 1048064);
+
 COMMIT;

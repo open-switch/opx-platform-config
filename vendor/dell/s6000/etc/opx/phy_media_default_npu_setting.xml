@@ -129,4 +129,15 @@
         <entry supported-speed="10000" />
     </media-type>
 
+    <media-type id="QSFP 40GBASE BIDI" speed="40000" autoneg="off" duplex="None">
+        <entry supported-speed="40000" />
+    </media-type>
+
+    <media-type id="QSFP 40GBASE AOC" speed="40000" autoneg="off" duplex="None">
+        <entry supported-speed="40000" />
+    </media-type>
+
+    <media-type id="QSFP 40GBASE PSM4 PIGTAIL" speed="40000" autoneg="off" duplex="None">
+        <entry supported-speed="40000" />
+    </media-type>
 </media-npu-setting-info>
