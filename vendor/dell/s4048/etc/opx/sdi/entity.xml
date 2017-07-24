@@ -1,0 +1,119 @@
+<!-- Copyright (c) 2015 Dell Inc.
+ Licensed under the Apache License, Version 2.0 (the "License"); you may
+ not use this file except in compliance with the License. You may obtain
+ a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+
+ THIS CODE IS PROVIDED ON AN  *AS IS* BASIS, WITHOUT WARRANTIES OR
+ CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT
+ LIMITATION ANY IMPLIED WARRANTIES OR CONDITIONS OF TITLE, FITNESS
+ FOR A PARTICULAR PURPOSE, MERCHANTABLITY OR NON-INFRINGEMENT.
+
+ See the Apache Version 2.0 License for specific language governing
+ permissions and limitations under the License.
+-->
+<root>
+    <entity instance="1" type="SDI_ENTITY_SYSTEM_BOARD" presence="FIXED_SLOT" alias="System Board" cold_reset="0x6" cold_reset_register="reset_register1" warm_reset="0xe" warm_reset_register="reset_register1" >
+        <resource reference="tmp75-0" name="CPU board sensor" />
+        <resource reference="tmp75-1" name="NPU board sensor" />
+        <resource reference="tmp75-2" name="system-NIC board sensor 1" />
+        <resource reference="tmp75-3" name="system-NIC board sensor 2" />
+    	<resource reference="sys_eeprom" name="Entity Info" />
+        <resource reference="master_led" name="Stack Master" />
+        <resource reference="system_critical_led" name="Alarm Major" />
+        <resource reference="system_noncritical_led" name="Alarm Minor" />
+        <resource reference="locator_function_enable_led" name="Beacon" />
+        <resource reference="psu_failed_led" name="PSU Fault" />
+        <resource reference="front_fan_failed_led" name="Fan Fault" />
+        <resource reference="fan1_fwd_failed_led" name="Fantray 1 Fault (forward)" />
+        <resource reference="fan1_fwd_present_led" name="Fantray 1 Present (forward)" />
+        <resource reference="fan1_rev_failed_led" name="Fantray 1 Fault (reverse)" />
+        <resource reference="fan1_rev_present_led" name="Fantray 1 Present (reverse)" />
+        <resource reference="fan2_fwd_failed_led" name="Fantray 2 Fault (forward)" />
+        <resource reference="fan2_fwd_present_led" name="Fantray 2 Present (forward)" />
+        <resource reference="fan2_rev_failed_led" name="Fantray 2 Fault (reverse)" />
+        <resource reference="fan2_rev_present_led" name="Fantray 2 Present (reverse)" />
+        <resource reference="fan3_fwd_failed_led" name="Fantray 3 Fault (forward)" />
+        <resource reference="fan3_fwd_present_led" name="Fantray 3 Present (forward)" />
+        <resource reference="fan3_rev_failed_led" name="Fantray 3 Fault (reverse)" />
+        <resource reference="fan3_rev_present_led" name="Fantray 3 Present (reverse)" />
+        <resource reference="stack_led" name="Stack ID" />
+        <resource reference="sfp-1" name="Optics Media 1" />
+        <resource reference="sfp-2" name="Optics Media 2" />
+        <resource reference="sfp-3" name="Optics Media 3" />
+        <resource reference="sfp-4" name="Optics Media 4" />
+        <resource reference="sfp-5" name="Optics Media 5" />
+        <resource reference="sfp-6" name="Optics Media 6" />
+        <resource reference="sfp-7" name="Optics Media 7" />
+        <resource reference="sfp-8" name="Optics Media 8" />
+        <resource reference="sfp-9" name="Optics Media 9" />
+        <resource reference="sfp-10" name="Optics Media 10" />
+        <resource reference="sfp-11" name="Optics Media 11" />
+        <resource reference="sfp-12" name="Optics Media 12" />
+        <resource reference="sfp-13" name="Optics Media 13" />
+        <resource reference="sfp-14" name="Optics Media 14" />
+        <resource reference="sfp-15" name="Optics Media 15" />
+        <resource reference="sfp-16" name="Optics Media 16" />
+        <resource reference="sfp-17" name="Optics Media 17" />
+        <resource reference="sfp-18" name="Optics Media 18" />
+        <resource reference="sfp-19" name="Optics Media 19" />
+        <resource reference="sfp-20" name="Optics Media 20" />
+        <resource reference="sfp-21" name="Optics Media 21" />
+        <resource reference="sfp-22" name="Optics Media 22" />
+        <resource reference="sfp-23" name="Optics Media 23" />
+        <resource reference="sfp-24" name="Optics Media 24" />
+        <resource reference="sfp-25" name="Optics Media 25" />
+        <resource reference="sfp-26" name="Optics Media 26" />
+        <resource reference="sfp-27" name="Optics Media 27" />
+        <resource reference="sfp-28" name="Optics Media 28" />
+        <resource reference="sfp-29" name="Optics Media 29" />
+        <resource reference="sfp-30" name="Optics Media 30" />
+        <resource reference="sfp-31" name="Optics Media 31" />
+        <resource reference="sfp-32" name="Optics Media 32" />
+        <resource reference="sfp-33" name="Optics Media 33" />
+        <resource reference="sfp-34" name="Optics Media 34" />
+        <resource reference="sfp-35" name="Optics Media 35" />
+        <resource reference="sfp-36" name="Optics Media 36" />
+        <resource reference="sfp-37" name="Optics Media 37" />
+        <resource reference="sfp-38" name="Optics Media 38" />
+        <resource reference="sfp-39" name="Optics Media 39" />
+        <resource reference="sfp-40" name="Optics Media 40" />
+        <resource reference="sfp-41" name="Optics Media 41" />
+        <resource reference="sfp-42" name="Optics Media 42" />
+        <resource reference="sfp-43" name="Optics Media 43" />
+        <resource reference="sfp-44" name="Optics Media 44" />
+        <resource reference="sfp-45" name="Optics Media 45" />
+        <resource reference="sfp-46" name="Optics Media 46" />
+        <resource reference="sfp-47" name="Optics Media 47" />
+        <resource reference="sfp-48" name="Optics Media 48" />
+        <resource reference="qsfp-1" name="Optics Media 49" />
+        <resource reference="qsfp-2" name="Optics Media 50" />
+        <resource reference="qsfp-3" name="Optics Media 51" />
+        <resource reference="qsfp-4" name="Optics Media 52" />
+        <resource reference="qsfp-5" name="Optics Media 53" />
+        <resource reference="qsfp-6" name="Optics Media 54" />
+        <resource reference="sys_nvram" name="NVRAM" />
+    </entity>
+    <entity instance="1" type="SDI_ENTITY_FAN_TRAY" presence="fantray0_presence" alias="Fan Tray-1">
+        <resource reference="fan-1" name="Fan 1" />
+        <resource reference="fan-2" name="Fan 2" />
+        <resource reference="fan_tray_fru0" name="Entity Info" />
+    </entity>
+    <entity instance="2" type="SDI_ENTITY_FAN_TRAY" presence="fantray1_presence" alias="Fan Tray-2">
+        <resource reference="fan-3" name="Fan 1" />
+        <resource reference="fan-4" name="Fan 2" />
+        <resource reference="fan_tray_fru1" name="Entity Info" />
+    </entity>
+    <entity instance="3" type="SDI_ENTITY_FAN_TRAY" presence="fantray2_presence" alias="Fan Tray-3">
+        <resource reference="fan-5" name="Fan 1" />
+        <resource reference="fan-6" name="Fan 2" />
+        <resource reference="fan_tray_fru2" name="Entity Info" />
+    </entity>
+    <entity instance="1" type="SDI_ENTITY_PSU_TRAY" presence="psu0_presence" fault="psu0_fault" power_output_status="psu0_output_power_status" alias="PSU Tray-1" power="psu0_status_ctrl">
+        <resource reference="psu-0-Fan-1" name="Fan of PSU-1" />
+        <resource reference="psu_fru0" name="Entity Info" />
+    </entity>
+    <entity instance="2" type="SDI_ENTITY_PSU_TRAY" presence="psu1_presence" fault="psu1_fault" power_output_status="psu1_output_power_status" alias="PSU Tray-2" power="psu1_status_ctrl">
+        <resource reference="psu-1-Fan-1" name="Fan of PSU-2" />
+        <resource reference="psu_fru1" name="Entity Info" />
+    </entity>
+</root>

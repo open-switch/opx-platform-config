@@ -1,3 +1,10 @@
+opx-platform-config (1.0.5) unstable; urgency=medium
+
+  * Update: Added support for Dell S3048, S4048, S4048T, and S6010 platforms
+  * Bugfix: Minor fixes
+
+ -- Dell EMC <opx-dev@lists.openswitch.net>  Thu, 22 Jun 2017 13:30:03 -0800
+
 opx-platform-config (1.0.4) unstable; urgency=medium
 
   * Update: Config files for Dell S6000 and VM

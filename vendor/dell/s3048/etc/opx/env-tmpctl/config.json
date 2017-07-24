@@ -1,0 +1,158 @@
+{ "cooling": {
+    "options": [ "fault-full-speed", "absent-full-speed" ],
+
+    "levels": {
+        "normal-zone": [
+            [ { "entity-type": "fan-tray", "airflow": "normal", "speed-pct":  40 } ],
+            [ { "entity-type": "fan-tray", "airflow": "normal", "speed-pct":  44 } ],
+            [ { "entity-type": "fan-tray", "airflow": "normal", "speed-pct":  48 } ],
+            [ { "entity-type": "fan-tray", "airflow": "normal", "speed-pct":  52 } ],
+            [ { "entity-type": "fan-tray", "airflow": "normal", "speed-pct":  56 } ],
+            [ { "entity-type": "fan-tray", "airflow": "normal", "speed-pct":  60 } ],
+            [ { "entity-type": "fan-tray", "airflow": "normal", "speed-pct":  64 } ],
+            [ { "entity-type": "fan-tray", "airflow": "normal", "speed-pct":  68 } ],
+            [ { "entity-type": "fan-tray", "airflow": "normal", "speed-pct":  72 } ],
+            [ { "entity-type": "fan-tray", "airflow": "normal", "speed-pct":  76 } ],
+            [ { "entity-type": "fan-tray", "airflow": "normal", "speed-pct":  80 } ],
+            [ { "entity-type": "fan-tray", "airflow": "normal", "speed-pct":  84 } ],
+            [ { "entity-type": "fan-tray", "airflow": "normal", "speed-pct":  88 } ],
+            [ { "entity-type": "fan-tray", "airflow": "normal", "speed-pct":  92 } ],
+            [ { "entity-type": "fan-tray", "airflow": "normal", "speed-pct":  96 } ],
+            [ { "entity-type": "fan-tray", "airflow": "normal", "speed-pct": 100 } ]
+        ],
+
+        "reverse-zone": [
+            [ { "entity-type": "fan-tray", "airflow": "reverse", "speed-pct":  40 } ],
+            [ { "entity-type": "fan-tray", "airflow": "reverse", "speed-pct":  43 } ],
+            [ { "entity-type": "fan-tray", "airflow": "reverse", "speed-pct":  46 } ],
+            [ { "entity-type": "fan-tray", "airflow": "reverse", "speed-pct":  49 } ],
+            [ { "entity-type": "fan-tray", "airflow": "reverse", "speed-pct":  52 } ],
+            [ { "entity-type": "fan-tray", "airflow": "reverse", "speed-pct":  55 } ],
+            [ { "entity-type": "fan-tray", "airflow": "reverse", "speed-pct":  58 } ],
+            [ { "entity-type": "fan-tray", "airflow": "reverse", "speed-pct":  61 } ],
+            [ { "entity-type": "fan-tray", "airflow": "reverse", "speed-pct":  64 } ],
+            [ { "entity-type": "fan-tray", "airflow": "reverse", "speed-pct":  67 } ],
+            [ { "entity-type": "fan-tray", "airflow": "reverse", "speed-pct":  70 } ],
+            [ { "entity-type": "fan-tray", "airflow": "reverse", "speed-pct":  73 } ],
+            [ { "entity-type": "fan-tray", "airflow": "reverse", "speed-pct":  76 } ],
+            [ { "entity-type": "fan-tray", "airflow": "reverse", "speed-pct":  79 } ],
+            [ { "entity-type": "fan-tray", "airflow": "reverse", "speed-pct":  82 } ],
+            [ { "entity-type": "fan-tray", "airflow": "reverse", "speed-pct":  85 } ],
+            [ { "entity-type": "fan-tray", "airflow": "reverse", "speed-pct":  88 } ],
+            [ { "entity-type": "fan-tray", "airflow": "reverse", "speed-pct":  91 } ],
+            [ { "entity-type": "fan-tray", "airflow": "reverse", "speed-pct":  94 } ],
+            [ { "entity-type": "fan-tray", "airflow": "reverse", "speed-pct":  97 } ],
+            [ { "entity-type": "fan-tray", "airflow": "reverse", "speed-pct": 100 } ]
+        ]
+    },
+      
+    "thresholds": [
+        { "sensor": "Front to Rear right Inlet Ambient sensor", "temperature": { "hi": 32, "lo": 29 }, "level": [ { "zone": "normal-zone", "hi":  1, "lo":  0 } ] },
+        { "sensor": "Front to Rear right Inlet Ambient sensor", "temperature": { "hi": 33, "lo": 30 }, "level": [ { "zone": "normal-zone", "hi":  2, "lo":  1 } ] },
+        { "sensor": "Front to Rear right Inlet Ambient sensor", "temperature": { "hi": 34, "lo": 31 }, "level": [ { "zone": "normal-zone", "hi":  3, "lo":  2 } ] },
+        { "sensor": "Front to Rear right Inlet Ambient sensor", "temperature": { "hi": 35, "lo": 32 }, "level": [ { "zone": "normal-zone", "hi":  4, "lo":  3 } ] },
+        { "sensor": "Front to Rear right Inlet Ambient sensor", "temperature": { "hi": 36, "lo": 33 }, "level": [ { "zone": "normal-zone", "hi":  5, "lo":  4 } ] },
+        { "sensor": "Front to Rear right Inlet Ambient sensor", "temperature": { "hi": 37, "lo": 34 }, "level": [ { "zone": "normal-zone", "hi":  6, "lo":  5 } ] },
+        { "sensor": "Front to Rear right Inlet Ambient sensor", "temperature": { "hi": 38, "lo": 35 }, "level": [ { "zone": "normal-zone", "hi":  7, "lo":  6 } ] },
+        { "sensor": "Front to Rear right Inlet Ambient sensor", "temperature": { "hi": 39, "lo": 36 }, "level": [ { "zone": "normal-zone", "hi":  8, "lo":  7 } ] },
+        { "sensor": "Front to Rear right Inlet Ambient sensor", "temperature": { "hi": 40, "lo": 37 }, "level": [ { "zone": "normal-zone", "hi":  9, "lo":  8 } ] },
+        { "sensor": "Front to Rear right Inlet Ambient sensor", "temperature": { "hi": 41, "lo": 38 }, "level": [ { "zone": "normal-zone", "hi": 10, "lo":  9 } ] },
+        { "sensor": "Front to Rear right Inlet Ambient sensor", "temperature": { "hi": 42, "lo": 39 }, "level": [ { "zone": "normal-zone", "hi": 11, "lo": 10 } ] },
+        { "sensor": "Front to Rear right Inlet Ambient sensor", "temperature": { "hi": 43, "lo": 40 }, "level": [ { "zone": "normal-zone", "hi": 12, "lo": 11 } ] },
+        { "sensor": "Front to Rear right Inlet Ambient sensor", "temperature": { "hi": 44, "lo": 41 }, "level": [ { "zone": "normal-zone", "hi": 13, "lo": 12 } ] },
+        { "sensor": "Front to Rear right Inlet Ambient sensor", "temperature": { "hi": 45, "lo": 42 }, "level": [ { "zone": "normal-zone", "hi": 14, "lo": 13 } ] },
+        { "sensor": "Front to Rear right Inlet Ambient sensor", "temperature": { "hi": 46, "lo": 43 }, "level": [ { "zone": "normal-zone", "hi": 15, "lo": 14 } ] },
+
+        { "sensor": "Front to Rear Helix shutdown sensor", "temperature": { "hi": 51, "lo": 48 }, "level": [ { "zone": "normal-zone", "hi":  1, "lo":  0 } ] },
+        { "sensor": "Front to Rear Helix shutdown sensor", "temperature": { "hi": 52, "lo": 49 }, "level": [ { "zone": "normal-zone", "hi":  2, "lo":  1 } ] },
+        { "sensor": "Front to Rear Helix shutdown sensor", "temperature": { "hi": 53, "lo": 50 }, "level": [ { "zone": "normal-zone", "hi":  3, "lo":  2 } ] },
+        { "sensor": "Front to Rear Helix shutdown sensor", "temperature": { "hi": 54, "lo": 51 }, "level": [ { "zone": "normal-zone", "hi":  4, "lo":  3 } ] },
+        { "sensor": "Front to Rear Helix shutdown sensor", "temperature": { "hi": 55, "lo": 52 }, "level": [ { "zone": "normal-zone", "hi":  5, "lo":  4 } ] },
+        { "sensor": "Front to Rear Helix shutdown sensor", "temperature": { "hi": 56, "lo": 53 }, "level": [ { "zone": "normal-zone", "hi":  6, "lo":  5 } ] },
+        { "sensor": "Front to Rear Helix shutdown sensor", "temperature": { "hi": 57, "lo": 54 }, "level": [ { "zone": "normal-zone", "hi":  7, "lo":  6 } ] },
+        { "sensor": "Front to Rear Helix shutdown sensor", "temperature": { "hi": 58, "lo": 55 }, "level": [ { "zone": "normal-zone", "hi":  8, "lo":  7 } ] },
+        { "sensor": "Front to Rear Helix shutdown sensor", "temperature": { "hi": 59, "lo": 56 }, "level": [ { "zone": "normal-zone", "hi":  9, "lo":  8 } ] },
+        { "sensor": "Front to Rear Helix shutdown sensor", "temperature": { "hi": 60, "lo": 57 }, "level": [ { "zone": "normal-zone", "hi": 10, "lo":  9 } ] },
+        { "sensor": "Front to Rear Helix shutdown sensor", "temperature": { "hi": 61, "lo": 58 }, "level": [ { "zone": "normal-zone", "hi": 11, "lo": 10 } ] },
+        { "sensor": "Front to Rear Helix shutdown sensor", "temperature": { "hi": 62, "lo": 59 }, "level": [ { "zone": "normal-zone", "hi": 12, "lo": 11 } ] },
+        { "sensor": "Front to Rear Helix shutdown sensor", "temperature": { "hi": 63, "lo": 60 }, "level": [ { "zone": "normal-zone", "hi": 13, "lo": 12 } ] },
+        { "sensor": "Front to Rear Helix shutdown sensor", "temperature": { "hi": 64, "lo": 61 }, "level": [ { "zone": "normal-zone", "hi": 14, "lo": 13 } ] },
+        { "sensor": "Front to Rear Helix shutdown sensor", "temperature": { "hi": 65, "lo": 62 }, "level": [ { "zone": "normal-zone", "hi": 15, "lo": 14 } ] },
+
+        { "sensor": "Rear to Front Inlet Ambient sensor", "temperature": { "hi": 30, "lo": 27 }, "level": [ { "zone": "normal-zone", "hi":  1, "lo":  0 } ] },
+        { "sensor": "Rear to Front Inlet Ambient sensor", "temperature": { "hi": 31, "lo": 28 }, "level": [ { "zone": "normal-zone", "hi":  2, "lo":  0 } ] },
+        { "sensor": "Rear to Front Inlet Ambient sensor", "temperature": { "hi": 32, "lo": 29 }, "level": [ { "zone": "normal-zone", "hi":  3, "lo":  0 } ] },
+        { "sensor": "Rear to Front Inlet Ambient sensor", "temperature": { "hi": 33, "lo": 30 }, "level": [ { "zone": "normal-zone", "hi":  4, "lo":  0 } ] },
+        { "sensor": "Rear to Front Inlet Ambient sensor", "temperature": { "hi": 34, "lo": 31 }, "level": [ { "zone": "normal-zone", "hi":  5, "lo":  0 } ] },
+        { "sensor": "Rear to Front Inlet Ambient sensor", "temperature": { "hi": 35, "lo": 32 }, "level": [ { "zone": "normal-zone", "hi":  6, "lo":  0 } ] },
+        { "sensor": "Rear to Front Inlet Ambient sensor", "temperature": { "hi": 36, "lo": 33 }, "level": [ { "zone": "normal-zone", "hi":  7, "lo":  0 } ] },
+        { "sensor": "Rear to Front Inlet Ambient sensor", "temperature": { "hi": 37, "lo": 34 }, "level": [ { "zone": "normal-zone", "hi":  8, "lo":  0 } ] },
+        { "sensor": "Rear to Front Inlet Ambient sensor", "temperature": { "hi": 38, "lo": 35 }, "level": [ { "zone": "normal-zone", "hi":  9, "lo":  0 } ] },
+        { "sensor": "Rear to Front Inlet Ambient sensor", "temperature": { "hi": 39, "lo": 36 }, "level": [ { "zone": "normal-zone", "hi": 10, "lo":  0 } ] },
+        { "sensor": "Rear to Front Inlet Ambient sensor", "temperature": { "hi": 40, "lo": 37 }, "level": [ { "zone": "normal-zone", "hi": 11, "lo":  0 } ] },
+        { "sensor": "Rear to Front Inlet Ambient sensor", "temperature": { "hi": 41, "lo": 38 }, "level": [ { "zone": "normal-zone", "hi": 12, "lo":  0 } ] },
+        { "sensor": "Rear to Front Inlet Ambient sensor", "temperature": { "hi": 42, "lo": 39 }, "level": [ { "zone": "normal-zone", "hi": 13, "lo":  0 } ] },
+        { "sensor": "Rear to Front Inlet Ambient sensor", "temperature": { "hi": 43, "lo": 40 }, "level": [ { "zone": "normal-zone", "hi": 14, "lo":  0 } ] },
+        { "sensor": "Rear to Front Inlet Ambient sensor", "temperature": { "hi": 44, "lo": 41 }, "level": [ { "zone": "normal-zone", "hi": 15, "lo":  0 } ] },
+        { "sensor": "Rear to Front Inlet Ambient sensor", "temperature": { "hi": 45, "lo": 42 }, "level": [ { "zone": "normal-zone", "hi": 16, "lo":  0 } ] },
+        { "sensor": "Rear to Front Inlet Ambient sensor", "temperature": { "hi": 46, "lo": 43 }, "level": [ { "zone": "normal-zone", "hi": 17, "lo":  0 } ] },
+        { "sensor": "Rear to Front Inlet Ambient sensor", "temperature": { "hi": 47, "lo": 44 }, "level": [ { "zone": "normal-zone", "hi": 18, "lo":  0 } ] },
+        { "sensor": "Rear to Front Inlet Ambient sensor", "temperature": { "hi": 48, "lo": 45 }, "level": [ { "zone": "normal-zone", "hi": 19, "lo":  0 } ] },
+        { "sensor": "Rear to Front Inlet Ambient sensor", "temperature": { "hi": 49, "lo": 46 }, "level": [ { "zone": "normal-zone", "hi": 20, "lo":  0 } ] },
+        
+        { "sensor": "Rear to Front Helix shutdown sensor", "temperature": { "hi": 46, "lo": 43 }, "level": [ { "zone": "normal-zone", "hi":  1, "lo":  0 } ] },
+        { "sensor": "Rear to Front Helix shutdown sensor", "temperature": { "hi": 47, "lo": 44 }, "level": [ { "zone": "normal-zone", "hi":  2, "lo":  1 } ] },
+        { "sensor": "Rear to Front Helix shutdown sensor", "temperature": { "hi": 48, "lo": 45 }, "level": [ { "zone": "normal-zone", "hi":  3, "lo":  2 } ] },
+        { "sensor": "Rear to Front Helix shutdown sensor", "temperature": { "hi": 49, "lo": 46 }, "level": [ { "zone": "normal-zone", "hi":  4, "lo":  3 } ] },
+        { "sensor": "Rear to Front Helix shutdown sensor", "temperature": { "hi": 50, "lo": 47 }, "level": [ { "zone": "normal-zone", "hi":  5, "lo":  4 } ] },
+        { "sensor": "Rear to Front Helix shutdown sensor", "temperature": { "hi": 51, "lo": 48 }, "level": [ { "zone": "normal-zone", "hi":  6, "lo":  5 } ] },
+        { "sensor": "Rear to Front Helix shutdown sensor", "temperature": { "hi": 52, "lo": 49 }, "level": [ { "zone": "normal-zone", "hi":  7, "lo":  6 } ] },
+        { "sensor": "Rear to Front Helix shutdown sensor", "temperature": { "hi": 53, "lo": 50 }, "level": [ { "zone": "normal-zone", "hi":  8, "lo":  7 } ] },
+        { "sensor": "Rear to Front Helix shutdown sensor", "temperature": { "hi": 54, "lo": 51 }, "level": [ { "zone": "normal-zone", "hi":  9, "lo":  8 } ] },
+        { "sensor": "Rear to Front Helix shutdown sensor", "temperature": { "hi": 55, "lo": 52 }, "level": [ { "zone": "normal-zone", "hi": 10, "lo":  9 } ] },
+        { "sensor": "Rear to Front Helix shutdown sensor", "temperature": { "hi": 56, "lo": 53 }, "level": [ { "zone": "normal-zone", "hi": 11, "lo": 10 } ] },
+        { "sensor": "Rear to Front Helix shutdown sensor", "temperature": { "hi": 57, "lo": 54 }, "level": [ { "zone": "normal-zone", "hi": 12, "lo": 11 } ] },
+        { "sensor": "Rear to Front Helix shutdown sensor", "temperature": { "hi": 58, "lo": 55 }, "level": [ { "zone": "normal-zone", "hi": 13, "lo": 12 } ] },
+        { "sensor": "Rear to Front Helix shutdown sensor", "temperature": { "hi": 59, "lo": 56 }, "level": [ { "zone": "normal-zone", "hi": 14, "lo": 13 } ] },
+        { "sensor": "Rear to Front Helix shutdown sensor", "temperature": { "hi": 60, "lo": 57 }, "level": [ { "zone": "normal-zone", "hi": 15, "lo": 14 } ] },
+        { "sensor": "Rear to Front Helix shutdown sensor", "temperature": { "hi": 61, "lo": 58 }, "level": [ { "zone": "normal-zone", "hi": 16, "lo": 15 } ] },
+        { "sensor": "Rear to Front Helix shutdown sensor", "temperature": { "hi": 62, "lo": 59 }, "level": [ { "zone": "normal-zone", "hi": 17, "lo": 16 } ] },
+        { "sensor": "Rear to Front Helix shutdown sensor", "temperature": { "hi": 63, "lo": 60 }, "level": [ { "zone": "normal-zone", "hi": 18, "lo": 17 } ] },
+        { "sensor": "Rear to Front Helix shutdown sensor", "temperature": { "hi": 64, "lo": 61 }, "level": [ { "zone": "normal-zone", "hi": 19, "lo": 18 } ] },
+        { "sensor": "Rear to Front Helix shutdown sensor", "temperature": { "hi": 65, "lo": 62 }, "level": [ { "zone": "normal-zone", "hi": 20, "lo": 19 } ] }
+    ]
+  },
+  
+  "faults": [
+      { "sensor": "Front to Rear right Inlet Ambient sensor",
+        "airflow": "normal",
+        "thresholds": [ { "hi": 49, "lo": 49 }, { "hi": 52, "lo": 52 }, { "hi": 55, "lo": 55 }, { "hi": 58, "lo": 58 } ]
+      },
+
+      { "sensor": "Rear to Front Inlet Ambient sensor",
+        "airflow": "reverse",
+        "thresholds": [ { "hi": 49, "lo": 49 }, { "hi": 52, "lo": 52 }, { "hi": 55, "lo": 55 }, { "hi": 58, "lo": 58 } ]
+      },
+
+      { "sensor": "CPU Front to Rear temp sensor",
+        "airflow": "normal",
+        "thresholds": [ { "hi": 80, "lo": 80 }, { "hi": 85, "lo": 85 }, { "hi": 90, "lo": 90 }, { "hi": 95, "lo": 95 } ]
+      },
+
+      { "sensor": "CPU Rear to Front temp sensor",
+        "airflow": "reverse",
+        "thresholds": [ { "hi": 80, "lo": 80 }, { "hi": 85, "lo": 85 }, { "hi": 90, "lo": 90 }, { "hi": 95, "lo": 95 } ]
+      },
+
+      { "sensor": "Front to Rear Helix shutdown sensor",
+        "airflow": "normal",
+        "thresholds": [ { "hi": 75, "lo": 75 }, { "hi": 80, "lo": 80 }, { "hi": 85, "lo": 85 }, { "hi": 90, "lo": 90 } ],
+        "master-thresholds": true
+      },
+
+      { "sensor": "Rear to Front Helix shutdown sensor",
+        "airflow": "reverse",
+        "thresholds": [ { "hi": 75, "lo": 75 }, { "hi": 80, "lo": 80 }, { "hi": 85, "lo": 85 }, { "hi": 90, "lo": 90 } ]
+      }
+  ]
+}

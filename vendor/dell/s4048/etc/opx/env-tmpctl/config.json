@@ -1,0 +1,134 @@
+{ "cooling": {
+    "airflow-ppid": [
+        { "ppid": "..M68YC.*", "airflow": "normal" },
+        { "ppid": "..99TJK.*", "airflow": "reverse" }
+    ],
+
+    "options": [ "fault-full-speed", "absent-full-speed" ],
+
+    "levels": {
+        "normal-zone": [
+            [ { "entity-type": "psu",      "airflow": "normal", "speed": 7200 },
+              { "entity-type": "fan-tray", "airflow": "normal", "speed": 7000 }
+            ],
+            [ { "entity-type": "psu",      "airflow": "normal", "speed": 10800 },
+              { "entity-type": "fan-tray", "airflow": "normal", "speed": 10000 }
+            ],
+            [ { "entity-type": "psu",      "airflow": "normal", "speed": 14400 },
+              { "entity-type": "fan-tray", "airflow": "normal", "speed": 13000 }
+            ],
+            [ { "entity-type": "psu",      "airflow": "normal", "speed": 16200 },
+              { "entity-type": "fan-tray", "airflow": "normal", "speed": 16000 }
+            ],
+            [ { "entity-type": "psu",      "airflow": "normal", "speed": 18000 },
+              { "entity-type": "fan-tray", "airflow": "normal", "speed": 18000 }
+            ]            
+        ],
+
+        "reverse-zone": [
+            [ { "entity-type": "psu",      "airflow": "reverse", "speed": 7200 },
+              { "entity-type": "fan-tray", "airflow": "reverse", "speed": 7000 }
+            ],
+            [ { "entity-type": "psu",      "airflow": "reverse", "speed": 10800 },
+              { "entity-type": "fan-tray", "airflow": "reverse", "speed": 10000 }
+            ],
+            [ { "entity-type": "psu",      "airflow": "reverse", "speed": 14400 },
+              { "entity-type": "fan-tray", "airflow": "reverse", "speed": 13000 }
+            ],
+            [ { "entity-type": "psu",      "airflow": "reverse", "speed": 16200 },
+              { "entity-type": "fan-tray", "airflow": "reverse", "speed": 16000 }
+            ],
+            [ { "entity-type": "psu",      "airflow": "reverse", "speed": 18000 },
+              { "entity-type": "fan-tray", "airflow": "reverse", "speed": 18000 }
+            ]            
+        ]
+    },
+      
+    "thresholds": [
+        { "sensor": "NPU board sensor", "temperature": { "hi": 45, "lo": 40 }, "level": [ { "zone": "normal-zone", "hi": 1, "lo": 0 } ] },
+        { "sensor": "NPU board sensor", "temperature": { "hi": 51, "lo": 47 }, "level": [ { "zone": "normal-zone", "hi": 2, "lo": 1 } ] },
+        { "sensor": "NPU board sensor", "temperature": { "hi": 58, "lo": 54 }, "level": [ { "zone": "normal-zone", "hi": 3, "lo": 2 } ] },
+        { "sensor": "NPU board sensor", "temperature": { "hi": 65, "lo": 61 }, "level": [ { "zone": "normal-zone", "hi": 4, "lo": 3 } ] },
+
+        { "sensor": "system-NIC board sensor 2", "temperature": { "hi": 28, "lo": 23 }, "level": [ { "zone": "normal-zone", "hi": 1, "lo": 0 } ] },
+        { "sensor": "system-NIC board sensor 2", "temperature": { "hi": 34, "lo": 30 }, "level": [ { "zone": "normal-zone", "hi": 2, "lo": 1 } ] },
+        { "sensor": "system-NIC board sensor 2", "temperature": { "hi": 41, "lo": 37 }, "level": [ { "zone": "normal-zone", "hi": 3, "lo": 2 } ] },
+        { "sensor": "system-NIC board sensor 2", "temperature": { "hi": 48, "lo": 44 }, "level": [ { "zone": "normal-zone", "hi": 4, "lo": 3 } ] },
+
+        { "sensor": "system-NIC board sensor 1", "temperature": { "hi": 38, "lo": 34 }, "level": [ { "zone": "normal-zone", "hi": 1, "lo": 0 } ] },
+        { "sensor": "system-NIC board sensor 1", "temperature": { "hi": 45, "lo": 41 }, "level": [ { "zone": "normal-zone", "hi": 2, "lo": 1 } ] },
+        { "sensor": "system-NIC board sensor 1", "temperature": { "hi": 52, "lo": 47 }, "level": [ { "zone": "normal-zone", "hi": 3, "lo": 2 } ] },
+        { "sensor": "system-NIC board sensor 1", "temperature": { "hi": 58, "lo": 54 }, "level": [ { "zone": "normal-zone", "hi": 4, "lo": 3 } ] },
+
+        { "sensor": "NPU temp sensor", "temperature": { "hi": 66, "lo": 62 }, "level": [ { "zone": "normal-zone", "hi": 1, "lo": 0 } ] },
+        { "sensor": "NPU temp sensor", "temperature": { "hi": 73, "lo": 68 }, "level": [ { "zone": "normal-zone", "hi": 2, "lo": 1 } ] },
+        { "sensor": "NPU temp sensor", "temperature": { "hi": 80, "lo": 75 }, "level": [ { "zone": "normal-zone", "hi": 3, "lo": 2 } ] },
+        { "sensor": "NPU temp sensor", "temperature": { "hi": 86, "lo": 82 }, "level": [ { "zone": "normal-zone", "hi": 4, "lo": 3 } ] },
+
+        { "sensor": "NPU board sensor", "temperature": { "hi": 37, "lo": 33 }, "level": [ { "zone": "reverse-zone", "hi": 1, "lo": 0 } ] },
+        { "sensor": "NPU board sensor", "temperature": { "hi": 44, "lo": 40 }, "level": [ { "zone": "reverse-zone", "hi": 2, "lo": 1 } ] },
+        { "sensor": "NPU board sensor", "temperature": { "hi": 51, "lo": 46 }, "level": [ { "zone": "reverse-zone", "hi": 3, "lo": 2 } ] },
+        { "sensor": "NPU board sensor", "temperature": { "hi": 57, "lo": 53 }, "level": [ { "zone": "reverse-zone", "hi": 4, "lo": 3 } ] },
+
+        { "sensor": "system-NIC board sensor 2", "temperature": { "hi": 29, "lo": 24 }, "level": [ { "zone": "reverse-zone", "hi": 1, "lo": 0 } ] },
+        { "sensor": "system-NIC board sensor 2", "temperature": { "hi": 35, "lo": 31 }, "level": [ { "zone": "reverse-zone", "hi": 2, "lo": 1 } ] },
+        { "sensor": "system-NIC board sensor 2", "temperature": { "hi": 42, "lo": 38 }, "level": [ { "zone": "reverse-zone", "hi": 3, "lo": 2 } ] },
+        { "sensor": "system-NIC board sensor 2", "temperature": { "hi": 49, "lo": 45 }, "level": [ { "zone": "reverse-zone", "hi": 4, "lo": 3 } ] },
+
+        { "sensor": "system-NIC board sensor 1", "temperature": { "hi": 36, "lo": 32 }, "level": [ { "zone": "reverse-zone", "hi": 1, "lo": 0 } ] },
+        { "sensor": "system-NIC board sensor 1", "temperature": { "hi": 43, "lo": 38 }, "level": [ { "zone": "reverse-zone", "hi": 2, "lo": 1 } ] },
+        { "sensor": "system-NIC board sensor 1", "temperature": { "hi": 50, "lo": 45 }, "level": [ { "zone": "reverse-zone", "hi": 3, "lo": 2 } ] },
+        { "sensor": "system-NIC board sensor 1", "temperature": { "hi": 56, "lo": 52 }, "level": [ { "zone": "reverse-zone", "hi": 4, "lo": 3 } ] },
+
+        { "sensor": "NPU temp sensor", "temperature": { "hi": 60, "lo": 56 }, "level": [ { "zone": "reverse-zone", "hi": 1, "lo": 0 } ] },
+        { "sensor": "NPU temp sensor", "temperature": { "hi": 67, "lo": 63 }, "level": [ { "zone": "reverse-zone", "hi": 2, "lo": 1 } ] },
+        { "sensor": "NPU temp sensor", "temperature": { "hi": 74, "lo": 69 }, "level": [ { "zone": "reverse-zone", "hi": 3, "lo": 2 } ] },
+        { "sensor": "NPU temp sensor", "temperature": { "hi": 80, "lo": 76 }, "level": [ { "zone": "reverse-zone", "hi": 4, "lo": 3 } ] }
+    ]
+  },
+  
+  "faults": [
+      { "sensor": "NPU board sensor",
+        "airflow": "normal",
+        "thresholds": [ { "hi": 56, "lo": 56 }, { "hi": 61, "lo": 61 }, { "hi": 66, "lo": 66 }, { "hi": 77, "lo": 77 } ]
+      },
+      { "sensor": "system-NIC board sensor 2",
+        "airflow": "normal",
+        "thresholds": [ { "hi": 42, "lo": 42 }, { "hi": 47, "lo": 47 }, { "hi": 52, "lo": 52 }, { "hi": 60, "lo": 60 } ]
+      },
+      { "sensor": "system-NIC board sensor 1",
+        "airflow": "normal",
+        "thresholds": [ { "hi": 50, "lo": 50 }, { "hi": 55, "lo": 55 }, { "hi": 60, "lo": 60 }, { "hi": 71, "lo": 71 } ]
+      },
+      { "sensor": "NPU temp sensor",
+        "airflow": "normal",
+        "thresholds": [ { "hi": 87, "lo": 87 }, { "hi": 92, "lo": 92 }, { "hi": 97, "lo": 97 }, { "hi": 104, "lo": 104 } ],
+        "master-thresholds": true
+      },
+      { "sensor": "CPU board sensor",
+        "airflow": "normal",
+        "thresholds": [ { "hi": 44, "lo": 44 }, { "hi": 49, "lo": 49 }, { "hi": 54, "lo": 54 }, { "hi": 64, "lo": 64 } ]
+      },
+      
+      { "sensor": "NPU board sensor",
+        "airflow": "reverse",
+        "thresholds": [ { "hi": 53, "lo": 53 }, { "hi": 58, "lo": 58 }, { "hi": 63, "lo": 63 }, { "hi": 70, "lo": 70 } ]
+      },
+      { "sensor": "system-NIC board sensor 2",
+        "airflow": "reverse",
+        "thresholds": [ { "hi": 40, "lo": 40 }, { "hi": 45, "lo": 45 }, { "hi": 51, "lo": 51 }, { "hi": 60, "lo": 60 } ]
+      },
+      { "sensor": "system-NIC board sensor 1",
+        "airflow": "reverse",
+        "thresholds": [ { "hi": 52, "lo": 52 }, { "hi": 57, "lo": 57 }, { "hi": 62, "lo": 62 }, { "hi": 69, "lo": 69 } ]
+      },
+      { "sensor": "NPU temp sensor",
+        "airflow": "reverse",
+        "thresholds": [ { "hi": 87, "lo": 87 }, { "hi": 92, "lo": 92 }, { "hi": 97, "lo": 97 }, { "hi": 104, "lo": 104 } ]
+      },
+      { "sensor": "CPU board sensor",
+        "airflow": "reverse",
+        "thresholds": [ { "hi": 39, "lo": 39 }, { "hi": 44, "lo": 44 }, { "hi": 49, "lo": 49 }, { "hi": 61, "lo": 61 } ]
+      }
+  ]
+}

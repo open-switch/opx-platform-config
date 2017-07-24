@@ -1,0 +1,164 @@
+<!-- Copyright (c) 2015 Dell Inc.
+ Licensed under the Apache License, Version 2.0 (the "License"); you may
+ not use this file except in compliance with the License. You may obtain
+ a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+
+ THIS CODE IS PROVIDED ON AN  *AS IS* BASIS, WITHOUT WARRANTIES OR
+ CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT
+ LIMITATION ANY IMPLIED WARRANTIES OR CONDITIONS OF TITLE, FITNESS
+ FOR A PARTICULAR PURPOSE, MERCHANTABLITY OR NON-INFRINGEMENT.
+
+ See the Apache Version 2.0 License for specific language governing
+ permissions and limitations under the License.
+-->
+<root>
+    <sdi_io bus_name="io_bus">
+        <sdi_cpld instance="0" alias="intel_io" width="1" start_addr="0xCF9" end_addr="0xCFA">
+            <sdi_cpld_pin_group instance="0" start_addr="0xCF9" start_offset="0x0" end_offset="0x7" bus_name="intel_io_reset" direction="in" polarity="normal" />
+        </sdi_cpld>
+    </sdi_io>
+    <sys_i2c instance="0" sysfs_name="SMBus I801 adapter at f000" bus_name="smbus0">
+	</sys_i2c>
+	<sys_i2c instance="1" sysfs_name="SMBus iSMT adapter at dff14000" bus_name="smbus1">
+	</sys_i2c>
+	<sys_i2c instance="2" sysfs_name="i2c-0-mux (chan_id 0)" bus_name="smbus2">
+        <tmp75 instance="0" addr="0x4d" low_threshold="10" high_threshold="100" />  <!-- Board ref U57 -->
+        <eeprom instance="0" alias="sys_eeprom" addr="0x53" size="256" parser="ONIE_SYS_EEPROM"/>
+        <nvram instance="0" alias="sys_nvram" dev="/dev/sda" offset="1048064" size="512"/>
+        <sdi_cpld instance="0" alias="system" addr="0x31" width="1" start_addr="0x0" end_addr="0xb">
+                <sdi_cpld_pin_group instance="0" start_addr="0x0" start_offset="0" end_offset="1" bus_name="hardware_version" direction="in" polarity="normal" />
+                <sdi_cpld_pin_group instance="1" start_addr="0x0" start_offset="4" end_offset="7" bus_name="Board_revision" direction="in" polarity="normal" />
+                <sdi_cpld_pin_group instance="2" start_addr="0x8" start_offset="0" end_offset="7" bus_name="system_cpld_revision" direction="in" polarity="normal" />
+                <sdi_cpld_pin_group instance="3" start_addr="0xa" start_offset="0" end_offset="7" bus_name="reset_register1" direction="out" level="0xfe" polarity="normal" />
+        </sdi_cpld>
+        <sdi_cpld instance="1" alias="master" addr="0x32" width="1" start_addr="0x1" end_addr="0x16">
+                <sdi_cpld_pin_group instance="4" start_addr="0x1" start_offset="4" end_offset="7" bus_name="board_revision" direction="in" polarity="normal">
+                </sdi_cpld_pin_group>
+                <sdi_cpld_pin_group instance="5" start_addr="0x12" start_offset="0" end_offset="7" bus_name="master_cpld_revision" direction="in" polarity="normal">
+                </sdi_cpld_pin_group>
+                <sdi_cpld_pin_group instance="6" start_addr="0x2" start_offset="0" end_offset="5" bus_name="master_cpld_resets" direction="out" level="0x3f" polarity="normal" />
+                <sdi_cpld_pin instance="0" addr="0x3" offset="0x7" bus_name="psu1_presence" direction="in" polarity="inverted" />
+                <sdi_cpld_pin instance="1" addr="0x3" offset="0x6" bus_name="psu1_output_power_status" direction="in" polarity="inverted" />
+                <sdi_cpld_pin instance="2" addr="0x3" offset="0x5" bus_name="psu1_fault" direction="in" polarity="inverted" />
+                <sdi_cpld_pin instance="3" addr="0x3" offset="0x4" bus_name="psu1_status_ctrl" direction="in" level="1" polarity="inverted" />
+                <sdi_cpld_pin instance="4" addr="0x3" offset="0x3" bus_name="psu2_presence" direction="in" polarity="inverted" />
+                <sdi_cpld_pin instance="5" addr="0x3" offset="0x2" bus_name="psu2_output_power_status" direction="in" polarity="inverted" />
+                <sdi_cpld_pin instance="6" addr="0x3" offset="0x1" bus_name="psu2_fault" direction="in" polarity="inverted" />
+                <sdi_cpld_pin instance="7" addr="0x3" offset="0x0" bus_name="psu2_status_ctrl" direction="in" level="1" polarity="inverted" />
+                <sdi_cpld_pin instance="8" addr="0x7" offset="0x0" bus_name="master_led" direction="out" level="0" polarity="inverted">
+                    <sdi_mono_color_pin_led instance="0" default_state="0" alias="master_led" />
+                </sdi_cpld_pin>
+                <sdi_cpld_pin_group instance="7" start_addr="0x7" start_offset="1" end_offset="2" bus_name="power_led" direction="out" level="3" polarity="normal">
+                    <sdi_mono_color_pin_led instance="1" led_on_value="3" led_off_value="2" alias="psu_failed_led" />
+                </sdi_cpld_pin_group>
+                <sdi_cpld_pin instance="9" addr="0x7" offset="0x4" bus_name="beacon_led" direction="out" level="0" polarity="normal">
+                    <sdi_mono_color_pin_led instance="2" default_state="0" alias="locator_function_enable_led" />
+                </sdi_cpld_pin>
+                <sdi_cpld_pin_group instance="8" start_addr="0x7" start_offset="5" end_offset="6" bus_name="system_led" direction="out" level="1" polarity="normal">
+                    <sdi_mono_color_pin_led instance="3" led_on_value="2" led_off_value="1" alias="system_critical_led" />
+                    <sdi_mono_color_pin_led instance="4" led_on_value="3" led_off_value="1" alias="system_noncritical_led" />
+                </sdi_cpld_pin_group>
+                <sdi_cpld_pin_group instance="9" start_addr="0x8" start_offset="6" end_offset="7" bus_name="fan4_led" direction="out" level="1" polarity="normal">
+                    <sdi_mono_color_pin_led instance="5" led_on_value="2" led_off_value="0" alias="fan4_fwd_failed_led" />
+                    <sdi_mono_color_pin_led instance="6" led_on_value="1" led_off_value="0" alias="fan4_fwd_present_led" />
+                    <sdi_mono_color_pin_led instance="7" led_on_value="2" led_off_value="0" alias="fan4_rev_failed_led" />
+                    <sdi_mono_color_pin_led instance="8" led_on_value="1" led_off_value="0" alias="fan4_rev_present_led" />
+                </sdi_cpld_pin_group>
+                <sdi_cpld_pin_group instance="10" start_addr="0x8" start_offset="4" end_offset="5" bus_name="fan3_led" direction="out" level="1" polarity="normal">
+                    <sdi_mono_color_pin_led instance="9"  led_on_value="2" led_off_value="0" alias="fan3_fwd_failed_led" />
+                    <sdi_mono_color_pin_led instance="10" led_on_value="1" led_off_value="0" alias="fan3_fwd_present_led" />
+                    <sdi_mono_color_pin_led instance="11" led_on_value="2" led_off_value="0" alias="fan3_rev_failed_led" />
+                    <sdi_mono_color_pin_led instance="12" led_on_value="1" led_off_value="0" alias="fan3_rev_present_led" />
+                </sdi_cpld_pin_group>
+                <sdi_cpld_pin_group instance="11" start_addr="0x8" start_offset="2" end_offset="3" bus_name="fan2_led" direction="out" level="1" polarity="normal">
+                    <sdi_mono_color_pin_led instance="13" led_on_value="2" led_off_value="0" alias="fan2_fwd_failed_led" />
+                    <sdi_mono_color_pin_led instance="14" led_on_value="1" led_off_value="0" alias="fan2_fwd_present_led" />
+                    <sdi_mono_color_pin_led instance="15" led_on_value="2" led_off_value="0" alias="fan2_rev_failed_led" />
+                    <sdi_mono_color_pin_led instance="16" led_on_value="1" led_off_value="0" alias="fan2_rev_present_led" />
+                </sdi_cpld_pin_group>
+                <sdi_cpld_pin_group instance="12" start_addr="0x8" start_offset="0" end_offset="1" bus_name="fan1_led" direction="out" level="1" polarity="normal">
+                    <sdi_mono_color_pin_led instance="17" led_on_value="2" led_off_value="0" alias="fan1_fwd_failed_led" />
+                    <sdi_mono_color_pin_led instance="18" led_on_value="1" led_off_value="0" alias="fan1_fwd_present_led" />
+                    <sdi_mono_color_pin_led instance="19" led_on_value="2" led_off_value="0" alias="fan1_rev_failed_led" />
+                    <sdi_mono_color_pin_led instance="20" led_on_value="1" led_off_value="0" alias="fan1_rev_present_led" />
+                </sdi_cpld_pin_group>
+                <sdi_cpld_pin_group instance="13" start_addr="0x9" start_offset="4" end_offset="5" bus_name="front_fan_led" direction="out" level="2" polarity="normal">
+                    <sdi_mono_color_pin_led instance="21" led_on_value="3" led_off_value="2" alias="front_fan_failed_led" />
+                </sdi_cpld_pin_group>
+                <sdi_cpld_pin instance="10" addr="0x9" offset="0x7" bus_name="microUSB_presence" direction="in" polarity="inverted" />
+                <sdi_cpld_pin instance="11" addr="0x9" offset="0x3" bus_name="fantray4_presence" direction="in" polarity="inverted" />
+                <sdi_cpld_pin instance="12" addr="0x9" offset="0x2" bus_name="fantray3_presence" direction="in" polarity="inverted" />
+                <sdi_cpld_pin instance="13" addr="0x9" offset="0x1" bus_name="fantray2_presence" direction="in" polarity="inverted" />
+                <sdi_cpld_pin instance="14" addr="0x9" offset="0x0" bus_name="fantray1_presence" direction="in" polarity="inverted" />
+                <sdi_cpld_pin_group instance="14" start_addr="0xA" start_offset="0" end_offset="5" bus_name="qsfp_mod_sel" direction="out" level="0x3f" polarity="inverted">
+                </sdi_cpld_pin_group>
+                <sdi_cpld_pin_group instance="15" start_addr="0xB" start_offset="0" end_offset="5" bus_name="qsfp_lpmode" direction="out" level="0x3f" polarity="normal">
+                </sdi_cpld_pin_group>
+                <sdi_cpld_pin_group instance="16" start_addr="0xC" start_offset="0" end_offset="5" bus_name="qsfp_presence" direction="in" polarity="inverted">
+                </sdi_cpld_pin_group>
+                <sdi_cpld_pin_group instance="17" start_addr="0xD" start_offset="0" end_offset="5" bus_name="qsfp_reset" direction="out" level="0x0" polarity="inverted">
+                </sdi_cpld_pin_group>
+                <sdi_cpld_pin_group instance="18" start_addr="0xE" start_offset="0" end_offset="5" bus_name="qsfp_interrupt" direction="in" polarity="inverted">
+                </sdi_cpld_pin_group>
+                <sdi_cpld_pin instance="15" addr="0xF" offset="0x4" bus_name="digit_led_dotpoint" direction="out" level="0" polarity="normal">
+                </sdi_cpld_pin>
+                <sdi_cpld_pin instance="16" addr="0xF" offset="0x5" bus_name="digit_led_control" direction="out" level="0" polarity="normal">
+                </sdi_cpld_pin>
+                <sdi_cpld_pin instance="17" addr="0xF" offset="0x6" bus_name="digit_led_blink" direction="out" level="0" polarity="normal">
+                </sdi_cpld_pin>
+                <sdi_cpld_pin_group instance="19" start_addr="0xF" start_offset="0" end_offset="3" bus_name="digit_led" direction="out" level="0" polarity="normal">
+                    <seven_segment_led instance="0" led_control_bus="digit_led_control" alias="stack_led" />
+                </sdi_cpld_pin_group>
+                <sdi_cpld_pin_group instance="20" start_addr="0x11" start_offset="0" end_offset="5" bus_name="qsfp_mux_sel" direction="out" level="0x1" polarity="normal">
+                </sdi_cpld_pin_group>
+            </sdi_cpld>
+	</sys_i2c>
+	<sys_i2c instance="3" sysfs_name="i2c-0-mux (chan_id 1)" bus_name="smbus3">
+        <tmp75 instance="1" addr="0x49" low_threshold="10" high_threshold="100" />  <!-- Board ref U288 -->
+        <tmp75 instance="2" addr="0x4a" low_threshold="10" high_threshold="100" />  <!-- Board ref U244 -->
+        <tmp75 instance="3" addr="0x4b" low_threshold="10" high_threshold="100" />  <!-- Board ref U278 -->
+        <tmp75 instance="4" addr="0x4c" low_threshold="10" high_threshold="100" />  <!-- Board ref U254 -->
+        <tmp75 instance="5" addr="0x4e" low_threshold="10" high_threshold="100" />  <!-- Board ref U245 -->
+        <tmp75 instance="6" addr="0x4f" low_threshold="10" high_threshold="100" />  <!-- Board ref U277 -->
+        <emc2305 instance="0" addr="0x4d" fan_control_type="RPM">
+            <fan instance="0" fan_speed="16000" alias="fan-1" poles="2" />
+            <fan instance="1" fan_speed="16000" alias="fan-2" poles="2" />
+            <fan instance="2" fan_speed="16000" alias="fan-3" poles="2" />
+            <fan instance="3" fan_speed="16000" alias="fan-4" poles="2" />
+        </emc2305>
+        <eeprom instance="1" alias="fan_tray_fru1" addr="0x51" size="256" parser="ONIE_FAN_EEPROM" no_of_fans="2" max_fan_speed="16000" />
+        <eeprom instance="2" alias="fan_tray_fru2" addr="0x52" size="256" parser="ONIE_FAN_EEPROM" no_of_fans="2" max_fan_speed="16000" />
+    </sys_i2c>
+    <sys_i2c instance="4" sysfs_name="i2c-0-mux (chan_id 2)" bus_name="smbus4">
+        <qsfp instance="1" addr="0x50" mux_sel_bus="qsfp_mux_sel" mux_sel_value="0x1" mod_sel_bus="qsfp_mod_sel" mod_sel_value="0x1" mod_pres_bus="qsfp_presence" mod_pres_bitmask="0x0" mod_reset_bus="qsfp_reset" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode" mod_lpmode_bitmask="0x0" />
+        <qsfp instance="2" addr="0x50" mux_sel_bus="qsfp_mux_sel" mux_sel_value="0x2" mod_sel_bus="qsfp_mod_sel" mod_sel_value="0x2" mod_pres_bus="qsfp_presence" mod_pres_bitmask="0x1" mod_reset_bus="qsfp_reset" mod_reset_bitmask="0x1"  mod_lpmode_bus="qsfp_lpmode" mod_lpmode_bitmask="0x1" />
+        <qsfp instance="3" addr="0x50" mux_sel_bus="qsfp_mux_sel" mux_sel_value="0x3" mod_sel_bus="qsfp_mod_sel" mod_sel_value="0x4" mod_pres_bus="qsfp_presence" mod_pres_bitmask="0x2" mod_reset_bus="qsfp_reset" mod_reset_bitmask="0x2"  mod_lpmode_bus="qsfp_lpmode" mod_lpmode_bitmask="0x2" />
+        <qsfp instance="4" addr="0x50" mux_sel_bus="qsfp_mux_sel" mux_sel_value="0x4" mod_sel_bus="qsfp_mod_sel" mod_sel_value="0x8" mod_pres_bus="qsfp_presence" mod_pres_bitmask="0x3" mod_reset_bus="qsfp_reset" mod_reset_bitmask="0x3"  mod_lpmode_bus="qsfp_lpmode" mod_lpmode_bitmask="0x3" />
+        <qsfp instance="5" addr="0x50" mux_sel_bus="qsfp_mux_sel" mux_sel_value="0x5" mod_sel_bus="qsfp_mod_sel" mod_sel_value="0x10" mod_pres_bus="qsfp_presence" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset" mod_reset_bitmask="0x4"  mod_lpmode_bus="qsfp_lpmode" mod_lpmode_bitmask="0x4" />
+        <qsfp instance="6" addr="0x50" mux_sel_bus="qsfp_mux_sel" mux_sel_value="0x6" mod_sel_bus="qsfp_mod_sel" mod_sel_value="0x20" mod_pres_bus="qsfp_presence" mod_pres_bitmask="0x5" mod_reset_bus="qsfp_reset" mod_reset_bitmask="0x5"  mod_lpmode_bus="qsfp_lpmode" mod_lpmode_bitmask="0x5" />
+    </sys_i2c>
+    <sys_i2c instance="5" sysfs_name="i2c-0-mux (chan_id 3)" bus_name="smbus5">
+        <emc2305 instance="1" addr="0x4d" fan_control_type="RPM">
+            <fan instance="0" fan_speed="15400" alias="fan-5" poles="2" />
+            <fan instance="1" fan_speed="15400" alias="fan-6" poles="2" />
+            <fan instance="2" fan_speed="15400" alias="fan-7" poles="2" />
+            <fan instance="3" fan_speed="15400" alias="fan-8" poles="2" />
+        </emc2305>
+        <eeprom instance="3" alias="fan_tray_fru3" addr="0x53" size="256" parser="ONIE_FAN_EEPROM" no_of_fans="2" max_fan_speed="16000" />
+        <eeprom instance="4" alias="fan_tray_fru4" addr="0x54" size="256" parser="ONIE_FAN_EEPROM" no_of_fans="2" max_fan_speed="16000" />
+    </sys_i2c>
+    <sys_i2c instance="6" sysfs_name="i2c-0-mux (chan_id 4)" bus_name="smbus6">
+        <eeprom instance="5" alias="psu_fru1" addr="0x51" size="256" parser="DELTA_PSU_EEPROM" no_of_fans="1" max_fan_speed="23000" />
+        <eeprom instance="6" alias="psu_fru2" addr="0x50" size="256" parser="DELTA_PSU_EEPROM" no_of_fans="1" max_fan_speed="23000" />
+        <!-- The PSU used in s4000 is same as the one in S6000, so we name it
+             as s6k_psu which shares the same driver-->
+        <s6k_psu instance="0" addr="0x59" fan_speed="23000" alias="psu-1" />
+        <s6k_psu instance="1" addr="0x58" fan_speed="23000" alias="psu-2" />
+    </sys_i2c>
+    <sys_i2c instance="7" sysfs_name="i2c-0-mux (chan_id 5)" bus_name="smbus7">
+    </sys_i2c>
+    <sys_i2c instance="8" sysfs_name="i2c-0-mux (chan_id 6)" bus_name="smbus8">
+    </sys_i2c>
+    <sys_i2c instance="9" sysfs_name="i2c-0-mux (chan_id 7)" bus_name="smbus9">
+    </sys_i2c>
+</root>

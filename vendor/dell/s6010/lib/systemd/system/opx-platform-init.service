@@ -1,7 +1,7 @@
 [Unit]
 Description=Platform initialization service
-After=dev-i2c-0.device dev-i2c-1.device dev-i2c-2.device
-Wants=dev-i2c-0.device dev-i2c-1.device dev-i2c-2.device
+After=dev-i2c-0.device dev-i2c-1.device
+Wants=dev-i2c-0.device dev-i2c-1.device
 Before=opx-pas.service
 DefaultDependencies=no
 

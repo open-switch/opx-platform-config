@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 2015 Dell Inc.
+ Licensed under the Apache License, Version 2.0 (the "License"); you may
+ not use this file except in compliance with the License. You may obtain
+ a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+
+ THIS CODE IS PROVIDED ON AN  *AS IS* BASIS, WITHOUT WARRANTIES OR
+ CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT
+ LIMITATION ANY IMPLIED WARRANTIES OR CONDITIONS OF TITLE, FITNESS
+ FOR A PARTICULAR PURPOSE, MERCHANTABLITY OR NON-INFRINGEMENT.
+
+ See the Apache Version 2.0 License for specific language governing
+ permissions and limitations under the License.
+
+ Media specific default configuration for the platform S6010.
+ Speed is in Mbps unit and any attribute is not applicable then it is either
+ ignored or set to None in this config file.
+-->
+<media-npu-setting-info>
+    <media-type id="Not Present" speed="None" autoneg="None" duplex="None" />
+
+    <media-type id="Unknown" speed="None" autoneg="None" duplex="None" />
+
+    <media-type id="QSFP 40GBASE SR4" speed="40000" autoneg="off" duplex="None">
+        <entry supported-speed="40000" />
+    </media-type>
+
+    <media-type id="QSFP 40GBASE SR4 EXT" speed="40000" autoneg="off" duplex="None">
+        <entry supported-speed="40000" />
+    </media-type>
+
+    <media-type id="QSFP 40GBASE LR4" speed="40000" autoneg="off" duplex="None">
+        <entry supported-speed="40000" />
+    </media-type>
+
+    <media-type id="QSFP 40GBASE LM4" speed="40000" autoneg="off" duplex="None">
+        <entry supported-speed="40000" />
+    </media-type>
+
+    <media-type id="QSFP 40GBASE PSM4 LR" speed="40000" autoneg="off" duplex="None">
+        <entry supported-speed="40000" />
+    </media-type>
+
+    <media-type id="QSFP 40GBASE PSM4 1490NM" speed="40000" autoneg="off" duplex="None">
+        <entry supported-speed="40000" />
+    </media-type>
+
+    <media-type id="QSFP 40GBASE PSM4 1490NM 1M" speed="40000" autoneg="off" duplex="None">
+        <entry supported-speed="40000" />
+    </media-type>
+
+    <media-type id="QSFP 40GBASE PSM4 1490NM 3M" speed="40000" autoneg="off" duplex="None">
+        <entry supported-speed="40000" />
+    </media-type>
+
+    <media-type id="QSFP 40GBASE PSM4 1490NM 5M" speed="40000" autoneg="off" duplex="None">
+        <entry supported-speed="40000" />
+    </media-type>
+
+    <media-type id="QSFP 40GBASE CR4 HALFM" speed="40000" autoneg="on" duplex="None">
+        <entry supported-speed="40000" />
+    </media-type>
+
+    <media-type id="QSFP 40GBASE CR4 1M" speed="40000" autoneg="on" duplex="None">
+        <entry supported-speed="40000" />
+    </media-type>
+
+    <media-type id="QSFP 40GBASE CR4 2M" speed="40000" autoneg="on" duplex="None">
+        <entry supported-speed="40000" />
+    </media-type>
+
+    <media-type id="QSFP 40GBASE CR4 3M" speed="40000" autoneg="on" duplex="None">
+        <entry supported-speed="40000" />
+    </media-type>
+
+    <media-type id="QSFP 40GBASE CR4 5M" speed="40000" autoneg="on" duplex="None">
+        <entry supported-speed="40000" />
+    </media-type>
+
+    <media-type id="QSFP 40GBASE CR4 7M" speed="40000" autoneg="on" duplex="None">
+        <entry supported-speed="40000" />
+    </media-type>
+
+    <media-type id="QSFP 40GBASE CR4 10M" speed="40000" autoneg="on" duplex="None">
+        <entry supported-speed="40000" />
+    </media-type>
+
+    <media-type id="QSFP 40GBASE CR4 50M" speed="40000" autoneg="on" duplex="None">
+        <entry supported-speed="40000" />
+    </media-type>
+
+    <media-type id="QSFP 40GBASE CR4" speed="40000" autoneg="on" duplex="None">
+        <entry supported-speed="40000" />
+    </media-type>
+
+    <media-type id="4x10 10GBASE CR1 HALFM" speed="40000" autoneg="off" duplex="None">
+        <entry supported-speed="40000" />
+    </media-type>
+
+    <media-type id="4x10 10GBASE CR1 1M" speed="40000" autoneg="off" duplex="None">
+        <entry supported-speed="40000" />
+    </media-type>
+
+    <media-type id="4x10 10GBASE CR1 3M" speed="40000" autoneg="off" duplex="None">
+        <entry supported-speed="40000" />
+    </media-type>
+
+    <media-type id="4x10 10GBASE CR1 5M" speed="40000" autoneg="off" duplex="None">
+        <entry supported-speed="40000" />
+    </media-type>
+
+    <media-type id="4x10 10GBASE CR1 7M" speed="40000" autoneg="off" duplex="None">
+        <entry supported-speed="40000" />
+    </media-type>
+
+    <media-type id="4x10 10GBASE SR AOC XXM" speed="40000" autoneg="off" duplex="None">
+        <entry supported-speed="40000" />
+    </media-type>
+
+    <media-type id="QSFP 40GBASE SM4" speed="40000" autoneg="off" duplex="None">
+        <entry supported-speed="40000" />
+    </media-type>
+
+    <media-type id="QSFP 40GBASE ER4" speed="40000" autoneg="off" duplex="None">
+        <entry supported-speed="40000" />
+    </media-type>
+
+    <media-type id="4x10 10GBASE CR1 2M" speed="40000" autoneg="off" duplex="None">
+        <entry supported-speed="40000" />
+    </media-type>
+
+    <media-type id="QSFP 40GBASE BIDI" speed="40000" autoneg="off" duplex="None">
+        <entry supported-speed="40000" />
+    </media-type>
+
+    <media-type id="QSFP 40GBASE AOC" speed="40000" autoneg="off" duplex="None">
+        <entry supported-speed="40000" />
+    </media-type>
+
+    <media-type id="QSFP 40GBASE PSM4 PIGTAIL" speed="40000" autoneg="off" duplex="None">
+        <entry supported-speed="40000" />
+    </media-type>
+
+</media-npu-setting-info>

@@ -1,0 +1,163 @@
+{ "cooling": {
+    "airflow-ppid": [
+        { "ppid": "..YVCK0.*", "airflow": "normal" },
+        { "ppid": "..J1P3P.*", "airflow": "reverse" },
+        { "ppid": "..PRKV1.*", "airflow": "reverse" }
+    ],
+
+    "options": [ "fault-full-speed", "absent-full-speed" ],
+
+    "levels": {
+        "normal-zone": [
+            [ { "airflow": "normal", "speed-pct": 50 } ],
+            [ { "airflow": "normal", "speed-pct": 60 } ],
+            [ { "airflow": "normal", "speed-pct": 80 } ],
+            [ { "airflow": "normal", "speed-pct": 90 } ],
+            [ { "airflow": "normal", "speed-pct": 100 } ]            
+        ],
+
+        "reverse-zone": [
+            [ { "airflow": "reverse", "speed-pct": 50 } ],
+            [ { "airflow": "reverse", "speed-pct": 60 } ],
+            [ { "airflow": "reverse", "speed-pct": 80 } ],
+            [ { "airflow": "reverse", "speed-pct": 90 } ],
+            [ { "airflow": "reverse", "speed-pct": 100 } ]            
+        ]
+    },
+      
+    "thresholds": [
+        { "sensor": "CPU Ambient temp sensor", "temperature": { "hi": 39, "lo": 34 }, "level": [ { "zone": "normal-zone", "hi": 1, "lo": 0 } ] },
+        { "sensor": "CPU Ambient temp sensor", "temperature": { "hi": 44, "lo": 41 }, "level": [ { "zone": "normal-zone", "hi": 2, "lo": 1 } ] },
+        { "sensor": "CPU Ambient temp sensor", "temperature": { "hi": 49, "lo": 46 }, "level": [ { "zone": "normal-zone", "hi": 3, "lo": 2 } ] },
+        { "sensor": "CPU Ambient temp sensor", "temperature": { "hi": 56, "lo": 51 }, "level": [ { "zone": "normal-zone", "hi": 4, "lo": 3 } ] },
+
+        { "sensor": "QSFP Ambient temp sensor", "temperature": { "hi": 39, "lo": 34 }, "level": [ { "zone": "normal-zone", "hi": 1, "lo": 0 } ] },
+        { "sensor": "QSFP Ambient temp sensor", "temperature": { "hi": 44, "lo": 41 }, "level": [ { "zone": "normal-zone", "hi": 2, "lo": 1 } ] },
+        { "sensor": "QSFP Ambient temp sensor", "temperature": { "hi": 49, "lo": 46 }, "level": [ { "zone": "normal-zone", "hi": 3, "lo": 2 } ] },
+        { "sensor": "QSFP Ambient temp sensor", "temperature": { "hi": 56, "lo": 51 }, "level": [ { "zone": "normal-zone", "hi": 4, "lo": 3 } ] },
+
+        { "sensor": "T2 Ambient temp sensor", "temperature": { "hi": 44, "lo": 39 }, "level": [ { "zone": "normal-zone", "hi": 1, "lo": 0 } ] },
+        { "sensor": "T2 Ambient temp sensor", "temperature": { "hi": 49, "lo": 46 }, "level": [ { "zone": "normal-zone", "hi": 2, "lo": 1 } ] },
+        { "sensor": "T2 Ambient temp sensor", "temperature": { "hi": 54, "lo": 51 }, "level": [ { "zone": "normal-zone", "hi": 3, "lo": 2 } ] },
+        { "sensor": "T2 Ambient temp sensor", "temperature": { "hi": 61, "lo": 56 }, "level": [ { "zone": "normal-zone", "hi": 4, "lo": 3 } ] },
+
+        { "sensor": "Middle PHY Ambient temp sensor", "temperature": { "hi": 49, "lo": 43 }, "level": [ { "zone": "normal-zone", "hi": 1, "lo": 0 } ] },
+        { "sensor": "Middle PHY Ambient temp sensor", "temperature": { "hi": 54, "lo": 51 }, "level": [ { "zone": "normal-zone", "hi": 2, "lo": 1 } ] },
+        { "sensor": "Middle PHY Ambient temp sensor", "temperature": { "hi": 59, "lo": 56 }, "level": [ { "zone": "normal-zone", "hi": 3, "lo": 2 } ] },
+        { "sensor": "Middle PHY Ambient temp sensor", "temperature": { "hi": 66, "lo": 61 }, "level": [ { "zone": "normal-zone", "hi": 4, "lo": 3 } ] },
+
+        { "sensor": "NPU temp sensor", "temperature": { "hi": 63, "lo": 58 }, "level": [ { "zone": "normal-zone", "hi": 1, "lo": 0 } ] },
+        { "sensor": "NPU temp sensor", "temperature": { "hi": 68, "lo": 65 }, "level": [ { "zone": "normal-zone", "hi": 2, "lo": 1 } ] },
+        { "sensor": "NPU temp sensor", "temperature": { "hi": 73, "lo": 70 }, "level": [ { "zone": "normal-zone", "hi": 3, "lo": 2 } ] },
+        { "sensor": "NPU temp sensor", "temperature": { "hi": 80, "lo": 75 }, "level": [ { "zone": "normal-zone", "hi": 4, "lo": 3 } ] },
+
+        { "sensor": "CPU Ambient temp sensor", "temperature": { "hi": 31, "lo": 26 }, "level": [ { "zone": "reverse-zone", "hi": 1, "lo": 0 } ] },
+        { "sensor": "CPU Ambient temp sensor", "temperature": { "hi": 41, "lo": 36 }, "level": [ { "zone": "reverse-zone", "hi": 2, "lo": 1 } ] },
+        { "sensor": "CPU Ambient temp sensor", "temperature": { "hi": 51, "lo": 46 }, "level": [ { "zone": "reverse-zone", "hi": 3, "lo": 2 } ] },
+        { "sensor": "CPU Ambient temp sensor", "temperature": { "hi": 58, "lo": 55 }, "level": [ { "zone": "reverse-zone", "hi": 4, "lo": 3 } ] },
+
+        { "sensor": "QSFP Ambient temp sensor", "temperature": { "hi": 37, "lo": 32 }, "level": [ { "zone": "reverse-zone", "hi": 1, "lo": 0 } ] },
+        { "sensor": "QSFP Ambient temp sensor", "temperature": { "hi": 47, "lo": 42 }, "level": [ { "zone": "reverse-zone", "hi": 2, "lo": 1 } ] },
+        { "sensor": "QSFP Ambient temp sensor", "temperature": { "hi": 56, "lo": 51 }, "level": [ { "zone": "reverse-zone", "hi": 3, "lo": 2 } ] },
+        { "sensor": "QSFP Ambient temp sensor", "temperature": { "hi": 62, "lo": 59 }, "level": [ { "zone": "reverse-zone", "hi": 4, "lo": 3 } ] },
+
+        { "sensor": "T2 Ambient temp sensor", "temperature": { "hi": 39, "lo": 34 }, "level": [ { "zone": "reverse-zone", "hi": 1, "lo": 0 } ] },
+        { "sensor": "T2 Ambient temp sensor", "temperature": { "hi": 48, "lo": 43 }, "level": [ { "zone": "reverse-zone", "hi": 2, "lo": 1 } ] },
+        { "sensor": "T2 Ambient temp sensor", "temperature": { "hi": 57, "lo": 52 }, "level": [ { "zone": "reverse-zone", "hi": 3, "lo": 2 } ] },
+        { "sensor": "T2 Ambient temp sensor", "temperature": { "hi": 63, "lo": 60 }, "level": [ { "zone": "reverse-zone", "hi": 4, "lo": 3 } ] },
+
+        { "sensor": "Middle PHY Ambient temp sensor", "temperature": { "hi": 51, "lo": 46 }, "level": [ { "zone": "reverse-zone", "hi": 1, "lo": 0 } ] },
+        { "sensor": "Middle PHY Ambient temp sensor", "temperature": { "hi": 59, "lo": 55 }, "level": [ { "zone": "reverse-zone", "hi": 2, "lo": 1 } ] },
+        { "sensor": "Middle PHY Ambient temp sensor", "temperature": { "hi": 67, "lo": 63 }, "level": [ { "zone": "reverse-zone", "hi": 3, "lo": 2 } ] },
+        { "sensor": "Middle PHY Ambient temp sensor", "temperature": { "hi": 74, "lo": 70 }, "level": [ { "zone": "reverse-zone", "hi": 4, "lo": 3 } ] },
+
+        { "sensor": "NPU temp sensor", "temperature": { "hi": 62, "lo": 57 }, "level": [ { "zone": "reverse-zone", "hi": 1, "lo": 0 } ] },
+        { "sensor": "NPU temp sensor", "temperature": { "hi": 70, "lo": 66 }, "level": [ { "zone": "reverse-zone", "hi": 2, "lo": 1 } ] },
+        { "sensor": "NPU temp sensor", "temperature": { "hi": 78, "lo": 73 }, "level": [ { "zone": "reverse-zone", "hi": 3, "lo": 2 } ] },
+        { "sensor": "NPU temp sensor", "temperature": { "hi": 83, "lo": 80 }, "level": [ { "zone": "reverse-zone", "hi": 4, "lo": 3 } ] }
+    ]
+  },
+  
+  "faults": [
+      { "sensor": "T2 Ambient temp sensor",
+        "airflow": "normal",
+        "thresholds": [ { "hi": 55, "lo": 55 }, { "hi": 59, "lo": 59 }, { "hi": 63, "lo": 63 }, { "hi": 67, "lo": 67 } ]
+      },
+
+      { "sensor": "Left PHY Ambient temp sensor",
+        "airflow": "normal",
+        "thresholds": [ { "hi": 60, "lo": 60 }, { "hi": 64, "lo": 64 }, { "hi": 68, "lo": 68 }, { "hi": 72, "lo": 72 } ]
+      },
+
+      { "sensor": "Right PHY Ambient temp sensor",
+        "airflow": "normal",
+        "thresholds": [ { "hi": 60, "lo": 60 }, { "hi": 64, "lo": 64 }, { "hi": 68, "lo": 68 }, { "hi": 72, "lo": 72 } ]
+      },
+
+      { "sensor": "Middle PHY Ambient temp sensor",
+        "airflow": "normal",
+        "thresholds": [ { "hi": 60, "lo": 60 }, { "hi": 64, "lo": 64 }, { "hi": 68, "lo": 68 }, { "hi": 72, "lo": 72 } ]
+      },
+
+      { "sensor": "QSFP Ambient temp sensor",
+        "airflow": "normal",
+        "thresholds": [ { "hi": 53, "lo": 53 }, { "hi": 56, "lo": 56 }, { "hi": 59, "lo": 59 }, { "hi": 62, "lo": 62 } ]
+      },
+
+      { "sensor": "Ambient temp sensor",
+        "airflow": "normal",
+        "thresholds": [ { "hi": 61, "lo": 61 }, { "hi": 65, "lo": 65 }, { "hi": 69, "lo": 69 }, { "hi": 73, "lo": 73 } ]
+      },
+
+      { "sensor": "NPU temp sensor",
+        "airflow": "normal",
+        "thresholds": [ { "hi": 89, "lo": 89 }, { "hi": 94, "lo": 94 }, { "hi": 99, "lo": 99 }, { "hi": 104, "lo": 104 } ],
+        "master-thresholds": true
+      },
+
+      { "sensor": "CPU Ambient temp sensor",
+        "airflow": "normal",
+        "thresholds": [ { "hi": 50, "lo": 50 }, { "hi": 55, "lo": 55 }, { "hi": 60, "lo": 60 }, { "hi": 65, "lo": 65 } ]
+      },
+
+      { "sensor": "T2 Ambient temp sensor",
+        "airflow": "reverse",
+        "thresholds": [ { "hi": 58, "lo": 58 }, { "hi": 62, "lo": 62 }, { "hi": 66, "lo": 66 }, { "hi": 70, "lo": 70 } ]
+      },
+
+      { "sensor": "Left PHY Ambient temp sensor",
+        "airflow": "reverse",
+        "thresholds": [ { "hi": 65, "lo": 65 }, { "hi": 69, "lo": 69 }, { "hi": 73, "lo": 73 }, { "hi": 77, "lo": 77 } ]
+      },
+
+      { "sensor": "Right PHY Ambient temp sensor",
+        "airflow": "reverse",
+        "thresholds": [ { "hi": 65, "lo": 65 }, { "hi": 69, "lo": 69 }, { "hi": 73, "lo": 73 }, { "hi": 77, "lo": 77 } ]
+      },
+
+      { "sensor": "Middle PHY Ambient temp sensor",
+        "airflow": "reverse",
+        "thresholds": [ { "hi": 65, "lo": 65 }, { "hi": 69, "lo": 69 }, { "hi": 73, "lo": 73 }, { "hi": 77, "lo": 77 } ]
+      },
+
+      { "sensor": "QSFP Ambient temp sensor",
+        "airflow": "reverse",
+        "thresholds": [ { "hi": 53, "lo": 53 }, { "hi": 56, "lo": 56 }, { "hi": 59, "lo": 59 }, { "hi": 62, "lo": 62 } ]
+      },
+
+      { "sensor": "Ambient temp sensor",
+        "airflow": "reverse",
+        "thresholds": [ { "hi": 55, "lo": 55 }, { "hi": 59, "lo": 59 }, { "hi": 63, "lo": 63 }, { "hi": 67, "lo": 67 } ]
+      },
+
+      { "sensor": "NPU temp sensor",
+        "airflow": "reverse",
+        "thresholds": [ { "hi": 89, "lo": 89 }, { "hi": 94, "lo": 94 }, { "hi": 99, "lo": 99 }, { "hi": 104, "lo": 104 } ]
+      },
+
+      { "sensor": "CPU Ambient temp sensor",
+        "airflow": "reverse",
+        "thresholds": [ { "hi": 50, "lo": 50 }, { "hi": 55, "lo": 55 }, { "hi": 60, "lo": 60 }, { "hi": 65, "lo": 65 } ]
+      }
+  ]
+}

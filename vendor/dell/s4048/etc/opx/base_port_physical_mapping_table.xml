@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 2015 Dell Inc.
+ Licensed under the Apache License, Version 2.0 (the "License"); you may
+ not use this file except in compliance with the License. You may obtain
+ a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+
+ THIS CODE IS PROVIDED ON AN  *AS IS* BASIS, WITHOUT WARRANTIES OR
+ CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT
+ LIMITATION ANY IMPLIED WARRANTIES OR CONDITIONS OF TITLE, FITNESS
+ FOR A PARTICULAR PURPOSE, MERCHANTABLITY OR NON-INFRINGEMENT.
+
+ See the Apache Version 2.0 License for specific language governing
+ permissions and limitations under the License.
+-->
+<front-panel>
+    <!-- per platform profile definition is optional. If it is not provided then default value and capabilities
+         Will be used.
+        Default cap is hwport speed = 10000, phy_mode = Ethernet, breakout Cap = 1x1
+        or in the front panel port.
+    -->
+    <global fc_enabled="false" default_profile= "ethernet_sfp">
+        <profile name="ethernet_sfp" default_breakout="1x1" default_hwport_speed="10000">
+            <hwport_speed_cap value="10000"/>
+            <breakout_cap value="1x1"/>
+        </profile>
+        <profile name="ethernet_qsfp" default_breakout="1x1" default_hwport_speed="10000">
+            <hwport_speed_cap value="10000"/>
+            <breakout_cap value="4x1"/>
+            <breakout_cap value="1x1"/>
+        </profile>
+    </global>
+	<front-panel-port id="1" slot="0" npu="0" mac_offset="1" phy_media="1" name="e101-001-0">
+		<entry hwport="45" />
+	</front-panel-port>
+	<front-panel-port id="2" slot="0" npu="0" mac_offset="2" phy_media="2" name="e101-002-0">
+		<entry hwport="46" />
+	</front-panel-port>
+	<front-panel-port id="3" slot="0" npu="0" mac_offset="3" phy_media="3" name="e101-003-0">
+		<entry hwport="47" />
+	</front-panel-port>
+	<front-panel-port id="4" slot="0" npu="0" mac_offset="4" phy_media="4" name="e101-004-0">
+		<entry hwport="48" />
+	</front-panel-port>
+	<front-panel-port id="5" slot="0" npu="0" mac_offset="5" phy_media="5" name="e101-005-0">
+		<entry hwport="49" />
+	</front-panel-port>
+	<front-panel-port id="6" slot="0" npu="0" mac_offset="6" phy_media="6" name="e101-006-0">
+		<entry hwport="50" />
+	</front-panel-port>
+	<front-panel-port id="7" slot="0" npu="0" mac_offset="7" phy_media="7" name="e101-007-0">
+		<entry hwport="51" />
+	</front-panel-port>
+	<front-panel-port id="8" slot="0" npu="0" mac_offset="8" phy_media="8" name="e101-008-0">
+		<entry hwport="52" />
+	</front-panel-port>
+	<front-panel-port id="9" slot="0" npu="0" mac_offset="9" phy_media="9" name="e101-009-0">
+		<entry hwport="13" />
+	</front-panel-port>
+	<front-panel-port id="10" slot="0" npu="0" mac_offset="10" phy_media="10" name="e101-010-0">
+		<entry hwport="14" />
+	</front-panel-port>
+	<front-panel-port id="11" slot="0" npu="0" mac_offset="11" phy_media="11" name="e101-011-0">
+		<entry hwport="15" />
+	</front-panel-port>
+	<front-panel-port id="12" slot="0" npu="0" mac_offset="12" phy_media="12" name="e101-012-0">
+		<entry hwport="16" />
+	</front-panel-port>
+	<front-panel-port id="13" slot="0" npu="0" mac_offset="13" phy_media="13" name="e101-013-0">
+		<entry hwport="21" />
+	</front-panel-port>
+	<front-panel-port id="14" slot="0" npu="0" mac_offset="14" phy_media="14" name="e101-014-0">
+		<entry hwport="22" />
+	</front-panel-port>
+	<front-panel-port id="15" slot="0" npu="0" mac_offset="15" phy_media="15" name="e101-015-0">
+		<entry hwport="23" />
+	</front-panel-port>
+	<front-panel-port id="16" slot="0" npu="0" mac_offset="16" phy_media="16" name="e101-016-0">
+		<entry hwport="24" />
+	</front-panel-port>
+	<front-panel-port id="17" slot="0" npu="0" mac_offset="17" phy_media="17" name="e101-017-0">
+		<entry hwport="25" />
+	</front-panel-port>
+	<front-panel-port id="18" slot="0" npu="0" mac_offset="18" phy_media="18" name="e101-018-0">
+		<entry hwport="26" />
+	</front-panel-port>
+	<front-panel-port id="19" slot="0" npu="0" mac_offset="19" phy_media="19" name="e101-019-0">
+		<entry hwport="27" />
+	</front-panel-port>
+	<front-panel-port id="20" slot="0" npu="0" mac_offset="20" phy_media="20" name="e101-020-0">
+		<entry hwport="28" />
+	</front-panel-port>
+	<front-panel-port id="21" slot="0" npu="0" mac_offset="21" phy_media="21" name="e101-021-0">
+		<entry hwport="29" />
+	</front-panel-port>
+	<front-panel-port id="22" slot="0" npu="0" mac_offset="22" phy_media="22" name="e101-022-0">
+		<entry hwport="30" />
+	</front-panel-port>
+	<front-panel-port id="23" slot="0" npu="0" mac_offset="23" phy_media="23" name="e101-023-0">
+		<entry hwport="31" />
+	</front-panel-port>
+	<front-panel-port id="24" slot="0" npu="0" mac_offset="24" phy_media="24" name="e101-024-0">
+		<entry hwport="32" />
+	</front-panel-port>
+	<front-panel-port id="25" slot="0" npu="0" mac_offset="25" phy_media="25" name="e101-025-0">
+		<entry hwport="53" />
+	</front-panel-port>
+	<front-panel-port id="26" slot="0" npu="0" mac_offset="26" phy_media="26" name="e101-026-0">
+		<entry hwport="54" />
+	</front-panel-port>
+	<front-panel-port id="27" slot="0" npu="0" mac_offset="27" phy_media="27" name="e101-027-0">
+		<entry hwport="55" />
+	</front-panel-port>
+	<front-panel-port id="28" slot="0" npu="0" mac_offset="28" phy_media="28" name="e101-028-0">
+		<entry hwport="56" />
+	</front-panel-port>
+	<front-panel-port id="29" slot="0" npu="0" mac_offset="29" phy_media="29" name="e101-029-0">
+		<entry hwport="57" />
+	</front-panel-port>
+	<front-panel-port id="30" slot="0" npu="0" mac_offset="30" phy_media="30" name="e101-030-0">
+		<entry hwport="58" />
+	</front-panel-port>
+	<front-panel-port id="31" slot="0" npu="0" mac_offset="31" phy_media="31" name="e101-031-0">
+		<entry hwport="59" />
+	</front-panel-port>
+	<front-panel-port id="32" slot="0" npu="0" mac_offset="32" phy_media="32" name="e101-032-0">
+		<entry hwport="60" />
+	</front-panel-port>
+	<front-panel-port id="33" slot="0" npu="0" mac_offset="33" phy_media="33" name="e101-033-0">
+		<entry hwport="61" />
+	</front-panel-port>
+	<front-panel-port id="34" slot="0" npu="0" mac_offset="34" phy_media="34" name="e101-034-0">
+		<entry hwport="62" />
+	</front-panel-port>
+	<front-panel-port id="35" slot="0" npu="0" mac_offset="35" phy_media="35" name="e101-035-0">
+		<entry hwport="63" />
+	</front-panel-port>
+	<front-panel-port id="36" slot="0" npu="0" mac_offset="36" phy_media="36" name="e101-036-0">
+		<entry hwport="64" />
+	</front-panel-port>
+	<front-panel-port id="37" slot="0" npu="0" mac_offset="37" phy_media="37" name="e101-037-0">
+		<entry hwport="65" />
+	</front-panel-port>
+	<front-panel-port id="38" slot="0" npu="0" mac_offset="38" phy_media="38" name="e101-038-0">
+		<entry hwport="66" />
+	</front-panel-port>
+	<front-panel-port id="39" slot="0" npu="0" mac_offset="39" phy_media="39" name="e101-039-0">
+		<entry hwport="67" />
+	</front-panel-port>
+	<front-panel-port id="40" slot="0" npu="0" mac_offset="40" phy_media="40" name="e101-040-0">
+		<entry hwport="68" />
+	</front-panel-port>
+	<front-panel-port id="41" slot="0" npu="0" mac_offset="41" phy_media="41" name="e101-041-0">
+		<entry hwport="69" />
+	</front-panel-port>
+	<front-panel-port id="42" slot="0" npu="0" mac_offset="42" phy_media="42" name="e101-042-0">
+		<entry hwport="70" />
+	</front-panel-port>
+	<front-panel-port id="43" slot="0" npu="0" mac_offset="43" phy_media="43" name="e101-043-0">
+		<entry hwport="71" />
+	</front-panel-port>
+	<front-panel-port id="44" slot="0" npu="0" mac_offset="44" phy_media="44" name="e101-044-0">
+		<entry hwport="72" />
+	</front-panel-port>
+	<front-panel-port id="45" slot="0" npu="0" mac_offset="45" phy_media="45" name="e101-045-0">
+		<entry hwport="73" />
+	</front-panel-port>
+	<front-panel-port id="46" slot="0" npu="0" mac_offset="46" phy_media="46" name="e101-046-0">
+		<entry hwport="74" />
+	</front-panel-port>
+	<front-panel-port id="47" slot="0" npu="0" mac_offset="47" phy_media="47" name="e101-047-0">
+		<entry hwport="75" />
+	</front-panel-port>
+	<front-panel-port id="48" slot="0" npu="0" mac_offset="48" phy_media="48" name="e101-048-0">
+		<entry hwport="76" />
+	</front-panel-port>
+	<front-panel-port id="49" profile_type="ethernet_qsfp" slot="0" npu="0" mac_offset="49" phy_media="49" name="e101-049-0">
+		<entry hwport="101" />
+		<entry hwport="102" />
+		<entry hwport="103" />
+		<entry hwport="104" />
+	</front-panel-port>
+	<front-panel-port id="50" profile_type="ethernet_qsfp" slot="0" npu="0" mac_offset="53" phy_media="50" name="e101-050-0">
+		<entry hwport="97" />
+		<entry hwport="98" />
+		<entry hwport="99" />
+		<entry hwport="100" />
+	</front-panel-port>
+	<front-panel-port id="51" profile_type="ethernet_qsfp" slot="0" npu="0" mac_offset="57" phy_media="51" name="e101-051-0">
+		<entry hwport="109" />
+		<entry hwport="110" />
+		<entry hwport="111" />
+		<entry hwport="112" />
+	</front-panel-port>
+	<front-panel-port id="52" profile_type="ethernet_qsfp" slot="0" npu="0" mac_offset="61" phy_media="52" name="e101-052-0">
+		<entry hwport="105" />
+		<entry hwport="106" />
+		<entry hwport="107" />
+		<entry hwport="108" />
+	</front-panel-port>
+	<front-panel-port id="53" profile_type="ethernet_qsfp" slot="0" npu="0" mac_offset="65" phy_media="53" name="e101-053-0">
+		<entry hwport="81" />
+		<entry hwport="82" />
+		<entry hwport="83" />
+		<entry hwport="84" />
+	</front-panel-port>
+	<front-panel-port id="54" profile_type="ethernet_qsfp" slot="0" npu="0" mac_offset="69" phy_media="54" name="e101-054-0">
+		<entry hwport="77" />
+		<entry hwport="78" />
+		<entry hwport="79" />
+		<entry hwport="80" />
+	</front-panel-port>
+</front-panel>

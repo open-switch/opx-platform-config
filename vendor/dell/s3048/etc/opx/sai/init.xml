@@ -1,0 +1,1928 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 2015 Dell Inc.
+ Licensed under the Apache License, Version 2.0 (the "License"); you may
+ not use this file except in compliance with the License. You may obtain
+ a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+
+ THIS CODE IS PROVIDED ON AN  *AS IS* BASIS, WITHOUT WARRANTIES OR
+ CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT
+ LIMITATION ANY IMPLIED WARRANTIES OR CONDITIONS OF TITLE, FITNESS
+ FOR A PARTICULAR PURPOSE, MERCHANTABLITY OR NON-INFRINGEMENT.
+
+ See the Apache Version 2.0 License for specific language governing
+ permissions and limitations under the License.
+-->
+
+<!--=======================================================-->
+<!--     SAI Platform Initialization configuration         -->
+<!--=======================================================-->
+
+<SAI>
+
+    <!--=======================================================-->
+    <!--              Generic Platform Info                    -->
+    <!--=======================================================-->
+
+    <PLATFORM_INFO type="generic">
+
+        <!--=======================================================-->
+        <!--               Switch Level info                       -->
+        <!--=======================================================-->
+
+        <SWITCH instance="0">
+            <PORT_INFO cpu_port="0" max_logical_ports="53"
+                max_physical_ports="53" max_lane_per_port="1" max_port_mtu="12000"/>
+            <TABLE_SIZE l2_table="28672" l3_host_table="8192" l3_route_table="8192"/>
+            <QOS hierarchy_levels="3" max_hierarchy_node_childs="48" traffic_class="16"
+            max_buffer_size="3931" num_pg="8" cell_size="208" ing_max_buf_pools="4" egr_max_buf_pools="4"/>
+            <PORT_QUEUE queue_count="17" uc_count="9" mc_count="8"/>
+            <CPU_PORT_QUEUE queue_count="43" uc_count="0" mc_count="43"/>
+        </SWITCH>
+
+        <!--========================================================-->
+        <!-- Scheduler group hierarchy levels for default qos init  -->
+        <!-- Levels 3; Level-0:Port Level-1:L0 Level-2:L1           -->
+        <!-- Port has 1 L0 node as child                            -->
+        <!-- L0.0 has 1 L1 node as child                            -->
+        <!-- L1 node has 43 multicast queues as child               -->
+        <!--========================================================-->
+        <CPU_SCHEDULER_HIERARCHY_TREE num_levels="3">
+            <LEVEL level_idx="0" scheduler_group_count="1">
+                <SCHEDULER_GROUP index="0" child_count="1">
+                    <child-scheduler-group child_level ="1" index="0"/>
+                </SCHEDULER_GROUP>
+            </LEVEL>
+
+            <LEVEL level_idx="1" scheduler_group_count="1">
+                <SCHEDULER_GROUP index="0" child_count="1">
+                    <child-scheduler-group child_level="2" index="0"/>
+                </SCHEDULER_GROUP>
+            </LEVEL>
+
+            <LEVEL level_idx="2" scheduler_group_count="1">
+                <SCHEDULER_GROUP index="0" child_count="43">
+                    <child-queue queue-number="0" type="MCAST" index="0"/>
+                    <child-queue queue-number="1" type="MCAST" index="1"/>
+                    <child-queue queue-number="2" type="MCAST" index="2"/>
+                    <child-queue queue-number="3" type="MCAST" index="3"/>
+                    <child-queue queue-number="4" type="MCAST" index="4"/>
+                    <child-queue queue-number="5" type="MCAST" index="5"/>
+                    <child-queue queue-number="6" type="MCAST" index="6"/>
+                    <child-queue queue-number="7" type="MCAST" index="7"/>
+                    <child-queue queue-number="8" type="MCAST" index="8"/>
+                    <child-queue queue-number="9" type="MCAST" index="9"/>
+                    <child-queue queue-number="10" type="MCAST" index="10"/>
+                    <child-queue queue-number="11" type="MCAST" index="11"/>
+                    <child-queue queue-number="12" type="MCAST" index="12"/>
+                    <child-queue queue-number="13" type="MCAST" index="13"/>
+                    <child-queue queue-number="14" type="MCAST" index="14"/>
+                    <child-queue queue-number="15" type="MCAST" index="15"/>
+                    <child-queue queue-number="16" type="MCAST" index="16"/>
+                    <child-queue queue-number="17" type="MCAST" index="17"/>
+                    <child-queue queue-number="18" type="MCAST" index="18"/>
+                    <child-queue queue-number="19" type="MCAST" index="19"/>
+                    <child-queue queue-number="20" type="MCAST" index="20"/>
+                    <child-queue queue-number="21" type="MCAST" index="21"/>
+                    <child-queue queue-number="22" type="MCAST" index="22"/>
+                    <child-queue queue-number="23" type="MCAST" index="23"/>
+                    <child-queue queue-number="24" type="MCAST" index="24"/>
+                    <child-queue queue-number="25" type="MCAST" index="25"/>
+                    <child-queue queue-number="26" type="MCAST" index="26"/>
+                    <child-queue queue-number="27" type="MCAST" index="27"/>
+                    <child-queue queue-number="28" type="MCAST" index="28"/>
+                    <child-queue queue-number="29" type="MCAST" index="29"/>
+                    <child-queue queue-number="30" type="MCAST" index="30"/>
+                    <child-queue queue-number="31" type="MCAST" index="31"/>
+                    <child-queue queue-number="32" type="MCAST" index="32"/>
+                    <child-queue queue-number="33" type="MCAST" index="33"/>
+                    <child-queue queue-number="34" type="MCAST" index="34"/>
+                    <child-queue queue-number="35" type="MCAST" index="35"/>
+                    <child-queue queue-number="36" type="MCAST" index="36"/>
+                    <child-queue queue-number="37" type="MCAST" index="37"/>
+                    <child-queue queue-number="38" type="MCAST" index="38"/>
+                    <child-queue queue-number="39" type="MCAST" index="39"/>
+                    <child-queue queue-number="40" type="MCAST" index="40"/>
+                    <child-queue queue-number="41" type="MCAST" index="41"/>
+                    <child-queue queue-number="42" type="MCAST" index="42"/>
+                </SCHEDULER_GROUP>
+            </LEVEL>
+
+        </CPU_SCHEDULER_HIERARCHY_TREE>
+        <!--========================================================-->
+        <!-- Scheduler group hierarchy levels for default qos init  -->
+        <!-- Levels 3; Level-0:Port Level-1:L0 Level-2:L1           -->
+        <!-- Port has 2 L0 node as children                         -->
+        <!-- L0.0 has 8 L1 nodes as children                        -->
+        <!-- L0.1 has 1 L1 node as child                            -->
+        <!-- L1 nodes 0 - 7 have unicast and multicast queue
+             as child                                               -->
+        <!-- L1 node 8 has a unicast queue alone as child           -->
+        <!--========================================================-->
+        <SCHEDULER_HIERARCHY_TREE num_levels="3">
+            <LEVEL level_idx="0" scheduler_group_count="1">
+                <SCHEDULER_GROUP index="0" child_count="2">
+                    <child-scheduler-group child_level ="1" index="0"/>
+                    <child-scheduler-group child_level ="1" index="1"/>
+                </SCHEDULER_GROUP>
+            </LEVEL>
+
+            <LEVEL level_idx="1" scheduler_group_count="2">
+                <SCHEDULER_GROUP index="0" child_count="8">
+                    <child-scheduler-group child_level="2" index="0"/>
+                    <child-scheduler-group child_level="2" index="1"/>
+                    <child-scheduler-group child_level="2" index="2"/>
+                    <child-scheduler-group child_level="2" index="3"/>
+                    <child-scheduler-group child_level="2" index="4"/>
+                    <child-scheduler-group child_level="2" index="5"/>
+                    <child-scheduler-group child_level="2" index="6"/>
+                    <child-scheduler-group child_level="2" index="7"/>
+                </SCHEDULER_GROUP>
+
+                <SCHEDULER_GROUP index="1" child_count="1">
+                    <child-scheduler-group child_level="2" index="8"/>
+                </SCHEDULER_GROUP>
+            </LEVEL>
+
+            <LEVEL level_idx="2" scheduler_group_count="9">
+                <SCHEDULER_GROUP index="0" child_count="2">
+                    <child-queue queue-number="0" type="UCAST" index="0"/>
+                    <child-queue queue-number="0" type="MCAST" index="1"/>
+                </SCHEDULER_GROUP>
+
+                <SCHEDULER_GROUP index="1" child_count="2">
+                    <child-queue queue-number="1" type="UCAST" index="0"/>
+                    <child-queue queue-number="1" type="MCAST" index="1"/>
+                </SCHEDULER_GROUP>
+
+                <SCHEDULER_GROUP index="2" child_count="2">
+                    <child-queue queue-number="2" type="UCAST" index="0"/>
+                    <child-queue queue-number="2" type="MCAST" index="1"/>
+                </SCHEDULER_GROUP>
+
+                <SCHEDULER_GROUP index="3" child_count="2">
+                    <child-queue queue-number="3" type="UCAST" index="0"/>
+                    <child-queue queue-number="3" type="MCAST" index="1"/>
+                </SCHEDULER_GROUP>
+
+                <SCHEDULER_GROUP index="4" child_count="2">
+                    <child-queue queue-number="4" type="UCAST" index="0"/>
+                    <child-queue queue-number="4" type="MCAST" index="1"/>
+                </SCHEDULER_GROUP>
+
+                <SCHEDULER_GROUP index="5" child_count="2">
+                    <child-queue queue-number="5" type="UCAST" index="0"/>
+                    <child-queue queue-number="5" type="MCAST" index="1"/>
+                </SCHEDULER_GROUP>
+
+                <SCHEDULER_GROUP index="6" child_count="2">
+                    <child-queue queue-number="6" type="UCAST" index="0"/>
+                    <child-queue queue-number="6" type="MCAST" index="1"/>
+                </SCHEDULER_GROUP>
+
+                <SCHEDULER_GROUP index="7" child_count="2">
+                    <child-queue queue-number="7" type="UCAST" index="0"/>
+                    <child-queue queue-number="7" type="MCAST" index="1"/>
+                </SCHEDULER_GROUP>
+
+                <SCHEDULER_GROUP index="8" child_count="1">
+                    <child-queue queue-number="8" type="UCAST" index="0"/>
+                </SCHEDULER_GROUP>
+
+            </LEVEL>
+
+        </SCHEDULER_HIERARCHY_TREE>
+
+    </PLATFORM_INFO>
+
+    <!--=======================================================-->
+    <!--               Vendor Specific Info                    -->
+    <!--=======================================================-->
+
+    <PLATFORM_INFO type="vendor">
+
+        <!--=======================================================-->
+        <!--               Switch Level info                       -->
+        <!--=======================================================-->
+
+        <SWITCH instance="0" type="BCM56340_A0_HELIX4">
+            <!-- Store and Forward, Unified fowarding table support -->
+            <CAPABILITIES bitmask="0xc"/>
+            <SW_LINKSCAN interval="100000"/>
+        </SWITCH>
+
+        <!--=======================================================-->
+        <!--               Port Level info                         -->
+        <!--=======================================================-->
+        <!--  52 Physical ports   ; 53 Logical ports               -->
+		<!--  48 1G Ports, 4 SFP+ Ports						   -->
+        <!--=======================================================-->
+        <!--  53 port instances  ; 52 active port instances        -->
+        <!--=======================================================-->
+
+        <PORT instance="0" active="true">
+            <ID valid="true" logical_port="2" dport="1" hw_port="2" serdes_type="sgmii" port_group="0"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0" phy-offset="0" phy-int-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0c67"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0c67"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="1" active="true">
+            <ID valid="true" logical_port="1" dport="2" hw_port="1" serdes_type="sgmii" port_group="1"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0" phy-offset="1" phy-int-settings-count="8" phy-raw-settings-count="8" phy-port-settings-count="13">
+				<PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+				<PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+				<PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+				<PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0c67"/>
+				<PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+				<PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+				<PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+				<PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0c67"/>
+				<PHY_RAW_REG phy-reg-raw-addr="0x9" phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+				<PHY_RAW_REG phy-reg-raw-addr="0x9" phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+				<PHY_RAW_REG phy-reg-raw-addr="0x9" phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+				<PHY_RAW_REG phy-reg-raw-addr="0x9" phy-reg-addr="0x17" phy-reg-value="0x0eba"/>
+				<PHY_RAW_REG phy-reg-raw-addr="0x9" phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+				<PHY_RAW_REG phy-reg-raw-addr="0x9" phy-reg-addr="0x1e" phy-reg-value="0x4"/>
+				<PHY_RAW_REG phy-reg-raw-addr="0x9" phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+				<PHY_RAW_REG phy-reg-raw-addr="0x9" phy-reg-addr="0x17" phy-reg-value="0x0eba"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+			</PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="2" active="true">
+            <ID valid="true" logical_port="4" dport="3" hw_port="4" serdes_type="sgmii" port_group="2"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0" phy-offset="2" phy-int-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0c27"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0c27"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="3" active="true">
+            <ID valid="true" logical_port="3" dport="4" hw_port="3" serdes_type="sgmii" port_group="3"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0" phy-offset="3" phy-int-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0c27"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0c27"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="4" active="true">
+            <ID valid="true" logical_port="6" dport="5" hw_port="6" serdes_type="sgmii" port_group="4"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0" phy-offset="4" phy-int-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0c27"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0c27"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="5" active="true">
+            <ID valid="true" logical_port="5" dport="6" hw_port="5" serdes_type="sgmii" port_group="5"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0" phy-offset="5" phy-int-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0c27"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0c27"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="6" active="true">
+            <ID valid="true" logical_port="8" dport="7" hw_port="8" serdes_type="sgmii" port_group="6"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0" phy-offset="6" phy-int-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0c27"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0c27"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="7" active="true">
+            <ID valid="true" logical_port="7" dport="8" hw_port="7" serdes_type="sgmii" port_group="7"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0" phy-offset="7" phy-int-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0c27"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0c27"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="8" active="true">
+            <ID valid="true" logical_port="10" dport="9" hw_port="10" serdes_type="sgmii" port_group="8"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0x0800" phy-offset="0" phy-int-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0c27"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0c27"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="9" active="true">
+            <ID valid="true" logical_port="9" dport="10" hw_port="9" serdes_type="sgmii" port_group="9"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0x0800" phy-offset="1" phy-int-settings-count="8" phy-raw-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0c27"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0c27"/>
+                <PHY_RAW_REG phy-reg-raw-addr="0x12" phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_RAW_REG phy-reg-raw-addr="0x12" phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_RAW_REG phy-reg-raw-addr="0x12" phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_RAW_REG phy-reg-raw-addr="0x12" phy-reg-addr="0x17" phy-reg-value="0x0deb"/>
+                <PHY_RAW_REG phy-reg-raw-addr="0x12" phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_RAW_REG phy-reg-raw-addr="0x12" phy-reg-addr="0x1e" phy-reg-value="0x4"/>
+                <PHY_RAW_REG phy-reg-raw-addr="0x12" phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_RAW_REG phy-reg-raw-addr="0x12" phy-reg-addr="0x17" phy-reg-value="0x0deb"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="10" active="true">
+            <ID valid="true" logical_port="12" dport="11" hw_port="12" serdes_type="sgmii" port_group="10"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0x0800" phy-offset="2" phy-int-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0c27"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0c27"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="11" active="true">
+            <ID valid="true" logical_port="11" dport="12" hw_port="11" serdes_type="sgmii" port_group="11"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0x0800" phy-offset="3" phy-int-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0c27"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0c27"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="12" active="true">
+            <ID valid="true" logical_port="14" dport="13" hw_port="14" serdes_type="sgmii" port_group="12"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0x0800" phy-offset="4" phy-int-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0c27"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0c27"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="13" active="true">
+            <ID valid="true" logical_port="13" dport="14" hw_port="13" serdes_type="sgmii" port_group="13"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0x0800" phy-offset="5" phy-int-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0c27"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0c27"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="14" active="true">
+            <ID valid="true" logical_port="16" dport="15" hw_port="16" serdes_type="sgmii" port_group="14"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0x0800" phy-offset="6" phy-int-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0c27"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0c27"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="15" active="true">
+            <ID valid="true" logical_port="15" dport="16" hw_port="15" serdes_type="sgmii" port_group="15"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0x0800" phy-offset="7" phy-int-settings-count="8" phy-port-settings-count="13">
+                 <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0c27"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0c27"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="16" active="true">
+            <ID valid="true" logical_port="18" dport="17" hw_port="18" serdes_type="sgmii" port_group="16"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0x1000" phy-offset="0" phy-int-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0b66"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0b66"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="17" active="true">
+            <ID valid="true" logical_port="17" dport="18" hw_port="17" serdes_type="sgmii" port_group="17"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0x1000" phy-offset="1" phy-int-settings-count="8" phy-raw-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0b66"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0b66"/>
+                <PHY_RAW_REG phy-reg-raw-addr="0x1b" phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_RAW_REG phy-reg-raw-addr="0x1b" phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_RAW_REG phy-reg-raw-addr="0x1b" phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_RAW_REG phy-reg-raw-addr="0x1b" phy-reg-addr="0x17" phy-reg-value="0x0d6b"/>
+                <PHY_RAW_REG phy-reg-raw-addr="0x1b" phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_RAW_REG phy-reg-raw-addr="0x1b" phy-reg-addr="0x1e" phy-reg-value="0x4"/>
+                <PHY_RAW_REG phy-reg-raw-addr="0x1b" phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_RAW_REG phy-reg-raw-addr="0x1b" phy-reg-addr="0x17" phy-reg-value="0x0d6b"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="18" active="true">
+            <ID valid="true" logical_port="20" dport="19" hw_port="20" serdes_type="sgmii" port_group="18"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0x1000" phy-offset="2" phy-int-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0b66"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0b66"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="19" active="true">
+            <ID valid="true" logical_port="19" dport="20" hw_port="19" serdes_type="sgmii" port_group="19"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0x1000" phy-offset="3" phy-int-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0b66"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0b66"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="20" active="true">
+            <ID valid="true" logical_port="22" dport="21" hw_port="22" serdes_type="sgmii" port_group="20"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0x1000" phy-offset="4" phy-int-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0b66"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0b66"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="21" active="true">
+            <ID valid="true" logical_port="21" dport="22" hw_port="21" serdes_type="sgmii" port_group="21"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0x1000" phy-offset="5" phy-int-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0b66"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0b66"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="22" active="true">
+            <ID valid="true" logical_port="24" dport="23" hw_port="24" serdes_type="sgmii" port_group="22"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0x1000" phy-offset="6" phy-int-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0b66"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0b66"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="23" active="true">
+            <ID valid="true" logical_port="23" dport="24" hw_port="23" serdes_type="sgmii" port_group="23"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0x1000" phy-offset="7" phy-int-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0b66"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0b66"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+
+        <PORT instance="24" active="true">
+            <ID valid="true" logical_port="26" dport="25" hw_port="26" serdes_type="sgmii" port_group="24"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0x1800" phy-offset="0" phy-int-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0aa3"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0aa3"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="25" active="true">
+            <ID valid="true" logical_port="25" dport="26" hw_port="25" serdes_type="sgmii" port_group="25"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0x1800" phy-offset="1" phy-int-settings-count="8" phy-raw-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0aa3"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0aa3"/>
+                <PHY_RAW_REG phy-reg-raw-addr="0x29" phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_RAW_REG phy-reg-raw-addr="0x29" phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_RAW_REG phy-reg-raw-addr="0x29" phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_RAW_REG phy-reg-raw-addr="0x29" phy-reg-addr="0x17" phy-reg-value="0x0c2a"/>
+                <PHY_RAW_REG phy-reg-raw-addr="0x29" phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_RAW_REG phy-reg-raw-addr="0x29" phy-reg-addr="0x1e" phy-reg-value="0x4"/>
+                <PHY_RAW_REG phy-reg-raw-addr="0x29" phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_RAW_REG phy-reg-raw-addr="0x29" phy-reg-addr="0x17" phy-reg-value="0x0c2a"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="26" active="true">
+            <ID valid="true" logical_port="28" dport="27" hw_port="28" serdes_type="sgmii" port_group="26"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0x1800" phy-offset="2" phy-int-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0aa3"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0aa3"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="27" active="true">
+            <ID valid="true" logical_port="27" dport="28" hw_port="27" serdes_type="sgmii" port_group="27"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0x1800" phy-offset="3" phy-int-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0aa3"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0aa3"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="28" active="true">
+            <ID valid="true" logical_port="30" dport="29" hw_port="30" serdes_type="sgmii" port_group="28"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0x1800" phy-offset="4" phy-int-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0aa3"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0aa3"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="29" active="true">
+            <ID valid="true" logical_port="29" dport="30" hw_port="29" serdes_type="sgmii" port_group="29"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0x1800" phy-offset="5" phy-int-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0aa3"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0aa3"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="30" active="true">
+            <ID valid="true" logical_port="32" dport="31" hw_port="32" serdes_type="sgmii" port_group="30"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0x1800" phy-offset="6" phy-int-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0aa3"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0aa3"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="31" active="true">
+            <ID valid="true" logical_port="31" dport="32" hw_port="31" serdes_type="sgmii" port_group="31"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0x1800" phy-offset="7" phy-int-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0aa3"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0aa3"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="32" active="true">
+            <ID valid="true" logical_port="34" dport="33" hw_port="34" serdes_type="sgmii" port_group="32"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0x2000" phy-offset="0" phy-int-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x09e1"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x09e1"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="33" active="true">
+            <ID valid="true" logical_port="33" dport="34" hw_port="33" serdes_type="sgmii" port_group="33"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0x2000" phy-offset="1" phy-int-settings-count="8" phy-raw-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x09e1"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x09e1"/>
+                <PHY_RAW_REG phy-reg-raw-addr="0x32" phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_RAW_REG phy-reg-raw-addr="0x32" phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_RAW_REG phy-reg-raw-addr="0x32" phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_RAW_REG phy-reg-raw-addr="0x32" phy-reg-addr="0x17" phy-reg-value="0x0b25"/>
+                <PHY_RAW_REG phy-reg-raw-addr="0x32" phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_RAW_REG phy-reg-raw-addr="0x32" phy-reg-addr="0x1e" phy-reg-value="0x4"/>
+                <PHY_RAW_REG phy-reg-raw-addr="0x32" phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_RAW_REG phy-reg-raw-addr="0x32" phy-reg-addr="0x17" phy-reg-value="0x0b25"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="34" active="true">
+            <ID valid="true" logical_port="36" dport="35" hw_port="36" serdes_type="sgmii" port_group="34"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0x2000" phy-offset="2" phy-int-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x09e1"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x09e1"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="35" active="true">
+            <ID valid="true" logical_port="35" dport="36" hw_port="35" serdes_type="sgmii" port_group="35"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0x2000" phy-offset="3" phy-int-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x09e1"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x09e1"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="36" active="true">
+            <ID valid="true" logical_port="38" dport="37" hw_port="38" serdes_type="sgmii" port_group="36"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0x2000" phy-offset="4" phy-int-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x09e1"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x09e1"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="37" active="true">
+            <ID valid="true" logical_port="37" dport="38" hw_port="37" serdes_type="sgmii" port_group="37"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0x2000" phy-offset="5" phy-int-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x09e1"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x09e1"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="38" active="true">
+            <ID valid="true" logical_port="40" dport="39" hw_port="40" serdes_type="sgmii" port_group="38"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0x2000" phy-offset="6" phy-int-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x09e1"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x09e1"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="39" active="true">
+            <ID valid="true" logical_port="39" dport="40" hw_port="39" serdes_type="sgmii" port_group="39"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0x2000" phy-offset="7" phy-int-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x09e1"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x09e1"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="40" active="true">
+            <ID valid="true" logical_port="42" dport="41" hw_port="42" serdes_type="sgmii" port_group="40"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0x2800" phy-offset="0" phy-int-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x09a0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x09a0"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="41" active="true">
+            <ID valid="true" logical_port="41" dport="42" hw_port="41" serdes_type="sgmii" port_group="41"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0x2800" phy-offset="1" phy-int-settings-count="8" phy-raw-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x09a0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x09a0"/>
+                <PHY_RAW_REG phy-reg-raw-addr="0x3b" phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_RAW_REG phy-reg-raw-addr="0x3b" phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_RAW_REG phy-reg-raw-addr="0x3b" phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_RAW_REG phy-reg-raw-addr="0x3b" phy-reg-addr="0x17" phy-reg-value="0x0a23"/>
+                <PHY_RAW_REG phy-reg-raw-addr="0x3b" phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_RAW_REG phy-reg-raw-addr="0x3b" phy-reg-addr="0x1e" phy-reg-value="0x4"/>
+                <PHY_RAW_REG phy-reg-raw-addr="0x3b" phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_RAW_REG phy-reg-raw-addr="0x3b" phy-reg-addr="0x17" phy-reg-value="0x0a23"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="42" active="true">
+            <ID valid="true" logical_port="44" dport="43" hw_port="44" serdes_type="sgmii" port_group="42"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0x2800" phy-offset="2" phy-int-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x09a0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x09a0"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="43" active="true">
+            <ID valid="true" logical_port="43" dport="44" hw_port="43" serdes_type="sgmii" port_group="43"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0x2800" phy-offset="3" phy-int-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x09a0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x09a0"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="44" active="true">
+            <ID valid="true" logical_port="46" dport="45" hw_port="46" serdes_type="sgmii" port_group="44"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0x2800" phy-offset="4" phy-int-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x09a0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x09a0"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="45" active="true">
+            <ID valid="true" logical_port="45" dport="46" hw_port="45" serdes_type="sgmii" port_group="45"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0x2800" phy-offset="5" phy-int-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x09a0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x09a0"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="46" active="true">
+            <ID valid="true" logical_port="48" dport="47" hw_port="48" serdes_type="sgmii" port_group="46"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0x2800" phy-offset="6" phy-int-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x09a0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x09a0"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="47" active="true">
+            <ID valid="true" logical_port="47" dport="48" hw_port="47" serdes_type="sgmii" port_group="47"/>
+            <SUPPORTED_SPEED speed10M="true" speed100M="true" speed1G="true"/>
+            <AUTONEG enable="true"/>			
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0x2800" phy-offset="7" phy-int-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x09a0"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x0004"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x8060"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x09a0"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+            <EEE support="true"/>
+        </PORT>
+
+        <PORT instance="48" active="false">
+            <ID valid="false" logical_port="49" dport="49" hw_port="49" serdes_type="sgmii" port_group="48"/>
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="1000" count="1" bitmap="0x1"/>
+			<EEE support="true"/>
+        </PORT>
+
+        <PORT instance="49" active="true">
+            <ID valid="true" logical_port="51" dport="50" hw_port="51" serdes_type="warpcore" port_group="49"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANESWAP tx="0x2301" rx="0x1032"/>
+            <LANE speed="10000" count="1" bitmap="0x1"/>
+            <POLARITY tx="0x1" rx="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-int-settings-count="8" phy-port-settings-count="13">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x01ff"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x80a0"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0440"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x01ff"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x82e0"/>
+                <PHY_INT_REG phy-reg-addr="0x12" phy-reg-value="0xc2e1"/>
+                <PHY_PORT_REG phy-reg-addr="0x7e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x17" phy-reg-value="0x0f7e"/>
+                <PHY_PORT_REG phy-reg-addr="0x15" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0019"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x2518"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x001d"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x343a"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0034"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0404"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0001"/>
+                <PHY_PORT_REG phy-reg-addr="0x1e" phy-reg-value="0x0012"/>
+                <PHY_PORT_REG phy-reg-addr="0x1f" phy-reg-value="0x0a06"/>
+            </PRE_EMPHASIS>
+        </PORT>
+
+        <PORT instance="50" active="true">
+            <ID valid="true" logical_port="50" dport="51" hw_port="50" serdes_type="warpcore" port_group="50"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="10000" count="1" bitmap="0x1"/>
+            <POLARITY tx="0" rx="0"/>
+            <PRE_EMPHASIS type="external-phy" phy-addr="0x2800" phy-offset="6" phy-int-settings-count="8">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x01ff"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x80a0"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0550"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x01ff"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x82e0"/>
+                <PHY_INT_REG phy-reg-addr="0x12" phy-reg-value="0xbf01"/>
+            </PRE_EMPHASIS>
+        </PORT>
+
+        <PORT instance="51" active="true">
+            <ID valid="true" logical_port="53" dport="52" hw_port="53" serdes_type="warpcore" port_group="51"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="10000" count="1" bitmap="0x1"/>
+            <POLARITY tx="0x1" rx="0x1"/>
+            <PRE_EMPHASIS type="external-phy" phy-int-settings-count="8">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x01ff"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x80a0"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0440"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x01ff"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x82e0"/>
+                <PHY_INT_REG phy-reg-addr="0x12" phy-reg-value="0xc2e1"/>
+            </PRE_EMPHASIS>
+        </PORT>
+
+        <PORT instance="52" active="true">
+            <ID valid="true" logical_port="52" dport="53" hw_port="52" serdes_type="warpcore" port_group="52"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="10000" count="1" bitmap="0x1"/>
+            <POLARITY tx="0" rx="0"/>
+            <PRE_EMPHASIS type="external-phy" phy-int-settings-count="8">
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x01ff"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x80a0"/>
+                <PHY_INT_REG phy-reg-addr="0x17" phy-reg-value="0x0550"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0xffd0"/>
+                <PHY_INT_REG phy-reg-addr="0x1e" phy-reg-value="0x01ff"/>
+                <PHY_INT_REG phy-reg-addr="0x1f" phy-reg-value="0x82e0"/>
+                <PHY_INT_REG phy-reg-addr="0x12" phy-reg-value="0xbf01"/>
+            </PRE_EMPHASIS>
+        </PORT>
+        <!--=======================================================-->
+        <!--               LED Processor Program                   -->
+        <!--=======================================================-->
+
+        <LED_PROGRAM processors="1">
+
+            <LED instance="0" program="led 0 prog 02 31 60 F0 28 67 1E 02 32 60 F0 28 67 1E 02 33 60 F0 28 67 1E 02 34 60 F0 28 67 1E 3A 08 32 08 97 71 26 77 45 57 32 07 97 71 2D 77 45 32 00 32 01 B7 97 71 3E 77 37 22 0E 87 22 0E 87 57 22 0E 87 22 0F 87 57 22 0F 87 22 0E 87 57" port_order_remap_count="16">
+            <LED_PORT_ORDER_REMAP command="modreg CMIC_LEDUP0_PORT_ORDER_REMAP_0_3 REMAP_PORT_3=0x39 REMAP_PORT_2=0x3a REMAP_PORT_1=0x3b REMAP_PORT_0=0x3c"/>
+            <LED_PORT_ORDER_REMAP command="modreg CMIC_LEDUP0_PORT_ORDER_REMAP_4_7 REMAP_PORT_7=0x35 REMAP_PORT_6=0x36 REMAP_PORT_5=0x37 REMAP_PORT_4=0x38"/>
+            <LED_PORT_ORDER_REMAP command="modreg CMIC_LEDUP0_PORT_ORDER_REMAP_8_11 REMAP_PORT_9=0x33 REMAP_PORT_8=0x34 REMAP_PORT_11=0x31 REMAP_PORT_10=0x32"/>
+            <LED_PORT_ORDER_REMAP command="modreg CMIC_LEDUP0_PORT_ORDER_REMAP_12_15 REMAP_PORT_15=0x2d REMAP_PORT_14=0x2e REMAP_PORT_13=0x2f REMAP_PORT_12=0x30"/>
+            <LED_PORT_ORDER_REMAP command="modreg CMIC_LEDUP0_PORT_ORDER_REMAP_16_19 REMAP_PORT_19=0x29 REMAP_PORT_18=0x2a REMAP_PORT_17=0x2b REMAP_PORT_16=0x2c"/>
+            <LED_PORT_ORDER_REMAP command="modreg CMIC_LEDUP0_PORT_ORDER_REMAP_20_23 REMAP_PORT_23=0x25 REMAP_PORT_22=0x26 REMAP_PORT_21=0x27 REMAP_PORT_20=0x28"/>
+            <LED_PORT_ORDER_REMAP command="modreg CMIC_LEDUP0_PORT_ORDER_REMAP_24_27 REMAP_PORT_27=0x21 REMAP_PORT_26=0x22 REMAP_PORT_25=0x23 REMAP_PORT_24=0x24"/>
+            <LED_PORT_ORDER_REMAP command="modreg CMIC_LEDUP0_PORT_ORDER_REMAP_28_31 REMAP_PORT_31=0x1d REMAP_PORT_30=0x1e REMAP_PORT_29=0x1f REMAP_PORT_28=0x20"/>
+            <LED_PORT_ORDER_REMAP command="modreg CMIC_LEDUP0_PORT_ORDER_REMAP_32_35 REMAP_PORT_35=0x19 REMAP_PORT_34=0x1a REMAP_PORT_33=0x1b REMAP_PORT_32=0x1c"/>
+            <LED_PORT_ORDER_REMAP command="modreg CMIC_LEDUP0_PORT_ORDER_REMAP_36_39 REMAP_PORT_39=0x15 REMAP_PORT_38=0x16 REMAP_PORT_37=0x17 REMAP_PORT_36=0x18"/>
+            <LED_PORT_ORDER_REMAP command="modreg CMIC_LEDUP0_PORT_ORDER_REMAP_40_43 REMAP_PORT_43=0x11 REMAP_PORT_42=0x12 REMAP_PORT_41=0x13 REMAP_PORT_40=0x14"/>
+            <LED_PORT_ORDER_REMAP command="modreg CMIC_LEDUP0_PORT_ORDER_REMAP_44_47 REMAP_PORT_47=0xd REMAP_PORT_46=0xe REMAP_PORT_45=0xf REMAP_PORT_44=0x10"/>
+            <LED_PORT_ORDER_REMAP command="modreg CMIC_LEDUP0_PORT_ORDER_REMAP_48_51 REMAP_PORT_51=9 REMAP_PORT_50=0xa REMAP_PORT_49=0xb REMAP_PORT_48=0xc"/>
+            <LED_PORT_ORDER_REMAP command="modreg CMIC_LEDUP0_PORT_ORDER_REMAP_52_55 REMAP_PORT_55=5 REMAP_PORT_54=6 REMAP_PORT_53=7 REMAP_PORT_52=8"/>
+            <LED_PORT_ORDER_REMAP command="modreg CMIC_LEDUP0_PORT_ORDER_REMAP_56_59 REMAP_PORT_59=1 REMAP_PORT_58=2 REMAP_PORT_57=3 REMAP_PORT_56=4"/>
+            <LED_PORT_ORDER_REMAP command="modreg CMIC_LEDUP0_PORT_ORDER_REMAP_60_63 REMAP_PORT_63=0 REMAP_PORT_62=0 REMAP_PORT_61=0 REMAP_PORT_60=0"/>
+            </LED>
+
+        </LED_PROGRAM>
+
+    </PLATFORM_INFO>
+
+</SAI>

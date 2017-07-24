@@ -1,0 +1,68 @@
+<!-- Copyright (c) 2015 Dell Inc.
+ Licensed under the Apache License, Version 2.0 (the "License"); you may
+ not use this file except in compliance with the License. You may obtain
+ a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+
+ THIS CODE IS PROVIDED ON AN  *AS IS* BASIS, WITHOUT WARRANTIES OR
+ CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT
+ LIMITATION ANY IMPLIED WARRANTIES OR CONDITIONS OF TITLE, FITNESS
+ FOR A PARTICULAR PURPOSE, MERCHANTABLITY OR NON-INFRINGEMENT.
+
+ See the Apache Version 2.0 License for specific language governing
+ permissions and limitations under the License.
+-->
+<root>
+    <entity instance="1" type="SDI_ENTITY_SYSTEM_BOARD" presence="FIXED_SLOT" alias="System Board" cold_reset="0xaa" cold_reset_register="software_reset_control">
+        <resource reference="sys_eeprom" name="Entity Info" />
+        <resource reference="max6699-0-1" name="CPU Front to Rear temp sensor" />
+        <resource reference="max6699-0-2" name="CPU Rear to Front temp sensor" />
+        <resource reference="max6699-1-0" name="Rear to Front Inlet Ambient sensor" />
+        <resource reference="max6699-1-1" name="Rear to Front Helix shutdown sensor" />
+        <resource reference="max6699-1-2" name="Front to Rear right Inlet Ambient sensor" />
+        <resource reference="max6699-1-3" name="Front to Rear Helix shutdown sensor" />
+        <resource reference="max6699-1-4" name="Front to Rear left Inlet Ambient sensor" />
+        <resource reference="sfp-1" name="Optics Media 1" />
+        <resource reference="sfp-2" name="Optics Media 2" />
+        <resource reference="sfp-3" name="Optics Media 3" />
+        <resource reference="sfp-4" name="Optics Media 4" />
+        <resource reference="psu_failed_led" name="PSU Fault" />
+        <resource reference="fan_failed_led" name="Fan Fault" />
+        <resource reference="fan1_fwd_failed_led" name="Fantray 1 Fault (forward)" />
+        <resource reference="fan1_fwd_present_led" name="Fantray 1 Present (forward)" />
+        <resource reference="fan1_rev_failed_led" name="Fantray 1 Fault (reverse)" />
+        <resource reference="fan1_rev_present_led" name="Fantray 1 Present (reverse)" />
+        <resource reference="fan2_fwd_failed_led" name="Fantray 2 Fault (forward)" />
+        <resource reference="fan2_fwd_present_led" name="Fantray 2 Present (forward)" />
+        <resource reference="fan2_rev_failed_led" name="Fantray 2 Fault (reverse)" />
+        <resource reference="fan2_rev_present_led" name="Fantray 2 Present (reverse)" />
+        <resource reference="fan3_fwd_failed_led" name="Fantray 3 Fault (forward)" />
+        <resource reference="fan3_fwd_present_led" name="Fantray 3 Present (forward)" />
+        <resource reference="fan3_rev_failed_led" name="Fantray 3 Fault (reverse)" />
+        <resource reference="fan3_rev_present_led" name="Fantray 3 Present (reverse)" />
+        <resource reference="system_critical_led" name="Alarm Major" />
+        <resource reference="system_noncritical_led" name="Alarm Minor" />
+        <resource reference="master_led" name="Stack Master" />
+        <resource reference="locator_function_enable_led" name="Beacon" />
+        <resource reference="sys_nvram" name="NVRAM" />
+    </entity>
+    <entity instance="1" type="SDI_ENTITY_FAN_TRAY" presence="fantray1_presence" alias="Fan Tray-1" >
+        <resource reference="emc2305x-1-fan-4" name="Fan 1" />
+        <resource reference="fan_tray_fru1" name="Entity Info" />
+    </entity>
+    <entity instance="2" type="SDI_ENTITY_FAN_TRAY" presence="fantray2_presence" alias="Fan Tray-2" >
+        <resource reference="emc2305x-1-fan-2" name="Fan 1" />
+        <resource reference="fan_tray_fru2" name="Entity Info" />
+    </entity>
+    <entity instance="3" type="SDI_ENTITY_FAN_TRAY" presence="fantray3_presence" alias="Fan Tray-3" >
+        <resource reference="emc2305x-1-fan-1" name="Fan 1" />
+        <resource reference="fan_tray_fru3" name="Entity Info" />
+    </entity>
+    <entity instance="1" type="SDI_ENTITY_PSU_TRAY" presence="psu1_presence" fault="psu1_fault" power_output_status="psu1_ac_status" alias="PSU Tray-1" power="psu1_status_ctrl">
+        <resource reference="psu-1-Fan-1" name="Fan 1" />
+        <resource reference="psu_fru1" name="Entity Info" />
+    </entity>
+    <entity instance="2" type="SDI_ENTITY_PSU_TRAY" presence="psu2_presence" fault="psu2_fault" power_output_status="psu2_ac_status" alias="PSU Tray-2" power="psu2_status_ctrl">
+        <resource reference="psu-2-Fan-1" name="Fan 1" />
+        <resource reference="psu_fru2" name="Entity Info" />
+    </entity>
+</root>
