@@ -104,4 +104,9 @@
             </phy-config-for-media-type>
 
         </phy-config>
+        <port-config>
+            <port-summary count="54"/>
+            <port-config-info port-type= "PLATFORM_PORT_TYPE_FIXED" media-type="PLATFORM_MEDIA_TYPE_10GBASE_COPPER" category="PLATFORM_MEDIA_CATEGORY_FIXED" speed="10G" port-range="1-48"/>
+            <port-config-info port-type= "PLATFORM_PORT_TYPE_PLUGGABLE" port-range="49-54"/>
+        </port-config>
 </pas>

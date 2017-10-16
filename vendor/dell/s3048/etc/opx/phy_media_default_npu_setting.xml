@@ -279,4 +279,11 @@
         <entry supported-speed="40000" />
     </media-type>
 
+    <media-type id="1GBASE COPPER" speed="1000" autoneg="on" duplex="None">
+        <entry supported-speed="1000" />
+    </media-type>
+
+    <media-type id="10GBASE COPPER" speed="10000" autoneg="on" duplex="None">
+        <entry supported-speed="10000" />
+    </media-type>
 </media-npu-setting-info>

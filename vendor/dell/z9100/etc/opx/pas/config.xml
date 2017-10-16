@@ -1,4 +1,4 @@
-<!-- Copyright (c) 2015 Dell Inc.
+<!-- Copyright (c) 2016 Dell Inc.
  Licensed under the Apache License, Version 2.0 (the "License"); you may
  not use this file except in compliance with the License. You may obtain
  a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
@@ -18,8 +18,6 @@
         <subcat id="fan-tray"/>
         <subcat id="card"/>
         <subcat id="fan"/>
-        <subcat id="led" entity-type="psu"/>
-        <subcat id="led" entity-type="fan-tray"/>
         <subcat id="led" entity-type="card"/>
         <subcat id="display" entity-type="card"/>
         <subcat id="temperature" entity-type="card"/>
@@ -33,38 +31,12 @@
         <entity entity-type="fan-tray" poll-interval="2000"/>
         <entity entity-type="card" poll-interval="5000"/>
 
-        <card type="0xfe02"/>
+        <card type="0xfe0f"/>
 
         <fan entity-type="psu" speed-control="no"/>
-        <fan entity-type="fan-tray" margin="5" incr="1" decr="15" limit="45"/>
-
-        <temperature num_thresholds="30"/>
+        <fan entity-type="fan-tray" speed-control="no"/>
 
         <led-groups entity-type="card">
-          <led-group>
-            <led id="Fantray 1 Present (forward)"/>
-            <led id="Fantray 1 Fault (forward)"/>
-            <led id="Fantray 1 Present (reverse)"/>
-            <led id="Fantray 1 Fault (reverse)"/>
-          </led-group>
-          <led-group>
-            <led id="Fantray 2 Present (forward)"/>
-            <led id="Fantray 2 Fault (forward)"/>
-            <led id="Fantray 2 Present (reverse)"/>
-            <led id="Fantray 2 Fault (reverse)"/>
-          </led-group>
-          <led-group>
-            <led id="Fantray 3 Present (forward)"/>
-            <led id="Fantray 3 Fault (forward)"/>
-            <led id="Fantray 3 Present (reverse)"/>
-            <led id="Fantray 3 Fault (reverse)"/>
-          </led-group>
-          <led-group>
-            <led id="Fan Fault"/>
-          </led-group>
-          <led-group>
-            <led id="PSU Fault"/>
-          </led-group>
           <led-group>
             <led id="Beacon"/>
           </led-group>
@@ -73,13 +45,11 @@
             <led id="Alarm Major"/>
           </led-group>
           <led-group>
-            <led id="Stack Master" default="on"/>
+            <led id="Stacking"/>
           </led-group>
         </led-groups>
 
-        <!-- led-control attribute is to specify, is front panel port led's will be -->
-        <!-- controlled by hardware/software -->
-        <media poll-interval="2000" rtd-interval="60" led-control="software" fixed-media-count="48"/>
+        <media poll-interval="2000" rtd-interval="60"/>
         <chassis total_mac_address="256"/>
 
         <phy-config>
@@ -98,13 +68,17 @@
             <!-- <external-phy mode="na" autoneg="na" supported-speeds="na" /> -->
 
             <phy-config-for-media-type type="PLATFORM_MEDIA_TYPE_SFP_T" type-enum-value="58">
-                <internal-phy mode="SGMII" autoneg="1" supported-speeds="1000M" />
+                <internal-phy mode="SGMII" autoneg="1" supported-speeds="10M/100M/1000M" />
+            </phy-config-for-media-type>
+
+            <phy-config-for-media-type type="PLATFORM_MEDIA_TYPE_AR_SFPPLUS_10GBASE_T" type-enum-value="11">
+                <internal-phy mode="SFI" autoneg="1" supported-speeds="100M/1G/10G" />
             </phy-config-for-media-type>
 
         </phy-config>
+
         <port-config>
-            <port-summary count="52"/>
-            <port-config-info port-type= "PLATFORM_PORT_TYPE_FIXED" media-type="PLATFORM_MEDIA_TYPE_1GBASE_COPPER" category="PLATFORM_MEDIA_CATEGORY_FIXED" speed="1G" port-range="1-48"/>
-            <port-config-info port-type= "PLATFORM_PORT_TYPE_PLUGGABLE" port-range="49-52"/>
+            <port-summary count="34"/>
+            <port-config-info port-type= "PLATFORM_PORT_TYPE_PLUGGABLE" port-range="1-34"/>
         </port-config>
 </pas>

@@ -100,4 +100,8 @@
             </phy-config-for-media-type>
 
         </phy-config>
+        <port-config>
+            <port-summary count="54"/>
+            <port-config-info port-type= "PLATFORM_PORT_TYPE_PLUGGABLE" port-range="1-54"/>
+        </port-config>
 </pas>

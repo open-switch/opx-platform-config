@@ -1,3 +1,11 @@
+opx-platform-config (1.1.0) unstable; urgency=medium
+
+  * Feature: Added Z9100 support
+  * Bugfix: Corrected dependency of startup script on I2C devices
+  * Bugfix: Added udev rules on VM to create interfaces
+
+ -- Dell EMC <opx-dev@lists.openswitch.net>  Mon, 16 Oct 2017 11:00:00 -0800
+
 opx-platform-config (1.0.5) unstable; urgency=medium
 
   * Update: Added support for Dell S3048, S4048, S4048T, and S6010 platforms
