@@ -7,4 +7,4 @@ This repository contains platform configuration files, scripts, shared libraries
 - opx-platform-config-mlnx-sn2410\_*version*\_amd64.deb — Configuration files for Mellanox SN2410
 - opx-platform-config-mlnx-sn2700\_*version*\_amd64.deb — Configuration files for Mellanox SN2700
   
-(c) 2017 Dell  
+(c) 2017 Dell EMC 
