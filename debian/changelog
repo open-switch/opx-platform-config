@@ -1,3 +1,9 @@
+opx-platform-config (1.1.2) unstable; urgency=medium
+
+  * Bugfix: Added missed supported speeds for Z9100
+
+ -- Dell EMC <opx-dev@lists.openswitch.net>  Wed, 10 Jan 2018 12:00:00 -0800
+
 opx-platform-config (1.1.1) unstable; urgency=medium
 
   * Bugfix: Added Supported Speed values for all the S6000-VM ports
