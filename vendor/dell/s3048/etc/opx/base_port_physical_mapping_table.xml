@@ -13,6 +13,21 @@
  permissions and limitations under the License.
 -->
 <front-panel>
+    <!-- per platform profile definition is optional. If it is not provided then default value and capabilities
+         Will be used.
+        Default cap is hwport speed = 1000, phy_mode = Ethernet, breakout Cap = 1x1
+        or in the front panel port.
+    -->
+    <global fc_enabled="false" default_profile= "ethernet_cu">
+        <profile name="ethernet_cu" default_breakout="1x1" default_hwport_speed="1000">
+            <hwport_speed_cap value="1000"/>
+            <breakout_cap value="1x1"/>
+        </profile>
+        <profile name="ethernet_sfp" default_breakout="1x1" default_hwport_speed="10000">
+            <hwport_speed_cap value="10000"/>
+            <breakout_cap value="1x1"/>
+        </profile>
+    </global>
 	<front-panel-port id="1" slot="0" npu="0" mac_offset="1" phy_media="1" breakout="false" name="e101-001-0">
 		<entry hwport="2" />
 	</front-panel-port>
@@ -157,16 +172,16 @@
 	<front-panel-port id="48" slot="0" npu="0" mac_offset="48" phy_media="48" breakout="false" name="e101-048-0">
 		<entry hwport="47" />
 	</front-panel-port>
-	<front-panel-port id="49" slot="0" npu="0" mac_offset="49" phy_media="49" breakout="false" name="e101-049-0">
+	<front-panel-port id="49" profile_type="ethernet_sfp" slot="0" npu="0" mac_offset="49" phy_media="49" breakout="false" name="e101-049-0">
 		<entry hwport="51" />
 	</front-panel-port>
-	<front-panel-port id="50" slot="0" npu="0" mac_offset="50" phy_media="50" breakout="false" name="e101-050-0">
+	<front-panel-port id="50" profile_type="ethernet_sfp" slot="0" npu="0" mac_offset="50" phy_media="50" breakout="false" name="e101-050-0">
 		<entry hwport="50" />
 	</front-panel-port>
-	<front-panel-port id="51" slot="0" npu="0" mac_offset="51" phy_media="51" breakout="false" name="e101-051-0">
+	<front-panel-port id="51" profile_type="ethernet_sfp" slot="0" npu="0" mac_offset="51" phy_media="51" breakout="false" name="e101-051-0">
 		<entry hwport="53" />
 	</front-panel-port>
-	<front-panel-port id="52" slot="0" npu="0" mac_offset="52" phy_media="52" breakout="false" name="e101-052-0">
+	<front-panel-port id="52" profile_type="ethernet_sfp" slot="0" npu="0" mac_offset="52" phy_media="52" breakout="false" name="e101-052-0">
 		<entry hwport="52" />
 	</front-panel-port>
 </front-panel>

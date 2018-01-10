@@ -12,16 +12,19 @@
  See the Apache Version 2.0 License for specific language governing
  permissions and limitations under the License.
 
- Media specific default configuration for the platform S41xx.
+ Media specific default configuration for the platform Z9100.
  Speed is in Mbps unit and any attribute is not applicable then it is either
  ignored or set to None in this config file.
+ hw-profile is specific to the physical port. It is a platform specific property.
+ It depends on the port configuration and the media-type present in the port. It indicates
+ a set of HW configurations such as pre-emphasis, et cetera.
 -->
 <media-npu-setting-info>
-    <media-type id="Not Applicable" speed="None" autoneg="None" duplex="None" />
+    <media-type id="Not Applicable" speed="None" autoneg="None" duplex="None" hw-profile="0"/>
 
-    <media-type id="Not Present" speed="None" autoneg="None" duplex="None" />
+    <media-type id="Not Present" speed="None" autoneg="None" duplex="None" hw-profile="0"/>
 
-    <media-type id="Unknown" speed="None" autoneg="None" duplex="None" />
+    <media-type id="Unknown" speed="None" autoneg="None" duplex="None" hw-profile="0"/>
 
     <media-type id="SFPPLUS 10GBASE USR" speed="10000" autoneg="off" duplex="None">
         <entry supported-speed="10000" />
@@ -107,111 +110,111 @@
         <entry supported-speed="10000" />
     </media-type>
 
-    <media-type id="QSFP 40GBASE SR4" speed="40000" autoneg="off" duplex="None">
+    <media-type id="QSFP 40GBASE SR4" speed="40000" autoneg="off" duplex="None" hw-profile="1">
         <entry supported-speed="40000" />
     </media-type>
 
-    <media-type id="QSFP 40GBASE SR4 EXT" speed="40000" autoneg="off" duplex="None">
+    <media-type id="QSFP 40GBASE SR4 EXT" speed="40000" autoneg="off" duplex="None" hw-profile="1">
         <entry supported-speed="40000" />
     </media-type>
 
-    <media-type id="QSFP 40GBASE LR4" speed="40000" autoneg="off" duplex="None">
+    <media-type id="QSFP 40GBASE LR4" speed="40000" autoneg="off" duplex="None" hw-profile="1">
         <entry supported-speed="40000" />
     </media-type>
 
-    <media-type id="QSFP 40GBASE LM4" speed="40000" autoneg="off" duplex="None">
+    <media-type id="QSFP 40GBASE LM4" speed="40000" autoneg="off" duplex="None" hw-profile="1">
         <entry supported-speed="40000" />
     </media-type>
 
-    <media-type id="QSFP 40GBASE PSM4 LR" speed="40000" autoneg="off" duplex="None">
+    <media-type id="QSFP 40GBASE PSM4 LR" speed="40000" autoneg="off" duplex="None" hw-profile="1">
         <entry supported-speed="40000" />
     </media-type>
 
-    <media-type id="QSFP 40GBASE PSM4 1490NM" speed="40000" autoneg="off" duplex="None">
+    <media-type id="QSFP 40GBASE PSM4 1490NM" speed="40000" autoneg="off" duplex="None" hw-profile="1">
         <entry supported-speed="40000" />
     </media-type>
 
-    <media-type id="QSFP 40GBASE PSM4 1490NM 1M" speed="40000" autoneg="off" duplex="None">
+    <media-type id="QSFP 40GBASE PSM4 1490NM 1M" speed="40000" autoneg="off" duplex="None" hw-profile="1">
         <entry supported-speed="40000" />
     </media-type>
 
-    <media-type id="QSFP 40GBASE PSM4 1490NM 3M" speed="40000" autoneg="off" duplex="None">
+    <media-type id="QSFP 40GBASE PSM4 1490NM 3M" speed="40000" autoneg="off" duplex="None" hw-profile="1">
         <entry supported-speed="40000" />
     </media-type>
 
-    <media-type id="QSFP 40GBASE PSM4 1490NM 5M" speed="40000" autoneg="off" duplex="None">
+    <media-type id="QSFP 40GBASE PSM4 1490NM 5M" speed="40000" autoneg="off" duplex="None" hw-profile="1">
         <entry supported-speed="40000" />
     </media-type>
 
-    <media-type id="QSFP 40GBASE CR4 HALFM" speed="40000" autoneg="on" duplex="None">
+    <media-type id="QSFP 40GBASE CR4 HALFM" speed="40000" autoneg="on" duplex="None" hw-profile="2">
         <entry supported-speed="40000" />
     </media-type>
 
-    <media-type id="QSFP 40GBASE CR4 1M" speed="40000" autoneg="on" duplex="None">
+    <media-type id="QSFP 40GBASE CR4 1M" speed="40000" autoneg="on" duplex="None" hw-profile="3">
         <entry supported-speed="40000" />
     </media-type>
 
-    <media-type id="QSFP 40GBASE CR4 2M" speed="40000" autoneg="on" duplex="None">
+    <media-type id="QSFP 40GBASE CR4 2M" speed="40000" autoneg="on" duplex="None" hw-profile="4">
         <entry supported-speed="40000" />
     </media-type>
 
-    <media-type id="QSFP 40GBASE CR4 3M" speed="40000" autoneg="on" duplex="None">
+    <media-type id="QSFP 40GBASE CR4 3M" speed="40000" autoneg="on" duplex="None" hw-profile="5">
         <entry supported-speed="40000" />
     </media-type>
 
-    <media-type id="QSFP 40GBASE CR4 5M" speed="40000" autoneg="on" duplex="None">
+    <media-type id="QSFP 40GBASE CR4 5M" speed="40000" autoneg="on" duplex="None" hw-profile="6">
         <entry supported-speed="40000" />
     </media-type>
 
-    <media-type id="QSFP 40GBASE CR4 7M" speed="40000" autoneg="on" duplex="None">
+    <media-type id="QSFP 40GBASE CR4 7M" speed="40000" autoneg="on" duplex="None" hw-profile="7">
         <entry supported-speed="40000" />
     </media-type>
 
-    <media-type id="QSFP 40GBASE CR4 10M" speed="40000" autoneg="on" duplex="None">
+    <media-type id="QSFP 40GBASE CR4 10M" speed="40000" autoneg="on" duplex="None" hw-profile="8">
         <entry supported-speed="40000" />
     </media-type>
 
-    <media-type id="QSFP 40GBASE CR4 50M" speed="40000" autoneg="on" duplex="None">
+    <media-type id="QSFP 40GBASE CR4 50M" speed="40000" autoneg="on" duplex="None" hw-profile="9">
         <entry supported-speed="40000" />
     </media-type>
 
-    <media-type id="QSFP 40GBASE CR4" speed="40000" autoneg="on" duplex="None">
+    <media-type id="QSFP 40GBASE CR4" speed="40000" autoneg="on" duplex="None" hw-profile="3">
         <entry supported-speed="40000" />
     </media-type>
 
-    <media-type id="4x10 10GBASE CR1 HALFM" speed="40000" autoneg="off" duplex="None">
+    <media-type id="4x10 10GBASE CR1 HALFM" speed="40000" autoneg="off" duplex="None" hw-profile="2">
         <entry supported-speed="40000" />
     </media-type>
 
-    <media-type id="4x10 10GBASE CR1 1M" speed="40000" autoneg="off" duplex="None">
+    <media-type id="4x10 10GBASE CR1 1M" speed="40000" autoneg="off" duplex="None" hw-profile="3">
         <entry supported-speed="40000" />
     </media-type>
 
-    <media-type id="4x10 10GBASE CR1 3M" speed="40000" autoneg="off" duplex="None">
+    <media-type id="4x10 10GBASE CR1 3M" speed="40000" autoneg="off" duplex="None" hw-profile="5">
         <entry supported-speed="40000" />
     </media-type>
 
-    <media-type id="4x10 10GBASE CR1 5M" speed="40000" autoneg="off" duplex="None">
+    <media-type id="4x10 10GBASE CR1 5M" speed="40000" autoneg="off" duplex="None" hw-profile="6">
         <entry supported-speed="40000" />
     </media-type>
 
-    <media-type id="4x10 10GBASE CR1 7M" speed="40000" autoneg="off" duplex="None">
+    <media-type id="4x10 10GBASE CR1 7M" speed="40000" autoneg="off" duplex="None" hw-profile="7">
         <entry supported-speed="40000" />
     </media-type>
 
-    <media-type id="4x10 10GBASE SR AOC XXM" speed="40000" autoneg="off" duplex="None">
+    <media-type id="4x10 10GBASE SR AOC XXM" speed="40000" autoneg="off" duplex="None" hw-profile="1">
         <entry supported-speed="40000" />
     </media-type>
 
-    <media-type id="QSFP 40GBASE SM4" speed="40000" autoneg="off" duplex="None">
+    <media-type id="QSFP 40GBASE SM4" speed="40000" autoneg="off" duplex="None" hw-profile="1">
         <entry supported-speed="40000" />
     </media-type>
 
-    <media-type id="QSFP 40GBASE ER4" speed="40000" autoneg="off" duplex="None">
+    <media-type id="QSFP 40GBASE ER4" speed="40000" autoneg="off" duplex="None" hw-profile="1">
         <entry supported-speed="40000" />
     </media-type>
 
-    <media-type id="4x10 10GBASE CR1 2M" speed="40000" autoneg="off" duplex="None">
+    <media-type id="4x10 10GBASE CR1 2M" speed="40000" autoneg="off" duplex="None" hw-profile="4">
         <entry supported-speed="40000" />
     </media-type>
 
@@ -271,111 +274,111 @@
         <entry supported-speed="1000" />
     </media-type>
 
-    <media-type id="QSFP28 100GBASE SR4" speed="100000" autoneg="off" duplex="None">
+    <media-type id="QSFP28 100GBASE SR4" speed="100000" autoneg="off" duplex="None" hw-profile="10">
         <entry supported-speed="100000" />
     </media-type>
 
-    <media-type id="QSFP28 100GBASE LR4" speed="100000" autoneg="off" duplex="None">
+    <media-type id="QSFP28 100GBASE LR4" speed="100000" autoneg="off" duplex="None" hw-profile="10">
         <entry supported-speed="100000" />
     </media-type>
 
-    <media-type id="QSFP28 100GBASE CWDM4" speed="100000" autoneg="off" duplex="None">
+    <media-type id="QSFP28 100GBASE CWDM4" speed="100000" autoneg="off" duplex="None" hw-profile="10">
         <entry supported-speed="100000" />
     </media-type>
 
-    <media-type id="QSFP28 100GBASE PSM4 IR" speed="100000" autoneg="off" duplex="None">
+    <media-type id="QSFP28 100GBASE PSM4 IR" speed="100000" autoneg="off" duplex="None" hw-profile="10">
         <entry supported-speed="100000" />
     </media-type>
 
-    <media-type id="QSFP28 100GBASE CR4" speed="100000" autoneg="on" duplex="None">
+    <media-type id="QSFP28 100GBASE CR4" speed="100000" autoneg="on" duplex="None" hw-profile="11">
         <entry supported-speed="100000" />
     </media-type>
 
-    <media-type id="QSFP28 100GBASE AOC" speed="100000" autoneg="off" duplex="None">
+    <media-type id="QSFP28 100GBASE AOC" speed="100000" autoneg="off" duplex="None" hw-profile="10">
         <entry supported-speed="100000" />
     </media-type>
 
-    <media-type id="QSFP28 100GBASE CR4 HALFM" speed="100000" autoneg="on" duplex="None">
+    <media-type id="QSFP28 100GBASE CR4 HALFM" speed="100000" autoneg="on" duplex="None" hw-profile="11">
         <entry supported-speed="100000" />
     </media-type>
 
-    <media-type id="QSFP28 100GBASE CR4 1M" speed="100000" autoneg="on" duplex="None">
+    <media-type id="QSFP28 100GBASE CR4 1M" speed="100000" autoneg="on" duplex="None" hw-profile="12">
         <entry supported-speed="100000" />
     </media-type>
 
-    <media-type id="QSFP28 100GBASE CR4 2M" speed="100000" autoneg="on" duplex="None">
+    <media-type id="QSFP28 100GBASE CR4 2M" speed="100000" autoneg="on" duplex="None" hw-profile="13">
         <entry supported-speed="100000" />
     </media-type>
 
-    <media-type id="QSFP28 100GBASE CR4 3M" speed="100000" autoneg="on" duplex="None">
+    <media-type id="QSFP28 100GBASE CR4 3M" speed="100000" autoneg="on" duplex="None" hw-profile="14">
         <entry supported-speed="100000" />
     </media-type>
 
-    <media-type id="QSFP28 100GBASE CR4 4M" speed="100000" autoneg="on" duplex="None">
+    <media-type id="QSFP28 100GBASE CR4 4M" speed="100000" autoneg="on" duplex="None" hw-profile="15">
         <entry supported-speed="100000" />
     </media-type>
 
-    <media-type id="QSFP28 100GBASE CR4 5M" speed="100000" autoneg="on" duplex="None">
+    <media-type id="QSFP28 100GBASE CR4 5M" speed="100000" autoneg="on" duplex="None" hw-profile="16">
         <entry supported-speed="100000" />
     </media-type>
 
-    <media-type id="QSFP28 100GBASE CR4 7M" speed="100000" autoneg="on" duplex="None">
+    <media-type id="QSFP28 100GBASE CR4 7M" speed="100000" autoneg="on" duplex="None" hw-profile="17">
         <entry supported-speed="100000" />
     </media-type>
 
-    <media-type id="QSFP28 100GBASE CR4 10M" speed="100000" autoneg="on" duplex="None">
+    <media-type id="QSFP28 100GBASE CR4 10M" speed="100000" autoneg="on" duplex="None" hw-profile="18">
         <entry supported-speed="100000" />
     </media-type>
 
-    <media-type id="QSFP28 100GBASE CR4 50M" speed="100000" autoneg="on" duplex="None">
+    <media-type id="QSFP28 100GBASE CR4 50M" speed="100000" autoneg="on" duplex="None" hw-profile="19">
         <entry supported-speed="100000" />
     </media-type>
 
-    <media-type id="4X25 25GBASE CR1 HALFM" speed="25000" autoneg="on" duplex="None">
+    <media-type id="4X25 25GBASE CR1 HALFM" speed="25000" autoneg="on" duplex="None" hw-profile="11">
         <entry supported-speed="25000" />
     </media-type>
 
-    <media-type id="4X25 25GBASE CR1 1M" speed="25000" autoneg="on" duplex="None">
+    <media-type id="4X25 25GBASE CR1 1M" speed="25000" autoneg="on" duplex="None" hw-profile="12">
         <entry supported-speed="25000" />
     </media-type>
 
-    <media-type id="4X25 25GBASE CR1 2M" speed="25000" autoneg="on" duplex="None">
+    <media-type id="4X25 25GBASE CR1 2M" speed="25000" autoneg="on" duplex="None" hw-profile="13">
         <entry supported-speed="25000" />
     </media-type>
 
-    <media-type id="4X25 25GBASE CR1 3M" speed="25000" autoneg="on" duplex="None">
+    <media-type id="4X25 25GBASE CR1 3M" speed="25000" autoneg="on" duplex="None" hw-profile="14">
         <entry supported-speed="25000" />
     </media-type>
 
-    <media-type id="4X25 25GBASE CR1 4M" speed="25000" autoneg="on" duplex="None">
+    <media-type id="4X25 25GBASE CR1 4M" speed="25000" autoneg="on" duplex="None" hw-profile="15">
         <entry supported-speed="25000" />
     </media-type>
 
-    <media-type id="4X25 25GBASE CR1" speed="25000" autoneg="on" duplex="None">
+    <media-type id="4X25 25GBASE CR1" speed="25000" autoneg="on" duplex="None" hw-profile="11">
         <entry supported-speed="25000" />
     </media-type>
 
-    <media-type id="2X50 50GBASE CR2 HALFM" speed="50000" autoneg="on" duplex="None">
+    <media-type id="2X50 50GBASE CR2 HALFM" speed="50000" autoneg="on" duplex="None" hw-profile="11">
         <entry supported-speed="50000" />
     </media-type>
 
-    <media-type id="2X50 50GBASE CR2 1M" speed="50000" autoneg="on" duplex="None">
+    <media-type id="2X50 50GBASE CR2 1M" speed="50000" autoneg="on" duplex="None" hw-profile="12">
         <entry supported-speed="50000" />
     </media-type>
 
-    <media-type id="2X50 50GBASE CR2 2M" speed="50000" autoneg="on" duplex="None">
+    <media-type id="2X50 50GBASE CR2 2M" speed="50000" autoneg="on" duplex="None" hw-profile="13">
         <entry supported-speed="50000" />
     </media-type>
 
-    <media-type id="2X50 50GBASE CR2 3M" speed="50000" autoneg="on" duplex="None">
+    <media-type id="2X50 50GBASE CR2 3M" speed="50000" autoneg="on" duplex="None" hw-profile="14">
         <entry supported-speed="50000" />
     </media-type>
 
-    <media-type id="2X50 50GBASE CR2 4M" speed="50000" autoneg="on" duplex="None">
+    <media-type id="2X50 50GBASE CR2 4M" speed="50000" autoneg="on" duplex="None" hw-profile="15">
         <entry supported-speed="50000" />
     </media-type>
 
-    <media-type id="2X50 50GBASE CR2" speed="50000" autoneg="on" duplex="None">
+    <media-type id="2X50 50GBASE CR2" speed="50000" autoneg="on" duplex="None" hw-profile="11">
         <entry supported-speed="50000" />
     </media-type>
 
@@ -415,23 +418,23 @@
         <entry supported-speed="50000" />
     </media-type>
 
-    <media-type id="QSFP 40GBASE BIDI" speed="40000" autoneg="off" duplex="None">
+    <media-type id="QSFP 40GBASE BIDI" speed="40000" autoneg="off" duplex="None" hw-profile="1">
         <entry supported-speed="40000" />
     </media-type>
 
-    <media-type id="QSFP 40GBASE AOC" speed="40000" autoneg="off" duplex="None">
+    <media-type id="QSFP 40GBASE AOC" speed="40000" autoneg="off" duplex="None" hw-profile="1">
         <entry supported-speed="40000" />
     </media-type>
 
-    <media-type id="QSFP28 100GBASE LR4 LITE" speed="100000" autoneg="off" duplex="None">
+    <media-type id="QSFP28 100GBASE LR4 LITE" speed="100000" autoneg="off" duplex="None" hw-profile="10">
         <entry supported-speed="100000" />
     </media-type>
 
-    <media-type id="QSFP28 100GBASE ER4" speed="100000" autoneg="off" duplex="None">
+    <media-type id="QSFP28 100GBASE ER4" speed="100000" autoneg="off" duplex="None" hw-profile="10">
         <entry supported-speed="100000" />
     </media-type>
 
-    <media-type id="QSFP28 100GBASE ACC" speed="100000" autoneg="off" duplex="None">
+    <media-type id="QSFP28 100GBASE ACC" speed="100000" autoneg="off" duplex="None" hw-profile="10">
         <entry supported-speed="100000" />
     </media-type>
 
@@ -467,15 +470,15 @@
         <entry supported-speed="1000" />
     </media-type>
 
-    <media-type id="QSFP28 100GBASE PSM4 PIGTAIL" speed="100000" autoneg="off" duplex="None">
+    <media-type id="QSFP28 100GBASE PSM4 PIGTAIL" speed="100000" autoneg="off" duplex="None" hw-profile="10">
         <entry supported-speed="100000" />
     </media-type>
 
-    <media-type id="QSFP28 100GBASE SWDM4" speed="100000" autoneg="off" duplex="None">
+    <media-type id="QSFP28 100GBASE SWDM4" speed="100000" autoneg="off" duplex="None" hw-profile="10">
         <entry supported-speed="100000" />
     </media-type>
 
-    <media-type id="QSFP 40GBASE PSM4 PIGTAIL" speed="40000" autoneg="off" duplex="None">
+    <media-type id="QSFP 40GBASE PSM4 PIGTAIL" speed="40000" autoneg="off" duplex="None" hw-profile="1">
         <entry supported-speed="40000" />
     </media-type>
     

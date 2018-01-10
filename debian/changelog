@@ -1,3 +1,15 @@
+opx-platform-config (1.2.0) unstable; urgency=medium
+
+  * Feature: Added Dell S4148E, S4148F, S4148T, S4128F and S4128T support
+  * Update: Platform init scripts should not assume I2C /dev file names
+  * Update: Modified existing platforms to use NAS/SAI profiles
+  * Bugfix: Corrected platform package dependencies
+  * Bugfix: Corrected PAS card type
+  * Update: Simplified udev rules for VM front-panel ports
+  * Bugfix: Correct base-qos init file for Z9100 platform
+	
+ -- Dell EMC <opx-dev@lists.openswitch.net>  Wed, 10 Jan 2018 14:30:00 -0800
+
 opx-platform-config (1.1.2) unstable; urgency=medium
 
   * Bugfix: Added missed supported speeds for Z9100

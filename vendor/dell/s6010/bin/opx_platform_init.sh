@@ -15,8 +15,25 @@
 # permissions and limitations under the License.
 #
 
-# Register and initializes PCA954x mux
-echo pca9548 0x70 > /sys/bus/i2c/devices/i2c-0/new_device
+#register and initializes PCA954x mux
+found=0
+for devnum in 0 1
+do
+    devname=$(cat /sys/bus/i2c/devices/i2c-${devnum}/name)
+    if [[ $devname == 'SMBus iSMT adapter at '* ]]
+    then
+        found=1
+        break
+    fi
+done
+
+if [ $found -eq 0 ]
+then
+    echo 'Cannot find iSMT controller'
+    exit 1
+fi
+
+echo pca9548 0x70 > /sys/bus/i2c/devices/i2c-${devnum}/new_device
 
 #SMBus Controller 2.0 SPGT register to 0x00000005 to tune 80KHz frequency
 /usr/bin/pcisysfs.py --set --val 0x00000005 --offset 0x300 --res "/sys/devices/pci0000:00/0000:00:13.0/resource0"

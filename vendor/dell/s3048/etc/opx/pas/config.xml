@@ -33,7 +33,7 @@
         <entity entity-type="fan-tray" poll-interval="2000"/>
         <entity entity-type="card" poll-interval="5000"/>
 
-        <card type="0xfe02"/>
+        <card type="0xfe03"/>
 
         <fan entity-type="psu" speed-control="no"/>
         <fan entity-type="fan-tray" margin="5" incr="1" decr="15" limit="45"/>

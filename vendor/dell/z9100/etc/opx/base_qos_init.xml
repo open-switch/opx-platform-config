@@ -83,20 +83,20 @@
         <scheduler-profile name="CPU-Q11" algorithm="WRR" weight="64"  min-rate="300"  min-burst="50"  max-rate="300"  max-burst="50"  meter-type="PACKET"/>
 
         <!-- default Ingress buffer profiles for different interface speeds -->
-        <buffer-profile name="default-none-ing-cpu"  buffer-size="9"    threshold-mode="STATIC"   shared-static-threshold="4095"   xoff-threshold="0"   xon-threshold="0"  />
+        <buffer-profile name="default-none-ing-cpu"  buffer-size="0"    threshold-mode="STATIC"   shared-static-threshold="4095"   xoff-threshold="0"   xon-threshold="0"  />
         <buffer-profile name="default-none-ing-10g"  buffer-size="9"    threshold-mode="STATIC"   shared-static-threshold="4095"   xoff-threshold="0"   xon-threshold="0"  />
-        <buffer-profile name="default-none-ing-25g"  buffer-size="22"   threshold-mode="STATIC"   shared-static-threshold="4095"   xoff-threshold="0"   xon-threshold="0"  />
-        <buffer-profile name="default-none-ing-40g"  buffer-size="36"   threshold-mode="STATIC"   shared-static-threshold="4095"   xoff-threshold="0"   xon-threshold="0"  />
-        <buffer-profile name="default-none-ing-50g"  buffer-size="45"   threshold-mode="STATIC"   shared-static-threshold="4095"   xoff-threshold="0"   xon-threshold="0"  />
-        <buffer-profile name="default-none-ing-100g" buffer-size="90"   threshold-mode="STATIC"   shared-static-threshold="4095"   xoff-threshold="0"   xon-threshold="0"  />
+        <buffer-profile name="default-none-ing-25g"  buffer-size="9"    threshold-mode="STATIC"   shared-static-threshold="4095"   xoff-threshold="0"   xon-threshold="0"  />
+        <buffer-profile name="default-none-ing-40g"  buffer-size="9"    threshold-mode="STATIC"   shared-static-threshold="4095"   xoff-threshold="0"   xon-threshold="0"  />
+        <buffer-profile name="default-none-ing-50g"  buffer-size="9"    threshold-mode="STATIC"   shared-static-threshold="4095"   xoff-threshold="0"   xon-threshold="0"  />
+        <buffer-profile name="default-none-ing-100g" buffer-size="9"    threshold-mode="STATIC"   shared-static-threshold="4095"   xoff-threshold="0"   xon-threshold="0"  />
 
         <!-- default egress buffer profiles for different interface speeds -->
         <buffer-profile name="default-none-egr-10g"     buffer-size="2"     threshold-mode="DYNAMIC"   shared-dynamic-threshold="8" />
-        <buffer-profile name="default-none-egr-25g"     buffer-size="5"     threshold-mode="DYNAMIC"   shared-dynamic-threshold="8" />
-        <buffer-profile name="default-none-egr-40g"     buffer-size="8"     threshold-mode="DYNAMIC"   shared-dynamic-threshold="8" />
-        <buffer-profile name="default-none-egr-50g"     buffer-size="10"    threshold-mode="DYNAMIC"   shared-dynamic-threshold="8" />
-        <buffer-profile name="default-none-egr-100g"    buffer-size="20"    threshold-mode="DYNAMIC"   shared-dynamic-threshold="8" />
-        <buffer-profile name="default-none-egr-cpu"     buffer-size="20"    threshold-mode="STATIC"    shared-static-threshold="20" />
+        <buffer-profile name="default-none-egr-25g"     buffer-size="2"     threshold-mode="DYNAMIC"   shared-dynamic-threshold="8" />
+        <buffer-profile name="default-none-egr-40g"     buffer-size="2"     threshold-mode="DYNAMIC"   shared-dynamic-threshold="8" />
+        <buffer-profile name="default-none-egr-50g"     buffer-size="2"     threshold-mode="DYNAMIC"   shared-dynamic-threshold="8" />
+        <buffer-profile name="default-none-egr-100g"    buffer-size="2"     threshold-mode="DYNAMIC"   shared-dynamic-threshold="8" />
+        <buffer-profile name="default-none-egr-cpu"     buffer-size="24"    threshold-mode="DYNAMIC"   shared-dynamic-threshold="8" />
 
     </SWITCH-GLOBALS>
 
