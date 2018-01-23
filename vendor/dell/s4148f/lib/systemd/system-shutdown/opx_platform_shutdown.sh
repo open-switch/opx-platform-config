@@ -22,7 +22,7 @@
 function platform_reset {
 
     # reset the system
-    /opt/dell/os10/bin/portiocfg.py --set --val 0xE --offset 0xCF9
+    /usr/bin/portiocfg.py --set --val 0xE --offset 0xCF9
 
     # If reset was successful, this line will not be reached.
     # Hence the fact we are here implies reset failed.
@@ -33,7 +33,7 @@ function platform_reset {
 function platform_poweroff {
 
     # poweroff the system
-    /opt/dell/os10/bin/portiocfg.py --set --val 0xE --offset 0xCF9
+    /usr/bin/portiocfg.py --set --val 0xE --offset 0xCF9
 }
 
 case "$1" in

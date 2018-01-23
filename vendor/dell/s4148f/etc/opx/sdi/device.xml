@@ -21,7 +21,7 @@
     </sys_i2c>
     <sys_i2c instance="1" sysfs_name="SMBus iSMT adapter at dff14000" bus_name="smbus1">
     </sys_i2c>
-    <sys_i2c instance="2" sysfs_name="i2c-1-mux (chan_id 0)" bus_name="smbus2">
+    <sys_i2c instance="2" dev_name="/dev/i2c-2" bus_name="smbus2">
         <tmp75 instance="0" addr="0x4d" low_threshold="10" high_threshold="100" />  <!-- Board ref U57 -->
         <eeprom instance="0" alias="sys_eeprom" addr="0x53" size="256" parser="ONIE_SYS_EEPROM"/>
         <nvram instance="0" alias="sys_nvram" dev="/dev/sda" offset="1048064" size="512"/>
@@ -133,7 +133,7 @@
             <sdi_cpld_pin_group instance="28" start_addr="0x1C" end_addr="0x1F" start_offset="0" end_offset="7" bus_name="sfp_tx_fault2" direction="in" polarity="normal" />
         </sdi_cpld>
     </sys_i2c>
-    <sys_i2c instance="3" sysfs_name="i2c-1-mux (chan_id 1)" bus_name="smbus3">
+    <sys_i2c instance="3" dev_name="/dev/i2c-3" bus_name="smbus3">
         <emc2305 instance="0" addr="0x4d" fan_control_type="RPM">
             <fan instance="0" fan_speed="22000" alias="fan-1" poles="2" />
             <fan instance="1" fan_speed="22000" alias="fan-2" poles="2" />
@@ -145,7 +145,7 @@
         <eeprom instance="3" alias="fan_tray_fru3" addr="0x53" size="256" parser="ONIE_FAN_EEPROM" no_of_fans="2" max_fan_speed="22000" />
         <eeprom instance="4" alias="fan_tray_fru4" addr="0x54" size="256" parser="ONIE_FAN_EEPROM" no_of_fans="2" max_fan_speed="22000" />
     </sys_i2c>
-    <sys_i2c instance="4" sysfs_name="i2c-1-mux (chan_id 2)" bus_name="smbus4">
+    <sys_i2c instance="4" dev_name="/dev/i2c-4" bus_name="smbus4">
 
         <sfp instance="1" addr="0x50" mux_sel_bus="port_mux_sel" mux_sel_value="0x1" mod_sel_bus="module_always_enabled" mod_pres_bus="sfp_presence1" mod_pres_bitmask="0x0" mod_tx_control_bus="sfp_tx_control1" mod_tx_control_bitmask="0x0" mod_rx_los_bus="sfp_rx_los1" mod_rx_los_bitmask="0x0" mod_tx_fault_bus="sfp_tx_fault1" mod_tx_fault_bitmask="0x0" />
         <sfp instance="2" addr="0x50" mux_sel_bus="port_mux_sel" mux_sel_value="0x2" mod_sel_bus="module_always_enabled" mod_pres_bus="sfp_presence1" mod_pres_bitmask="0x1" mod_tx_control_bus="sfp_tx_control1" mod_tx_control_bitmask="0x1" mod_rx_los_bus="sfp_rx_los1" mod_rx_los_bitmask="0x1" mod_tx_fault_bus="sfp_tx_fault1" mod_tx_fault_bitmask="0x1" />
@@ -202,25 +202,19 @@
         <sfp instance="47" addr="0x50" mux_sel_bus="port_mux_sel" mux_sel_value="0x35" mod_sel_bus="module_always_enabled" mod_pres_bus="sfp_presence2" mod_pres_bitmask="0x1e" mod_tx_control_bus="sfp_tx_control2" mod_tx_control_bitmask="0x1e" mod_rx_los_bus="sfp_rx_los2" mod_rx_los_bitmask="0x1e" mod_tx_fault_bus="sfp_tx_fault2" mod_tx_fault_bitmask="0x1e" />
         <sfp instance="48" addr="0x50" mux_sel_bus="port_mux_sel" mux_sel_value="0x36" mod_sel_bus="module_always_enabled" mod_pres_bus="sfp_presence2" mod_pres_bitmask="0x1f" mod_tx_control_bus="sfp_tx_control2" mod_tx_control_bitmask="0x1f" mod_rx_los_bus="sfp_rx_los2" mod_rx_los_bitmask="0x1f" mod_tx_fault_bus="sfp_tx_fault2" mod_tx_fault_bitmask="0x1f" />
     </sys_i2c>
-    <sys_i2c instance="5" sysfs_name="i2c-1-mux (chan_id 3)" bus_name="smbus5">
+    <sys_i2c instance="5" dev_name="/dev/i2c-5" bus_name="smbus5">
         <tmp75 instance="1" addr="0x4a" low_threshold="10" high_threshold="100" />
         <tmp75 instance="2" addr="0x4b" low_threshold="10" high_threshold="100" />
         <tmp75 instance="3" addr="0x4c" low_threshold="10" high_threshold="100" />
         <tmp75 instance="4" addr="0x4e" low_threshold="10" high_threshold="100" />
         <tmp75 instance="5" addr="0x4f" low_threshold="10" high_threshold="100" />
     </sys_i2c>
-    <sys_i2c instance="6" sysfs_name="i2c-1-mux (chan_id 4)" bus_name="smbus6">
+    <sys_i2c instance="6" dev_name="/dev/i2c-6" bus_name="smbus6">
         <eeprom instance="5" alias="psu_fru1" addr="0x50" size="256" parser="DELTA_PSU_EEPROM" no_of_fans="1" max_fan_speed="18000" />
         <eeprom instance="6" alias="psu_fru2" addr="0x51" size="256" parser="DELTA_PSU_EEPROM" no_of_fans="1" max_fan_speed="18000" />
         <!-- The PSU used in s4000 is same as the one in S6000, so we name it
              as s6k_psu which shares the same driver-->
         <s6k_psu instance="0" addr="0x58" fan_speed="18000" alias="psu-1" />
         <s6k_psu instance="1" addr="0x59" fan_speed="18000" alias="psu-2" />
-    </sys_i2c>
-    <sys_i2c instance="7" sysfs_name="i2c-1-mux (chan_id 5)" bus_name="smbus7">
-    </sys_i2c>
-    <sys_i2c instance="8" sysfs_name="i2c-1-mux (chan_id 6)" bus_name="smbus8">
-    </sys_i2c>
-    <sys_i2c instance="9" sysfs_name="i2c-1-mux (chan_id 7)" bus_name="smbus9">
     </sys_i2c>
 </root>

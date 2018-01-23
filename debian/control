@@ -87,7 +87,7 @@ Description: All packages for Dell Networking Z9100-ON
 
 Package: opx-platform-config-dell-s4148e
 Architecture: all
-Depends: opx-dell-modules, i2c-tools, dmidecode, libopx-sdi-sys1, opx-udrvr-ethernet
+Depends: opx-dell-modules, i2c-tools, dmidecode, libopx-sdi-sys1 (>= 1.5.1+opx3), opx-udrvr-ethernet
 Description: Platform-specific files and packages for Dell Networking S4148E-ON
 
 Package: opx-dell-s4148e
@@ -97,7 +97,7 @@ Description: All packages for Dell Networking S4148E-ON
 
 Package: opx-platform-config-dell-s4148f
 Architecture: all
-Depends: opx-dell-modules, i2c-tools, dmidecode, libopx-sdi-sys1, opx-udrvr-ethernet
+Depends: opx-dell-modules, i2c-tools, dmidecode, libopx-sdi-sys1 (>= 1.5.1+opx3), opx-udrvr-ethernet
 Description: Platform-specific files and packages for Dell Networking S4148F-ON
 
 Package: opx-dell-s4148f
@@ -107,7 +107,7 @@ Description: All packages for Dell Networking S4148F-ON
 
 Package: opx-platform-config-dell-s4148t
 Architecture: all
-Depends: opx-dell-modules, i2c-tools, dmidecode, libopx-sdi-sys1, opx-udrvr-ethernet
+Depends: opx-dell-modules, i2c-tools, dmidecode, libopx-sdi-sys1 (>= 1.5.1+opx3), opx-udrvr-ethernet
 Description: Platform-specific files and packages for Dell Networking S4148T-ON
 
 Package: opx-dell-s4148t
@@ -117,7 +117,7 @@ Description: All packages for Dell Networking S4148T-ON
 
 Package: opx-platform-config-dell-s4128f
 Architecture: all
-Depends: opx-dell-modules, i2c-tools, dmidecode, libopx-sdi-sys1, opx-udrvr-ethernet
+Depends: opx-dell-modules, i2c-tools, dmidecode, libopx-sdi-sys1 (>= 1.5.1+opx3), opx-udrvr-ethernet
 Description: Platform-specific files and packages for Dell Networking S4128F-ON
 
 Package: opx-dell-s4128f
@@ -127,7 +127,7 @@ Description: All packages for Dell Networking S4128F-ON
 
 Package: opx-platform-config-dell-s4128t
 Architecture: all
-Depends: opx-dell-modules, i2c-tools, dmidecode, libopx-sdi-sys1, opx-udrvr-ethernet
+Depends: opx-dell-modules, i2c-tools, dmidecode, libopx-sdi-sys1 (>= 1.5.1+opx3), opx-udrvr-ethernet
 Description: Platform-specific files and packages for Dell Networking S4128T-ON
 
 Package: opx-dell-s4128t
