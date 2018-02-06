@@ -1,3 +1,10 @@
+opx-platform-config (1.2.1+opx1) unstable; urgency=medium
+
+  * Update: Modify Debian control file so apt-get upgrade won't hang
+            when installing PAS.
+
+ -- Dell EMC <opx-dev@lists.openswitch.net>  Tue, 06 Feb 2018 20:00:00 -0800
+
 opx-platform-config (1.2.1) unstable; urgency=medium
 
   * Update: Changed SDI config to use dev names instead of sysfs names for switched I2C busses
