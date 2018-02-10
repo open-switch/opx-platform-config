@@ -1,5 +1,10 @@
-opx-platform-config (1.2.1+opx1) unstable; urgency=medium
+opx-platform-config (1.2.1+opx2) unstable; urgency=medium
 
+  * Bugfix: Fixed interface mapping by correcting path for opx-vport.sh
+
+ -- Dell EMC <opx-dev@lists.openswitch.net>  Fri, 09 Feb 2018 13:32:00 -0800
+
+opx-platform-config (1.2.1+opx1) unstable; urgency=medium
   * Update: Modify Debian control file so apt-get upgrade won't hang
             when installing PAS.
 
