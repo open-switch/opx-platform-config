@@ -1,0 +1,43 @@
+#!/bin/bash
+
+# Script to unfreeze a stuck I2C controller, by bit-banging a STOP cycle on the bus
+
+if [ $2 != 1 ]; then
+    # Only applicable to bus 1
+
+    exit 0
+fi
+
+# Enable I2C bit-banging, SCL=1, SDA=1
+pcisysfs.py --set --val 0x80000003 --offset 0x388 --res /sys/devices/pci0000\:00/0000\:00\:13.0/resource0
+
+sleep 0.01
+
+while true; do
+    # Bit-bang an I2C STOP cycle
+
+    # SCL=0, SDA=0
+    pcisysfs.py --set --val 0x80000000 --offset 0x388 --res /sys/devices/pci0000\:00/0000\:00\:13.0/resource0
+
+    sleep 0.01
+
+    # SCL=1, SDA=0
+    pcisysfs.py --set --val 0x80000002 --offset 0x388 --res /sys/devices/pci0000\:00/0000\:00\:13.0/resource0
+
+    sleep 0.01
+
+    # SCL=1, SDA=1
+    pcisysfs.py --set --val 0x80000003 --offset 0x388 --res /sys/devices/pci0000\:00/0000\:00\:13.0/resource0
+
+    sleep 1
+
+    # Check I2C MSTS.IP ("in progress") status bit; done if 0
+    msts=$((`pcisysfs.py --get --offset 0x10c --res /sys/devices/pci0000\:00/0000\:00\:13.0/resource0 | sed 's/^.*:/0x/'`))
+    ip=$((msts&1))
+    if [ $ip = 0 ]; then
+        break
+    fi
+done
+
+# Disable I2C bit-banging
+pcisysfs.py --set --val 0x00000003 --offset 0x388 --res /sys/devices/pci0000\:00/0000\:00\:13.0/resource0

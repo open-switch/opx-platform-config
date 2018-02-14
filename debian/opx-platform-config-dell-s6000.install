@@ -3,6 +3,7 @@ common-hw/bin/*						usr/bin
 common-hw/lib/udev/rules.d/*                            lib/udev/rules.d
 vendor/dell/s6000/etc/opx/*				etc/opx
 vendor/dell/s6000-hw/bin/*				usr/bin
+vendor/dell/s6000-hw/libexec/*				usr/libexec
 vendor/dell/s6000-hw/etc/modules-load.d/*		etc/modules-load.d
 vendor/dell/s6000-hw/etc/opx/sai/*			etc/opx/sai
 vendor/dell/s6000-hw/etc/opx/sdi/*			etc/opx/sdi
