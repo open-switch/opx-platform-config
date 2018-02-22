@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 2015 Dell Inc.
+ Licensed under the Apache License, Version 2.0 (the "License"); you may
+ not use this file except in compliance with the License. You may obtain
+ a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+
+ THIS CODE IS PROVIDED ON AN  *AS IS* BASIS, WITHOUT WARRANTIES OR
+ CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT
+ LIMITATION ANY IMPLIED WARRANTIES OR CONDITIONS OF TITLE, FITNESS
+ FOR A PARTICULAR PURPOSE, MERCHANTABLITY OR NON-INFRINGEMENT.
+
+ See the Apache Version 2.0 License for specific language governing
+ permissions and limitations under the License.
+-->
+<root>
+
+    <!-- ============================================ -->
+    <!--              Switch level tables             -->
+    <!-- ============================================ -->
+
+    <SWITCH-GLOBALS total-buffer="24960">
+
+        <dot1p-to-tc-map tag="DOT1P-ALL-TO-TC-0" min="0" max="7">
+            <entry dot1p="all"   tc="0"/>
+        </dot1p-to-tc-map>
+
+        <dot1p-to-color-map tag="DOT1P-ALL-TO-COLOR-GREEN" min="0" max="7">
+            <entry dot1p="all"   color="GREEN"/>
+        </dot1p-to-color-map>
+
+        <tc-to-queue-map tag="TC-TO-Q-ONE-TO-ONE">
+            <entry tc="0" type="UCAST"  queue-number="0"/>
+            <entry tc="0" type="MULTICAST"  queue-number="0"/>
+            <entry tc="1" type="UCAST"  queue-number="1"/>
+            <entry tc="1" type="MULTICAST"  queue-number="1"/>
+            <entry tc="2" type="UCAST"  queue-number="2"/>
+            <entry tc="2" type="MULTICAST"  queue-number="2"/>
+            <entry tc="3" type="UCAST"  queue-number="3"/>
+            <entry tc="3" type="MULTICAST"  queue-number="3"/>
+            <entry tc="4" type="UCAST"  queue-number="4"/>
+            <entry tc="4" type="MULTICAST"  queue-number="4"/>
+            <entry tc="5" type="UCAST"  queue-number="5"/>
+            <entry tc="5" type="MULTICAST"  queue-number="5"/>
+            <entry tc="6" type="UCAST"  queue-number="6"/>
+            <entry tc="6" type="MULTICAST"  queue-number="6"/>
+            <entry tc="7" type="UCAST"  queue-number="7"/>
+            <entry tc="7" type="MULTICAST"  queue-number="7"/>
+        </tc-to-queue-map>
+
+        <!-- default TC-to-PG map for LLFC -->
+        <tc-to-priority-group-map tag="TC-ALL-TO-PG-7" min="0" max="15">
+            <entry tc="all" priority-group="7"/>
+        </tc-to-priority-group-map>
+
+        <!-- Basic WRR profiles -->
+        <scheduler-profile name="WRR-W1"  algorithm="WRR" weight="1" />
+        <scheduler-profile name="WRR-W2"  algorithm="WRR" weight="2" />
+        <scheduler-profile name="WRR-W3"  algorithm="WRR" weight="3" />
+        <scheduler-profile name="WRR-W4"  algorithm="WRR" weight="4" />
+        <scheduler-profile name="WRR-W5"  algorithm="WRR" weight="5" />
+        <scheduler-profile name="WRR-W10" algorithm="WRR" weight="10"/>
+        <scheduler-profile name="WRR-W25" algorithm="WRR" weight="25"/>
+        <scheduler-profile name="WRR-W50" algorithm="WRR" weight="50"/>
+
+        <!-- Strict Priority profile -->
+        <scheduler-profile name="SP"  algorithm="SP"/>
+
+        <!-- Dummy Profile used for EQUAL weight child nodes of WRR scheduler -->
+        <scheduler-profile name="WRR-EQ"  algorithm="WRR" weight="1"/>
+
+        <!-- WRR profiles with shaping -->
+        <scheduler-profile name="CPU-Q0"  algorithm="WRR" weight="1"   min-rate="600"  min-burst="50" max-rate="600"  max-burst="50" meter-type="PACKET"/>
+        <scheduler-profile name="CPU-Q1"  algorithm="WRR" weight="2"   min-rate="1000" min-burst="50"  max-rate="1000" max-burst="50"  meter-type="PACKET"/>
+        <scheduler-profile name="CPU-Q2"  algorithm="WRR" weight="4"   min-rate="300"  min-burst="50"  max-rate="300"  max-burst="50"  meter-type="PACKET"/>
+        <scheduler-profile name="CPU-Q3"  algorithm="WRR" weight="64"  min-rate="1300" min-burst="50"  max-rate="1300" max-burst="50"  meter-type="PACKET"/>
+        <scheduler-profile name="CPU-Q4"  algorithm="WRR" weight="100" min-rate="2000" min-burst="50"  max-rate="2000" max-burst="50"  meter-type="PACKET"/>
+        <scheduler-profile name="CPU-Q5"  algorithm="WRR" weight="8"   min-rate="400"  min-burst="50"  max-rate="400"  max-burst="50"  meter-type="PACKET"/>
+        <scheduler-profile name="CPU-Q6"  algorithm="WRR" weight="64"  min-rate="600"  min-burst="50"  max-rate="600"  max-burst="50"  meter-type="PACKET"/>
+        <scheduler-profile name="CPU-Q7"  algorithm="WRR" weight="64"  min-rate="400"  min-burst="50"  max-rate="400"  max-burst="50"  meter-type="PACKET"/>
+        <scheduler-profile name="CPU-Q8"  algorithm="WRR" weight="64"  min-rate="600"  min-burst="50"  max-rate="600"  max-burst="50"  meter-type="PACKET"/>
+        <scheduler-profile name="CPU-Q9"  algorithm="WRR" weight="64"  min-rate="600"  min-burst="50"  max-rate="600"  max-burst="50"  meter-type="PACKET"/>
+        <scheduler-profile name="CPU-Q10" algorithm="WRR" weight="64"  min-rate="600"  min-burst="50"  max-rate="600"  max-burst="50"  meter-type="PACKET"/>
+        <scheduler-profile name="CPU-Q11" algorithm="WRR" weight="64"  min-rate="300"  min-burst="50"  max-rate="300"  max-burst="50"  meter-type="PACKET"/>
+
+        <!-- default Ingress buffer profiles for different interface speeds -->
+        <buffer-profile name="default-none-ing-cpu"  buffer-size="9"    threshold-mode="DYNAMIC"   shared-dynamic-threshold="8"   xoff-threshold="102400"   xon-threshold="10240"  />
+        <buffer-profile name="default-none-ing-10g"  buffer-size="9"    threshold-mode="DYNAMIC"   shared-dynamic-threshold="8"   xoff-threshold="102400"   xon-threshold="10240"  />
+        <buffer-profile name="default-none-ing-25g"  buffer-size="22"   threshold-mode="DYNAMIC"   shared-dynamic-threshold="8"   xoff-threshold="102400"   xon-threshold="10240"  />
+        <buffer-profile name="default-none-ing-40g"  buffer-size="36"   threshold-mode="DYNAMIC"   shared-dynamic-threshold="8"   xoff-threshold="102400"   xon-threshold="10240"  />
+        <buffer-profile name="default-none-ing-50g"  buffer-size="45"   threshold-mode="DYNAMIC"   shared-dynamic-threshold="8"   xoff-threshold="102400"   xon-threshold="10240"  />
+        <buffer-profile name="default-none-ing-100g" buffer-size="90"   threshold-mode="DYNAMIC"   shared-dynamic-threshold="8"   xoff-threshold="102400"   xon-threshold="10240"  />
+
+        <!-- default egress buffer profiles for different interface speeds -->
+        <buffer-profile name="default-none-egr-10g"     buffer-size="2"     threshold-mode="DYNAMIC"   shared-dynamic-threshold="8" />
+        <buffer-profile name="default-none-egr-25g"     buffer-size="5"     threshold-mode="DYNAMIC"   shared-dynamic-threshold="8" />
+        <buffer-profile name="default-none-egr-40g"     buffer-size="8"     threshold-mode="DYNAMIC"   shared-dynamic-threshold="8" />
+        <buffer-profile name="default-none-egr-50g"     buffer-size="10"    threshold-mode="DYNAMIC"   shared-dynamic-threshold="8" />
+        <buffer-profile name="default-none-egr-100g"    buffer-size="20"    threshold-mode="DYNAMIC"   shared-dynamic-threshold="8" />
+        <buffer-profile name="default-none-egr-cpu"     buffer-size="20"    threshold-mode="DYNAMIC"   shared-dynamic-threshold="8" />
+
+    </SWITCH-GLOBALS>
+
+
+    <!-- ============================================ -->
+    <!--    QoS defaults for all front panel ports    -->
+    <!--  Applies to all hardware forwarded packets   -->
+    <!-- ============================================ -->
+
+    <FRONT-PANEL-PORTS>
+
+        <ingress>
+            <dot1p-to-tc-map>DOT1P-ALL-TO-TC-0</dot1p-to-tc-map>
+            <dot1p-to-color-map>DOT1P-ALL-TO-COLOR-GREEN</dot1p-to-color-map>
+            <tc-to-queue-map>TC-TO-Q-ONE-TO-ONE</tc-to-queue-map>
+            <tc-to-priority-group-map>TC-ALL-TO-PG-7</tc-to-priority-group-map>
+        </ingress>
+
+
+    </FRONT-PANEL-PORTS>
+
+
+    <!-- ================================================== -->
+    <!--         QoS defaults for the CPU port              -->
+    <!-- Applies to incoming packets that are punted to CPU -->
+    <!-- ================================================== -->
+
+    <CPU-PORT>
+
+    </CPU-PORT>
+</root>
+

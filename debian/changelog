@@ -1,3 +1,9 @@
+opx-platform-config (1.3.0) unstable; urgency=medium
+
+  * Update: Added support for Dell S5148F-ON platform
+
+ -- Dell EMC <opx-dev@lists.openswitch.net>  Thu, 22 Feb 2018 11:30:00 -0800
+
 opx-platform-config (1.2.2) unstable; urgency=medium
 
   * Update: Added I2C reset script for Dell S6000-ON and S6010-ON platforms
