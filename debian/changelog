@@ -1,3 +1,10 @@
+opx-platform-config (1.3.1) unstable; urgency=medium
+
+  * Update: Enabled "dummy" module support
+  * Bugfix: Cannot add LAG interface to VLAN interface as tagged port
+
+ -- Dell EMC <opx-dev@lists.openswitch.net>  Thu, 01 Mar 2018 23:13:00 -0800
+
 opx-platform-config (1.3.0) unstable; urgency=medium
 
   * Update: Added support for Dell S5148F-ON platform
