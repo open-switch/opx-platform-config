@@ -14,5 +14,8 @@ permissions and limitations under the License.
 -->
 <switch_config>
   <switch_topology switch_ids="0" />
-  <switch id="0" npus="0" hw_info="crb3-rev2" cpu_port_id="73" />
+  <switch id="0" npus="0" />
+    <switch_profile default_profile="default">
+        <entry supported_profile="default"/>
+  </switch_profile>
 </switch_config>
