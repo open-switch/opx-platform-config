@@ -1,0 +1,1062 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 2018 Dell EMC
+ Licensed under the Apache License, Version 2.0 (the "License"); you may
+ not use this file except in compliance with the License. You may obtain
+ a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+
+ THIS CODE IS PROVIDED ON AN  *AS IS* BASIS, WITHOUT WARRANTIES OR
+ CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT
+ LIMITATION ANY IMPLIED WARRANTIES OR CONDITIONS OF TITLE, FITNESS
+ FOR A PARTICULAR PURPOSE, MERCHANTABLITY OR NON-INFRINGEMENT.
+
+ See the Apache Version 2.0 License for specific language governing
+ permissions and limitations under the License.
+-->
+
+<!--=======================================================-->
+<!--     SAI Platform Initialization configuration         -->
+<!--=======================================================-->
+
+<SAI>
+
+    <!--=======================================================-->
+    <!--              Generic Platform Info                    -->
+    <!--=======================================================-->
+
+    <PLATFORM_INFO type="generic">
+
+        <!--=======================================================-->
+        <!--               Switch Level info                       -->
+        <!--=======================================================-->
+
+        <SWITCH instance="0">
+            <!-- Trident2 Supports maximum MTU of 9216 Bytes. BCM56850 Errata -->
+            <PORT_INFO cpu_port="200" max_logical_ports="72"
+                max_physical_ports="22" max_lane_per_port="4" max_port_mtu="9216"/>
+                <TABLE_SIZE l2_table="163840" l3_host_table="90112" l3_route_table="16384"/>
+            <QOS hierarchy_levels="3" max_hierarchy_node_childs="8" traffic_class="8"
+             max_buffer_size="6291456" num_pg="8" cell_size="2048" ing_max_buf_pools="2" egr_max_buf_pools="2"/>
+            <PORT_QUEUE queue_count="16" uc_count="8" mc_count="8"/>
+            <CPU_PORT_QUEUE queue_count="16" uc_count="0" mc_count="16"/>
+        </SWITCH>
+
+        <!--========================================================-->
+        <!-- Scheduler group hierarchy levels for default qos init  -->
+        <!-- Levels 3; Level-0:Port Level-1:L0 Level-2:L1           -->
+        <!-- Port has 1 L0 node as child                            -->
+        <!-- L0.0 has 1 L1 node as child                            -->
+        <!-- L1 node has 43 multicast queues as child               -->
+        <!--========================================================-->
+        <CPU_SCHEDULER_HIERARCHY_TREE num_levels="3">
+          <LEVEL level_idx="0" scheduler_group_count="1">
+            <SCHEDULER_GROUP index="0" child_count="2">
+              <child-scheduler-group child_level="1" index="0"/>
+              <child-scheduler-group child_level="1" index="1"/>
+            </SCHEDULER_GROUP>
+          </LEVEL>
+
+          <LEVEL level_idx="1" scheduler_group_count="2">
+            <SCHEDULER_GROUP index="0" child_count="8">
+              <child-scheduler-group child_level="2" index="0"/>
+              <child-scheduler-group child_level="2" index="1"/>
+              <child-scheduler-group child_level="2" index="2"/>
+              <child-scheduler-group child_level="2" index="3"/>
+              <child-scheduler-group child_level="2" index="4"/>
+              <child-scheduler-group child_level="2" index="5"/>
+              <child-scheduler-group child_level="2" index="6"/>
+              <child-scheduler-group child_level="2" index="7"/>
+            </SCHEDULER_GROUP>
+            <SCHEDULER_GROUP index="1" child_count="8">
+              <child-scheduler-group child_level="2" index="8"/>
+              <child-scheduler-group child_level="2" index="9"/>
+              <child-scheduler-group child_level="2" index="10"/>
+              <child-scheduler-group child_level="2" index="11"/>
+              <child-scheduler-group child_level="2" index="12"/>
+              <child-scheduler-group child_level="2" index="13"/>
+              <child-scheduler-group child_level="2" index="14"/>
+              <child-scheduler-group child_level="2" index="15"/>
+            </SCHEDULER_GROUP>
+          </LEVEL>
+
+          <LEVEL level_idx="2" scheduler_group_count="16">
+            <SCHEDULER_GROUP index="0" child_count="1">
+              <child-queue queue-number="0" type="MCAST" index="0"/>
+            </SCHEDULER_GROUP>
+            <SCHEDULER_GROUP index="1" child_count="1">
+              <child-queue queue-number="1" type="MCAST" index="0"/>
+            </SCHEDULER_GROUP>
+            <SCHEDULER_GROUP index="2" child_count="1">
+              <child-queue queue-number="2" type="MCAST" index="0"/>
+            </SCHEDULER_GROUP>
+            <SCHEDULER_GROUP index="3" child_count="1">
+              <child-queue queue-number="3" type="MCAST" index="0"/>
+            </SCHEDULER_GROUP>
+            <SCHEDULER_GROUP index="4" child_count="1">
+              <child-queue queue-number="4" type="MCAST" index="0"/>
+            </SCHEDULER_GROUP>
+            <SCHEDULER_GROUP index="5" child_count="1">
+              <child-queue queue-number="5" type="MCAST" index="0"/>
+            </SCHEDULER_GROUP>
+            <SCHEDULER_GROUP index="6" child_count="1">
+              <child-queue queue-number="6" type="MCAST" index="0"/>
+            </SCHEDULER_GROUP>
+            <SCHEDULER_GROUP index="7" child_count="1">
+              <child-queue queue-number="7" type="MCAST" index="0"/>
+            </SCHEDULER_GROUP>
+            <SCHEDULER_GROUP index="8" child_count="1">
+              <child-queue queue-number="8" type="MCAST" index="0"/>
+            </SCHEDULER_GROUP>
+            <SCHEDULER_GROUP index="9" child_count="1">
+              <child-queue queue-number="9" type="MCAST" index="0"/>
+            </SCHEDULER_GROUP>
+            <SCHEDULER_GROUP index="10" child_count="1">
+              <child-queue queue-number="10" type="MCAST" index="0"/>
+            </SCHEDULER_GROUP>
+            <SCHEDULER_GROUP index="11" child_count="1">
+              <child-queue queue-number="11" type="MCAST" index="0"/>
+            </SCHEDULER_GROUP>
+            <SCHEDULER_GROUP index="12" child_count="1">
+              <child-queue queue-number="12" type="MCAST" index="0"/>
+            </SCHEDULER_GROUP>
+            <SCHEDULER_GROUP index="13" child_count="1">
+              <child-queue queue-number="13" type="MCAST" index="0"/>
+            </SCHEDULER_GROUP>
+            <SCHEDULER_GROUP index="14" child_count="1">
+              <child-queue queue-number="14" type="MCAST" index="0"/>
+            </SCHEDULER_GROUP>
+            <SCHEDULER_GROUP index="15" child_count="1">
+              <child-queue queue-number="15" type="MCAST" index="0"/>
+            </SCHEDULER_GROUP>
+          </LEVEL>
+        </CPU_SCHEDULER_HIERARCHY_TREE>
+
+        <!--========================================================-->
+        <!-- Scheduler group hierarchy levels for default qos init  -->
+        <!-- Levels 3; Level-0:Port Level-1:L0 Level-2:L1           -->
+        <!-- Port has 5 L0 nodes as children                        -->
+        <!-- L0 node 0 is reserved and has no children              -->
+        <!-- L0 node 1 has 8 L1 nodes as children                   -->
+        <!-- L0 node 2 has no children                              -->
+        <!-- L0 node 3 has no children                              -->
+        <!-- L0 node 4 is special and it can have only L1 nodes
+             8 and 9 as children.                                   -->
+        <!-- Each L1 node has unicast and multicast queue as child  -->
+        <!--========================================================-->
+        <SCHEDULER_HIERARCHY_TREE num_levels="3">
+          <LEVEL level_idx="0" scheduler_group_count="1">
+            <SCHEDULER_GROUP index="0" child_count="1">
+              <child-scheduler-group child_level="1" index="0"/>
+            </SCHEDULER_GROUP>
+          </LEVEL>
+          <LEVEL level_idx="1" scheduler_group_count="1">
+            <SCHEDULER_GROUP index="0" child_count="8">
+              <child-scheduler-group child_level="2" index="0"/>
+              <child-scheduler-group child_level="2" index="1"/>
+              <child-scheduler-group child_level="2" index="2"/>
+              <child-scheduler-group child_level="2" index="3"/>
+              <child-scheduler-group child_level="2" index="4"/>
+              <child-scheduler-group child_level="2" index="5"/>
+              <child-scheduler-group child_level="2" index="6"/>
+              <child-scheduler-group child_level="2" index="7"/>
+            </SCHEDULER_GROUP>
+          </LEVEL>
+
+          <LEVEL level_idx="2" scheduler_group_count="8">
+            <SCHEDULER_GROUP index="0" child_count="2">
+              <child-queue queue-number="0" type="UCAST" index="0"/>
+              <child-queue queue-number="0" type="MCAST" index="1"/>
+            </SCHEDULER_GROUP>
+            <SCHEDULER_GROUP index="1" child_count="2">
+              <child-queue queue-number="1" type="UCAST" index="0"/>
+              <child-queue queue-number="1" type="MCAST" index="1"/>
+            </SCHEDULER_GROUP>
+            <SCHEDULER_GROUP index="2" child_count="2">
+              <child-queue queue-number="2" type="UCAST" index="0"/>
+              <child-queue queue-number="2" type="MCAST" index="1"/>
+            </SCHEDULER_GROUP>
+            <SCHEDULER_GROUP index="3" child_count="2">
+              <child-queue queue-number="3" type="UCAST" index="0"/>
+              <child-queue queue-number="3" type="MCAST" index="1"/>
+            </SCHEDULER_GROUP>
+            <SCHEDULER_GROUP index="4" child_count="2">
+              <child-queue queue-number="4" type="UCAST" index="0"/>
+              <child-queue queue-number="4" type="MCAST" index="1"/>
+            </SCHEDULER_GROUP>
+            <SCHEDULER_GROUP index="5" child_count="2">
+              <child-queue queue-number="5" type="UCAST" index="0"/>
+              <child-queue queue-number="5" type="MCAST" index="1"/>
+            </SCHEDULER_GROUP>
+            <SCHEDULER_GROUP index="6" child_count="2">
+              <child-queue queue-number="6" type="UCAST" index="0"/>
+              <child-queue queue-number="6" type="MCAST" index="1"/>
+            </SCHEDULER_GROUP>
+            <SCHEDULER_GROUP index="7" child_count="2">
+              <child-queue queue-number="7" type="UCAST" index="0"/>
+              <child-queue queue-number="7" type="MCAST" index="1"/>
+            </SCHEDULER_GROUP>
+          </LEVEL>
+        </SCHEDULER_HIERARCHY_TREE>
+
+    </PLATFORM_INFO>
+
+    <!--=======================================================-->
+    <!--               Vendor Specific Info                    -->
+    <!--=======================================================-->
+
+    <PLATFORM_INFO type="vendor">
+
+        <!--=======================================================-->
+        <!--               Switch Level info                       -->
+        <!--=======================================================-->
+
+        <SWITCH instance="0" type="BCM88375_A0_QUMRAN">
+            <CAPABILITIES bitmask="0x1e"/>
+            <SW_LINKSCAN interval="100000"/>
+        </SWITCH>
+
+        <!--=======================================================-->
+        <!--               Port Level info                         -->
+        <!--=======================================================-->
+        <!--  54 Physical ports   ; 72 Logical ports               -->
+                <!--  48 SFP Ports, 6 QSFP Ports                                                   -->
+        <!--=======================================================-->
+        <!--  72 port instances  ; 72 active port instances        -->
+        <!--  6 qsfp breakout port ;                               -->
+        <!--=======================================================-->
+
+        <PORT instance="0" active="true">
+            <ID valid="true" logical_port="1" hw_port="33" serdes_type="warpcore" port_group="0"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10000" count="1" bitmap="0x1"/>
+            <LANESWAP tx="0x0132" rx="0x2301"/>
+            <POLARITY tx="0x0000" rx="0x0001"/>
+            <PRE_EMPHASIS type="default" preemp="0x115c03" idriver="0x3"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP1_DATA_RAM154" offset_support="true" location_reg_addr="0x21668" location_offset="1"/>
+        </PORT>
+
+        <PORT instance="1" active="true">
+            <ID valid="true" logical_port="2" hw_port="34" serdes_type="warpcore" port_group="1"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true"/>
+            <LANE speed="10000" count="1" bitmap="0x1"/>
+            <LANESWAP tx="0x0132" rx="0x2301"/>
+            <POLARITY tx="0x0001" rx="0x0001"/>
+            <PRE_EMPHASIS type="default" preemp="0x115c03" idriver="0x3"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP1_DATA_RAM154" offset_support="true" location_reg_addr="0x21668" location_offset="2"/>
+        </PORT>
+
+        <PORT instance="2" active="true">
+            <ID valid="true" logical_port="3" hw_port="35" serdes_type="warpcore" port_group="2"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true"/>
+            <LANE speed="10000" count="1" bitmap="0x1"/>
+            <LANESWAP tx="0x0132" rx="0x2301"/>
+            <POLARITY tx="0x0000" rx="0x0001"/>
+            <PRE_EMPHASIS type="default" preemp="0x115c03" idriver="0x2"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP1_DATA_RAM154" offset_support="true" location_reg_addr="0x21668" location_offset="3"/>
+        </PORT>
+
+        <PORT instance="3" active="true">
+            <ID valid="true" logical_port="4" hw_port="36" serdes_type="warpcore" port_group="3"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true"/>
+            <LANE speed="10000" count="1" bitmap="0x1"/>
+            <LANESWAP tx="0x0132" rx="0x2301"/>
+            <POLARITY tx="0x0000" rx="0x0001"/>
+            <PRE_EMPHASIS type="default" preemp="0x115c03" idriver="0x2"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP1_DATA_RAM154" offset_support="true" location_reg_addr="0x21668" location_offset="4"/>
+        </PORT>
+
+        <PORT instance="4" active="true">
+            <ID valid="true" logical_port="5" hw_port="25" serdes_type="warpcore" port_group="4"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10000" count="1" bitmap="0x1"/>
+            <LANESWAP tx="0x2013" rx="0x0132"/>
+            <POLARITY tx="0x0000" rx="0x0000"/>
+            <PRE_EMPHASIS type="default" preemp="0x105d03" idriver="0x2"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP1_DATA_RAM154" offset_support="true" location_reg_addr="0x21668" location_offset="5"/>
+        </PORT>
+
+        <PORT instance="5" active="true">
+            <ID valid="true" logical_port="6" hw_port="26" serdes_type="warpcore" port_group="5"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true"/>
+            <LANE speed="10000" count="1" bitmap="0x1"/>
+            <LANESWAP tx="0x2013" rx="0x0132"/>
+            <POLARITY tx="0x0000" rx="0x0000"/>
+            <PRE_EMPHASIS type="default" preemp="0x105d03" idriver="0x2"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP1_DATA_RAM154" offset_support="true" location_reg_addr="0x21668" location_offset="6"/>
+        </PORT>
+
+        <PORT instance="6" active="true">
+            <ID valid="true" logical_port="7" hw_port="27" serdes_type="warpcore" port_group="6"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true"/>
+            <LANE speed="10000" count="1" bitmap="0x1"/>
+            <LANESWAP tx="0x2013" rx="0x0132"/>
+            <POLARITY tx="0x0000" rx="0x0001"/>
+            <PRE_EMPHASIS type="default" preemp="0x0f5e03" idriver="0x2"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP1_DATA_RAM154" offset_support="true" location_reg_addr="0x21668" location_offset="7"/>
+        </PORT>
+
+        <PORT instance="7" active="true">
+            <ID valid="true" logical_port="8" hw_port="28" serdes_type="warpcore" port_group="7"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true"/>
+            <LANE speed="10000" count="1" bitmap="0x1"/>
+            <LANESWAP tx="0x2013" rx="0x0132"/>
+            <POLARITY tx="0x0000" rx="0x0000"/>
+            <PRE_EMPHASIS type="default" preemp="0x0f5e03" idriver="0x2"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP1_DATA_RAM154" offset_support="true" location_reg_addr="0x21668" location_offset="0"/>
+        </PORT>
+
+        <PORT instance="8" active="true">
+            <ID valid="true" logical_port="9" hw_port="29" serdes_type="warpcore" port_group="8"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true"/>
+            <LANE speed="10000" count="1" bitmap="0x1"/>
+            <LANESWAP tx="0x0132" rx="0x2310"/>
+            <POLARITY tx="0x0000" rx="0x0001"/>
+            <PRE_EMPHASIS type="default" preemp="0x0f5e03" idriver="0x2"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP1_DATA_RAM155" offset_support="true" location_reg_addr="0x2166c" location_offset="1"/>
+        </PORT>
+
+        <PORT instance="9" active="true">
+            <ID valid="true" logical_port="10" hw_port="30" serdes_type="warpcore" port_group="9"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true"/>
+            <LANE speed="10000" count="1" bitmap="0x1"/>
+            <LANESWAP tx="0x0132" rx="0x2310"/>
+            <POLARITY tx="0x0001" rx="0x0001"/>
+            <PRE_EMPHASIS type="default" preemp="0x0f5e03" idriver="0x2"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP1_DATA_RAM155" offset_support="true" location_reg_addr="0x2166c" location_offset="2"/>
+        </PORT>
+
+        <PORT instance="10" active="true">
+            <ID valid="true" logical_port="11" hw_port="31" serdes_type="warpcore" port_group="10"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true"/>
+            <LANE speed="10000" count="1" bitmap="0x1"/>
+            <LANESWAP tx="0x0132" rx="0x2310"/>
+            <POLARITY tx="0x0000" rx="0x0001"/>
+            <PRE_EMPHASIS type="default" preemp="0x0d6003" idriver="0x1"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP1_DATA_RAM155" offset_support="true" location_reg_addr="0x2166c" location_offset="3"/>
+        </PORT>
+
+        <PORT instance="11" active="true">
+            <ID valid="true" logical_port="12" hw_port="32" serdes_type="warpcore" port_group="11"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true"/>
+            <LANE speed="10000" count="1" bitmap="0x1"/>
+            <LANESWAP tx="0x0132" rx="0x2310"/>
+            <POLARITY tx="0x0001" rx="0x0000"/>
+            <PRE_EMPHASIS type="default" preemp="0x0d6003" idriver="0x1"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP1_DATA_RAM155" offset_support="true" location_reg_addr="0x2166c" location_offset="4"/>
+        </PORT>
+
+        <PORT instance="12" active="true">
+            <ID valid="true" logical_port="13" hw_port="37" serdes_type="warpcore" port_group="12"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10000" count="1" bitmap="0x1"/>
+            <LANESWAP tx="0x0132" rx="0x2310"/>
+            <POLARITY tx="0x0000" rx="0x0000"/>
+            <PRE_EMPHASIS type="default" preemp="0x0d6003" idriver="0x1"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP1_DATA_RAM155" offset_support="true" location_reg_addr="0x2166c" location_offset="5"/>
+        </PORT>
+
+        <PORT instance="13" active="true">
+            <ID valid="true" logical_port="14" hw_port="38" serdes_type="warpcore" port_group="13"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true"/>
+            <LANE speed="10000" count="1" bitmap="0x1"/>
+            <LANESWAP tx="0x0132" rx="0x2310"/>
+            <POLARITY tx="0x0000" rx="0x0000"/>
+            <PRE_EMPHASIS type="default" preemp="0x0d6102" idriver="0x2"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP1_DATA_RAM155" offset_support="true" location_reg_addr="0x2166c" location_offset="6"/>
+        </PORT>
+
+        <PORT instance="14" active="true">
+            <ID valid="true" logical_port="15" hw_port="39" serdes_type="warpcore" port_group="14"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true"/>
+            <LANE speed="10000" count="1" bitmap="0x1"/>
+            <LANESWAP tx="0x0132" rx="0x2310"/>
+            <POLARITY tx="0x0001" rx="0x0000"/>
+            <PRE_EMPHASIS type="default" preemp="0x0d6102" idriver="0x2"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP1_DATA_RAM155" offset_support="true" location_reg_addr="0x2166c" location_offset="7"/>
+        </PORT>
+
+        <PORT instance="15" active="true">
+            <ID valid="true" logical_port="16" hw_port="40" serdes_type="warpcore" port_group="15"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true"/>
+            <LANE speed="10000" count="1" bitmap="0x1"/>
+            <LANESWAP tx="0x0132" rx="0x2310"/>
+            <POLARITY tx="0x0000" rx="0x0000"/>
+            <PRE_EMPHASIS type="default" preemp="0x0d6102" idriver="0x2"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP1_DATA_RAM155" offset_support="true" location_reg_addr="0x2166c" location_offset="0"/>
+        </PORT>
+
+        <PORT instance="16" active="true">
+            <ID valid="true" logical_port="17" hw_port="41" serdes_type="warpcore" port_group="16"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10000" count="1" bitmap="0x1"/>
+            <LANESWAP tx="0x3201" rx="0x1023"/>
+            <POLARITY tx="0x0000" rx="0x0001"/>
+            <PRE_EMPHASIS type="default" preemp="0x0d6102" idriver="0x0"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP1_DATA_RAM156" offset_support="true" location_reg_addr="0x21670" location_offset="1"/>
+        </PORT>
+
+        <PORT instance="17" active="true">
+            <ID valid="true" logical_port="18" hw_port="42" serdes_type="warpcore" port_group="17"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true"/>
+            <LANE speed="10000" count="1" bitmap="0x1"/>
+            <LANESWAP tx="0x3201" rx="0x1023"/>
+            <POLARITY tx="0x0000" rx="0x0000"/>
+            <PRE_EMPHASIS type="default" preemp="0x0d6102" idriver="0x0"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP1_DATA_RAM156" offset_support="true" location_reg_addr="0x21670" location_offset="2"/>
+        </PORT>
+
+        <PORT instance="18" active="true">
+            <ID valid="true" logical_port="19" hw_port="43" serdes_type="warpcore" port_group="18"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true"/>
+            <LANE speed="10000" count="1" bitmap="0x1"/>
+            <LANESWAP tx="0x3201" rx="0x1023"/>
+            <POLARITY tx="0x0000" rx="0x0001"/>
+            <PRE_EMPHASIS type="default" preemp="0x0d6102" idriver="0x0"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP1_DATA_RAM156" offset_support="true" location_reg_addr="0x21670" location_offset="3"/>
+        </PORT>
+
+        <PORT instance="19" active="true">
+            <ID valid="true" logical_port="20" hw_port="44" serdes_type="warpcore" port_group="19"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true"/>
+            <LANE speed="10000" count="1" bitmap="0x1"/>
+            <LANESWAP tx="0x3201" rx="0x1023"/>
+            <POLARITY tx="0x0000" rx="0x0001"/>
+            <PRE_EMPHASIS type="default" preemp="0x0d6102" idriver="0x0"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP1_DATA_RAM156" offset_support="true" location_reg_addr="0x21670" location_offset="4"/>
+        </PORT>
+
+        <PORT instance="20" active="true">
+            <ID valid="true" logical_port="21" hw_port="45" serdes_type="warpcore" port_group="20"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true"/>
+            <LANE speed="10000" count="1" bitmap="0x1"/>
+            <LANESWAP tx="0x3201" rx="0x0213"/>
+            <POLARITY tx="0x0000" rx="0x0001"/>
+            <PRE_EMPHASIS type="default" preemp="0x0d6102" idriver="0x0"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP1_DATA_RAM156" offset_support="true" location_reg_addr="0x21670" location_offset="5"/>
+        </PORT>
+
+        <PORT instance="21" active="true">
+            <ID valid="true" logical_port="22" hw_port="46" serdes_type="warpcore" port_group="21"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true"/>
+            <LANE speed="10000" count="1" bitmap="0x1"/>
+            <LANESWAP tx="0x3201" rx="0x0213"/>
+            <POLARITY tx="0x0000" rx="0x0001"/>
+            <PRE_EMPHASIS type="default" preemp="0x0c6202" idriver="0x2"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP1_DATA_RAM156" offset_support="true" location_reg_addr="0x21670" location_offset="6"/>
+        </PORT>
+
+        <PORT instance="22" active="true">
+            <ID valid="true" logical_port="23" hw_port="47" serdes_type="warpcore" port_group="22"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true"/>
+            <LANE speed="10000" count="1" bitmap="0x1"/>
+            <LANESWAP tx="0x3201" rx="0x0213"/>
+            <POLARITY tx="0x0000" rx="0x0001"/>
+            <PRE_EMPHASIS type="default" preemp="0x0c6202" idriver="0x2"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP1_DATA_RAM156" offset_support="true" location_reg_addr="0x21670" location_offset="7"/>
+        </PORT>
+
+        <PORT instance="23" active="true">
+            <ID valid="true" logical_port="24" hw_port="48" serdes_type="warpcore" port_group="23"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true"/>
+            <LANE speed="10000" count="1" bitmap="0x1"/>
+            <LANESWAP tx="0x3201" rx="0x0213"/>
+            <POLARITY tx="0x0000" rx="0x0001"/>
+            <PRE_EMPHASIS type="default" preemp="0x0c6202" idriver="0x2"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP1_DATA_RAM156" offset_support="true" location_reg_addr="0x21670" location_offset="0"/>
+        </PORT>
+
+        <PORT instance="24" active="true">
+            <ID valid="true" logical_port="25" hw_port="69" serdes_type="warpcore" port_group="24"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="false" lane_1="true"/>
+            <LANE speed="10000" count="1" bitmap="0x1"/>
+            <LANESWAP tx="0x3201" rx="0x2310"/>
+            <POLARITY tx="0x0001" rx="0x0000"/>
+            <PRE_EMPHASIS type="default" preemp="0x0c6202" idriver="0x2"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP2_DATA_RAM155" offset_support="true" location_reg_addr="0x2966c" location_offset="1"/>
+        </PORT>
+
+        <PORT instance="25" active="true">
+            <ID valid="true" logical_port="26" hw_port="70" serdes_type="warpcore" port_group="25"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10000" count="1" bitmap="0x1"/>
+            <LANESWAP tx="0x3201" rx="0x2310"/>
+            <POLARITY tx="0x0000" rx="0x0000"/>
+            <PRE_EMPHASIS type="default" preemp="0x0c6202" idriver="0x2"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP2_DATA_RAM155" offset_support="true" location_reg_addr="0x2966c" location_offset="2"/>
+        </PORT>
+
+        <PORT instance="26" active="true">
+            <ID valid="true" logical_port="27" hw_port="71" serdes_type="warpcore" port_group="26"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true"/>
+            <LANE speed="10000" count="1" bitmap="0x1"/>
+            <LANESWAP tx="0x3201" rx="0x2310"/>
+            <POLARITY tx="0x0000" rx="0x0001"/>
+            <PRE_EMPHASIS type="default" preemp="0x0c6202" idriver="0x2"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP2_DATA_RAM155" offset_support="true" location_reg_addr="0x2966c" location_offset="3"/>
+        </PORT>
+
+        <PORT instance="27" active="true">
+            <ID valid="true" logical_port="28" hw_port="72" serdes_type="warpcore" port_group="27"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true"/>
+            <LANE speed="10000" count="1" bitmap="0x1"/>
+            <LANESWAP tx="0x3201" rx="0x2310"/>
+            <POLARITY tx="0x0000" rx="0x0000"/>
+            <PRE_EMPHASIS type="default" preemp="0x0c6202" idriver="0x2"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP2_DATA_RAM155" offset_support="true" location_reg_addr="0x2966c" location_offset="4"/>
+        </PORT>
+
+        <PORT instance="28" active="true">
+            <ID valid="true" logical_port="29" hw_port="65" serdes_type="warpcore" port_group="28"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true"/>
+            <LANE speed="10000" count="1" bitmap="0x1"/>
+            <LANESWAP tx="0x0321" rx="0x1203"/>
+            <POLARITY tx="0x0001" rx="0x0001"/>
+            <PRE_EMPHASIS type="default" preemp="0x0c6202" idriver="0x2"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP2_DATA_RAM155" offset_support="true" location_reg_addr="0x2966c" location_offset="5"/>
+        </PORT>
+
+        <PORT instance="29" active="true">
+            <ID valid="true" logical_port="30" hw_port="66" serdes_type="warpcore" port_group="29"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10000" count="1" bitmap="0x1"/>
+            <LANESWAP tx="0x0321" rx="0x1203"/>
+            <POLARITY tx="0x0001" rx="0x0001"/>
+            <PRE_EMPHASIS type="default" preemp="0x0c6202" idriver="0x2"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP2_DATA_RAM155" offset_support="true" location_reg_addr="0x2966c" location_offset="6"/>
+        </PORT>
+
+        <PORT instance="30" active="true">
+            <ID valid="true" logical_port="31" hw_port="67" serdes_type="warpcore" port_group="30"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true"/>
+            <LANE speed="10000" count="1" bitmap="0x1"/>
+            <LANESWAP tx="0x0321" rx="0x1203"/>
+            <POLARITY tx="0x0001" rx="0x0001"/>
+            <PRE_EMPHASIS type="default" preemp="0x0c6202" idriver="0x2"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP2_DATA_RAM155" offset_support="true" location_reg_addr="0x2966c" location_offset="7"/>
+        </PORT>
+
+        <PORT instance="31" active="true">
+            <ID valid="true" logical_port="32" hw_port="68" serdes_type="warpcore" port_group="31"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true"/>
+            <LANE speed="10000" count="1" bitmap="0x1"/>
+            <LANESWAP tx="0x0321" rx="0x1203"/>
+            <POLARITY tx="0x0000" rx="0x0001"/>
+            <PRE_EMPHASIS type="default" preemp="0x0c6202" idriver="0x2"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP2_DATA_RAM155" offset_support="true" location_reg_addr="0x2966c" location_offset="0"/>
+        </PORT>
+
+        <PORT instance="32" active="true">
+            <ID valid="true" logical_port="33" hw_port="61" serdes_type="warpcore" port_group="32"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true"/>
+            <LANE speed="10000" count="1" bitmap="0x1"/>
+            <LANESWAP tx="0x1023" rx="0x1203"/>
+            <POLARITY tx="0x0001" rx="0x0001"/>
+            <PRE_EMPHASIS type="default" preemp="0x0b6203" idriver="0x0"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP2_DATA_RAM156" offset_support="true" location_reg_addr="0x29670" location_offset="1"/>
+        </PORT>
+
+        <PORT instance="33" active="true">
+            <ID valid="true" logical_port="34" hw_port="62" serdes_type="warpcore" port_group="33"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10000" count="1" bitmap="0x1"/>
+            <LANESWAP tx="0x1023" rx="0x1203"/>
+            <POLARITY tx="0x0001" rx="0x0000"/>
+            <PRE_EMPHASIS type="default" preemp="0x0b6203" idriver="0x0"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP2_DATA_RAM156" offset_support="true" location_reg_addr="0x29670" location_offset="2"/>
+        </PORT>
+
+        <PORT instance="34" active="true">
+            <ID valid="true" logical_port="35" hw_port="63" serdes_type="warpcore" port_group="34"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true"/>
+            <LANE speed="10000" count="1" bitmap="0x1"/>
+            <LANESWAP tx="0x1023" rx="0x1203"/>
+            <POLARITY tx="0x0001" rx="0x0001"/>
+            <PRE_EMPHASIS type="default" preemp="0x0b6203" idriver="0x0"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP2_DATA_RAM156" offset_support="true" location_reg_addr="0x29670" location_offset="3"/>
+        </PORT>
+
+        <PORT instance="35" active="true">
+            <ID valid="true" logical_port="36" hw_port="64" serdes_type="warpcore" port_group="35"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true"/>
+            <LANE speed="10000" count="1" bitmap="0x1"/>
+            <LANESWAP tx="0x1023" rx="0x1203"/>
+            <POLARITY tx="0x0000" rx="0x0001"/>
+            <PRE_EMPHASIS type="default" preemp="0x0b6203" idriver="0x0"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP2_DATA_RAM156" offset_support="true" location_reg_addr="0x29670" location_offset="4"/>
+        </PORT>
+
+        <PORT instance="36" active="true">
+            <ID valid="true" logical_port="37" hw_port="53" serdes_type="warpcore" port_group="36"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true"/>
+            <LANE speed="10000" count="1" bitmap="0x1"/>
+            <LANESWAP tx="0x1032" rx="0x1203"/>
+            <POLARITY tx="0x0000" rx="0x0001"/>
+            <PRE_EMPHASIS type="default" preemp="0x0b6203" idriver="0x0"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP2_DATA_RAM156" offset_support="true" location_reg_addr="0x29670" location_offset="5"/>
+        </PORT>
+
+        <PORT instance="37" active="true">
+            <ID valid="true" logical_port="38" hw_port="54" serdes_type="warpcore" port_group="37"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10000" count="1" bitmap="0x1"/>
+            <LANESWAP tx="0x1032" rx="0x1203"/>
+            <POLARITY tx="0x0000" rx="0x0000"/>
+            <PRE_EMPHASIS type="default" preemp="0x0b6203" idriver="0x0"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP2_DATA_RAM156" offset_support="true" location_reg_addr="0x29670" location_offset="6"/>
+        </PORT>
+
+        <PORT instance="38" active="true">
+            <ID valid="true" logical_port="39" hw_port="55" serdes_type="warpcore" port_group="38"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true"/>
+            <LANE speed="10000" count="1" bitmap="0x1"/>
+            <LANESWAP tx="0x1032" rx="0x1203"/>
+            <POLARITY tx="0x0000" rx="0x0001"/>
+            <PRE_EMPHASIS type="default" preemp="0x0b6203" idriver="0x0"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP2_DATA_RAM156" offset_support="true" location_reg_addr="0x29670" location_offset="7"/>
+        </PORT>
+
+        <PORT instance="39" active="true">
+            <ID valid="true" logical_port="40" hw_port="56" serdes_type="warpcore" port_group="39"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true"/>
+            <LANE speed="10000" count="1" bitmap="0x1"/>
+            <LANESWAP tx="0x1032" rx="0x1203"/>
+            <POLARITY tx="0x0000" rx="0x0001"/>
+            <PRE_EMPHASIS type="default" preemp="0x0b6203" idriver="0x2"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP2_DATA_RAM156" offset_support="true" location_reg_addr="0x29670" location_offset="0"/>
+        </PORT>
+
+        <PORT instance="40" active="true">
+            <ID valid="true" logical_port="41" hw_port="49" serdes_type="warpcore" port_group="40"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true" speed40G="true"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="40000" count="4" bitmap="0xf"/>
+            <LANESWAP tx="0x1032" rx="0x2013"/>
+            <POLARITY tx="0x0000" rx="0x0001"/>
+            <PRE_EMPHASIS type="default" preemp="0x0f5f02" idriver="0x2"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP2_DATA_RAM157" offset_support="true" location_reg_addr="0x29674" location_offset="1"/>
+            <BREAKOUT_MODE_LED_CONFIG command="setreg CMIC_LEDUP2_DATA_RAM251" lane_1="0x40" lane_4="0"/>
+        </PORT>
+
+        <PORT instance="41" active="true">
+            <ID valid="false" logical_port="42" hw_port="51" serdes_type="warpcore" port_group="40"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10000" count="1" bitmap="0x2"/>
+            <LANESWAP tx="0x1032" rx="0x2013"/>
+            <POLARITY tx="0x0000" rx="0x0001"/>
+            <PRE_EMPHASIS type="default" preemp="0x0f5f02" idriver="0x2"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP2_DATA_RAM157" offset_support="true" location_reg_addr="0x29674" location_offset="2"/>
+        </PORT>
+
+        <PORT instance="42" active="true">
+            <ID valid="false" logical_port="43" hw_port="50" serdes_type="warpcore" port_group="40"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10000" count="1" bitmap="0x4"/>
+            <LANESWAP tx="0x1032" rx="0x2013"/>
+            <POLARITY tx="0x0000" rx="0x0001"/>
+            <PRE_EMPHASIS type="default" preemp="0x0f5f02" idriver="0x2"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP2_DATA_RAM157" offset_support="true" location_reg_addr="0x29674" location_offset="3"/>
+        </PORT>
+
+        <PORT instance="43" active="true">
+            <ID valid="false" logical_port="44" hw_port="52" serdes_type="warpcore" port_group="40"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10000" count="1" bitmap="0x8"/>
+            <LANESWAP tx="0x1032" rx="0x2013"/>
+            <POLARITY tx="0x0000" rx="0x0001"/>
+           <PRE_EMPHASIS type="default" preemp="0x0d6102" idriver="0x2"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP2_DATA_RAM157" offset_support="true" location_reg_addr="0x29674" location_offset="4"/>
+        </PORT>
+
+        <PORT instance="44" active="true">
+            <ID valid="true" logical_port="45" hw_port="57" serdes_type="warpcore" port_group="41"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true" speed40G="true"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="40000" count="4" bitmap="0xf"/>
+            <LANESWAP tx="0x3210" rx="0x2301"/>
+            <POLARITY tx="0x0001" rx="0x0000"/>
+            <PRE_EMPHASIS type="default" preemp="0x0d6102" idriver="0x2"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP2_DATA_RAM157" offset_support="true" location_reg_addr="0x29674" location_offset="5"/>
+            <BREAKOUT_MODE_LED_CONFIG command="setreg CMIC_LEDUP2_DATA_RAM252" lane_1="0x40" lane_4="0"/>
+        </PORT>
+
+        <PORT instance="45" active="true">
+            <ID valid="false" logical_port="46" hw_port="59" serdes_type="warpcore" port_group="41"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10000" count="1" bitmap="0x2"/>
+            <LANESWAP tx="0x3210" rx="0x2301"/>
+            <POLARITY tx="0x0001" rx="0x0000"/>
+            <PRE_EMPHASIS type="default" preemp="0x0d6102" idriver="0x2"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP2_DATA_RAM157" offset_support="true" location_reg_addr="0x29674" location_offset="6"/>
+        </PORT>
+
+        <PORT instance="46" active="true">
+            <ID valid="false" logical_port="47" hw_port="58" serdes_type="warpcore" port_group="41"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10000" count="1" bitmap="0x4"/>
+            <LANESWAP tx="0x3210" rx="0x2301"/>
+            <POLARITY tx="0x0001" rx="0x0000"/>
+            <PRE_EMPHASIS type="default" preemp="0x0f5f02" idriver="0x2"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP2_DATA_RAM157" offset_support="true" location_reg_addr="0x29674" location_offset="7"/>
+        </PORT>
+
+        <PORT instance="47" active="true">
+            <ID valid="false" logical_port="48" hw_port="60" serdes_type="warpcore" port_group="41"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <BREAKOUT support="true" lane_1="true" lane_4="true"/>
+            <LANE speed="10000" count="1" bitmap="0x8"/>
+            <LANESWAP tx="0x3210" rx="0x2301"/>
+            <POLARITY tx="0x0001" rx="0x0000"/>
+            <PRE_EMPHASIS type="default" preemp="0x0d6102" idriver="0x2"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP2_DATA_RAM157" offset_support="true" location_reg_addr="0x29674" location_offset="0"/>
+        </PORT>
+
+        <PORT instance="48" active="true">
+            <ID valid="true" logical_port="49" hw_port="13" serdes_type="warpcore" port_group="42"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true" speed40G="true" speed25G="true" speed100G="true"/>
+            <BREAKOUT support="true" lane_1="true" lane_2="true" lane_4="true"/>
+            <LANE speed="100000" count="4" bitmap="0xf"/>
+            <LANESWAP tx="0x2130" rx="0x2310"/>
+            <POLARITY tx="0x0001" rx="0x0000"/>
+            <PRE_EMPHASIS type="default" preemp="0x175603" idriver="0x8"/>
+            <BREAKOUT_MODE_LED_CONFIG command="setreg CMIC_LEDUP0_DATA_RAM219" lane_1="0x8" lane_4="4"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP0_DATA_RAM189" offset_support="true" location_reg_addr="0x206f4" location_offset="0"/>
+        </PORT>
+
+        <PORT instance="49" active="true">
+            <ID valid="false" logical_port="50" hw_port="14" serdes_type="warpcore" port_group="42"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true" speed25G="true"/>
+            <BREAKOUT support="true" lane_1="true" lane_2="true" lane_4="true"/>
+            <LANE speed="25000" count="1" bitmap="0x2"/>
+            <LANESWAP tx="0x2130" rx="0x2310"/>
+            <POLARITY tx="0x0001" rx="0x0000"/>
+            <PRE_EMPHASIS type="default" preemp="0x195403" idriver="0x8"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP0_DATA_RAM190" offset_support="true" location_reg_addr="0x206f8" location_offset="0"/>
+        </PORT>
+
+        <PORT instance="50" active="true">
+            <ID valid="false" logical_port="51" hw_port="15" serdes_type="warpcore" port_group="42"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true" speed25G="true"/>
+            <BREAKOUT support="true" lane_1="true" lane_2="true" lane_4="true"/>
+            <LANE speed="25000" count="1" bitmap="0x4"/>
+            <LANESWAP tx="0x2130" rx="0x2310"/>
+            <POLARITY tx="0x0000" rx="0x0000"/>
+            <PRE_EMPHASIS type="default" preemp="0x175603" idriver="0x8"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP0_DATA_RAM191" offset_support="true" location_reg_addr="0x206fc" location_offset="0"/>
+        </PORT>
+
+        <PORT instance="51" active="true">
+            <ID valid="false" logical_port="52" hw_port="16" serdes_type="warpcore" port_group="42"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true" speed25G="true"/>
+            <BREAKOUT support="true" lane_1="true" lane_2="true" lane_4="true"/>
+            <LANE speed="25000" count="1" bitmap="0x8"/>
+            <LANESWAP tx="0x2130" rx="0x2310"/>
+            <POLARITY tx="0x0001" rx="0x0000"/>
+           <PRE_EMPHASIS type="default" preemp="0x195403" idriver="0x8"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP0_DATA_RAM192" offset_support="true" location_reg_addr="0x20700" location_offset="0"/>
+        </PORT>
+
+        <PORT instance="52" active="true">
+            <ID valid="true" logical_port="53" hw_port="21" serdes_type="warpcore" port_group="43"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true" speed40G="true" speed25G="true" speed100G="true"/>
+            <BREAKOUT support="true" lane_1="true" lane_2="true" lane_4="true"/>
+            <LANE speed="100000" count="4" bitmap="0xf"/>
+            <LANESWAP tx="0x0123" rx="0x1032"/>
+            <POLARITY tx="0x0001" rx="0x0001"/>
+            <PRE_EMPHASIS type="default" preemp="0x195403" idriver="0x8"/>
+            <BREAKOUT_MODE_LED_CONFIG command="setreg CMIC_LEDUP0_DATA_RAM220" lane_1="0x8" lane_4="4"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP0_DATA_RAM193" offset_support="true" location_reg_addr="0x20704" location_offset="0"/>
+        </PORT>
+
+        <PORT instance="53" active="true">
+            <ID valid="false" logical_port="54" hw_port="22" serdes_type="warpcore" port_group="43"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true" speed25G="true"/>
+            <BREAKOUT support="true" lane_1="true" lane_2="true" lane_4="true"/>
+            <LANE speed="25000" count="1" bitmap="0x2"/>
+            <LANESWAP tx="0x0123" rx="0x1032"/>
+            <POLARITY tx="0x0001" rx="0x0001"/>
+            <PRE_EMPHASIS type="default" preemp="0x195403" idriver="0x8"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP0_DATA_RAM194" offset_support="true" location_reg_addr="0x20708" location_offset="0"/>
+        </PORT>
+
+        <PORT instance="54" active="true">
+            <ID valid="false" logical_port="55" hw_port="23" serdes_type="warpcore" port_group="43"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true" speed25G="true"/>
+            <BREAKOUT support="true" lane_1="true" lane_2="true" lane_4="true"/>
+            <LANE speed="25000" count="1" bitmap="0x4"/>
+            <LANESWAP tx="0x0123" rx="0x1032"/>
+            <POLARITY tx="0x0001" rx="0x0001"/>
+            <PRE_EMPHASIS type="default" preemp="0x175603" idriver="0x8"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP0_DATA_RAM195" offset_support="true" location_reg_addr="0x2070c" location_offset="0"/>
+        </PORT>
+
+        <PORT instance="55" active="true">
+            <ID valid="false" logical_port="56" hw_port="24" serdes_type="warpcore" port_group="43"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true" speed25G="true"/>
+            <BREAKOUT support="true" lane_1="true" lane_2="true" lane_4="true"/>
+            <LANE speed="25000" count="1" bitmap="0x8"/>
+            <LANESWAP tx="0x0123" rx="0x1032"/>
+            <POLARITY tx="0x0001" rx="0x0000"/>
+            <PRE_EMPHASIS type="default" preemp="0x1a5303" idriver="0x8"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP0_DATA_RAM196" offset_support="true" location_reg_addr="0x20710" location_offset="0"/>
+        </PORT>
+
+        <PORT instance="56" active="true">
+            <ID valid="true" logical_port="57" hw_port="9" serdes_type="warpcore" port_group="44"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true" speed40G="true" speed25G="true" speed100G="true"/>
+            <BREAKOUT support="true" lane_1="true" lane_2="true" lane_4="true"/>
+            <LANE speed="100000" count="4" bitmap="0xf"/>
+            <LANESWAP tx="0x1023" rx="0x0132"/>
+            <POLARITY tx="0x0001" rx="0x0000"/>
+            <PRE_EMPHASIS type="default" preemp="0x175603" idriver="0x8"/>
+            <BREAKOUT_MODE_LED_CONFIG command="setreg CMIC_LEDUP0_DATA_RAM221" lane_1="0x8" lane_4="4"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP0_DATA_RAM197" offset_support="true" location_reg_addr="0x20714" location_offset="0"/>
+        </PORT>
+
+        <PORT instance="57" active="true">
+            <ID valid="false" logical_port="58" hw_port="10" serdes_type="warpcore" port_group="44"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true" speed25G="true"/>
+            <BREAKOUT support="true" lane_1="true" lane_2="true" lane_4="true"/>
+            <LANE speed="25000" count="1" bitmap="0x2"/>
+            <LANESWAP tx="0x1023" rx="0x0132"/>
+            <POLARITY tx="0x0000" rx="0x0000"/>
+            <PRE_EMPHASIS type="default" preemp="0x195403" idriver="0x8"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP0_DATA_RAM198" offset_support="true" location_reg_addr="0x20718" location_offset="0"/>
+        </PORT>
+
+        <PORT instance="58" active="true">
+            <ID valid="false" logical_port="59" hw_port="11" serdes_type="warpcore" port_group="44"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true" speed25G="true"/>
+            <BREAKOUT support="true" lane_1="true" lane_2="true" lane_4="true"/>
+            <LANE speed="25000" count="1" bitmap="0x4"/>
+            <LANESWAP tx="0x1023" rx="0x0132"/>
+            <POLARITY tx="0x0000" rx="0x0001"/>
+            <PRE_EMPHASIS type="default" preemp="0x195403" idriver="0x8"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP0_DATA_RAM199" offset_support="true" location_reg_addr="0x2071c" location_offset="0"/>
+        </PORT>
+
+        <PORT instance="59" active="true">
+            <ID valid="false" logical_port="60" hw_port="12" serdes_type="warpcore" port_group="44"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true" speed25G="true"/>
+            <BREAKOUT support="true" lane_1="true" lane_2="true" lane_4="true"/>
+            <LANE speed="25000" count="1" bitmap="0x8"/>
+            <LANESWAP tx="0x1023" rx="0x0132"/>
+            <POLARITY tx="0x0000" rx="0x0001"/>
+            <PRE_EMPHASIS type="default" preemp="0x195403" idriver="0x8"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP0_DATA_RAM200" offset_support="true" location_reg_addr="0x20720" location_offset="0"/>
+        </PORT>
+
+        <PORT instance="60" active="true">
+            <ID valid="true" logical_port="61" hw_port="17" serdes_type="warpcore" port_group="45"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true" speed40G="true" speed25G="true" speed100G="true"/>
+            <BREAKOUT support="true" lane_1="true" lane_2="true" lane_4="true"/>
+            <LANE speed="100000" count="4" bitmap="0xf"/>
+            <LANESWAP tx="0x3210" rx="0x1302"/>
+            <POLARITY tx="0x0001" rx="0x0001"/>
+            <PRE_EMPHASIS type="default" preemp="0x1a5303" idriver="0x8"/>
+            <BREAKOUT_MODE_LED_CONFIG command="setreg CMIC_LEDUP0_DATA_RAM222" lane_1="0x8" lane_4="4"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP0_DATA_RAM201" offset_support="true" location_reg_addr="0x20724" location_offset="0"/>
+        </PORT>
+
+        <PORT instance="61" active="true">
+            <ID valid="false" logical_port="62" hw_port="18" serdes_type="warpcore" port_group="45"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true" speed25G="true"/>
+            <BREAKOUT support="true" lane_1="true" lane_2="true" lane_4="true"/>
+            <LANE speed="25000" count="1" bitmap="0x2"/>
+            <LANESWAP tx="0x3210" rx="0x1302"/>
+            <POLARITY tx="0x0001" rx="0x0001"/>
+            <PRE_EMPHASIS type="default" preemp="0x1a5303" idriver="0x8"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP0_DATA_RAM202" offset_support="true" location_reg_addr="0x20728" location_offset="0"/>
+        </PORT>
+
+        <PORT instance="62" active="true">
+            <ID valid="false" logical_port="63" hw_port="19" serdes_type="warpcore" port_group="45"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true" speed25G="true"/>
+            <BREAKOUT support="true" lane_1="true" lane_2="true" lane_4="true"/>
+            <LANE speed="25000" count="1" bitmap="0x4"/>
+            <LANESWAP tx="0x3210" rx="0x1302"/>
+            <POLARITY tx="0x0001" rx="0x0001"/>
+            <PRE_EMPHASIS type="default" preemp="0x195403" idriver="0x8"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP0_DATA_RAM203" offset_support="true" location_reg_addr="0x2072c" location_offset="0"/>
+        </PORT>
+
+        <PORT instance="63" active="true">
+            <ID valid="false" logical_port="64" hw_port="20" serdes_type="warpcore" port_group="45"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true" speed25G="true"/>
+            <BREAKOUT support="true" lane_1="true" lane_2="true" lane_4="true"/>
+            <LANE speed="25000" count="1" bitmap="0x8"/>
+            <LANESWAP tx="0x3210" rx="0x1302"/>
+            <POLARITY tx="0x0001" rx="0x0001"/>
+            <PRE_EMPHASIS type="default" preemp="0x1a5303" idriver="0x8"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP0_DATA_RAM204" offset_support="true" location_reg_addr="0x20730" location_offset="0"/>
+        </PORT>
+
+        <PORT instance="64" active="true">
+            <ID valid="true" logical_port="65" hw_port="1" serdes_type="warpcore" port_group="46"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true" speed40G="true" speed25G="true" speed100G="true"/>
+            <BREAKOUT support="true" lane_1="true" lane_2="true" lane_4="true"/>
+            <LANE speed="100000" count="4" bitmap="0xf"/>
+            <LANESWAP tx="0x3210" rx="0x2301"/>
+            <POLARITY tx="0x0001" rx="0x0000"/>
+            <PRE_EMPHASIS type="default" preemp="0x195403" idriver="0x8"/>
+            <BREAKOUT_MODE_LED_CONFIG command="setreg CMIC_LEDUP0_DATA_RAM223" lane_1="0x8" lane_4="4"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP0_DATA_RAM205" offset_support="true" location_reg_addr="0x20734" location_offset="0"/>
+        </PORT>
+
+        <PORT instance="65" active="true">
+            <ID valid="false" logical_port="66" hw_port="2" serdes_type="warpcore" port_group="46"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true" speed25G="true"/>
+            <BREAKOUT support="true" lane_1="true" lane_2="true" lane_4="true"/>
+            <LANE speed="25000" count="1" bitmap="0x2"/>
+            <LANESWAP tx="0x3210" rx="0x2301"/>
+            <POLARITY tx="0x0001" rx="0x0000"/>
+            <PRE_EMPHASIS type="default" preemp="0x1a5303" idriver="0x8"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP0_DATA_RAM206" offset_support="true" location_reg_addr="0x20738" location_offset="0"/>
+        </PORT>
+
+        <PORT instance="66" active="true">
+            <ID valid="false" logical_port="67" hw_port="3" serdes_type="warpcore" port_group="46"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true" speed25G="true"/>
+            <BREAKOUT support="true" lane_1="true" lane_2="true" lane_4="true"/>
+            <LANE speed="25000" count="1" bitmap="0x4"/>
+            <LANESWAP tx="0x3210" rx="0x2301"/>
+            <POLARITY tx="0x0001" rx="0x0001"/>
+           <PRE_EMPHASIS type="default" preemp="0x1a5303" idriver="0x8"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP0_DATA_RAM207" offset_support="true" location_reg_addr="0x2073c" location_offset="0"/>
+        </PORT>
+
+        <PORT instance="67" active="true">
+            <ID valid="false" logical_port="68" hw_port="4" serdes_type="warpcore" port_group="46"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true" speed25G="true"/>
+            <BREAKOUT support="true" lane_1="true" lane_2="true" lane_4="true"/>
+            <LANE speed="25000" count="1" bitmap="0x8"/>
+            <LANESWAP tx="0x3210" rx="0x2301"/>
+            <POLARITY tx="0x0001" rx="0x0000"/>
+            <PRE_EMPHASIS type="default" preemp="0x1d5003" idriver="0x8"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP0_DATA_RAM208" offset_support="true" location_reg_addr="0x20740" location_offset="0"/>
+        </PORT>
+
+        <PORT instance="68" active="true">
+            <ID valid="true" logical_port="69" hw_port="5" serdes_type="warpcore" port_group="47"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true" speed40G="true" speed25G="true" speed100G="true"/>
+            <BREAKOUT support="true" lane_1="true" lane_2="true" lane_4="true"/>
+            <LANE speed="100000" count="4" bitmap="0xf"/>
+            <LANESWAP tx="0x1032" rx="0x0231"/>
+            <POLARITY tx="0x0000" rx="0x0001"/>
+            <PRE_EMPHASIS type="default" preemp="0x1a5303" idriver="0x8"/>
+            <BREAKOUT_MODE_LED_CONFIG command="setreg CMIC_LEDUP0_DATA_RAM224" lane_1="0x8" lane_4="4"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP0_DATA_RAM209" offset_support="true" location_reg_addr="0x20744" location_offset="0"/>
+        </PORT>
+
+        <PORT instance="69" active="true">
+            <ID valid="false" logical_port="70" hw_port="6" serdes_type="warpcore" port_group="47"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true" speed25G="true"/>
+            <BREAKOUT support="true" lane_1="true" lane_2="true" lane_4="true"/>
+            <LANE speed="25000" count="1" bitmap="0x2"/>
+            <LANESWAP tx="0x1032" rx="0x0231"/>
+            <POLARITY tx="0x0000" rx="0x0001"/>
+            <PRE_EMPHASIS type="default" preemp="0x1e4f03" idriver="0x8"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP0_DATA_RAM210" offset_support="true" location_reg_addr="0x20748" location_offset="0"/>
+        </PORT>
+
+        <PORT instance="70" active="true">
+            <ID valid="false" logical_port="71" hw_port="7" serdes_type="warpcore" port_group="47"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true" speed25G="true"/>
+            <BREAKOUT support="true" lane_1="true" lane_2="true" lane_4="true"/>
+            <LANE speed="25000" count="1" bitmap="0x4"/>
+            <LANESWAP tx="0x1032" rx="0x0231"/>
+            <POLARITY tx="0x0000" rx="0x0001"/>
+            <PRE_EMPHASIS type="default" preemp="0x1a5303" idriver="0x8"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP0_DATA_RAM211" offset_support="true" location_reg_addr="0x2074c" location_offset="0"/>
+        </PORT>
+
+        <PORT instance="71" active="true">
+            <ID valid="false" logical_port="72" hw_port="8" serdes_type="warpcore" port_group="47"/>
+            <SUPPORTED_SPEED speed1G="true" speed10G="true" speed25G="true"/>
+            <BREAKOUT support="true" lane_1="true" lane_2="true" lane_4="true"/>
+            <LANE speed="25000" count="1" bitmap="0x8"/>
+            <LANESWAP tx="0x1032" rx="0x0231"/>
+            <POLARITY tx="0x0000" rx="0x0001"/>
+            <PRE_EMPHASIS type="default" preemp="0x1d5003" idriver="0x8"/>
+            <LOCATION_LED_CONFIG location_led_command="CMIC_LEDUP0_DATA_RAM212" offset_support="true" location_reg_addr="0x20750" location_offset="0"/>
+        </PORT>
+
+
+        <!--=======================================================-->
+        <!--               LED Processor Program                   -->
+        <!--=======================================================-->
+
+        <LED_PROGRAM processors="3">
+
+            <LED instance="0" program="led 0 prog 12 BD 61 BC 02 01 60 FB 02 DB 60 DA 02 01 60 FF 67 80 16 BC 15 DA 01 70 31 06 FF 28 67 5D 67 44 86 BC 06 FF 80 D2 19 74 0E 86 F9 02 01 60 FB 3A 30 06 FF D2 29 71 39 77 1E 67 3D 77 1E 22 00 87 22 01 87 57 06 FB D2 04 70 4D 86 FB 57 02 01 60 FB 57 12 E0 F8 15 1A 00 71 AE 75 76 57 12 E0 F8 15 1A 00 71 B7 75 76 57 22 00 87 22 00 87 57 22 01 87 22 00 87 57 22 01 87 22 01 87 57 86 DA 57 16 DA 65 FA 06 FB D2 04 70 7D 57 06 FF 12 E0 F8 15 1A 07 71 68 75 6F 57 06 FF 12 E0 F8 15 1A 04 71 68 75 6F 57 16 FA 1A 02 75 6F 71 98 57 16 FA 1A 03 71 8B 75 A5 57 67 CE 32 00 32 01 B7 97 71 C9 75 52 95 75 D5 85 77 AE 02 0A 50 77 C3 06 FF 12 80 FE FF 57 16 F9 CA 05 74 76 77 AE 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00" port_order_remap_count="6">
+			<LED_PORT_ORDER_REMAP command="m CMIC_LEDUP0_PORT_ORDER_REMAP_0_3 REMAP_PORT_3=0x11,REMAP_PORT_2=0x12,REMAP_PORT_1=0x13,REMAP_PORT_0=0x14"/>
+			<LED_PORT_ORDER_REMAP command="m CMIC_LEDUP0_PORT_ORDER_REMAP_4_7 REMAP_PORT_7=0x15,REMAP_PORT_6=0x16,REMAP_PORT_5=0x17,REMAP_PORT_4=0x18"/>
+			<LED_PORT_ORDER_REMAP command="m CMIC_LEDUP0_PORT_ORDER_REMAP_8_11 REMAP_PORT_9=0xb,REMAP_PORT_8=0xc,REMAP_PORT_11=0x9,REMAP_PORT_10=0xa"/>
+			<LED_PORT_ORDER_REMAP command="m CMIC_LEDUP0_PORT_ORDER_REMAP_12_15 REMAP_PORT_15=0xd,REMAP_PORT_14=0xe,REMAP_PORT_13=0xf,REMAP_PORT_12=0x10"/>
+			<LED_PORT_ORDER_REMAP command="m CMIC_LEDUP0_PORT_ORDER_REMAP_16_19 REMAP_PORT_19=0x1,REMAP_PORT_18=0x2,REMAP_PORT_17=0x3,REMAP_PORT_16=0x4"/>
+			<LED_PORT_ORDER_REMAP command="m CMIC_LEDUP0_PORT_ORDER_REMAP_20_23 REMAP_PORT_23=0x5,REMAP_PORT_22=0x6,REMAP_PORT_21=0x7,REMAP_PORT_20=0x8"/>
+			</LED>
+            <LED instance="1" program="led 1 prog 02 01 12 9A 61 99 60 FF 28 C2 07 16 99 15 18 71 B1 06 FF 28 67 36 06 FF 28 67 4C 06 FF 67 2A 80 D2 19 74 06 86 FC 3A 60 02 00 D2 08 70 33 D2 10 70 33 57 86 99 57 12 E0 F8 15 1A 00 71 41 75 70 57 12 E0 F8 15 1A 03 71 62 75 69 57 12 E0 F8 15 1A 00 71 8B 75 70 57 32 00 32 01 B7 97 71 77 75 70 57 22 00 87 22 00 87 57 22 01 87 22 00 87 57 22 01 87 22 01 87 57 22 00 87 22 00 87 57 06 FF 12 E0 F8 15 1A 03 71 62 67 69 57 67 A2 32 00 32 01 B7 97 71 9D 75 70 95 75 A9 85 77 7E 02 0A 50 77 97 06 FF 12 80 FE FF 57 16 FC CA 05 74 70 77 7E 06 FF 28 D2 29 71 BA 77 1B 67 C1 28 67 4C 77 1B 22 00 87 22 01 87 57 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00" port_order_remap_count="6">
+			<LED_PORT_ORDER_REMAP command="m CMIC_LEDUP1_PORT_ORDER_REMAP_0_3 REMAP_PORT_3=1, REMAP_PORT_2=2,REMAP_PORT_1=3,REMAP_PORT_0=4"/>
+			<LED_PORT_ORDER_REMAP command="m CMIC_LEDUP1_PORT_ORDER_REMAP_4_7 REMAP_PORT_7=5, REMAP_PORT_6=6,REMAP_PORT_5=7,REMAP_PORT_4=8"/>
+			<LED_PORT_ORDER_REMAP command="m CMIC_LEDUP1_PORT_ORDER_REMAP_8_11 REMAP_PORT_9=0xb,REMAP_PORT_8=0xc,REMAP_PORT_11=9,REMAP_PORT_10=0xa"/>
+			<LED_PORT_ORDER_REMAP command="m CMIC_LEDUP1_PORT_ORDER_REMAP_12_15 REMAP_PORT_15=0xd, REMAP_PORT_14=0xe,REMAP_PORT_13=0xf,REMAP_PORT_12=0x10"/>
+			<LED_PORT_ORDER_REMAP command="m CMIC_LEDUP1_PORT_ORDER_REMAP_16_19 REMAP_PORT_19=0x11, REMAP_PORT_18=0x12,REMAP_PORT_17=0x13,REMAP_PORT_16=0x14"/>
+			<LED_PORT_ORDER_REMAP command="m CMIC_LEDUP1_PORT_ORDER_REMAP_20_23 REMAP_PORT_23=0x15, REMAP_PORT_22=0x16,REMAP_PORT_21=0x17,REMAP_PORT_20=0x18"/>
+			</LED>
+			<LED instance="2" program="led 2 prog 02 01 12 9B 61 9A 60 FF 28 C2 07 16 9A 15 18 71 39 16 FF DA 11 75 1B 06 FF 67 64 06 FF 28 67 7A 06 FF 67 2D 80 D2 19 74 06 86 FD 3A 50 D2 08 70 36 D2 10 70 36 57 86 9A 57 06 FF D2 11 71 47 22 00 87 22 01 87 77 20 22 00 87 22 01 87 77 1B 16 FF DA 15 75 5A DA 11 75 5F 57 16 FC 61 9F 57 16 FB 61 9F 57 12 E0 F8 15 1A 00 71 6F 75 93 57 12 E0 F8 15 1A 03 71 85 75 8C 57 12 E0 F8 15 1A 00 71 D7 75 93 57 22 00 87 22 00 87 57 22 01 87 22 00 87 57 22 01 87 22 01 87 57 16 FF DA 11 71 AC 67 4F 16 9F 15 1A 06 75 AC 71 B9 57 06 FF 12 E0 F8 15 1A 03 71 85 67 8C 57 06 FF 12 E0 F8 15 1A 05 71 85 67 8C 57 16 FF DA 11 71 93 12 E0 F8 15 1A 00 71 9A 75 93 57 67 EE 32 00 32 01 B7 97 71 E9 75 C6 95 75 F5 85 77 9A 02 0A 50 77 E3 06 FF 12 80 FE FF 57 16 FD CA 05 74 93 77 9A 00 00 00" port_order_remap_count="6">
+			<LED_PORT_ORDER_REMAP command="m CMIC_LEDUP2_PORT_ORDER_REMAP_0_3 REMAP_PORT_3=0x15,REMAP_PORT_2=0x16,REMAP_PORT_1=0x17,REMAP_PORT_0=0x18"/>
+			<LED_PORT_ORDER_REMAP command="m CMIC_LEDUP2_PORT_ORDER_REMAP_4_7 REMAP_PORT_7=0x11,REMAP_PORT_6=0x12,REMAP_PORT_5=0x13,REMAP_PORT_4=0x14"/>
+			<LED_PORT_ORDER_REMAP command="m CMIC_LEDUP2_PORT_ORDER_REMAP_8_11 REMAP_PORT_9=0xf,REMAP_PORT_8=0x10,REMAP_PORT_11=0xd,REMAP_PORT_10=0xe"/>
+			<LED_PORT_ORDER_REMAP command="m CMIC_LEDUP2_PORT_ORDER_REMAP_12_15 REMAP_PORT_15=0x9,REMAP_PORT_14=0xa,REMAP_PORT_13=0xb,REMAP_PORT_12=0xc"/>
+			<LED_PORT_ORDER_REMAP command="m CMIC_LEDUP2_PORT_ORDER_REMAP_16_19 REMAP_PORT_19=0x5,REMAP_PORT_18=0x6,REMAP_PORT_17=0x7,REMAP_PORT_16=0x8"/>
+			<LED_PORT_ORDER_REMAP command="m CMIC_LEDUP2_PORT_ORDER_REMAP_20_23 REMAP_PORT_23=0x1,REMAP_PORT_22=0x2,REMAP_PORT_21=0x3,REMAP_PORT_20=0x4"/>
+			</LED>
+        </LED_PROGRAM>
+
+    </PLATFORM_INFO>
+
+</SAI>

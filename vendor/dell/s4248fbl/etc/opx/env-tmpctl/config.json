@@ -1,0 +1,46 @@
+{
+  "faults": [
+      { "sensor": "NPU board sensor",
+        "airflow": "normal",
+        "thresholds": [ { "hi": 56, "lo": 56 }, { "hi": 61, "lo": 61 }, { "hi": 66, "lo": 66 }, { "hi": 77, "lo": 77 } ]
+      },
+      { "sensor": "system-NIC board sensor 2",
+        "airflow": "normal",
+        "thresholds": [ { "hi": 42, "lo": 42 }, { "hi": 47, "lo": 47 }, { "hi": 52, "lo": 52 }, { "hi": 60, "lo": 60 } ]
+      },
+      { "sensor": "system-NIC board sensor 1",
+        "airflow": "normal",
+        "thresholds": [ { "hi": 50, "lo": 50 }, { "hi": 55, "lo": 55 }, { "hi": 60, "lo": 60 }, { "hi": 71, "lo": 71 } ]
+      },
+      { "sensor": "NPU temp sensor",
+        "airflow": "normal",
+        "thresholds": [ { "hi": 87, "lo": 87 }, { "hi": 92, "lo": 92 }, { "hi": 97, "lo": 97 }, { "hi": 104, "lo": 104 } ],
+        "master-thresholds": true
+      },
+      { "sensor": "CPU board sensor",
+        "airflow": "normal",
+        "thresholds": [ { "hi": 44, "lo": 44 }, { "hi": 49, "lo": 49 }, { "hi": 54, "lo": 54 }, { "hi": 64, "lo": 64 } ]
+      },
+
+      { "sensor": "NPU board sensor",
+        "airflow": "reverse",
+        "thresholds": [ { "hi": 53, "lo": 53 }, { "hi": 58, "lo": 58 }, { "hi": 63, "lo": 63 }, { "hi": 70, "lo": 70 } ]
+      },
+      { "sensor": "system-NIC board sensor 2",
+        "airflow": "reverse",
+        "thresholds": [ { "hi": 40, "lo": 40 }, { "hi": 45, "lo": 45 }, { "hi": 51, "lo": 51 }, { "hi": 60, "lo": 60 } ]
+      },
+      { "sensor": "system-NIC board sensor 1",
+        "airflow": "reverse",
+        "thresholds": [ { "hi": 52, "lo": 52 }, { "hi": 57, "lo": 57 }, { "hi": 62, "lo": 62 }, { "hi": 69, "lo": 69 } ]
+      },
+      { "sensor": "NPU temp sensor",
+        "airflow": "reverse",
+        "thresholds": [ { "hi": 87, "lo": 87 }, { "hi": 92, "lo": 92 }, { "hi": 97, "lo": 97 }, { "hi": 104, "lo": 104 } ]
+      },
+      { "sensor": "CPU board sensor",
+        "airflow": "reverse",
+        "thresholds": [ { "hi": 39, "lo": 39 }, { "hi": 44, "lo": 44 }, { "hi": 49, "lo": 49 }, { "hi": 61, "lo": 61 } ]
+      }
+  ]
+}

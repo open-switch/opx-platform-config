@@ -1,0 +1,9 @@
+common/etc/*                                            etc
+common-hw/bin/*                                         usr/bin
+common-hw/lib/udev/rules.d/*                            lib/udev/rules.d
+vendor/dell/s4248fbl/etc/opx/*                          etc/opx
+vendor/dell/s4248fbl/bin/*				usr/bin
+vendor/dell/s4248fbl/etc/modules-load.d/*		etc/modules-load.d
+vendor/dell/s4248fbl/etc/opx/sdi/*			etc/opx/sdi
+vendor/dell/s4248fbl/lib/systemd/system/*		lib/systemd/system
+vendor/dell/s4248fbl/lib/systemd/system-shutdown/*	lib/systemd/system-shutdown
