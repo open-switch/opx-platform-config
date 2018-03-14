@@ -157,7 +157,7 @@ Description: Platform-specific files and packages for Dell Networking S5148F-ON
 
 Package: opx-dell-s5148f
 Architecture: all
-Depends: opx-cavium-modules, libopx-sai-xpdell1, opx-platform-config-dell-s5148f, opx-core
+Depends: opx-cavium-modules, libopx-sai-xpliant1, opx-platform-config-dell-s5148f, opx-core
 Description: All packages for Dell Networking S5148F-ON
 
 Package: opx-platform-config-dell-s4248fb
@@ -167,7 +167,7 @@ Description: Platform-specific files and packages for Dell Networking S4248FB-ON
 
 Package: opx-dell-s4248fb
 Architecture: all
-Depends: opx-bcm-lkm, libopx-sai-bcm-dune1, opx-platform-config-dell-s4248fb, opx-core
+Depends: opx-bcm-dune-lkm, libopx-sai-bcm-dune1, opx-platform-config-dell-s4248fb, opx-core
 Description: All packages for Dell Networking S4248FB-ON
 
 Package: opx-platform-config-dell-s4248fbl
@@ -177,5 +177,5 @@ Description: Platform-specific files and packages for Dell Networking S4248FBL-O
 
 Package: opx-dell-s4248fbl
 Architecture: all
-Depends: opx-bcm-lkm, libopx-sai-bcm-dune1, opx-platform-config-dell-s4248fbl, opx-core
+Depends: opx-bcm-dune-lkm, libopx-sai-bcm-dune1, opx-platform-config-dell-s4248fbl, opx-core
 Description: All packages for Dell Networking S4248FBL-ON
