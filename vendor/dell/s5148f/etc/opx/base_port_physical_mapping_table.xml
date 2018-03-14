@@ -23,7 +23,7 @@
             <hwport_speed_cap value="25000"/>
             <breakout_cap value="1x1"/>
         </profile>
-        <profile name="ethernet_qsfp28" default_breakout="4x1" default_hwport_speed="25000">
+        <profile name="ethernet_qsfp28" default_breakout="1x1" default_hwport_speed="100000">
             <hwport_speed_cap value="25000"/>
             <hwport_speed_cap value="10000"/>
             <breakout_cap value="4x1"/>
