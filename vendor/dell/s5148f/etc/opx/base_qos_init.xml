@@ -18,7 +18,7 @@
     <!--              Switch level tables             -->
     <!-- ============================================ -->
 
-    <SWITCH-GLOBALS total-buffer="24960">
+    <SWITCH-GLOBALS total-buffer="16384">
 
         <dot1p-to-tc-map tag="DOT1P-ALL-TO-TC-0" min="0" max="7">
             <entry dot1p="all"   tc="0"/>
@@ -52,21 +52,21 @@
             <entry tc="all" priority-group="7"/>
         </tc-to-priority-group-map>
 
-        <!-- Basic WRR profiles -->
-        <scheduler-profile name="WRR-W1"  algorithm="WRR" weight="1" />
-        <scheduler-profile name="WRR-W2"  algorithm="WRR" weight="2" />
-        <scheduler-profile name="WRR-W3"  algorithm="WRR" weight="3" />
-        <scheduler-profile name="WRR-W4"  algorithm="WRR" weight="4" />
-        <scheduler-profile name="WRR-W5"  algorithm="WRR" weight="5" />
-        <scheduler-profile name="WRR-W10" algorithm="WRR" weight="10"/>
-        <scheduler-profile name="WRR-W25" algorithm="WRR" weight="25"/>
-        <scheduler-profile name="WRR-W50" algorithm="WRR" weight="50"/>
+        <!-- Basic WDRR profiles -->
+        <scheduler-profile name="WDRR-W1"  algorithm="WDRR" weight="1" />
+        <scheduler-profile name="WDRR-W2"  algorithm="WDRR" weight="2" />
+        <scheduler-profile name="WDRR-W3"  algorithm="WDRR" weight="3" />
+        <scheduler-profile name="WDRR-W4"  algorithm="WDRR" weight="4" />
+        <scheduler-profile name="WDRR-W5"  algorithm="WDRR" weight="5" />
+        <scheduler-profile name="WDRR-W10" algorithm="WDRR" weight="10"/>
+        <scheduler-profile name="WDRR-W25" algorithm="WDRR" weight="25"/>
+        <scheduler-profile name="WDRR-W50" algorithm="WDRR" weight="50"/>
 
         <!-- Strict Priority profile -->
         <scheduler-profile name="SP"  algorithm="SP"/>
 
-        <!-- Dummy Profile used for EQUAL weight child nodes of WRR scheduler -->
-        <scheduler-profile name="WRR-EQ"  algorithm="WRR" weight="1"/>
+        <!-- Dummy Profile used for EQUAL weight child nodes of WDRR scheduler -->
+        <scheduler-profile name="WDRR-EQ"  algorithm="WDRR" weight="1"/>
 
         <!-- WRR profiles with shaping -->
         <scheduler-profile name="CPU-Q0"  algorithm="WRR" weight="1"   min-rate="600"  min-burst="50" max-rate="600"  max-burst="50" meter-type="PACKET"/>
