@@ -1,3 +1,9 @@
+opx-platform-config (1.4.4) unstable; urgency=medium
+
+  * Add missing package provides for Dell 4248
+
+ -- Dell EMC <opx-dev@lists.openswitch.net>  Fri, 30 Mar 2018 14:12:41 +0300
+
 opx-platform-config (1.4.3) unstable; urgency=medium
 
   * QoS initialization for S5148F-ON

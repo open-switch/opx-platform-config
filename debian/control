@@ -162,6 +162,7 @@ Description: All packages for Dell Networking S5148F-ON
 
 Package: opx-platform-config-dell-s4248fb
 Architecture: all
+Provides: opx-platform-config
 Depends: opx-dell-modules, i2c-tools, dmidecode, libopx-sdi-sys1 (>= 1.5.1+opx3), opx-udrvr-ethernet
 Description: Platform-specific files and packages for Dell Networking S4248FB-ON
 
@@ -172,6 +173,7 @@ Description: All packages for Dell Networking S4248FB-ON
 
 Package: opx-platform-config-dell-s4248fbl
 Architecture: all
+Provides: opx-platform-config
 Depends: opx-dell-modules, i2c-tools, dmidecode, libopx-sdi-sys1 (>= 1.5.1+opx3), opx-udrvr-ethernet
 Description: Platform-specific files and packages for Dell Networking S4248FBL-ON
 
