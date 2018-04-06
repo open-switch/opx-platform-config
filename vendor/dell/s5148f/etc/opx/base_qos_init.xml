@@ -68,19 +68,19 @@
         <!-- Dummy Profile used for EQUAL weight child nodes of WDRR scheduler -->
         <scheduler-profile name="WDRR-EQ"  algorithm="WDRR" weight="1"/>
 
-        <!-- WRR profiles with shaping -->
-        <scheduler-profile name="CPU-Q0"  algorithm="WRR" weight="1"   min-rate="600"  min-burst="50" max-rate="600"  max-burst="50" meter-type="PACKET"/>
-        <scheduler-profile name="CPU-Q1"  algorithm="WRR" weight="2"   min-rate="1000" min-burst="50"  max-rate="1000" max-burst="50"  meter-type="PACKET"/>
-        <scheduler-profile name="CPU-Q2"  algorithm="WRR" weight="4"   min-rate="300"  min-burst="50"  max-rate="300"  max-burst="50"  meter-type="PACKET"/>
-        <scheduler-profile name="CPU-Q3"  algorithm="WRR" weight="64"  min-rate="1300" min-burst="50"  max-rate="1300" max-burst="50"  meter-type="PACKET"/>
-        <scheduler-profile name="CPU-Q4"  algorithm="WRR" weight="100" min-rate="2000" min-burst="50"  max-rate="2000" max-burst="50"  meter-type="PACKET"/>
-        <scheduler-profile name="CPU-Q5"  algorithm="WRR" weight="8"   min-rate="400"  min-burst="50"  max-rate="400"  max-burst="50"  meter-type="PACKET"/>
-        <scheduler-profile name="CPU-Q6"  algorithm="WRR" weight="64"  min-rate="600"  min-burst="50"  max-rate="600"  max-burst="50"  meter-type="PACKET"/>
-        <scheduler-profile name="CPU-Q7"  algorithm="WRR" weight="64"  min-rate="400"  min-burst="50"  max-rate="400"  max-burst="50"  meter-type="PACKET"/>
-        <scheduler-profile name="CPU-Q8"  algorithm="WRR" weight="64"  min-rate="600"  min-burst="50"  max-rate="600"  max-burst="50"  meter-type="PACKET"/>
-        <scheduler-profile name="CPU-Q9"  algorithm="WRR" weight="64"  min-rate="600"  min-burst="50"  max-rate="600"  max-burst="50"  meter-type="PACKET"/>
-        <scheduler-profile name="CPU-Q10" algorithm="WRR" weight="64"  min-rate="600"  min-burst="50"  max-rate="600"  max-burst="50"  meter-type="PACKET"/>
-        <scheduler-profile name="CPU-Q11" algorithm="WRR" weight="64"  min-rate="300"  min-burst="50"  max-rate="300"  max-burst="50"  meter-type="PACKET"/>
+        <!-- WDRR profiles with shaping -->
+        <scheduler-profile name="CPU-Q0"  algorithm="WDRR" weight="1"   max-rate="600"  max-burst="50" meter-type="PACKET"/>
+        <scheduler-profile name="CPU-Q1"  algorithm="WDRR" weight="2"   max-rate="1000" max-burst="50"  meter-type="PACKET"/>
+        <scheduler-profile name="CPU-Q2"  algorithm="WDRR" weight="4"   max-rate="300"  max-burst="50"  meter-type="PACKET"/>
+        <scheduler-profile name="CPU-Q3"  algorithm="WDRR" weight="64"  max-rate="1300" max-burst="50"  meter-type="PACKET"/>
+        <scheduler-profile name="CPU-Q4"  algorithm="WDRR" weight="100" max-rate="2000" max-burst="50"  meter-type="PACKET"/>
+        <scheduler-profile name="CPU-Q5"  algorithm="WDRR" weight="8"   max-rate="400"  max-burst="50"  meter-type="PACKET"/>
+        <scheduler-profile name="CPU-Q6"  algorithm="WDRR" weight="64"  max-rate="600"  max-burst="50"  meter-type="PACKET"/>
+        <scheduler-profile name="CPU-Q7"  algorithm="WDRR" weight="64"  max-rate="400"  max-burst="50"  meter-type="PACKET"/>
+        <scheduler-profile name="CPU-Q8"  algorithm="WDRR" weight="64"  max-rate="600"  max-burst="50"  meter-type="PACKET"/>
+        <scheduler-profile name="CPU-Q9"  algorithm="WDRR" weight="64"  max-rate="600"  max-burst="50"  meter-type="PACKET"/>
+        <scheduler-profile name="CPU-Q10" algorithm="WDRR" weight="64"  max-rate="600"  max-burst="50"  meter-type="PACKET"/>
+        <scheduler-profile name="CPU-Q11" algorithm="WDRR" weight="64"  max-rate="300"  max-burst="50"  meter-type="PACKET"/>
 
         <!-- default Ingress buffer profiles for different interface speeds -->
         <buffer-profile name="default-none-ing-cpu"  buffer-size="9"    threshold-mode="DYNAMIC"   shared-dynamic-threshold="8"   xoff-threshold="102400"   xon-threshold="10240"  />
