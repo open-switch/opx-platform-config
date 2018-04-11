@@ -129,12 +129,12 @@ permissions and limitations under the License.
     <sf_entity_info instance="6" alias="psu1_fru" ppid_start_addr="0x298" ppid_end_addr="0x29b" part_number_start_addr="0x285" part_number_end_addr="0x28a" hardware_revision_start_addr="0x2a3" hardware_revision_end_addr="0x2a5" current_type_bus_name="psu1_power_type" air_flow_bus_name="psu1_fan_air_flow" no_of_fans="1" max_fan_speed="27400"/>
   </sf_io_bus>
 
-  <sys_i2c instance="0" sysfs_name="i2c-0-mux (chan_id 0)" bus_name="smbus2">
+  <sys_i2c instance="0" dev_name="/dev/i2c-2" bus_name="smbus2">
     <eeprom instance="0" alias="sys_eeprom" addr="0x50" size="256" parser="ONIE_SYS_EEPROM"/>
     <nvram instance="0" alias="sys_nvram" dev="/dev/sda" offset="1048064" size="512"/>
   </sys_i2c>
 
-  <sys_i2c instance="1" sysfs_name="i2c-4-mux (chan_id 4)" bus_name="smbus14">
+  <sys_i2c instance="1" dev_name="/dev/i2c-14" bus_name="smbus14">
     <sdi_cpld instance="1" alias="cpld2" dev_addr_mode_16bit="enabled" addr="0x3e" width="1" start_addr="0x0" end_addr="0x29">
       <sdi_cpld_pin_group instance="3" start_addr="0x10" start_offset="0x0" end_offset="0x7" bus_name="qsfp_reset1" direction="out" value="0x0" polarity="inverted"/>
       <sdi_cpld_pin_group instance="4" start_addr="0x11" start_offset="0x0" end_offset="0x3" bus_name="qsfp_reset2" direction="out" value="0x0" polarity="inverted"/>
@@ -147,7 +147,7 @@ permissions and limitations under the License.
     </sdi_cpld>
   </sys_i2c>
 
-  <sys_i2c instance="2" sysfs_name="i2c-4-mux (chan_id 5)" bus_name="smbus15">
+  <sys_i2c instance="2" dev_name="/dev/i2c-15" bus_name="smbus15">
     <sdi_cpld instance="2" alias="cpld3" dev_addr_mode_16bit="enabled" addr="0x3e" width="1" start_addr="0x0" end_addr="0x29">
       <sdi_cpld_pin_group instance="11" start_addr="0x10" start_offset="0x0" end_offset="0x7" bus_name="qsfp_reset3" direction="out" value="0x0" polarity="inverted"/>
       <sdi_cpld_pin_group instance="12" start_addr="0x11" start_offset="0x0" end_offset="0x1" bus_name="qsfp_reset4" direction="out" value="0x0" polarity="inverted"/>
@@ -160,7 +160,7 @@ permissions and limitations under the License.
     </sdi_cpld>
   </sys_i2c>
 
-  <sys_i2c instance="3" sysfs_name="i2c-4-mux (chan_id 6)" bus_name="smbus16">
+  <sys_i2c instance="3" dev_name="/dev/i2c-16" bus_name="smbus16">
     <sdi_cpld instance="3" alias="cpld4" dev_addr_mode_16bit="enabled" addr="0x3e" width="1" start_addr="0x0" end_addr="0x45">
       <sdi_cpld_pin_group instance="19" start_addr="0x10" start_offset="0x0" end_offset="0x7" bus_name="qsfp_reset5" direction="out" value="0x0" polarity="inverted"/>
       <sdi_cpld_pin_group instance="20" start_addr="0x11" start_offset="0x0" end_offset="0x1" bus_name="qsfp_reset6" direction="out" value="0x0" polarity="inverted"/>
@@ -177,139 +177,139 @@ permissions and limitations under the License.
     </sdi_cpld>
   </sys_i2c>
 
-  <sys_i2c instance="4" sysfs_name="i2c-9-mux (chan_id 0)" bus_name="smbus42">
+  <sys_i2c instance="4" dev_name="/dev/i2c-42" bus_name="smbus42">
     <qsfp instance="1" addr="0x50" port_type="QSFP28" mod_sel_bus="module_always_enabled" mod_pres_bus="qsfp_presence1" mod_pres_bitmask="0x0" mod_reset_bus="qsfp_reset1" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode1" mod_lpmode_bitmask="0x0"/>
   </sys_i2c>
 
-  <sys_i2c instance="5" sysfs_name="i2c-9-mux (chan_id 1)" bus_name="smbus43">
+  <sys_i2c instance="5" dev_name="/dev/i2c-43" bus_name="smbus43">
     <qsfp instance="2" addr="0x50" port_type="QSFP28" mod_sel_bus="module_always_enabled" mod_pres_bus="qsfp_presence1" mod_pres_bitmask="0x1" mod_reset_bus="qsfp_reset1" mod_reset_bitmask="0x1"  mod_lpmode_bus="qsfp_lpmode1" mod_lpmode_bitmask="0x1"/>
   </sys_i2c>
 
-  <sys_i2c instance="6" sysfs_name="i2c-9-mux (chan_id 2)" bus_name="smbus44">
+  <sys_i2c instance="6" dev_name="/dev/i2c-44" bus_name="smbus44">
     <qsfp instance="3" addr="0x50" port_type="QSFP28" mod_sel_bus="module_always_enabled" mod_pres_bus="qsfp_presence1" mod_pres_bitmask="0x2" mod_reset_bus="qsfp_reset1" mod_reset_bitmask="0x2"  mod_lpmode_bus="qsfp_lpmode1" mod_lpmode_bitmask="0x2"/>
   </sys_i2c>
 
-  <sys_i2c instance="7" sysfs_name="i2c-9-mux (chan_id 3)" bus_name="smbus45">
+  <sys_i2c instance="7" dev_name="/dev/i2c-45" bus_name="smbus45">
     <qsfp instance="4" addr="0x50" port_type="QSFP28" mod_sel_bus="module_always_enabled" mod_pres_bus="qsfp_presence1" mod_pres_bitmask="0x3" mod_reset_bus="qsfp_reset1" mod_reset_bitmask="0x3"  mod_lpmode_bus="qsfp_lpmode1" mod_lpmode_bitmask="0x3"/>
   </sys_i2c>
 
-  <sys_i2c instance="8" sysfs_name="i2c-9-mux (chan_id 4)" bus_name="smbus46">
+  <sys_i2c instance="8" dev_name="/dev/i2c-46" bus_name="smbus46">
     <qsfp instance="5" addr="0x50" port_type="QSFP28" mod_sel_bus="module_always_enabled" mod_pres_bus="qsfp_presence1" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset1" mod_reset_bitmask="0x4"  mod_lpmode_bus="qsfp_lpmode1" mod_lpmode_bitmask="0x4"/>
   </sys_i2c>
 
-  <sys_i2c instance="9" sysfs_name="i2c-9-mux (chan_id 5)" bus_name="smbus47">
+  <sys_i2c instance="9" dev_name="/dev/i2c-47" bus_name="smbus47">
     <qsfp instance="6" addr="0x50" port_type="QSFP28" mod_sel_bus="module_always_enabled" mod_pres_bus="qsfp_presence1" mod_pres_bitmask="0x5" mod_reset_bus="qsfp_reset1" mod_reset_bitmask="0x5"  mod_lpmode_bus="qsfp_lpmode1" mod_lpmode_bitmask="0x5"/>
   </sys_i2c>
 
-  <sys_i2c instance="10" sysfs_name="i2c-9-mux (chan_id 6)" bus_name="smbus48">
+  <sys_i2c instance="10" dev_name="/dev/i2c-48" bus_name="smbus48">
     <qsfp instance="7" addr="0x50" port_type="QSFP28" mod_sel_bus="module_always_enabled" mod_pres_bus="qsfp_presence1" mod_pres_bitmask="0x6" mod_reset_bus="qsfp_reset1" mod_reset_bitmask="0x6"  mod_lpmode_bus="qsfp_lpmode1" mod_lpmode_bitmask="0x6"/>
   </sys_i2c>
 
-  <sys_i2c instance="11" sysfs_name="i2c-9-mux (chan_id 7)" bus_name="smbus49">
+  <sys_i2c instance="11" dev_name="/dev/i2c-49" bus_name="smbus49">
     <qsfp instance="8" addr="0x50" port_type="QSFP28" mod_sel_bus="module_always_enabled" mod_pres_bus="qsfp_presence1" mod_pres_bitmask="0x7" mod_reset_bus="qsfp_reset1" mod_reset_bitmask="0x7"  mod_lpmode_bus="qsfp_lpmode1" mod_lpmode_bitmask="0x7"/>
   </sys_i2c>
 
-  <sys_i2c instance="12" sysfs_name="i2c-8-mux (chan_id 0)" bus_name="smbus34">
+  <sys_i2c instance="12" dev_name="/dev/i2c-34" bus_name="smbus34">
     <qsfp instance="9" addr="0x50" port_type="QSFP28" mod_sel_bus="module_always_enabled" mod_pres_bus="qsfp_presence2" mod_pres_bitmask="0x0" mod_reset_bus="qsfp_reset2" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode2" mod_lpmode_bitmask="0x0"/>
   </sys_i2c>
 
-  <sys_i2c instance="13" sysfs_name="i2c-8-mux (chan_id 1)" bus_name="smbus35">
+  <sys_i2c instance="13" dev_name="/dev/i2c-35" bus_name="smbus35">
     <qsfp instance="10" addr="0x50" port_type="QSFP28" mod_sel_bus="module_always_enabled" mod_pres_bus="qsfp_presence2" mod_pres_bitmask="0x1" mod_reset_bus="qsfp_reset2" mod_reset_bitmask="0x1"  mod_lpmode_bus="qsfp_lpmode2" mod_lpmode_bitmask="0x1"/>
   </sys_i2c>
 
-  <sys_i2c instance="14" sysfs_name="i2c-8-mux (chan_id 2)" bus_name="smbus36">
+  <sys_i2c instance="14" dev_name="/dev/i2c-36" bus_name="smbus36">
     <qsfp instance="11" addr="0x50" port_type="QSFP28" mod_sel_bus="module_always_enabled" mod_pres_bus="qsfp_presence2" mod_pres_bitmask="0x2" mod_reset_bus="qsfp_reset2" mod_reset_bitmask="0x2"  mod_lpmode_bus="qsfp_lpmode2" mod_lpmode_bitmask="0x2"/>
   </sys_i2c>
 
-  <sys_i2c instance="15" sysfs_name="i2c-8-mux (chan_id 3)" bus_name="smbus37">
+  <sys_i2c instance="15" dev_name="/dev/i2c-37" bus_name="smbus37">
     <qsfp instance="12" addr="0x50" port_type="QSFP28" mod_sel_bus="module_always_enabled" mod_pres_bus="qsfp_presence2" mod_pres_bitmask="0x3" mod_reset_bus="qsfp_reset2" mod_reset_bitmask="0x3"  mod_lpmode_bus="qsfp_lpmode2" mod_lpmode_bitmask="0x3"/>
   </sys_i2c>
 
-  <sys_i2c instance="16" sysfs_name="i2c-8-mux (chan_id 5)" bus_name="smbus39">
+  <sys_i2c instance="16" dev_name="/dev/i2c-39" bus_name="smbus39">
     <qsfp instance="13" addr="0x50" port_type="QSFP28" mod_sel_bus="module_always_enabled" mod_pres_bus="qsfp_presence3" mod_pres_bitmask="0x0" mod_reset_bus="qsfp_reset3" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode3" mod_lpmode_bitmask="0x0"/>
   </sys_i2c>
 
-  <sys_i2c instance="17" sysfs_name="i2c-8-mux (chan_id 4)" bus_name="smbus38">
+  <sys_i2c instance="17" dev_name="/dev/i2c-38" bus_name="smbus38">
     <qsfp instance="14" addr="0x50" port_type="QSFP28" mod_sel_bus="module_always_enabled" mod_pres_bus="qsfp_presence3" mod_pres_bitmask="0x1" mod_reset_bus="qsfp_reset3" mod_reset_bitmask="0x1"  mod_lpmode_bus="qsfp_lpmode3" mod_lpmode_bitmask="0x1"/>
   </sys_i2c>
 
-  <sys_i2c instance="18" sysfs_name="i2c-8-mux (chan_id 7)" bus_name="smbus41">
+  <sys_i2c instance="18" dev_name="/dev/i2c-41" bus_name="smbus41">
     <qsfp instance="15" addr="0x50" port_type="QSFP28" mod_sel_bus="module_always_enabled" mod_pres_bus="qsfp_presence3" mod_pres_bitmask="0x2" mod_reset_bus="qsfp_reset3" mod_reset_bitmask="0x2"  mod_lpmode_bus="qsfp_lpmode3" mod_lpmode_bitmask="0x2"/>
   </sys_i2c>
 
-  <sys_i2c instance="19" sysfs_name="i2c-8-mux (chan_id 6)" bus_name="smbus40">
+  <sys_i2c instance="19" dev_name="/dev/i2c-40" bus_name="smbus40">
     <qsfp instance="16" addr="0x50" port_type="QSFP28" mod_sel_bus="module_always_enabled" mod_pres_bus="qsfp_presence3" mod_pres_bitmask="0x3" mod_reset_bus="qsfp_reset3" mod_reset_bitmask="0x3"  mod_lpmode_bus="qsfp_lpmode3" mod_lpmode_bitmask="0x3"/>
   </sys_i2c>
 
-  <sys_i2c instance="20" sysfs_name="i2c-7-mux (chan_id 0)" bus_name="smbus26">
+  <sys_i2c instance="20" dev_name="/dev/i2c-26" bus_name="smbus26">
     <qsfp instance="17" addr="0x50" port_type="QSFP28" mod_sel_bus="module_always_enabled" mod_pres_bus="qsfp_presence3" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset3" mod_reset_bitmask="0x4"  mod_lpmode_bus="qsfp_lpmode3" mod_lpmode_bitmask="0x4"/>
   </sys_i2c>
 
-  <sys_i2c instance="21" sysfs_name="i2c-7-mux (chan_id 1)" bus_name="smbus27">
+  <sys_i2c instance="21" dev_name="/dev/i2c-27" bus_name="smbus27">
     <qsfp instance="18" addr="0x50" port_type="QSFP28" mod_sel_bus="module_always_enabled" mod_pres_bus="qsfp_presence3" mod_pres_bitmask="0x5" mod_reset_bus="qsfp_reset3" mod_reset_bitmask="0x5"  mod_lpmode_bus="qsfp_lpmode3" mod_lpmode_bitmask="0x5"/>
   </sys_i2c>
 
-  <sys_i2c instance="22" sysfs_name="i2c-7-mux (chan_id 2)" bus_name="smbus28">
+  <sys_i2c instance="22" dev_name="/dev/i2c-28" bus_name="smbus28">
     <qsfp instance="19" addr="0x50" port_type="QSFP28" mod_sel_bus="module_always_enabled" mod_pres_bus="qsfp_presence3" mod_pres_bitmask="0x6" mod_reset_bus="qsfp_reset3" mod_reset_bitmask="0x6"  mod_lpmode_bus="qsfp_lpmode3" mod_lpmode_bitmask="0x6"/>
   </sys_i2c>
 
-  <sys_i2c instance="23" sysfs_name="i2c-7-mux (chan_id 3)" bus_name="smbus29">
+  <sys_i2c instance="23" dev_name="/dev/i2c-29" bus_name="smbus29">
     <qsfp instance="20" addr="0x50" port_type="QSFP28" mod_sel_bus="module_always_enabled" mod_pres_bus="qsfp_presence3" mod_pres_bitmask="0x7" mod_reset_bus="qsfp_reset3" mod_reset_bitmask="0x7"  mod_lpmode_bus="qsfp_lpmode3" mod_lpmode_bitmask="0x7"/>
   </sys_i2c>
 
-  <sys_i2c instance="24" sysfs_name="i2c-7-mux (chan_id 4)" bus_name="smbus30">
+  <sys_i2c instance="24" dev_name="/dev/i2c-30" bus_name="smbus30">
     <qsfp instance="21" addr="0x50" port_type="QSFP28" mod_sel_bus="module_always_enabled" mod_pres_bus="qsfp_presence4" mod_pres_bitmask="0x0" mod_reset_bus="qsfp_reset4" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode4" mod_lpmode_bitmask="0x0"/>
   </sys_i2c>
 
-  <sys_i2c instance="25" sysfs_name="i2c-7-mux (chan_id 5)" bus_name="smbus31">
+  <sys_i2c instance="25" dev_name="/dev/i2c-31" bus_name="smbus31">
     <qsfp instance="22" addr="0x50" port_type="QSFP28" mod_sel_bus="module_always_enabled" mod_pres_bus="qsfp_presence4" mod_pres_bitmask="0x1" mod_reset_bus="qsfp_reset4" mod_reset_bitmask="0x1"  mod_lpmode_bus="qsfp_lpmode4" mod_lpmode_bitmask="0x1"/>
   </sys_i2c>
 
-  <sys_i2c instance="26" sysfs_name="i2c-7-mux (chan_id 6)" bus_name="smbus32">
+  <sys_i2c instance="26" dev_name="/dev/i2c-32" bus_name="smbus32">
     <qsfp instance="23" addr="0x50" port_type="QSFP28" mod_sel_bus="module_always_enabled" mod_pres_bus="qsfp_presence5" mod_pres_bitmask="0x0" mod_reset_bus="qsfp_reset5" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode5" mod_lpmode_bitmask="0x0"/>
   </sys_i2c>
 
-  <sys_i2c instance="27" sysfs_name="i2c-7-mux (chan_id 7)" bus_name="smbus33">
+  <sys_i2c instance="27" dev_name="/dev/i2c-33" bus_name="smbus33">
     <qsfp instance="24" addr="0x50" port_type="QSFP28" mod_sel_bus="module_always_enabled" mod_pres_bus="qsfp_presence5" mod_pres_bitmask="0x1" mod_reset_bus="qsfp_reset5" mod_reset_bitmask="0x1"  mod_lpmode_bus="qsfp_lpmode5" mod_lpmode_bitmask="0x1"/>
   </sys_i2c>
 
-  <sys_i2c instance="28" sysfs_name="i2c-6-mux (chan_id 0)" bus_name="smbus18">
+  <sys_i2c instance="28" dev_name="/dev/i2c-18" bus_name="smbus18">
     <qsfp instance="25" addr="0x50" port_type="QSFP28" mod_sel_bus="module_always_enabled" mod_pres_bus="qsfp_presence5" mod_pres_bitmask="0x2" mod_reset_bus="qsfp_reset5" mod_reset_bitmask="0x2"  mod_lpmode_bus="qsfp_lpmode5" mod_lpmode_bitmask="0x2"/>
   </sys_i2c>
 
-  <sys_i2c instance="29" sysfs_name="i2c-6-mux (chan_id 1)" bus_name="smbus19">
+  <sys_i2c instance="29" dev_name="/dev/i2c-19" bus_name="smbus19">
     <qsfp instance="26" addr="0x50" port_type="QSFP28" mod_sel_bus="module_always_enabled" mod_pres_bus="qsfp_presence5" mod_pres_bitmask="0x3" mod_reset_bus="qsfp_reset5" mod_reset_bitmask="0x3"  mod_lpmode_bus="qsfp_lpmode5" mod_lpmode_bitmask="0x3"/>
   </sys_i2c>
 
-  <sys_i2c instance="30" sysfs_name="i2c-6-mux (chan_id 2)" bus_name="smbus20">
+  <sys_i2c instance="30" dev_name="/dev/i2c-20" bus_name="smbus20">
     <qsfp instance="27" addr="0x50" port_type="QSFP28" mod_sel_bus="module_always_enabled" mod_pres_bus="qsfp_presence5" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset5" mod_reset_bitmask="0x4"  mod_lpmode_bus="qsfp_lpmode5" mod_lpmode_bitmask="0x4"/>
   </sys_i2c>
 
-  <sys_i2c instance="31" sysfs_name="i2c-6-mux (chan_id 3)" bus_name="smbus21">
+  <sys_i2c instance="31" dev_name="/dev/i2c-21" bus_name="smbus21">
     <qsfp instance="28" addr="0x50" port_type="QSFP28" mod_sel_bus="module_always_enabled" mod_pres_bus="qsfp_presence5" mod_pres_bitmask="0x5" mod_reset_bus="qsfp_reset5" mod_reset_bitmask="0x5"  mod_lpmode_bus="qsfp_lpmode5" mod_lpmode_bitmask="0x5"/>
   </sys_i2c>
 
-  <sys_i2c instance="32" sysfs_name="i2c-6-mux (chan_id 4)" bus_name="smbus22">
+  <sys_i2c instance="32" dev_name="/dev/i2c-22" bus_name="smbus22">
     <qsfp instance="29" addr="0x50" port_type="QSFP28" mod_sel_bus="module_always_enabled" mod_pres_bus="qsfp_presence5" mod_pres_bitmask="0x6" mod_reset_bus="qsfp_reset5" mod_reset_bitmask="0x6"  mod_lpmode_bus="qsfp_lpmode5" mod_lpmode_bitmask="0x6"/>
   </sys_i2c>
 
-  <sys_i2c instance="33" sysfs_name="i2c-6-mux (chan_id 5)" bus_name="smbus23">
+  <sys_i2c instance="33" dev_name="/dev/i2c-23" bus_name="smbus23">
     <qsfp instance="30" addr="0x50" port_type="QSFP28" mod_sel_bus="module_always_enabled" mod_pres_bus="qsfp_presence5" mod_pres_bitmask="0x7" mod_reset_bus="qsfp_reset5" mod_reset_bitmask="0x7"  mod_lpmode_bus="qsfp_lpmode5" mod_lpmode_bitmask="0x7"/>
   </sys_i2c>
 
-  <sys_i2c instance="34" sysfs_name="i2c-6-mux (chan_id 6)" bus_name="smbus24">
+  <sys_i2c instance="34" dev_name="/dev/i2c-24" bus_name="smbus24">
     <qsfp instance="31" addr="0x50" port_type="QSFP28" mod_sel_bus="module_always_enabled" mod_pres_bus="qsfp_presence6" mod_pres_bitmask="0x0" mod_reset_bus="qsfp_reset6" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode6" mod_lpmode_bitmask="0x0"/>
   </sys_i2c>
 
-  <sys_i2c instance="35" sysfs_name="i2c-6-mux (chan_id 7)" bus_name="smbus25">
+  <sys_i2c instance="35" dev_name="/dev/i2c-25" bus_name="smbus25">
     <qsfp instance="32" addr="0x50" port_type="QSFP28" mod_sel_bus="module_always_enabled" mod_pres_bus="qsfp_presence6" mod_pres_bitmask="0x1" mod_reset_bus="qsfp_reset6" mod_reset_bitmask="0x1"  mod_lpmode_bus="qsfp_lpmode6" mod_lpmode_bitmask="0x1"/>
   </sys_i2c>
 
-  <sys_i2c instance="36" sysfs_name="i2c-4-mux (chan_id 1)" bus_name="smbus11" dev_name="/dev/i2c-11">
+  <sys_i2c instance="36" bus_name="smbus11" dev_name="/dev/i2c-11">
     <sfp instance="1" addr="0x50"  mod_sel_bus="module_always_enabled" mod_pres_bus="sfp_presence1" mod_pres_bitmask="0x0" mod_tx_control_bus="sfp_tx_control1" mod_tx_control_bitmask="0x0" mod_rx_los_bus="sfp_rx_los1" mod_rx_los_bitmask="0x0" mod_tx_fault_bus="sfp_tx_fault1" mod_tx_fault_bitmask="0x0"/>
   </sys_i2c>
 
-  <sys_i2c instance="37" sysfs_name="i2c-4-mux (chan_id 2)" bus_name="smbus12" dev_name="/dev/i2c-12">
+  <sys_i2c instance="37" bus_name="smbus12" dev_name="/dev/i2c-12">
     <sfp instance="2" addr="0x50"  mod_sel_bus="module_always_enabled" mod_pres_bus="sfp_presence1" mod_pres_bitmask="0x1" mod_tx_control_bus="sfp_tx_control1" mod_tx_control_bitmask="0x1" mod_rx_los_bus="sfp_rx_los1" mod_rx_los_bitmask="0x1" mod_tx_fault_bus="sfp_tx_fault1" mod_tx_fault_bitmask="0x1"/>
   </sys_i2c>
 </root>

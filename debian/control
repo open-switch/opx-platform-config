@@ -19,7 +19,7 @@ Description: All packages for VM simulation of Dell Networking S6000-ON
 Package: opx-platform-config-dell-s6000
 Architecture: all
 Provides: opx-platform-config
-Depends: opx-dell-modules, i2c-tools, dmidecode, libopx-sdi-sys1
+Depends: opx-dell-modules, i2c-tools, dmidecode, libopx-sdi-sys1 (>= 1.5.1+opx3)
 Description: Platform-specific files and packages for Dell Networking S6000-ON
 
 Package: opx-dell-s6000
@@ -42,7 +42,7 @@ Description: Platform specific files for Mellanox SN2700
 Package: opx-platform-config-dell-s3048
 Architecture: all
 Provides: opx-platform-config
-Depends: opx-dell-modules, i2c-tools, dmidecode, libopx-sdi-sys1, opx-udrvr-ethernet
+Depends: opx-dell-modules, i2c-tools, dmidecode, libopx-sdi-sys1 (>= 1.5.1+opx3), opx-udrvr-ethernet
 Description: Platform-specific files and packages for Dell Networking S3048-ON
 
 Package: opx-dell-s3048
@@ -53,7 +53,7 @@ Description: All packages for Dell Networking S3048-ON
 Package: opx-platform-config-dell-s4048
 Architecture: all
 Provides: opx-platform-config
-Depends: opx-dell-modules, i2c-tools, dmidecode, libopx-sdi-sys1, opx-udrvr-ethernet
+Depends: opx-dell-modules, i2c-tools, dmidecode, libopx-sdi-sys1 (>= 1.5.1+opx3), opx-udrvr-ethernet
 Description: Platform-specific files and packages for Dell Networking S4048-ON
 
 Package: opx-dell-s4048
@@ -64,7 +64,7 @@ Description: All packages for Dell Networking S4048-ON
 Package: opx-platform-config-dell-s4048t
 Architecture: all
 Provides: opx-platform-config
-Depends: opx-dell-modules, i2c-tools, dmidecode, libopx-sdi-sys1, opx-udrvr-ethernet
+Depends: opx-dell-modules, i2c-tools, dmidecode, libopx-sdi-sys1 (>= 1.5.1+opx3), opx-udrvr-ethernet
 Description: Platform-specific files and packages for Dell Networking S4048T-ON
 
 Package: opx-dell-s4048t
@@ -75,7 +75,7 @@ Description: All packages for Dell Networking S4048T-ON
 Package: opx-platform-config-dell-s6010
 Architecture: all
 Provides: opx-platform-config
-Depends: opx-dell-modules, i2c-tools, dmidecode, libopx-sdi-sys1, opx-udrvr-ethernet
+Depends: opx-dell-modules, i2c-tools, dmidecode, libopx-sdi-sys1 (>= 1.5.1+opx3), opx-udrvr-ethernet
 Description: Platform-specific files and packages for Dell Networking S6010-ON
 
 Package: opx-dell-s6010
@@ -86,7 +86,7 @@ Description: All packages for Dell Networking S6010-ON
 Package: opx-platform-config-dell-z9100
 Architecture: all
 Provides: opx-platform-config
-Depends: opx-dell-modules, i2c-tools, dmidecode, libopx-sdi-sys1, opx-udrvr-ethernet
+Depends: opx-dell-modules, i2c-tools, dmidecode, libopx-sdi-sys1 (>= 1.5.1+opx3), opx-udrvr-ethernet
 Description: Platform-specific files and packages for Dell Networking Z9100-ON
 
 Package: opx-dell-z9100
