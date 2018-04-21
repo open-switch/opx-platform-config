@@ -1,0 +1,12 @@
+#!/bin/bash
+echo "$(date -Isec): reload initiated" > /dev/console
+redis-cli save
+sync
+echo 1 > /proc/sys/kernel/sysrq
+echo u > /proc/sysrq-trigger
+if [ -f /lib/systemd/system-shutdown/opx_platform_shutdown.sh ]; then
+       /lib/systemd/system-shutdown/opx_platform_shutdown.sh reboot
+else
+   systemctl reboot -f
+fi
+

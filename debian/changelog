@@ -1,12 +1,18 @@
+opx-platform-config (1.4.7+opx2) unstable; urgency=medium
+
+  * Update: Add reload script to reset hw
+
+ -- Dell EMC <opx-dev@lists.openswitch.net>  Wed, 21 Apr 2018 10:20:56 +0300
+
 opx-platform-config (1.4.7+opx1) unstable; urgency=medium
-  
+
   * Update: remove virtual package
   * Update: add 'replace' statement in debian control so apt-get dist-upgrade
             won't complain about file conflict due to the introduction of
             this file:
-  
+
             /etc/opx/acl/nas_detail_list.xml
-  
+
             This is to maintain backward compatibility with version 2.3.0
 
  -- Dell EMC <opx-dev@lists.openswitch.net>  Wed, 18 Apr 2018 10:20:56 +0300

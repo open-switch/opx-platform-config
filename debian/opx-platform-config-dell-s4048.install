@@ -1,5 +1,6 @@
 common/etc/*					etc
 common-hw/bin/*					usr/bin
+common-hw/sbin/*                                usr/sbin
 common-hw/lib/udev/rules.d/*		        lib/udev/rules.d
 vendor/dell/s4048/etc/opx/*			etc/opx
 vendor/dell/s4048/bin/*				usr/bin
