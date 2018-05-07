@@ -1,3 +1,9 @@
+opx-platform-config (1.4.9) unstable; urgency=medium
+
+  * Bugfix: S42xx platforms do not support UFT
+
+ -- Dell EMC <opx-dev@lists.openswitch.net>  Mon, 07 May 2018 10:30:00 -0800
+
 opx-platform-config (1.4.8+opx1) unstable; urgency=medium
 
   * Add: Front panel ports QoS configuration for Dell S5148F-ON
