@@ -13,33 +13,35 @@
 # See the Apache Version 2.0 License for specific language governing
 # permissions and limitations under the License.
 
-# This files creates a separate network name space 'vportnetns' for simulated front panel ports.
-# It renames standard network interfaces to 'vnic<N>', and sets the default state to 'down'
-# This script is invoked for each interface - from the udev rules.
+# This files creates a separate network name space for simulated front panel ports.
+# It renames standard network interfaces to 'vport<N>', and sets the default state to 'down'
 
 IFNAME="$1"
 
-if [ -z "${IFNAME}" ]; then
-   exit 1
-fi
+MGMTIF="eth0"
+IFPREFIX="eth"
+VNICPREFIX="vport"
 
 
 # Virtual front panel ports namespace
 SIMNS="vportnetns"
-if [ ! -e /var/run/netns/${SIMNS} ]; then
+echo "Creating namespace ${SIMNS}"
   /sbin/ip netns add ${SIMNS}
   /sbin/ip netns exec ${SIMNS} /sbin/ip link set dev lo up
-fi
 
+IFLIST=`find /sys/class/net/ -name "eth*" -printf " %f"`
 
-# Rename eth<N> interface to vport<N>
-VNIC="${IFNAME/eth/vport}"
+for IFNAME in ${IFLIST/$MGMTIF/}; do
+
+   VNIC="${IFNAME/$IFPREFIX/$VNICPREFIX}"
+   echo "Move $IFNAME to ${SIMNS}::$VNIC"
 
 /sbin/ip link set dev ${IFNAME} down
 /sbin/ip link set dev ${IFNAME} name ${VNIC}
+   /sbin/ip link set dev ${VNIC} promisc on
+   /sbin/ip link set dev ${VNIC} netns ${SIMNS}
 if [ $? -ne 0 ]; then
-   exit 2
+	echo "Cannot move $IFNAME to ${SIMNS}::$VNIC"
 fi
+done
 
-/sbin/ip link set dev ${VNIC} promisc on
-/sbin/ip link set dev ${VNIC} netns ${SIMNS}

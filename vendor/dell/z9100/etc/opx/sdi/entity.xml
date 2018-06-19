@@ -19,7 +19,7 @@
         <resource reference="sdi_sf_tmp-2" name="System Inlet Ambient-1 temp sensor" />
         <resource reference="sdi_sf_tmp-3" name="System Inlet Ambient-2 temp sensor" />
         <resource reference="sdi_sf_tmp-4" name="BCM56960 On-Board-1 temp sensor" />
-        <resource reference="sdi_sf_tmp-5" name="System Inlet Reverse Airflow temp senor" />
+        <resource reference="sdi_sf_tmp-5" name="System Inlet Reverse Airflow temp sensor" />
         <resource reference="system_critical_led"         name="Alarm Major" />
         <resource reference="system_noncritical_led"      name="Alarm Minor" />
         <resource reference="locator_function_enable_led" name="Beacon" />
@@ -88,12 +88,10 @@
     </entity>
     <entity instance="1" type="SDI_ENTITY_PSU_TRAY" presence="psu0_presence" power_output_status="psu0_status" alias="PSU Tray-1">
         <resource reference="fan-10" name="Fan of PSU-1" />
-        <resource reference="sdi_sf_tmp-6" name="Temperature of PSU-1" />
         <resource reference="psu0_fru" name="Entity Info" />
     </entity>
     <entity instance="2" type="SDI_ENTITY_PSU_TRAY" presence="psu1_presence" power_output_status="psu1_status" alias="PSU Tray-2">
         <resource reference="fan-11" name="Fan of PSU-2" />
-        <resource reference="sdi_sf_tmp-7" name="Temperature of PSU-2" />
         <resource reference="psu1_fru" name="Entity Info" />
     </entity>
 </root>

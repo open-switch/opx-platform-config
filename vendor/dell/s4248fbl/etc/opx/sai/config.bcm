@@ -1511,8 +1511,12 @@ bcm886xx_qos_l3_l2_marking=1
 
 # Reduce trap action size
 custom_feature_reduced_trap_action=1
-field_class_id_size_0=8
+custom_feature_injection_with_user_header_enable=1
 custom_feature_user_header_always_remove=1
+field_class_id_size_0=8
+field_class_id_size_1=8
+field_class_id_size_2=0
+field_class_id_size_3=0
 
 #Enable multiple my mac termination for VLT
 l3_multiple_mymac_termination_enable=1
@@ -1521,3 +1525,5 @@ bcm886xx_pdm_mode.BCM88375=1
 custom_feature_l3_mc_use_tcam = 1
 
 bcm886xx_erspan_tunnel_enable=1
+# Separate control-Q
+custom_config_has_control_queue=1

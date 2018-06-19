@@ -1,5 +1,0 @@
-# Rename virtual interfaces to OPX equivalents
-SUBSYSTEM=="net", ACTION=="add", KERNEL=="eth0", NAME="eth0", GOTO="vm-udev-rules-the-end"
-SUBSYSTEM=="net", ACTION=="add", KERNEL=="eth*", RUN="/usr/bin/opx-vport.sh $name"
-LABEL="vm-udev-rules-the-end"
-

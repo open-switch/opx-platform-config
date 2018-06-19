@@ -16,7 +16,6 @@ permissions and limitations under the License.
     <sdi_cpld instance="0" alias="mmc_cpld" width="1" start_addr="0x100" end_addr="0x125">
       <sdi_cpld_pin_group instance="0" start_addr="0x100" start_offset="0x4" end_offset="0x7" bus_name="mmc_cpld_major_version" direction="in" polarity="normal" />
       <sdi_cpld_pin_group instance="1" start_addr="0x100" start_offset="0x0" end_offset="0x3" bus_name="mmc_cpld_minor_version" direction="in" polarity="normal" />
-      <sdi_cpld_pin_group instance="2" start_addr="0x101" start_offset="0x0" end_offset="0x7" bus_name="mmc_sw_scratch" direction="out" level="0x5a" polarity="normal" />
       <sdi_cpld_pin instance="0" addr="0x102" offset="0x1" bus_name="cpu_boot_status" direction="in" polarity="inverted" />
       <sdi_cpld_pin instance="1" addr="0x102" offset="0x0" bus_name="cpu_bios" direction="in" polarity="normal" />
       <sdi_cpld_pin instance="2" addr="0x103" offset="0x1" bus_name="spd_eeprom_write_protection" direction="out" level="0x0" polarity="normal" />

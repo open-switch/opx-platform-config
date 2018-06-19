@@ -14,8 +14,13 @@ permissions and limitations under the License.
 -->
 <switch_config>
   <switch_topology switch_ids="0" />
-  <switch id="0" npus="0" />
-    <switch_profile default_profile="default">
-        <entry supported_profile="default"/>
-  </switch_profile>
+<switch id="0" npus="0" hw_info="crb3-rev2" cpu_port_id="73" />
+<switch_npu_profile npu="0">
+    <key id="hwCfgPath" value="/usr/lib/cavium/xdk/platform"/>
+    <key id="profileNum" value="12"/>
+    <key id="SAI_ACL_TYPE_READ_FILE" value="policy_ingress_acl_table_mapping.txt"/>
+    <key id="scpuFwFile" value="/usr/lib/cavium/xp-tools/xp70FirmwareA1.bin"/>
+    <key id="enableScpuFw" value="1"/>
+    <key id="z80ANFwFile" value="/usr/lib/cavium/xp-tools/xp70Tv80AutoNegStateMachine.ihx.mem"/>
+</switch_npu_profile>
 </switch_config>

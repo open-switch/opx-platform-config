@@ -233,11 +233,11 @@
         <entry supported-speed="10000" />
     </media-type>
 
-    <media-type id="SFP SX" speed="1000" autoneg="off" duplex="None">
+    <media-type id="SFP SX" speed="1000" autoneg="on" duplex="None">
         <entry supported-speed="1000" />
     </media-type>
 
-    <media-type id="SFP LX" speed="1000" autoneg="off" duplex="None">
+    <media-type id="SFP LX" speed="1000" autoneg="on" duplex="None">
         <entry supported-speed="1000" />
     </media-type>
 

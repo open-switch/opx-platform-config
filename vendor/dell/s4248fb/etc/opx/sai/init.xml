@@ -34,9 +34,9 @@
             <PORT_INFO cpu_port="200" max_logical_ports="72"
                 max_physical_ports="22" max_lane_per_port="4" max_port_mtu="9216"/>
                 <TABLE_SIZE l2_table="163840" l3_host_table="90112" l3_route_table="16384"/>
-            <QOS hierarchy_levels="3" max_hierarchy_node_childs="8" traffic_class="8"
+            <QOS hierarchy_levels="3" max_hierarchy_node_childs="9" traffic_class="8"
              max_buffer_size="6291456" num_pg="8" cell_size="2048" ing_max_buf_pools="2" egr_max_buf_pools="2"/>
-            <PORT_QUEUE queue_count="16" uc_count="8" mc_count="8"/>
+            <PORT_QUEUE queue_count="18" uc_count="9" mc_count="9"/>
             <CPU_PORT_QUEUE queue_count="16" uc_count="0" mc_count="16"/>
         </SWITCH>
 
@@ -149,7 +149,7 @@
             </SCHEDULER_GROUP>
           </LEVEL>
           <LEVEL level_idx="1" scheduler_group_count="1">
-            <SCHEDULER_GROUP index="0" child_count="8">
+            <SCHEDULER_GROUP index="0" child_count="9">
               <child-scheduler-group child_level="2" index="0"/>
               <child-scheduler-group child_level="2" index="1"/>
               <child-scheduler-group child_level="2" index="2"/>
@@ -158,10 +158,11 @@
               <child-scheduler-group child_level="2" index="5"/>
               <child-scheduler-group child_level="2" index="6"/>
               <child-scheduler-group child_level="2" index="7"/>
+              <child-scheduler-group child_level="2" index="8"/>
             </SCHEDULER_GROUP>
           </LEVEL>
 
-          <LEVEL level_idx="2" scheduler_group_count="8">
+          <LEVEL level_idx="2" scheduler_group_count="9">
             <SCHEDULER_GROUP index="0" child_count="2">
               <child-queue queue-number="0" type="UCAST" index="0"/>
               <child-queue queue-number="0" type="MCAST" index="1"/>
@@ -193,6 +194,10 @@
             <SCHEDULER_GROUP index="7" child_count="2">
               <child-queue queue-number="7" type="UCAST" index="0"/>
               <child-queue queue-number="7" type="MCAST" index="1"/>
+            </SCHEDULER_GROUP>
+            <SCHEDULER_GROUP index="8" child_count="2">
+              <child-queue queue-number="8" type="UCAST" index="0"/>
+              <child-queue queue-number="8" type="MCAST" index="1"/>
             </SCHEDULER_GROUP>
           </LEVEL>
         </SCHEDULER_HIERARCHY_TREE>

@@ -245,11 +245,11 @@
         <entry supported-speed="10000" />
     </media-type>
 
-    <media-type id="SFP SX" speed="1000" autoneg="off" duplex="None">
+    <media-type id="SFP SX" speed="1000" autoneg="on" duplex="None">
         <entry supported-speed="1000" />
     </media-type>
 
-    <media-type id="SFP LX" speed="1000" autoneg="off" duplex="None">
+    <media-type id="SFP LX" speed="1000" autoneg="on" duplex="None">
         <entry supported-speed="1000" />
     </media-type>
 
@@ -405,26 +405,6 @@
         <entry supported-speed="100000" />
     </media-type>
 
-    <media-type id="SFP28 25GBASE CR1" speed="25000" autoneg="on" duplex="None" hw-profile="17">
-        <entry supported-speed="25000" />
-    </media-type>
-
-    <media-type id="SFP28 25GBASE CR1 HALFM" speed="25000" autoneg="on" duplex="None" hw-profile="17">
-        <entry supported-speed="25000" />
-    </media-type>
-
-    <media-type id="SFP28 25GBASE CR1 1M" speed="25000" autoneg="on" duplex="None" hw-profile="17">
-        <entry supported-speed="25000" />
-    </media-type>
-
-    <media-type id="SFP28 25GBASE CR1 2M" speed="25000" autoneg="on" duplex="None" hw-profile="18">
-        <entry supported-speed="25000" />
-    </media-type>
-
-    <media-type id="SFP28 25GBASE CR1 3M" speed="25000" autoneg="on" duplex="None" hw-profile="19">
-        <entry supported-speed="25000" />
-    </media-type>
-
     <media-type id="QSFPPLUS 50GBASE CR2" speed="50000" autoneg="on" duplex="None" hw-profile="17">
         <entry supported-speed="50000" />
     </media-type>
@@ -459,10 +439,6 @@
 
     <media-type id="QSFP28 100GBASE ACC" speed="100000" autoneg="off" duplex="None" hw-profile="16">
         <entry supported-speed="100000" />
-    </media-type>
-
-    <media-type id="SFP28 25GBASE SR" speed="25000" autoneg="off" duplex="None" hw-profile="16">
-        <entry supported-speed="25000" />
     </media-type>
 
     <media-type id="SFPPLUS 10GBASE SR AOCXXM" speed="10000" autoneg="off" duplex="None" hw-profile="1">

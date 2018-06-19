@@ -1,3 +1,23 @@
+opx-platform-config (1.4.10) unstable; urgency=medium
+
+  * Update: VM - Removed udev rule to rename interfaces, created systemd service instead
+  * Update: Multiple platforms- Set default autoneg for SFP SX & LX to on
+  * Update: Multiple platforms - Added 25G SFP28 support
+  * Feature: Multiple platforms - Added determination of start type
+  * Update: DellEMC S4248FB(L)-ON - Optimize egress queue / port scheduler usage
+  * Bugfix: DellEMC S4248FB(L)-ON - Fix control plane deny ip ACL issue
+  * Update: DellEMC S4248FB(L)-ON - Update scheduler model to include control queue
+  * Update: DellEMC S4248FB(L)-ON - Add soc for handling user header
+  * Bugfix: DellEMC S4248FBL-ON - Corrected card type
+  * Update: DellEMC S5148F-ON - Updated hardware lane numbers to match SAI
+  * Bugfix: DellEMC S5148F-ON - Corrected MAC address allocation
+  * Update: DellEMC S5148F-ON - Added profiles for media types
+  * Update: DellEMC Z9100-ON - Stacking LED on by default
+  * Bugfix: DellEMC Z9100-ON - Corrected ACL configuration
+  * Bugfix: DellEMC Z9100-ON - Corrected temperature sensor name, removed faulty PSU temperature sensors
+
+ -- Dell EMC <opx-dev@lists.openswitch.net>  Mon, 07 May 2018 10:30:00 -0800
+
 opx-platform-config (1.4.9) unstable; urgency=medium
 
   * Bugfix: S42xx platforms do not support UFT

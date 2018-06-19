@@ -1,0 +1,15 @@
+[Unit]
+Description=Virtual port setup
+Before=network.target
+DefaultDependencies=no
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/opx-vport.sh
+RemainAfterExit=yes
+
+# Resource Limitations
+LimitNOFILE=16384
+
+[Install]
+WantedBy=multi-user.target

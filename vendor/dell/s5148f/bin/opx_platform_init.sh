@@ -40,3 +40,32 @@ echo "CPLD3: $((r >> 4)).$((r & 0xf))" >> $FIRMWARE_VERSION_FILE
 /usr/sbin/i2cset 16 0x3e 0 0
 r=`/usr/sbin/i2cget 16 0x3e`
 echo "CPLD4: $((r >> 4)).$((r & 0xf))" >> $FIRMWARE_VERSION_FILE
+
+
+# Determine type of system start
+
+rm -f /tmp/os10_start_*
+r=`/opt/dell/os10/bin/portiocfg.py --get --offset 0x20a | sed 's/reg value //'`
+case $r in
+    11)
+        # Power-on
+        t=power
+        ;;
+    33)
+        # Watchdog expired
+        t=watchdog
+        ;;
+    44)
+        # Cold reboot (NPU and other hardware reset)
+        t=cold
+        ;;
+    55)
+        # Warm reboot (NPU and other hardware not reset)
+        t=warm
+        ;;
+    *)
+        # Unknown reason
+        t=unknown
+        ;;
+esac
+touch /tmp/os10_start_$t

@@ -34,3 +34,31 @@ r=`i2cget -y 2 0x33 0`
 if [ $? = 0 ]; then
     echo "Slave CPLD: $((r >> 4)).$((r & 0xf))" >> $FIRMWARE_VERSION_FILE
 fi
+
+# Determine type of system start
+
+rm -f /tmp/opx_start_*
+r=$(i2cget -y 2 0x31 8)
+case $r in
+    0x00)
+        # Power-on
+        t=power
+        ;;
+    0x10)
+        # Watchdog expired
+        t=watchdog
+        ;;
+    0x80)
+        # Cold reboot (NPU and other hardware reset)
+        t=cold
+        ;;
+    0x40)
+        # Warm reboot (NPU and other hardware not reset)
+        t=warm
+        ;;
+    *)
+        # Unknown reason
+        t=unknown
+        ;;
+esac
+touch /tmp/opx_start_$t

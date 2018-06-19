@@ -45,7 +45,7 @@
             <led id="Alarm Major"/>
           </led-group>
           <led-group>
-            <led id="Stacking"/>
+            <led id="Stacking" default="on"/>
           </led-group>
         </led-groups>
 
