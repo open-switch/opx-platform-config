@@ -1488,6 +1488,8 @@ number_of_inrif_mac_termination_combinations=8
 ext_ip4_double_capacity_fwd_table_size=100000
 ext_ip4_uc_rpf_fwd_table_size=100000
 ext_ip6_uc_rpf_fwd_table_size=50000
+ext_ip4_mc_fwd_table_size=10000
+ext_ip6_mc_fwd_table_size=10000
 ext_tcam_result_size_segment_0=48
 ext_tcam_result_size_segment_1=24
 ext_tcam_result_size_segment_2=48
@@ -1522,7 +1524,8 @@ field_class_id_size_3=0
 l3_multiple_mymac_termination_enable=1
 
 bcm886xx_pdm_mode.BCM88375=1
-custom_feature_l3_mc_use_tcam = 1
+custom_feature_l3_mc_use_tcam=0
+ipmc_lookup_model=1
 
 bcm886xx_erspan_tunnel_enable=1
 # Separate control-Q

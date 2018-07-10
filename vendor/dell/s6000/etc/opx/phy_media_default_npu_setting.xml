@@ -140,4 +140,27 @@
     <media-type id="QSFP 40GBASE PSM4 PIGTAIL" speed="40000" autoneg="off" duplex="None">
         <entry supported-speed="40000" />
     </media-type>
+    <media-type id="SFP PLUS 10GBASE BX10 UP" speed="10000" autoneg="off" duplex="None">
+        <entry supported-speed="10000" />
+    </media-type>
+
+    <media-type id="SFP PLUS 10GBASE BX10 DOWN" speed="10000" autoneg="off" duplex="None">
+        <entry supported-speed="10000" />
+      </media-type>
+
+    <media-type id="SFP PLUS 10GBASE BX40 UP" speed="10000" autoneg="off" duplex="None">
+        <entry supported-speed="10000" />
+    </media-type>
+
+    <media-type id="SFP PLUS 10GBASE BX40 DOWN" speed="10000" autoneg="off" duplex="None">
+        <entry supported-speed="10000" />
+    </media-type>
+
+    <media-type id="QSFPPLUS 40GBASE BIDI" speed="40000" autoneg="off" duplex="None" hw-profile="1">
+        <entry supported-speed="40000" />
+    </media-type>
+    
+    <media-type id="QSFPPLUS 40GBASE SR4 AOC1M" speed="40000" autoneg="off" duplex="None" hw-profile="10">
+       <entry supported-speed="40000" />
+    </media-type>
 </media-npu-setting-info>

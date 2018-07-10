@@ -286,4 +286,19 @@
     <media-type id="10GBASE COPPER" speed="10000" autoneg="on" duplex="None">
         <entry supported-speed="10000" />
     </media-type>
+    <media-type id="SFP PLUS 10GBASE BX10 UP" speed="10000" autoneg="off" duplex="None">
+        <entry supported-speed="10000" />
+    </media-type>
+
+    <media-type id="SFP PLUS 10GBASE BX10 DOWN" speed="10000" autoneg="off" duplex="None">
+        <entry supported-speed="10000" />
+      </media-type>
+
+    <media-type id="SFP PLUS 10GBASE BX40 UP" speed="10000" autoneg="off" duplex="None">
+        <entry supported-speed="10000" />
+    </media-type>
+
+    <media-type id="SFP PLUS 10GBASE BX40 DOWN" speed="10000" autoneg="off" duplex="None">
+        <entry supported-speed="10000" />
+    </media-type>
 </media-npu-setting-info>

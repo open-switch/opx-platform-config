@@ -157,7 +157,7 @@ Description: Platform-specific files and packages for Dell Networking S5148F-ON
 
 Package: opx-dell-s5148f
 Architecture: all
-Depends: opx-cavium-modules, libopx-sai-xpliant1, opx-platform-config-dell-s5148f, opx-core
+Depends: opx-cavium-modules, libopx-sai-cavium, opx-platform-config-dell-s5148f, opx-core
 Description: All packages for Dell Networking S5148F-ON
 
 Package: opx-platform-config-dell-s4248fb

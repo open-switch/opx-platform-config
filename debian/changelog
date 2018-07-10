@@ -1,3 +1,12 @@
+opx-platform-config (1.4.11) unstable; urgency=medium
+
+  * Update: Dell EMC S3048-ON, S4048-ON, S41xx-ON, S42xx-ON, S5148F-ON, S6000-ON, Z9100-ON - Additional media types
+  * Update: Dell EMC S41xx-ON - Added fan speed duty-cycle/RPM lookup tables
+  * Bugfix: Dell EMC S4248FB-ON, S5148F-ON - Corrected startup script
+  * Update: Dell EMC Z9100-ON - Added configuration of max port power
+
+ -- Dell EMC <opx-dev@lists.openswitch.net>  Mon, 09 Jul 2018 12:30:00 -0800
+
 opx-platform-config (1.4.10) unstable; urgency=medium
 
   * Update: VM - Removed udev rule to rename interfaces, created systemd service instead

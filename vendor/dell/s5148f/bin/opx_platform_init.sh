@@ -44,8 +44,8 @@ echo "CPLD4: $((r >> 4)).$((r & 0xf))" >> $FIRMWARE_VERSION_FILE
 
 # Determine type of system start
 
-rm -f /tmp/os10_start_*
-r=`/opt/dell/os10/bin/portiocfg.py --get --offset 0x20a | sed 's/reg value //'`
+rm -f /tmp/opx_start_*
+r=`/usr/bin/portiocfg.py --get --offset 0x20a | sed 's/reg value //'`
 case $r in
     11)
         # Power-on
@@ -68,4 +68,4 @@ case $r in
         t=unknown
         ;;
 esac
-touch /tmp/os10_start_$t
+touch /tmp/opx_start_$t

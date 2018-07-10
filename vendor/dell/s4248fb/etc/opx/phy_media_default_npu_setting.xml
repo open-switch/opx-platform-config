@@ -505,4 +505,51 @@
         <entry supported-speed="10000" />
     </media-type>
 
+    <media-type id="QSFP28 4X25GBASE SR AOC XXM" speed="100000" autoneg="off" duplex="None" hw-profile="20">
+        <entry supported-speed="100000" />
+    </media-type>
+
+    <media-type id="QSFP28 100GBASE BIDI" speed="100000" autoneg="off" duplex="None" hw-profile="10">
+        <entry supported-speed="100000" />
+    </media-type>
+
+    <media-type id="QSFP28 100GBASE ESR4" speed="100000" autoneg="off" duplex="None" hw-profile="10">
+        <entry supported-speed="100000" />
+    </media-type>
+    <media-type id="QSFP28 100GBASE SR4 NOF" speed="100000" autoneg="off" duplex="None" hw-profile="10">
+        <entry supported-speed="100000" />
+    </media-type>
+
+    <media-type id="SFP PLUS 10GBASE BX10 UP" speed="10000" autoneg="off" duplex="None">
+        <entry supported-speed="10000" />
+    </media-type>
+
+    <media-type id="SFP PLUS 10GBASE BX10 DOWN" speed="10000" autoneg="off" duplex="None">
+        <entry supported-speed="10000" />
+      </media-type>
+
+    <media-type id="SFP PLUS 10GBASE BX40 UP" speed="10000" autoneg="off" duplex="None">
+        <entry supported-speed="10000" />
+    </media-type>
+
+    <media-type id="SFP PLUS 10GBASE BX40 DOWN" speed="10000" autoneg="off" duplex="None">
+        <entry supported-speed="10000" />
+    </media-type>
+
+    <media-type id="QSFPPLUS 40GBASE BIDI" speed="40000" autoneg="off" duplex="None" hw-profile="1">
+        <entry supported-speed="40000" />
+    </media-type>
+
+     <media-type id="QSFP28 100GBASE DWDM2" speed="100000" autoneg="off" duplex="None" hw-profile="10">
+        <entry supported-speed="100000" />
+    </media-type>
+
+     <media-type id="QSFP28 100GBASE ER4 LITE" speed="100000" autoneg="off" duplex="None" hw-profile="10">
+       <entry supported-speed="100000" />
+    </media-type>
+
+    <media-type id="QSFPPLUS 40GBASE SR4 AOC1M" speed="40000" autoneg="off" duplex="None" hw-profile="10">
+       <entry supported-speed="40000" />
+    </media-type>
+
 </media-npu-setting-info>
