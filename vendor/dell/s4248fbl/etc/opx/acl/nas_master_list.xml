@@ -14,9 +14,9 @@
 -->
 <root>
     <INGRESS>
-        <table tag="system-flow" priority="13">
-            <entry tag="bgp-src-port"       cpu-q="9" />
-            <entry tag="bgp-dst-port"       cpu-q="9" />
+      <table tag="system-flow" priority="13">
+            <entry tag="bgp-src-port"       cpu-q="1" />
+            <entry tag="bgp-dst-port"       cpu-q="1" />
             <entry tag="ospf-all"           cpu-q="9"  action="COPY_TO_CPU"/>
             <entry tag="ospf-all-dr"        cpu-q="9"  action="COPY_TO_CPU"/>
             <entry tag="ospfv3-all"         cpu-q="9"  action="COPY_TO_CPU"/>
