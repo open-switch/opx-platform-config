@@ -1,0 +1,24 @@
+{ "leds": [ "Fan Fault",
+            "PSU Fault",
+            "Alarm Minor",
+            "Alarm Major"
+          ],
+
+  "conditions": [
+      [ "Fan tray [0-9]+ airflow .* fan [0-9]+ fault",  "Fan Fault" ],
+      [ "Fan tray [0-9]+ airflow .* incorrect PPID",    "Fan Fault" ],
+      [ "Fan tray [0-9]+ airflow .* incorrect airflow", "Fan Fault" ],
+      [ "Fan tray [0-9]+ airflow .* fault",             "Fan Fault" ],
+      [ "Fan tray [0-9]+ absent",                       "Fan Fault" ],
+      [ "PSU [0-9]+ airflow .* incorrect airflow",      "Fan Fault" ],
+      [ "PSU [0-9]+ airflow .* fan [0-9]+ fault",       "Fan Fault" ],
+
+      [ "PSU [0-9]+ airflow .* incorrect PPID",         "PSU Fault" ],
+      [ "PSU [0-9]+ airflow .* fault",                  "PSU Fault" ],
+      [ "PSU [0-9]+ absent",                            "PSU Fault" ],
+
+      [ "Temperature sensor .* minor",                  "Alarm Minor" ],
+      [ "Temperature sensor .* major",                  "Alarm Major" ],
+      [ "Temperature sensor .* critical",               "Alarm Major" ]
+  ]
+}

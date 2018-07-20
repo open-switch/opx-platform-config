@@ -1,8 +1,15 @@
 opx-platform-config (1.4.12) unstable; urgency=medium
 
   * Bugfix: Dell EMC S4248FB-ON, S4248FBL-ON - Corrected QoS configuration
+  * Update: Dell EMC Z9264-ON, S4112F-ON, S4112T-ON - Added platform support
+  * Update: Dell EMC S3048-ON, Z9100-ON - Added determination of start type
+  * Update: Various - Modified master ACL configuration for system flows
+  * Update: Various - Added configuration of IPv6 extended prefix
+  * Update: Various - Additional media  types
+  * Update: Dell EMC S4248FB(L)-ON - Added port type definition
+  * Update: Dell EMC S5148F-ON - Added script to disable interfaces on shutdown
 
- -- Dell EMC <opx-dev@lists.openswitch.net>  Mon, 16 Jul 2018 14:30:00 -0800
+ -- Dell EMC <opx-dev@lists.openswitch.net>  Mon, 17 Jul 2018 11:30:00 -0800
 
 opx-platform-config (1.4.11) unstable; urgency=medium
 
@@ -163,7 +170,7 @@ opx-platform-config (1.2.1) unstable; urgency=medium
   * Bugfix: Corrected paths for S41xx scripts
   * Bugfix: Added missing kernel modules for Dell S41xx platforms
   * Update: Refactored kernel modules - watchdog common to all platforms
-	
+
  -- Dell EMC <opx-dev@lists.openswitch.net>  Sun, 21 Jan 2018 20:00:00 -0800
 
 opx-platform-config (1.2.0) unstable; urgency=medium
@@ -175,7 +182,7 @@ opx-platform-config (1.2.0) unstable; urgency=medium
   * Bugfix: Corrected PAS card type
   * Update: Simplified udev rules for VM front-panel ports
   * Bugfix: Correct base-qos init file for Z9100 platform
-	
+
  -- Dell EMC <opx-dev@lists.openswitch.net>  Wed, 10 Jan 2018 14:30:00 -0800
 
 opx-platform-config (1.1.2) unstable; urgency=medium

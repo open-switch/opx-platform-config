@@ -14,6 +14,7 @@
 -->
 <root>
      <table tag="system-flow">
+          <allow-match>SRC_IP</allow-match>
           <allow-match>DST_IP</allow-match>
           <allow-match>DST_MAC</allow-match>
           <allow-match>IP_PROTOCOL</allow-match>
@@ -22,16 +23,11 @@
           <allow-match>ETHER_TYPE</allow-match>
           <allow-match>L4_SRC_PORT</allow-match>
           <allow-match>L4_DST_PORT</allow-match>
+          <allow-match>IP_FRAG</allow-match>
           <allow-match>OUTER_VLAN_ID</allow-match>
           <allow-match>ICMP_TYPE</allow-match>
           <allow-match>ICMP_CODE</allow-match>
           <allow-match>DST_IPV6</allow-match>
-          <allow-action>PACKET_ACTION</allow-action>
-          <allow-action>SET_CPU_QUEUE</allow-action>
-          <allow-action>SET_COUNTER</allow-action>
-          <allow-action>SET_TC</allow-action>
-          <allow-action>SET_OUTER_VLAN_PRI</allow-action>
-          <allow-action>SET_DSCP</allow-action>
      </table>
 
      <entry tag="bgp-src-port">
@@ -48,6 +44,9 @@
                  <data>6</data>
              </value>
          </match>
+         <match type="IP_FRAG">
+             <value>NON_FRAG_OR_HEAD</value>
+         </match>
      </entry>
 
      <entry tag="bgp-dst-port">
@@ -63,6 +62,9 @@
              <value>
                  <data>6</data>
              </value>
+         </match>
+         <match type="IP_FRAG">
+             <value>NON_FRAG_OR_HEAD</value>
          </match>
      </entry>
 

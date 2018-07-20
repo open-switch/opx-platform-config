@@ -1,0 +1,60 @@
+<!-- Copyright (c) 2017 Dell Inc.
+ Licensed under the Apache License, Version 2.0 (the "License"); you may
+ not use this file except in compliance with the License. You may obtain
+ a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+
+ THIS CODE IS PROVIDED ON AN  *AS IS* BASIS, WITHOUT WARRANTIES OR
+ CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT
+ LIMITATION ANY IMPLIED WARRANTIES OR CONDITIONS OF TITLE, FITNESS
+ FOR A PARTICULAR PURPOSE, MERCHANTABLITY OR NON-INFRINGEMENT.
+
+ See the Apache Version 2.0 License for specific language governing
+ permissions and limitations under the License.
+-->
+<root>
+    <entity instance="1" type="SDI_ENTITY_SYSTEM_BOARD" presence="FIXED_SLOT" alias="System Board" cold_reset="0xfe" cold_reset_register="reset_register1" warm_reset="0xff" warm_reset_register="reset_register1" reset_register_l1="intel_io_reset" reset_value_l1="0x6">
+        <resource reference="tmp75-0" name="CPU Ambient temp sensor" />
+        <resource reference="tmp75-1" name="Near NPU Ambient temp sensor" />
+        <resource reference="tmp75-2" name="SFP+ Ambient temp sensor" />
+        <resource reference="tmp75-3" name="QSFP Ambient temp sensor" />
+        <resource reference="tmp75-4" name="Front Ambient temp sensor" />
+        <resource reference="tmp75-5" name="Rear Ambient temp sensor" />
+    	<resource reference="sys_eeprom" name="Entity Info" />
+    	<resource reference="power-monitor" name="Power Monitor" />
+        <resource reference="stack_mode_led" name="Stack Master" />
+        <resource reference="system_critical_led" name="Alarm Major" />
+        <resource reference="system_noncritical_led" name="Alarm Minor" />
+        <resource reference="locator_function_enable_led" name="Beacon" />
+        <resource reference="psu_failed_led" name="PSU Fault" />
+        <resource reference="front_fan_failed_led" name="Fan Fault" />
+        <resource reference="stack_led" name="Stack ID" />
+        <resource reference="sfp-1" name="Optics Media 1" />
+        <resource reference="sfp-2" name="Optics Media 2" />
+        <resource reference="sfp-3" name="Optics Media 3" />
+        <resource reference="sfp-4" name="Optics Media 4" />
+        <resource reference="sfp-5" name="Optics Media 5" />
+        <resource reference="sfp-6" name="Optics Media 6" />
+        <resource reference="sfp-7" name="Optics Media 7" />
+        <resource reference="sfp-8" name="Optics Media 8" />
+        <resource reference="sfp-9" name="Optics Media 9" />
+        <resource reference="sfp-10" name="Optics Media 10" />
+        <resource reference="sfp-11" name="Optics Media 11" />
+        <resource reference="sfp-12" name="Optics Media 12" />
+        <resource reference="qsfp-1" name="Optics Media 13" />
+        <resource reference="qsfp-2" name="Optics Media 14" />
+        <resource reference="qsfp-3" name="Optics Media 15" />
+        <resource reference="sys_nvram" name="NVRAM" />
+    </entity>
+    <entity instance="1" type="SDI_ENTITY_FAN_TRAY" presence="FIXED_SLOT" airflow_type="fan_airflow_type" alias="Fan Tray-1">
+        <resource reference="fan-1" name="Fan 1" />
+        <resource reference="fan-2" name="Fan 2" />
+        <resource reference="fan-3" name="Fan 3" />
+        <resource reference="virt-fantray_entity_info" name="Fan Tray Entity Info" />
+    </entity>
+    <entity instance="1" type="SDI_ENTITY_PSU_TRAY" presence="FIXED_SLOT" psu_type="psu1_type" power_output_status="psu1_output_power_status" alias="PSU Tray-1">
+        <resource reference="virt-psu1_entity_info" name="PSU 1 Entity Info" />
+    </entity>
+    <entity instance="2" type="SDI_ENTITY_PSU_TRAY" presence="FIXED_SLOT" psu_type="psu2_type" power_output_status="psu2_output_power_status" alias="PSU Tray-2">
+        <resource reference="virt-psu2_entity_info" name="PSU 2 Entity Info" />
+    </entity>
+</root>

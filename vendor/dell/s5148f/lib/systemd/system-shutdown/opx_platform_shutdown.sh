@@ -21,6 +21,8 @@
 
 function platform_reset {
 
+    /usr/bin/python -u /usr/bin/opx_disable_interfaces.py
+
     # reset the system
     /usr/bin/portiocfg.py --set --val 0xE --offset 0xCF9
 

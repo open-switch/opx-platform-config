@@ -38,3 +38,31 @@ echo "MMC CPLD: $((r >> 4)).$((r & 0xf))" >> $FIRMWARE_VERSION_FILE
 # Get SMC CPLD version
 r=`/usr/bin/portiocfg.py --get --offset 0x200 | sed 's/reg value //'`
 echo "SMC CPLD: $((r >> 4)).$((r & 0xf))" >> $FIRMWARE_VERSION_FILE
+
+# Determine type of system start
+
+rm -f /tmp/opx_start_*
+r=`/usr/bin/portiocfg.py --get --offset 0x112 | sed 's/reg value //'`
+case $r in
+    11)
+        # Power-on
+        t=power
+        ;;
+    33)
+        # Watchdog expired
+        t=watchdog
+        ;;
+    44)
+        # Cold reboot (NPU and other hardware reset)
+        t=cold
+        ;;
+    55)
+        # Warm reboot (NPU and other hardware not reset)
+        t=warm
+        ;;
+    *)
+        # Unknown reason
+        t=unknown
+        ;;
+esac
+touch /tmp/opx_start_$t
