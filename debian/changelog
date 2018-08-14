@@ -1,3 +1,9 @@
+opx-platform-config (1.4.12+opx1) unstable; urgency=medium
+
+  * Add Z9264F kernel modules package as dependency
+
+ -- Dell EMC <opx-dev@lists.openswitch.net>  Mon, 13 Aug 2018 11:30:00 -0800
+
 opx-platform-config (1.4.12) unstable; urgency=medium
 
   * Bugfix: Dell EMC S4248FB-ON, S4248FBL-ON - Corrected QoS configuration
