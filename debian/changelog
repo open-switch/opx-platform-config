@@ -1,3 +1,10 @@
+opx-platform-config (1.4.13) unstable; urgency=medium
+
+  * Dell EMC S4112F/T-ON - Added missing platform init systemd service
+  *                      - Corrected I2C bus names in SDI config
+
+ -- Dell EMC <opx-dev@lists.openswitch.net>  Tue, 14 Aug 2018 16:20:00 -0800
+
 opx-platform-config (1.4.12+opx1) unstable; urgency=medium
 
   * Add Z9264F kernel modules package as dependency
