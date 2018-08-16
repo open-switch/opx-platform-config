@@ -28,6 +28,12 @@
           <allow-match>ICMP_TYPE</allow-match>
           <allow-match>ICMP_CODE</allow-match>
           <allow-match>DST_IPV6</allow-match>
+          <allow-action>PACKET_ACTION</allow-action>
+          <allow-action>SET_CPU_QUEUE</allow-action>
+          <allow-action>SET_COUNTER</allow-action>
+          <allow-action>SET_TC</allow-action>
+          <allow-action>SET_OUTER_VLAN_PRI</allow-action>
+          <allow-action>SET_DSCP</allow-action>
      </table>
 
      <entry tag="bgp-src-port">
