@@ -46,6 +46,9 @@
             <entry tag="icmpv6-mld-report"  cpu-q="4" action="TRAP_TO_CPU"/>
             <entry tag="icmpv6-mld-done"    cpu-q="4" action="TRAP_TO_CPU"/>
             <entry tag="icmpv6"             cpu-q="4" />
+            <entry tag="isis-l1"            cpu-q="9"  action="TRAP_TO_CPU"/>
+            <entry tag="isis-l2"            cpu-q="9"  action="TRAP_TO_CPU"/>
+            <entry tag="isis-all"           cpu-q="9"  action="TRAP_TO_CPU"/>
         </table>
     </INGRESS>
     <EGRESS>

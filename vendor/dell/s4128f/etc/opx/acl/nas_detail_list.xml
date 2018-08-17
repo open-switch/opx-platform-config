@@ -483,5 +483,29 @@
              </value>
          </match>
      </entry>
+
+     <entry tag="isis-l1">
+         <match type="DST_MAC">
+             <value>
+                 <addr>01:80:c2:00:00:14</addr>
+             </value>
+         </match>
+     </entry>
+
+     <entry tag="isis-l2">
+         <match type="DST_MAC">
+             <value>
+                 <addr>01:80:c2:00:00:15</addr>
+             </value>
+         </match>
+     </entry>
+
+     <entry tag="isis-all">
+         <match type="DST_MAC">
+             <value>
+                 <addr>09:00:2b:00:00:05</addr>
+             </value>
+         </match>
+     </entry>
 </root>
 
