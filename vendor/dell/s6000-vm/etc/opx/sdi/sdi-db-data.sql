@@ -3,11 +3,11 @@ BEGIN TRANSACTION;
 
 DELETE FROM "Entity_Info";
 INSERT INTO "Entity_Info" VALUES(1, 0, 30, 1, 1, 2, 'System Board', '', '', '', '', '', '', x'90b11cf4ef9f', 256, 0, 0, 0, 0, 0, 1, 0, 2, 1);
-INSERT INTO "Entity_Info" VALUES(2, 1, 65, 1, 1, 2, 'Fan Tray 1', 'CN0MGDH8282983AG048', 'CN0MGDH8282983AG048', '', '', '', '', '', 0, 2, 18000, 1, 0, 0, 1, 0, 2, 1);
-INSERT INTO "Entity_Info" VALUES(3, 1, 68, 2, 1, 2, 'Fan Tray 2', 'CN0MGDH8282983AG048', 'CN0MGDH8282983AG048', '', '', '', '', '', 0, 2, 18000, 1, 0, 0, 1, 0, 2, 1);
-INSERT INTO "Entity_Info" VALUES(4, 1, 71, 3, 1, 2, 'Fan Tray 3', 'CN0MGDH8282983AG048', 'CN0MGDH8282983AG048', '', '', '', '', '', 0, 2, 18000, 1, 0, 0, 1, 0, 2, 1);
-INSERT INTO "Entity_Info" VALUES(5, 2, 73, 1, 1, 2, 'PSU 1', 'Power Supply', 'CN0T9FNW2829883AG036', '', '', '', '', '', 0, 1, 19000, 1, 48, 2, 1, 0, 2, 1);
-INSERT INTO "Entity_Info" VALUES(6, 2, 75, 2, 1, 2, 'PSU 2', 'Power Supply', 'CN0T9FNW2829883AG036', '', '', '', '', '', 0, 1, 19000, 1, 48, 2, 1, 0, 2, 1);
+INSERT INTO "Entity_Info" VALUES(2, 1, 65, 1, 1, 2, 'Fan Tray 1', 'CN0MGDH8282983AG048', 'CN0MGDH8282983AG048', '', '', '', '', '', 0, 2, 19000, 1, 0, 0, 1, 0, 2, 1);
+INSERT INTO "Entity_Info" VALUES(3, 1, 68, 2, 1, 2, 'Fan Tray 2', 'CN0MGDH8282983AG048', 'CN0MGDH8282983AG048', '', '', '', '', '', 0, 2, 19000, 1, 0, 0, 1, 0, 2, 1);
+INSERT INTO "Entity_Info" VALUES(4, 1, 71, 3, 1, 2, 'Fan Tray 3', 'CN0MGDH8282983AG048', 'CN0MGDH8282983AG048', '', '', '', '', '', 0, 2, 19000, 1, 0, 0, 1, 0, 2, 1);
+INSERT INTO "Entity_Info" VALUES(5, 2, 73, 1, 1, 2, 'PSU 1', 'Power Supply', 'CN0T9FNW2829883AG036', '', '', '', '', '', 0, 1, 18000, 1, 48, 2, 1, 0, 2, 1);
+INSERT INTO "Entity_Info" VALUES(6, 2, 75, 2, 1, 2, 'PSU 2', 'Power Supply', 'CN0T9FNW2829883AG036', '', '', '', '', '', 0, 1, 18000, 1, 48, 2, 1, 0, 2, 1);
 
 DELETE FROM "Entity_Resource";
 INSERT INTO "Entity_Resource" VALUES(1, 1, 0, "T2 temp sensor");
