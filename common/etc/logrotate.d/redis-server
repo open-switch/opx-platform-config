@@ -1,4 +1,5 @@
 /var/log/redis/redis-server*.log {
+        maxsize 1M 
         daily
         missingok
         rotate 7 

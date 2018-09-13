@@ -1,3 +1,9 @@
+opx-platform-config (1.5.2+opx1) unstable; urgency=medium
+
+  * feat: logrotate configuration enhancements 
+
+ -- Dell EMC <opx-dev@lists.openswitch.net>  Tue, 13 Sep 2018 16:00:00 -0800
+
 opx-platform-config (1.5.2) unstable; urgency=medium
 
   * Bugfix: Mismatched tag in nas_detail_list.xml for z9264f platform
