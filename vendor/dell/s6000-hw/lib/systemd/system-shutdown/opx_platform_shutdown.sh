@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Copyright (c) 2015 Dell Inc.
+# Copyright (c) 2018 Dell Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License"); you may
 # not use this file except in compliance with the License. You may obtain
@@ -44,6 +44,8 @@ function platform_reset {
     # Hence the fact we are here implies reset failed.
     echo "Platform_reset failed.  Some components might not have been reset" > /dev/console
 
+    # Manually reset the CPU
+    reboot -f
 }
 
 function platform_poweroff {

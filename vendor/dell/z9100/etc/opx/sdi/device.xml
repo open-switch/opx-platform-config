@@ -1,4 +1,4 @@
-<!-- Copyright (c) 2016 Dell Inc.
+<!-- Copyright (c) 2018 Dell Inc.
      Licensed under the Apache License, Version 2.0 (the "License"); you may
      not use this file except in compliance with the License. You may obtain
      a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
@@ -104,6 +104,8 @@ permissions and limitations under the License.
     <sdi_sf_tmp instance="5" temp_value_offset="0x24" temp_fault_status_offset="0xe4"/>
     <sdi_sf_tmp instance="6" temp_value_offset="0x239"/>
     <sdi_sf_tmp instance="7" temp_value_offset="0x272"/>
+
+    <sdi_sf_ext_ctrl instance="0" ctrl_value_offset="0x407" width="2" step="1" />
 
     <sf_fan instance="0">
       <fan instance="0"  fan_speed_offset="0xf3"  fan_status_bus="fan0_status"     alias="fan-0"/>

@@ -120,7 +120,8 @@
          </match>
      </entry>
 
-     <entry tag="ospfv3-all-dr">
+
+    <entry tag="ospfv3-all-dr">
          <match type="DST_IPV6">
              <value>
                  <addr>ff02::6</addr>
@@ -131,9 +132,9 @@
                  <data>89</data>
              </value>
          </match>
-     </entry>
+    </entry>
 
-     <entry tag="ospfv3-ucast">
+    <entry tag="ospfv3-ucast">
          <table>system-flow-stub</table>
          <match type="IP_TYPE">
              <value>IPV6ANY</value>
@@ -143,7 +144,7 @@
                  <data>89</data>
              </value>
          </match>
-     </entry>
+    </entry>
 
      <entry tag="icmp">
          <match type="IP_TYPE">

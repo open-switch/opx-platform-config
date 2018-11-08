@@ -1,0 +1,18 @@
+{
+    "key": ["category"],
+
+    "config":
+    {
+        "sfp"         :["duplex-profile-0"],
+        "sfp+"        :["duplex-profile-0"],
+        "qsfp"        :["duplex-profile-0"],
+        "qsfp+"       :["duplex-profile-0"],
+        "qsfp28"      :["duplex-profile-0"],
+        "sfp28"       :["duplex-profile-0"],
+        "cxp"         :["duplex-profile-0"],
+        "qsfp-dd"     :["duplex-profile-0"],
+        "qsfp28-depop":["duplex-profile-0"],
+        "fixed"       :["duplex-profile-0"],
+        "qsfp28-dd"   :["duplex-profile-0"]
+    }
+}

@@ -77,6 +77,9 @@
         <sdi_sf_tmp instance="5" temp_value_offset="0x1e" temp_fault_status_offset="0xe1" temp_low_threshold_offset="0x6a" temp_high_threshold_offset="0x68"/>
         <sdi_sf_tmp instance="6" temp_value_offset="0x20" temp_fault_status_offset="0xe2" temp_low_threshold_offset="0x72" temp_high_threshold_offset="0x70"/>
         <sdi_sf_tmp instance="7" temp_value_offset="0x22" temp_fault_status_offset="0xe3" temp_low_threshold_offset="0x7a" temp_high_threshold_offset="0x78"/>
+
+        <sdi_sf_ext_ctrl instance="0" ctrl_value_offset="0x407" width="2" step="1" />
+
 		<sf_fan instance="0">
 			<fan instance="0" fan_speed_offset="0xf3" fan_status_bus="fan0_status" alias="fan-1"/>
 			<fan instance="1" fan_speed_offset="0xf5" fan_status_bus="fan1_status" alias="fan-2"/>

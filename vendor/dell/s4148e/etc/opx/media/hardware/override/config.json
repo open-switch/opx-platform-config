@@ -1,0 +1,12 @@
+{
+    "key": ["display-string", "interface-speed"],
+
+    "config":
+    {
+        "SFP+ 10GBASE CR 2.0M":
+        {
+            "1g": ["hwp_c_10_2"],
+            "10g": ["hwp_c_10_2"]
+        }
+    }
+}

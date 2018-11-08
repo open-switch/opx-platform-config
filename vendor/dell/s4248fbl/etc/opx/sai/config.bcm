@@ -1,4 +1,6 @@
+pci_cmcs_num=2
 system_ftmh_load_balancing_ext_mode=ENABLED
+split_horizon_forwarding_groups_mode=2
 backplane_serdes_encoding.BCM88650=2
 backplane_serdes_encoding.BCM88675=RS_FEC
 backplane_serdes_encoding.BCM88750=2
@@ -1219,7 +1221,6 @@ soc_family.BCM88675=BCM88650
 soc_family.BCM88752=BCM88750
 soc_family.BCM88753=BCM88750
 soc_family.BCM88952=BCM88950
-split_horizon_forwarding_groups_mode.BCM88675=1
 srd_tx_drv_hv_disable.BCM88650=1
 srd_tx_drv_hv_disable.BCM88750=0
 srd_tx_drv_hv_disable.BCM88950=0
@@ -1434,6 +1435,7 @@ rif_id_max=0x4000
 bcm886xx_rspan_tunnel_enable=1
 BCM886XX_ERSPAN_TUNNEL_ENABLE=1
 custom_feature_allow_modifications_during_traffic.BCM88375=1
+pktdma_poll_mode_channel_bitmap=1
 
 ###########################################
 # KBP configuration
@@ -1528,5 +1530,16 @@ custom_feature_l3_mc_use_tcam=0
 ipmc_lookup_model=1
 
 bcm886xx_erspan_tunnel_enable=1
+bcm886xx_vxlan_enable=1
+
+bcm886xx_vxlan_tunnel_lookup_mode=2
 # Separate control-Q
 custom_config_has_control_queue=1
+#Avoid counting mulitcast replicated packet
+custom_feature_vt_ip_term_use_small_banks=1
+counter_engine_replicated_packets=ONE_COPY
+
+#Dummy Port for vxlan lag
+ucode_port_190.0=RCY.0:core_0.190
+tm_port_header_type_in_190.0=TM
+tm_port_header_type_out_190.0=ETH

@@ -1,0 +1,27 @@
+{
+    "key": ["display-string", "interface-speed"],
+    
+    "config":
+    {
+        "SFP+ 10GBASE CR 2.0M": 
+        {
+            "8gfc, 10g": ["autoneg-profile-1"]
+        },
+        "SFP 1GBASE SX": 
+        {
+            "1g": ["autoneg-profile-0"]
+        },
+        "SFP 1GBASE LX": 
+        {
+            "1g": ["autoneg-profile-0"]
+        },
+        "SFP 1GBASE T": 
+        {
+            "1g": ["autoneg-profile-1"]
+        },
+        "SFP 10GBASE T": 
+        {
+            "10g": ["autoneg-profile-1"]
+        }
+    }
+}

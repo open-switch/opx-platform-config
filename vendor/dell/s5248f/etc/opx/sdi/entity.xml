@@ -1,0 +1,116 @@
+<!-- Copyright (c) 2018 Dell EMC.
+ Licensed under the Apache License, Version 2.0 (the "License"); you may
+ not use this file except in compliance with the License. You may obtain
+ a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+
+ THIS CODE IS PROVIDED ON AN  *AS IS* BASIS, WITHOUT WARRANTIES OR
+ CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT
+ LIMITATION ANY IMPLIED WARRANTIES OR CONDITIONS OF TITLE, FITNESS
+ FOR A PARTICULAR PURPOSE, MERCHANTABLITY OR NON-INFRINGEMENT.
+
+ See the Apache Version 2.0 License for specific language governing
+ permissions and limitations under the License.
+-->
+<root>
+    <entity instance="1" type="SDI_ENTITY_SYSTEM_BOARD" presence="FIXED_SLOT" alias="System Board" cold_reset="0xaa" cold_reset_register="cpu_reset_control" warm_reset="0x5a" warm_reset_register="cpu_reset_control">
+    	<resource reference="sys_eeprom" name="Entity Info" />
+	<resource reference="sfp-1"   name="Optics Media 1" />
+	<resource reference="sfp-2"   name="Optics Media 2" />
+	<resource reference="sfp-3"   name="Optics Media 3" />
+	<resource reference="sfp-4"   name="Optics Media 4" />
+	<resource reference="sfp-5"   name="Optics Media 5" />
+	<resource reference="sfp-6"   name="Optics Media 6" />
+	<resource reference="sfp-7"   name="Optics Media 7" />
+	<resource reference="sfp-8"   name="Optics Media 8" />
+	<resource reference="sfp-9"   name="Optics Media 9" />
+	<resource reference="sfp-10"  name="Optics Media 10" />
+	<resource reference="sfp-11"  name="Optics Media 11" />
+	<resource reference="sfp-12"  name="Optics Media 12" />
+	<resource reference="sfp-13"  name="Optics Media 13" />
+	<resource reference="sfp-14"  name="Optics Media 14" />
+	<resource reference="sfp-15"  name="Optics Media 15" />
+	<resource reference="sfp-16"  name="Optics Media 16" />
+	<resource reference="sfp-17"  name="Optics Media 17" />
+	<resource reference="sfp-18"  name="Optics Media 18" />
+	<resource reference="sfp-19"  name="Optics Media 19" />
+	<resource reference="sfp-20"  name="Optics Media 20" />
+	<resource reference="sfp-21"  name="Optics Media 21" />
+	<resource reference="sfp-22"  name="Optics Media 22" />
+	<resource reference="sfp-23"  name="Optics Media 23" />
+	<resource reference="sfp-24"  name="Optics Media 24" />
+	<resource reference="sfp-25"  name="Optics Media 25" />
+	<resource reference="sfp-26"  name="Optics Media 26" />
+	<resource reference="sfp-27"  name="Optics Media 27" />
+	<resource reference="sfp-28"  name="Optics Media 28" />
+	<resource reference="sfp-29"  name="Optics Media 29" />
+	<resource reference="sfp-30"  name="Optics Media 30" />
+	<resource reference="sfp-31"  name="Optics Media 31" />
+	<resource reference="sfp-32"  name="Optics Media 32" />
+	<resource reference="sfp-33"  name="Optics Media 33" />
+	<resource reference="sfp-34"  name="Optics Media 34" />
+	<resource reference="sfp-35"  name="Optics Media 35" />
+	<resource reference="sfp-36"  name="Optics Media 36" />
+	<resource reference="sfp-37"  name="Optics Media 37" />
+	<resource reference="sfp-38"  name="Optics Media 38" />
+	<resource reference="sfp-39"  name="Optics Media 39" />
+	<resource reference="sfp-40"  name="Optics Media 40" />
+	<resource reference="sfp-41"  name="Optics Media 41" />
+	<resource reference="sfp-42"  name="Optics Media 42" />
+	<resource reference="sfp-43"  name="Optics Media 43" />
+	<resource reference="sfp-44"  name="Optics Media 44" />
+	<resource reference="sfp-45"  name="Optics Media 45" />
+	<resource reference="sfp-46"  name="Optics Media 46" />
+	<resource reference="sfp-47"  name="Optics Media 47" />
+    <resource reference="sfp-48"  name="Optics Media 48" />
+    <resource reference="qsfp-1"         name="Optics Media 49" />
+    <resource reference="qsfp-2"         name="Optics Media 50" />
+    <resource reference="qsfp-3"         name="Optics Media 51" />
+    <resource reference="qsfp-4"         name="Optics Media 52" />
+    <resource reference="qsfp-5"         name="Optics Media 53" />
+    <resource reference="qsfp-6"         name="Optics Media 54" />
+    <resource reference="CPU_temp"       name="CPU_temp" />
+    <resource reference="NPU_Near_temp"  name="NPU_Near_temp" />
+    <resource reference="PT_Left_temp"   name="PT_Left_temp" />
+    <resource reference="PT_Right_temp"  name="PT_Right_temp" />
+    <resource reference="PT_Mid_temp"    name="PT_Mid_temp" />
+    <resource reference="ILET_AF_temp"   name="ILET_AF_temp" />
+    <resource reference="PSU1_temp"          name="PSU1_temp" />
+    <resource reference="PSU1_AF_temp"       name="PSU1_AF_temp" />
+    <resource reference="PSU2_temp"          name="PSU2_temp" />
+    <resource reference="PSU2_AF_temp"       name="PSU2_AF_temp" />
+    <resource reference="system_critical_led"         name="Alarm Major" />
+    <resource reference="system_noncritical_led"      name="Alarm Minor" />
+    <resource reference="locator_function_enable_led" name="Beacon" />
+    <resource reference="stack_mode_led"              name="Stack Master" />
+    <resource reference="stack_led"                   name="Stack ID" />
+    <resource reference="sys_nvram" name="NVRAM" />
+</entity>
+    <entity instance="1" access_type="BMC" type="SDI_ENTITY_FAN_TRAY" presence="FAN1_prsnt" alias="Fan Tray-1">
+        <resource reference="FAN1_Front" name="Fan 1" />
+        <resource reference="FAN1_Rear" name="Fan 2" />
+        <resource reference="fan-tray1-fru" name="Entity Info" />
+    </entity>
+    <entity instance="2" access_type="BMC" type="SDI_ENTITY_FAN_TRAY" presence="FAN2_prsnt" alias="Fan Tray-2">
+        <resource reference="FAN2_Front" name="Fan 1" />
+        <resource reference="FAN2_Rear" name="Fan 2" />
+        <resource reference="fan-tray2-fru" name="Entity Info" />
+    </entity>
+    <entity instance="3" access_type="BMC" type="SDI_ENTITY_FAN_TRAY" presence="FAN3_prsnt" alias="Fan Tray-3">
+        <resource reference="FAN3_Front" name="Fan 1" />
+        <resource reference="FAN3_Rear" name="Fan 2" />
+        <resource reference="fan-tray3-fru" name="Entity Info" />
+    </entity>
+    <entity instance="4" access_type="BMC" type="SDI_ENTITY_FAN_TRAY" presence="FAN4_prsnt" alias="Fan Tray-4">
+        <resource reference="FAN4_Front" name="Fan 1" />
+        <resource reference="FAN4_Rear" name="Fan 2" />
+        <resource reference="fan-tray4-fru" name="Entity Info" />
+    </entity>
+    <entity instance="1" access_type="BMC" type="SDI_ENTITY_PSU_TRAY" presence="PSU1_stat" power_output_status="PSU1_stat" alias="PSU Tray-1" >
+        <resource reference="PSU1_fan" name="Fan of PSU-1" />
+        <resource reference="psu1-fru" name="Entity Info" />
+    </entity>
+    <entity instance="2" access_type="BMC" type="SDI_ENTITY_PSU_TRAY" presence="PSU2_stat" power_output_status="PSU2_stat" alias="PSU Tray-2" >
+        <resource reference="PSU2_fan" name="Fan of PSU-2" />
+        <resource reference="psu2-fru" name="Entity Info" />
+ </entity>
+</root>

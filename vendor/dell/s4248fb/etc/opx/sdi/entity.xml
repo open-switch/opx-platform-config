@@ -22,6 +22,7 @@
         <resource reference="sdi_sf_tmp-5" name="BCM52311 On-Board-1 temp sensor" />
         <resource reference="sdi_sf_tmp-6" name="BCM88375 On-Board-1 temp sensor" />
         <resource reference="sdi_sf_tmp-7" name="BCM88375 On-Board-2 temp sensor" />
+        <resource reference="sdi_sf_ext_ctrl-0" name="SmartFusion Switch 1 temp control" />
         <resource reference="system_critical_led" name="Alarm Major" />
         <resource reference="system_noncritical_led" name="Alarm Minor" />
         <resource reference="locator_function_enable_led" name="Beacon" />

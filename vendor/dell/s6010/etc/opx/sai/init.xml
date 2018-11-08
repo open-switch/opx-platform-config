@@ -41,6 +41,29 @@
             <CPU_PORT_QUEUE queue_count="43" uc_count="0" mc_count="43"/>
         </SWITCH>
 
+        <!-- ACL configuration -->
+        <ACL_CONFIG>
+            <ACL_INGRESS_FP max_ifp_slice="12" depth_per_entry="1">
+                <FP_SLICE slice_id="0" slice_depth="2048"/>
+                <FP_SLICE slice_id="1" slice_depth="2048"/>
+                <FP_SLICE slice_id="2" slice_depth="2048"/>
+                <FP_SLICE slice_id="3" slice_depth="2048"/>
+                <FP_SLICE slice_id="4" slice_depth="1024"/>
+                <FP_SLICE slice_id="5" slice_depth="1024"/>
+                <FP_SLICE slice_id="6" slice_depth="1024"/>
+                <FP_SLICE slice_id="7" slice_depth="1024"/>
+                <FP_SLICE slice_id="8" slice_depth="1024"/>
+                <FP_SLICE slice_id="9" slice_depth="1024"/>
+                <FP_SLICE slice_id="10" slice_depth="1024"/>
+                <FP_SLICE slice_id="11" slice_depth="1024"/>
+            </ACL_INGRESS_FP>
+            <ACL_EGRESS_FP max_efp_slice="4" depth_per_entry="1">
+                <FP_SLICE slice_id="0" slice_depth="256"/>
+                <FP_SLICE slice_id="1" slice_depth="256"/>
+                <FP_SLICE slice_id="2" slice_depth="256"/>
+                <FP_SLICE slice_id="3" slice_depth="256"/>
+            </ACL_EGRESS_FP>
+        </ACL_CONFIG>
         <!--========================================================-->
         <!-- Scheduler group hierarchy levels for default qos init  -->
         <!-- Levels 3; Level-0:Port Level-1:L0 Level-2:L1           -->
@@ -1679,10 +1702,10 @@
         <LED_PROGRAM processors="2">
 
             <LED instance="0" program="led 0 prog 02 8A 60 9F 02 74 60 A0 02 01 60 9D 02 31 60 73 02 00 60 9E 06 9D D6 73 70 40 67 E0 06 A0 67 6B 74 24 77 6F 06 9D 28 67 A0 86 9D 86 A0 06 9D 86 9E 06 9E D2 04 71 1A 77 5D 06 73 F2 01 60 73 57 67 E0 67 39 06 A0 67 6B 74 50 67 C6 67 7B 77 55 06 9D 28 67 A0 67 AB 67 C6 86 9D 86 A0 86 9F 06 9D D2 35 71 10 86 9C 67 83 3A 50 04 D2 01 57 16 9E DA 00 74 77 67 C6 67 7B 77 29 06 9B D2 00 70 DC 77 C6 06 9A 86 9A D2 42 70 8C 57 02 00 60 9A 06 9B D2 00 70 9B 02 00 60 9B 57 02 01 60 9B 57 32 08 97 71 B0 06 9E D2 00 74 C6 67 C6 67 C6 57 32 00 32 01 B7 97 71 CA 06 9E D2 00 74 DC 06 9F 67 6B 70 DA 67 DC 22 0E 87 57 16 9C DA 0A 74 D4 12 00 61 9C CA 05 74 A5 77 B8 67 C6 22 0F 87 57 06 A0 D2 7E 74 3F 02 D5 60 A0 57" port_order_remap_count="16">
-                <LED_PORT_ORDER_REMAP command="modreg CMIC_LEDUP0_PORT_ORDER_REMAP_0_3 REMAP_PORT_3=0x31,REMAP_PORT_2=0,REMAP_PORT_1=0,REMAP_PORT_0=0"/>
-                <LED_PORT_ORDER_REMAP command="modreg CMIC_LEDUP0_PORT_ORDER_REMAP_4_7 REMAP_PORT_7=0x32,REMAP_PORT_6=0,REMAP_PORT_5=0,REMAP_PORT_4=0"/>
-                <LED_PORT_ORDER_REMAP command="modreg CMIC_LEDUP0_PORT_ORDER_REMAP_8_11 REMAP_PORT_9=0,REMAP_PORT_8=0,REMAP_PORT_11=0x33,REMAP_PORT_10=0"/>
-                <LED_PORT_ORDER_REMAP command="modreg CMIC_LEDUP0_PORT_ORDER_REMAP_12_15 REMAP_PORT_15=0x34,REMAP_PORT_14=0,REMAP_PORT_13=0,REMAP_PORT_12=0"/>
+                <LED_PORT_ORDER_REMAP command="modreg CMIC_LEDUP0_PORT_ORDER_REMAP_0_3 REMAP_PORT_3=0x31,REMAP_PORT_2=0x3f,REMAP_PORT_1=0x3f,REMAP_PORT_0=0x3f"/>
+                <LED_PORT_ORDER_REMAP command="modreg CMIC_LEDUP0_PORT_ORDER_REMAP_4_7 REMAP_PORT_7=0x32,REMAP_PORT_6=0x3f,REMAP_PORT_5=0x3f,REMAP_PORT_4=0x3f"/>
+                <LED_PORT_ORDER_REMAP command="modreg CMIC_LEDUP0_PORT_ORDER_REMAP_8_11 REMAP_PORT_9=0x3f,REMAP_PORT_8=0x3f,REMAP_PORT_11=0x33,REMAP_PORT_10=0x3f"/>
+                <LED_PORT_ORDER_REMAP command="modreg CMIC_LEDUP0_PORT_ORDER_REMAP_12_15 REMAP_PORT_15=0x34,REMAP_PORT_14=0x3f,REMAP_PORT_13=0x3f,REMAP_PORT_12=0x3f"/>
                 <LED_PORT_ORDER_REMAP command="modreg CMIC_LEDUP0_PORT_ORDER_REMAP_16_19 REMAP_PORT_19=0x2d,REMAP_PORT_18=0x2e,REMAP_PORT_17=0x2f,REMAP_PORT_16=0x30"/>
                 <LED_PORT_ORDER_REMAP command="modreg CMIC_LEDUP0_PORT_ORDER_REMAP_20_23 REMAP_PORT_23=0x29,REMAP_PORT_22=0x2a,REMAP_PORT_21=0x2b,REMAP_PORT_20=0x2c"/>
                 <LED_PORT_ORDER_REMAP command="modreg CMIC_LEDUP0_PORT_ORDER_REMAP_24_27 REMAP_PORT_27=0x25,REMAP_PORT_26=0x26,REMAP_PORT_25=0x27,REMAP_PORT_24=0x28"/>
@@ -1698,10 +1721,10 @@
             </LED>
 
             <LED instance="1" program="led 1 prog 02 8A 60 9F 02 74 60 A0 02 01 60 9D 02 31 60 73 02 00 60 9E 06 9D D6 73 70 40 67 E0 06 A0 67 6B 74 24 77 6F 06 9D 28 67 A0 86 9D 86 A0 06 9D 86 9E 06 9E D2 04 71 1A 77 5D 06 73 F2 01 60 73 57 67 E0 67 39 06 A0 67 6B 74 50 67 C6 67 7B 77 55 06 9D 28 67 A0 67 AB 67 C6 86 9D 86 A0 86 9F 06 9D D2 35 71 10 86 9C 67 83 3A 50 04 D2 01 57 16 9E DA 00 74 77 67 C6 67 7B 77 29 06 9B D2 00 70 DC 77 C6 06 9A 86 9A D2 42 70 8C 57 02 00 60 9A 06 9B D2 00 70 9B 02 00 60 9B 57 02 01 60 9B 57 32 08 97 71 B0 06 9E D2 00 74 C6 67 C6 67 C6 57 32 00 32 01 B7 97 71 CA 06 9E D2 00 74 DC 06 9F 67 6B 70 DA 67 DC 22 0E 87 57 16 9C DA 0A 74 D4 12 00 61 9C CA 05 74 A5 77 B8 67 C6 22 0F 87 57 06 A0 D2 7E 74 3F 02 D5 60 A0 57" port_order_remap_count="16">
-                <LED_PORT_ORDER_REMAP command="modreg CMIC_LEDUP1_PORT_ORDER_REMAP_0_3 REMAP_PORT_3=0x31,REMAP_PORT_2=0,REMAP_PORT_1=0,REMAP_PORT_0=0"/>
-                <LED_PORT_ORDER_REMAP command="modreg CMIC_LEDUP1_PORT_ORDER_REMAP_4_7 REMAP_PORT_7=0x32,REMAP_PORT_6=0,REMAP_PORT_5=0,REMAP_PORT_4=0"/>
-                <LED_PORT_ORDER_REMAP command="modreg CMIC_LEDUP1_PORT_ORDER_REMAP_8_11 REMAP_PORT_9=0,REMAP_PORT_8=0,REMAP_PORT_11=0x33,REMAP_PORT_10=0"/>
-                <LED_PORT_ORDER_REMAP command="modreg CMIC_LEDUP1_PORT_ORDER_REMAP_12_15 REMAP_PORT_15=0x34,REMAP_PORT_14=0,REMAP_PORT_13=0,REMAP_PORT_12=0"/>
+                <LED_PORT_ORDER_REMAP command="modreg CMIC_LEDUP1_PORT_ORDER_REMAP_0_3 REMAP_PORT_3=0x31,REMAP_PORT_2=0x3f,REMAP_PORT_1=0x3f,REMAP_PORT_0=0x3f"/>
+                <LED_PORT_ORDER_REMAP command="modreg CMIC_LEDUP1_PORT_ORDER_REMAP_4_7 REMAP_PORT_7=0x32,REMAP_PORT_6=0x3f,REMAP_PORT_5=0x3f,REMAP_PORT_4=0x3f"/>
+                <LED_PORT_ORDER_REMAP command="modreg CMIC_LEDUP1_PORT_ORDER_REMAP_8_11 REMAP_PORT_9=0x3f,REMAP_PORT_8=0x3f,REMAP_PORT_11=0x33,REMAP_PORT_10=0x3f"/>
+                <LED_PORT_ORDER_REMAP command="modreg CMIC_LEDUP1_PORT_ORDER_REMAP_12_15 REMAP_PORT_15=0x34,REMAP_PORT_14=0x3f,REMAP_PORT_13=0x3f,REMAP_PORT_12=0x3f"/>
                 <LED_PORT_ORDER_REMAP command="modreg CMIC_LEDUP1_PORT_ORDER_REMAP_16_19 REMAP_PORT_19=0x2d,REMAP_PORT_18=0x2e,REMAP_PORT_17=0x2f,REMAP_PORT_16=0x30"/>
                 <LED_PORT_ORDER_REMAP command="modreg CMIC_LEDUP1_PORT_ORDER_REMAP_20_23 REMAP_PORT_23=0x29,REMAP_PORT_22=0x2a,REMAP_PORT_21=0x2b,REMAP_PORT_20=0x2c"/>
                 <LED_PORT_ORDER_REMAP command="modreg CMIC_LEDUP1_PORT_ORDER_REMAP_24_27 REMAP_PORT_27=0x25,REMAP_PORT_26=0x26,REMAP_PORT_25=0x27,REMAP_PORT_24=0x28"/>

@@ -1,3 +1,20 @@
+opx-platform-config (1.6.0) unstable; urgency=medium
+
+  * Update: Added media configuration files
+  * Update: Added Dell EMC S5248F-ON
+  * Update: Added bcm_env.cfg with 32M dmasize for S5248-ON
+  * Update: Added ACL slice configuration to SAI initialization
+  * Update: Added start type determination
+  * Update: Refactored PSU fan speed mapping
+  * Update: Added support for external sensors in PAS
+  * Update: Updated SAI configuration for Dell EMC S4248FB(L)-ON
+  * Update: Updated SAI phy media and ACL profiles for Dell EMC S5148F-ON
+  * Bugfix: Fix for Dell EMC S6010-ON LEDs
+  * Bugfix: Fix for Dell EMC Z9264F-ON SAI configuration
+  * Bugfix: Corrected SDI configuration for Dell EMC Z9264F-ON
+
+ -- Dell EMC <ops-dev@lists.openswitch.net>  Tue, 30 Oct 2018 15:52:39 -0700
+
 opx-platform-config (1.5.2+opx1) unstable; urgency=medium
 
   * feat: logrotate configuration enhancements 

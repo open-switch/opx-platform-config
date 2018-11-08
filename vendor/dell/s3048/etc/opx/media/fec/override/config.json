@@ -1,0 +1,11 @@
+{
+    "key": ["display-string", "interface-speed"],
+
+    "config":
+    {
+        "SFP+ 10GBASE CR 2.0M": 
+        {
+            "8gfc, 10g": ["fec-profile-0"]
+        }
+    }
+}

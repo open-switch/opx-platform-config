@@ -33,6 +33,12 @@
 
         <card type="0xfe0e"/>
 
+        <extctrl-config>
+            <extctrl extctrl-name="SmartFusion Switch 1 temp control" >
+               <sensor name="NPU temp sensor" /> 
+            </extctrl>
+        </extctrl-config>
+
         <fan entity-type="psu" speed-control="no"/>
         <fan entity-type="fan-tray" speed-control="no"/>
 

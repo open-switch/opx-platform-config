@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright (c) 2017 Dell Inc.
+<!-- Copyright (c) 2018 Dell Inc.
 Licensed under the Apache License, Version 2.0 (the "License"); you may
 not use this file except in compliance with the License. You may obtain
 a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
@@ -23,4 +23,35 @@ permissions and limitations under the License.
     <key id="enableScpuFw" value="1"/>
     <key id="z80ANFwFile" value="/usr/lib/cavium/xp-tools/xp70Tv80AutoNegStateMachine.ihx.mem"/>
 </switch_npu_profile>
+<switch_acl_profile>
+    <stage type="ingress" max_pool_avail="5">
+        <pool name="SAI_ING_ACL1_NUM_BLOCKS" default_pool_count="1" depth_per_pool="1024">
+            <table app="SYS_FLOW" num_units_per_entry="2"/>
+            <table app="L2_USER" num_units_per_entry="2"/>
+            <table app="VLT" num_units_per_entry="2"/>
+        </pool>
+        <pool name="SAI_ING_ACL2_NUM_BLOCKS" default_pool_count="1" depth_per_pool="1024">
+            <table app="L2_QOS" num_units_per_entry="1"/>
+        </pool>
+        <pool name="SAI_ING_ACL3_NUM_BLOCKS" default_pool_count="1" depth_per_pool="1024">
+            <table app="IPV4_USER" num_units_per_entry="2"/>
+            <table app="IPV6_USER" num_units_per_entry="2"/>
+        </pool>
+        <pool name="SAI_ING_ACL4_NUM_BLOCKS" default_pool_count="1"  depth_per_pool="1024">
+            <table app="ISCSI_SNOOP" num_units_per_entry="2"/>
+            <table app="IPV4_PBR" num_units_per_entry="2"/>
+            <table app="IPV6_PBR" num_units_per_entry="2"/>
+        </pool>
+        <pool name="SAI_ING_ACL5_NUM_BLOCKS" default_pool_count="1" depth_per_pool="1024">
+            <table app="IPV4_QOS" num_units_per_entry="2"/>
+            <table app="IPV6_QOS" num_units_per_entry="2"/>
+            <table app="ISCSI_QOS" num_units_per_entry="2"/>
+        </pool>
+    </stage>
+    <stage type="egress" max_pool_avail="1">
+        <pool name="SAI_EGR_ACL1_NUM_BLOCKS" default_pool_count="1" depth_per_pool="1024">
+            <table app="EGR_USER" num_units_per_entry="2"/>
+        </pool>
+    </stage>
+</switch_acl_profile>
 </switch_config>

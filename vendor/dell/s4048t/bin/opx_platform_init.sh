@@ -1,5 +1,5 @@
 #!/bin/bash
-# Copyright (c) 2015 Dell Inc.
+# Copyright (c) 2018 Dell Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License"); you may
 # not use this file except in compliance with the License. You may obtain
@@ -27,3 +27,43 @@ echo "BIOS: `dmidecode -s system-version `" > $FIRMWARE_VERSION_FILE
 echo "System CPLD: $((`i2cget -y 2 0x31 8` & 0xf))" >> $FIRMWARE_VERSION_FILE
 # Get Master CPLD version
 echo "Master CPLD: $((`i2cget -y 2 0x32 0x12` & 0xf))" >> $FIRMWARE_VERSION_FILE
+
+# Determine type of system start
+
+rm -f /tmp/opx_start_*
+r=$((`i2cget -y 2 0x31 0xb` & 0xff))
+case $r in
+    127)
+        # Cold reboot (NPU and other hardware reset 0x7f, bit 7 triggered)
+        t=cold
+        ;;
+    191)
+        # Warm reboot (NPU and other hardware not reset 0xbf, bit 6 triggered)
+        t=warm
+        ;;
+    223)
+        # Thermal shutdown (0xdf, bit 5 triggered)
+        t=thermal
+        ;;
+    239)
+        # Watchdog expired (WDI triggered 0xef, bit 4 triggered)
+        t=watchdog
+        ;;
+    247)
+        # Warm BIOS switch over (0xf7, bit 3 triggered)
+        t=bios
+        ;;
+    251)
+        # Boot Failure ( System boot failed 0xfb, bit 2 triggered)
+        t=boot
+        ;;
+    *)
+        # Unknown reason (Including Power Cycle, any reason not supported by HW)
+        t=unknown
+        ;;
+esac
+
+if [[ "$t" != "unknown" ]]
+then
+    touch /tmp/opx_start_$t
+fi

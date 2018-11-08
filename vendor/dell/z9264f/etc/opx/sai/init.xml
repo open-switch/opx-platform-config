@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Copyright (c) 2017 Dell Inc.
+<!-- Copyright (c) 2018 Dell Inc.
  Licensed under the Apache License, Version 2.0 (the "License"); you may
  not use this file except in compliance with the License. You may obtain
  a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
@@ -42,6 +42,30 @@
             <PORT_QUEUE queue_count="20" uc_count="10" mc_count="10"/>
             <CPU_PORT_QUEUE queue_count="48" uc_count="0" mc_count="48"/>
         </SWITCH>
+
+        <!-- ACL configuration -->
+        <ACL_CONFIG>
+            <ACL_INGRESS_FP max_ifp_slice="12" depth_per_entry="2">
+                <FP_SLICE slice_id="0" slice_depth="512"/>
+                <FP_SLICE slice_id="1" slice_depth="512"/>
+                <FP_SLICE slice_id="2" slice_depth="512"/>
+                <FP_SLICE slice_id="3" slice_depth="512"/>
+                <FP_SLICE slice_id="4" slice_depth="512"/>
+                <FP_SLICE slice_id="5" slice_depth="512"/>
+                <FP_SLICE slice_id="6" slice_depth="512"/>
+                <FP_SLICE slice_id="7" slice_depth="512"/>
+                <FP_SLICE slice_id="8" slice_depth="512"/>
+                <FP_SLICE slice_id="9" slice_depth="512"/>
+                <FP_SLICE slice_id="10" slice_depth="512"/>
+                <FP_SLICE slice_id="11" slice_depth="512"/>
+            </ACL_INGRESS_FP>
+            <ACL_EGRESS_FP max_efp_slice="4" depth_per_entry="1">
+                <FP_SLICE slice_id="0" slice_depth="256"/>
+                <FP_SLICE slice_id="1" slice_depth="256"/>
+                <FP_SLICE slice_id="2" slice_depth="256"/>
+                <FP_SLICE slice_id="3" slice_depth="256"/>
+            </ACL_EGRESS_FP>
+        </ACL_CONFIG>
 
         <!--========================================================-->
         <!-- Scheduler group hierarchy levels for default qos init  -->

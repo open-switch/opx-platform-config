@@ -68,3 +68,35 @@ echo "Slave CPLD 3: $((r_maj)).$((r_min))" >> $FIRMWARE_VERSION_FILE
 r_min=`/usr/sbin/i2cget -y 600 0x33 0x0 | sed ' s/.*\(0x..\)$/\1/'`
 r_maj=`/usr/sbin/i2cget -y 600 0x33 0x1 | sed ' s/.*\(0x..\)$/\1/'`
 echo "Slave CPLD 4: $((r_maj)).$((r_min))" >> $FIRMWARE_VERSION_FILE
+
+#Determine type of system start
+#System reboot cause
+REBOOT_CAUSE=0x18
+r=`/usr/bin/pcisysfs.py --get --offset $REBOOT_CAUSE --res /sys/bus/pci/devices/0000\:04\:00.0/resource0 | sed 's/reg_val read://'`
+reason=$((`printf "0x%s" $r`))
+
+#
+# Decipher individual bits -- The HW can set multiple bits,
+# e.g. 0x610 means the HW goes thru watchdog, cold and warm reboots
+
+# Cold reboot (NPU and other hardware reset, bit 10)
+# ...
+# Watchdog expired (WDI triggered 0x10, bit 4) etc
+# ...
+# Power failure (or Power Cycle 0x1, bit 0, Including Power Cycle)
+r_array=(power cpu psu thermal watchdog bmc hotswap shutdown button warm cold)
+
+rm -f /tmp/opx_start_*
+
+for i in `seq 0 10`;
+do  
+    tmp=$(( 1 << $i ))
+    tmp=$(( $reason & $tmp ))
+    if [[ $tmp != 0 ]]
+    then
+        touch /tmp/opx_start_${r_array[i]}
+    fi
+done
+
+# HW requires write clear
+/usr/bin/pcisysfs.py --set --val 0x0 --offset $REBOOT_CAUSE --res /sys/bus/pci/devices/0000\:04\:00.0/resource0

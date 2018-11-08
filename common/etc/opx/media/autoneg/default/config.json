@@ -1,0 +1,424 @@
+{
+    "key": ["category", "breakout-mode", "breakout-speed", "cable-type", "cable-length-cm", "interface-speed"],
+
+    "config":
+    {
+        "sfp":
+        {
+            "1x1, no-breakout":
+            {
+                "100m":
+                {
+                    "fiber":
+                    {
+                        "default":
+                        {
+                            "100m": ["autoneg-profile-1"]
+                        }
+                    }
+                },
+    
+                "1g":
+                {
+                    "rj45":
+                    {
+                        "default":
+                        {
+                            "10m, 100m, 1g": ["autoneg-profile-0"]
+                        }
+                    },
+    
+                    "fiber":
+                    {
+                        "default":
+                        {
+                            "1g": ["autoneg-profile-1"]
+                        }
+                    }
+                }
+            }
+        },
+    
+        "sfp+":
+        {
+            "1x1, no-breakout":
+            {
+                "10g":
+                {
+                    "dac":
+                    {
+                        "default, 0.5m, 1.0m, 1.5m, 2.0m, 2.5m, 3.0m, 4.0m, 5.0m, 7.0m":
+                        {
+                            "8gfc, 10g": ["autoneg-profile-1"]
+                        }
+                    },
+    
+                    "aoc":
+                    {
+                        "default, 2.0m, 3.0m, 5.0m, 7.0m, 10.0m, 15.0m, 20.0m":
+                        {
+                            "10g": ["autoneg-profile-1"]
+                        }
+                    },
+    
+                    "fiber":
+                    {
+                        "default":
+                        {
+                            "1g, 10g": ["autoneg-profile-1"]
+                        }
+                    },
+    
+                    "rj45":
+                    {
+                        "default":
+                        {
+                            "100m, 1g, 10g": ["autoneg-profile-1"]
+                        }
+                    }
+                },
+    
+                "8gfc":
+                {
+                    "fiber":
+                    {
+                        "default":
+                        {
+                            "4gfc, 8gfc": ["autoneg-profile-1"]
+                        }
+                    }
+                },
+    
+                "16gfc":
+                {
+                    "fiber":
+                    {
+                        "default":
+                        {
+                            "4gfc, 8gfc, 16gfc": ["autoneg-profile-1"]
+                        }
+                    }
+                }
+            }
+        },
+    
+        "qsfp+":
+        {
+            "1x1, no-breakout":
+            {
+                "40g":
+                {
+                    "dac":
+                    {
+                        "default, 0.5m, 1.0m, 1.5m, 2.0m, 2.5m, 3.0m, 4.0m, 5.0m, 7.0m":
+                        {
+                            "10g": ["autoneg-profile-1"],
+                            "40g": ["autoneg-profile-0"]
+                        }
+                    },
+    
+                    "aoc, acc, fiber":
+                    {
+                        "default, 3.0m, 5.0m, 7.0m, 10.0m, 50.0m":
+                        {
+                            "10g, 40g": ["autoneg-profile-1"]
+                        }
+                    }
+                }
+            },
+    
+            "4x1":
+            {
+                "1g":
+                {
+                     "rj45":
+                    {
+                        "default":
+                        {
+                            "10m, 100m, 1g": ["autoneg-profile-0"]
+                        }
+                    }
+                },
+    
+                "10g":
+                {
+                    "dac":
+                    {
+                        "default, 0.5m, 1.0m, 2.0m, 3.0m, 5.0m, 7.0m":
+                        {
+                            "10g": ["autoneg-profile-1"]
+                        }
+                    },
+    
+                    "aoc, fiber":
+                    {
+                        "default, 10.0m, 30.0m":
+                        {
+                            "1g, 10g": ["autoneg-profile-1"]
+                        }
+                    }
+                },
+    
+                "16gfc":
+                {
+                    "fiber":
+                    {
+                        "default":
+                        {
+                            "4gfc, 8gfc, 16gfc": ["autoneg-profile-1"]
+                        }
+                    }
+                }
+            }
+        },
+    
+        "sfp28":
+        {
+            "1x1, no-breakout":
+            {
+                "25g":
+                {
+                    "dac":
+                    {
+                        "default, 0.5m, 1.0m, 2.0m, 3.0m, 5.0m":
+                        {
+                            "10g": ["autoneg-profile-1"],
+                            "25g": ["autoneg-profile-0"]
+                        }
+                    },
+    
+                    "aoc, fiber":
+                    {
+                        "default, 3.0m, 5.0m, 7.0m, 10.0m, 15.0m, 20.0m":
+                        {
+                            "10g, 25g": ["autoneg-profile-1"]
+                        }
+                    }
+                },
+    
+                "32gfc":
+                {
+                    "fiber":
+                    {
+                        "default":
+                        {
+                            "8gfc, 16gfc": ["autoneg-profile-1"],
+                            "32gfc": ["autoneg-profile-0"]
+                        }
+                    }
+                }
+            }
+        },
+    
+        "qsfp28-depop":
+        {
+            "1x1, no-breakout":
+            {
+                "50g":
+                {
+                    "dac":
+                    {
+                        "default, 1.0m, 2.0m, 3.0m":
+                        {
+                            "10g": ["autoneg-profile-1"],
+                            "25g, 50g": ["autoneg-profile-0"]
+                        }
+                    }
+                }
+            }
+        },
+    
+        "qsfp28":
+        {
+            "1x1, no-breakout":
+            {
+                "100g":
+                {
+                    "dac":
+                    {
+                        "default, 0.5m, 1.0m, 2.0m, 3.0m, 5.0m":
+                        {
+                            "10g": ["autoneg-profile-1"],
+                            "25g, 40g, 50g, 100g": ["autoneg-profile-0"]
+                        }
+                    },
+    
+                    "aoc, acc, fiber":
+                    {
+                        "default, 3.0m, 7.0m, 10.0m, 30.0m, 50.0m":
+                        {
+                            "10g, 25g, 40g, 50g, 100g": ["autoneg-profile-1"]
+                        }
+                    }
+                }
+            },
+    
+            "4x1":
+            {
+                "25g":
+                {
+                    "dac":
+                    {
+                        "default, 1.0m, 2.0m, 3.0m":
+                        {
+                            "10g": ["autoneg-profile-1"],
+                            "25g": ["autoneg-profile-0"]
+                        }
+                    },
+    
+                    "aoc":
+                    {
+                        "default, 10.0m, 15.0m, 30.0m":
+                        {
+                            "10g, 25g": ["autoneg-profile-1"]
+                        }
+                    }
+                },
+    
+                "32gfc":
+                {
+                    "fiber":
+                    {
+                        "default":
+                        {
+                            "8gfc, 16gfc, 32gfc": ["autoneg-profile-1"]
+                        }
+                    }
+                }
+            },
+    
+            "2x1":
+            {
+                "50g":
+                {
+                    "dac":
+                    {
+                        "default, 1.0m, 2.0m, 3.0m":
+                        {
+                            "10g": ["autoneg-profile-1"],
+                            "25g, 50g": ["autoneg-profile-0"]
+                        }
+                    }
+                }
+            }
+        },
+    
+        "qsfp28-dd":
+        {
+            "1x1, no-breakout":
+            {
+                "200g":
+                {
+                    "dac":
+                    {
+                        "default, 0.5m, 1.0m, 1.5m, 2.0m, 3.0m":
+                        {
+                            "10g": ["autoneg-profile-1"],
+                            "25g, 40g, 50g, 100g": ["autoneg-profile-0"]
+                        }
+                    },
+    
+                    "aoc, fiber":
+                    {
+                        "default, 3.0m, 5.0m, 10.0m, 20.0m":
+                        {
+                            "10g, 25g, 40g, 50g, 100g": ["autoneg-profile-1"]
+                        }
+                    }
+                }
+            },
+    
+            "2x1":
+            {
+                "100g":
+                {
+                    "dac":
+                    {
+                        "default, 1.0m, 2.0m, 3.0m":
+                        {
+
+                            "10g": ["autoneg-profile-1"],
+                            "25g, 40g, 50g, 100g": ["autoneg-profile-0"]
+                        }
+                    },
+    
+                    "aoc, fiber":
+                    {
+                        "default, 3.0m, 5.0m, 10.0m, 20.0m":
+                        {
+                            "10g, 25g, 40g, 50g, 100g": ["autoneg-profile-1"]
+                        }
+                    }
+                }
+            },
+    
+            "8x1":
+            {
+                "25g":
+                {
+                    "dac":
+                    {
+                        "default, 1.0m, 1.5m, 2.0m, 3.0m":
+                        {
+                            "10g": ["autoneg-profile-1"],
+                            "25g": ["autoneg-profile-0"]
+                        }
+                    },
+    
+                    "aoc, fiber":
+                    {
+                        "default, 7.0m, 10.0m":
+                        {
+                            "10g, 25g": ["autoneg-profile-1"]
+                        }
+                    }
+                }
+            }
+        },
+    
+        "qsfp-dd":
+        {
+            "1x1, no-breakout":
+            {
+                "80g":
+                {
+                    "aoc, fiber":
+                    {
+                        "default, 5.0m, 7.0m":
+                        {
+                            "10g, 40g": ["autoneg-profile-1"]
+                        }
+                    }
+                }
+            },
+    
+             "2x1":
+            {
+                "40g":
+                {
+                    "aoc, fiber":
+                    {
+                        "default, 5.0m, 7.0m, 15.0m, 30.0m":
+                        {
+                            "10g, 40g": ["autoneg-profile-1"]
+                        }
+                    }
+                }
+            },
+    
+            "8x1":
+            {
+                "10g":
+                {
+                    "aoc":
+                    {
+                        "default, 7.0m, 10.0m":
+                        {
+                            "10g": ["autoneg-profile-1"]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
