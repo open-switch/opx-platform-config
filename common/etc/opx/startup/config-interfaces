@@ -1,0 +1,23 @@
+### Switch-profile Section
+##  DESCRIPTION: Applies switch-wide profile settings. For instance, on the Dell EMC S4148F-ON, 
+##      the switch profiles determine which set of front-panel ports are enabled.
+##  SUPPORTED COMMANDS: 
+##		- opx-switch-profile
+#   EXAMPLES:
+#   opx-switch-profile 0 profile-1
+
+
+### Interface Breakout Section
+##  DESCRIPTION: Applies settings related to port-group restrictions and interface fanout modes.
+##  SUPPORTED COMMANDS: 
+##		- opx-config-fanout		  (Except on Z9264F-ON)
+##		- opx-config-hybrid-group (Z9264F-ON only)
+#   EXAMPLES:
+#   (On a Dell EMC S6010-ON)
+#	opx-config-fanout e101-001-0 4x1 10g
+#
+#   (On a Dell EMC Z9264F-ON)
+#	opx-config-hybrid-group set hybrid-group profile --name hybrid-group-8 --profile restricted
+#	opx-config-hybrid-group set hybrid-group port --name hybrid-group-8 --port-id 15 --breakout 10gx4
+#
+
