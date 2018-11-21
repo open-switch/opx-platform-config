@@ -17,7 +17,11 @@
 <switch id="0" npus="0" />
 
 <switch_forwarding_mode default_mode="1">
-  <entry mode="1" l2_max="250000" l3_max="2000000" arp_max="48000"/>
+    <entry mode="1" l2_max="163840" l3_max="16384" arp_max="147456"/>
+    <entry mode="2" l2_max="294912" l3_max="16384" arp_max="16384"/>
+    <entry mode="3" l2_max="32768" l3_max="131072" arp_max="16384"/>
+    <entry mode="4" l2_max="98304" l3_max="16384" arp_max="212992"/>
 </switch_forwarding_mode>
-
+<vxlan-riot-config enable="1"/>
+<deep_buffer_mode config_required="1" default_dbm="0"/>
 </switch_config>

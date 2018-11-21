@@ -1,6 +1,19 @@
+opx-platform-config (1.6.0+opx2) unstable; urgency=medium
+
+  * Update: Add Dell EMC S5296F-ON
+  * Update: Add TLV support to NVRAM, the NVRAM object is now managed as a TLV list with access over CPS
+  * Update: Update RIF and NH block sizes
+  * Update: Add L3 table size for RIFs and Nexthops and VXLAN RIOT max default overlay rifs and nexthops
+  * Update: Update L3 max routes supported 
+  * Update: Update ACL configuration for S5248F-ON and S5296F-ON
+
+ -- Dell EMC <ops-dev@lists.openswitch.net>  Tue, 20 Nov 2018 18:29:39 -0700
+
 opx-platform-config (1.6.0+opx1) unstable; urgency=medium
 
   * feat: config persistency 
+
+ -- Dell EMC <ops-dev@lists.openswitch.net>  Tue, 9 Nov 2018 13:52:39 -0700
 
 opx-platform-config (1.6.0) unstable; urgency=medium
 
