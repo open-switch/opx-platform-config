@@ -15,9 +15,6 @@
 # permissions and limitations under the License.
 
 
-#enable i2c access for media ctrl
-/usr/bin/pcisysfs.py --set --val 0xf407c --offset 0x50 --res /sys/bus/pci/devices/0000\:04\:00.0/resource0
-
 # enable linux kernel mux driver to select/deselect port in SDI
 # fpga-ocore enumarete i2c cores from 600 (vitual dev mapping)
 
