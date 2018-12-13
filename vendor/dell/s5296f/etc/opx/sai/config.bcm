@@ -580,3 +580,4 @@ tdma_timeout_usec=5000000
 mmu_lossless=0
 pdma_descriptor_prefetch_enable=1
 pktdma_poll_mode_channel_bitmap=1
+l3_max_ecmp_mode.0=1

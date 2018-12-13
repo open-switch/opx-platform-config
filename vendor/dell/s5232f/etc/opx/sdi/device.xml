@@ -1,0 +1,350 @@
+<!-- Copyright (c) 2018 Dell EMC.
+     Licensed under the Apache License, Version 2.0 (the "License"); you may
+     not use this file except in compliance with the License. You may obtain
+     a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+
+THIS CODE IS PROVIDED ON AN  *AS IS* BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT
+LIMITATION ANY IMPLIED WARRANTIES OR CONDITIONS OF TITLE, FITNESS
+FOR A PARTICULAR PURPOSE, MERCHANTABLITY OR NON-INFRINGEMENT.
+
+See the Apache Version 2.0 License for specific language governing
+permissions and limitations under the License.
+-->
+
+<root>
+  <sys_i2c instance="0" sysfs_name="SMBus iSMT adapter at dff9f000" bus_name="smbus1">
+    <eeprom instance="0" alias="sys_eeprom" addr="0x50" size="256" parser="ONIE_SYS_EEPROM"/>
+    <nvram instance="0" alias="sys_nvram" dev="/dev/sda" offset="1048064" size="512" />
+  </sys_i2c>
+
+  <bmc_io_bus instance="0" bus_name="bmc_io_bus" >
+      <bmc_dev instance="0" alias="bmc_dev" polling_interval="5" >
+        <bmc_fan instance="0" alias="FAN1_Front"  data_sdr_id="FAN1_Front_rpm"   status_sdr_id="FAN1_Front_stat" />
+        <bmc_fan instance="1" alias="FAN1_Rear"   data_sdr_id="FAN1_Rear_rpm"    status_sdr_id="FAN1_Rear_stat" />
+        <bmc_fan instance="2" alias="FAN2_Front"  data_sdr_id="FAN2_Front_rpm"   status_sdr_id="FAN2_Front_stat" />
+        <bmc_fan instance="3" alias="FAN2_Rear"   data_sdr_id="FAN2_Rear_rpm"    status_sdr_id="FAN2_Rear_stat" />
+        <bmc_fan instance="4" alias="FAN3_Front"  data_sdr_id="FAN3_Front_rpm"   status_sdr_id="FAN3_Front_stat" />
+        <bmc_fan instance="5" alias="FAN3_Rear"   data_sdr_id="FAN3_Rear_rpm"    status_sdr_id="FAN3_Rear_stat" />
+        <bmc_fan instance="6" alias="FAN4_Front"  data_sdr_id="FAN4_Front_rpm"   status_sdr_id="FAN4_Front_stat" />
+        <bmc_fan instance="7" alias="FAN4_Rear"   data_sdr_id="FAN4_Rear_rpm"    status_sdr_id="FAN4_Rear_stat" />
+        <bmc_fan instance="8" alias="PSU1_fan"    data_sdr_id="PSU1_rpm"         status_sdr_id="PSU1_stat" />
+        <bmc_fan instance="9" alias="PSU2_fan"    data_sdr_id="PSU2_rpm"         status_sdr_id="PSU2_stat" />
+        <bmc_eeprom instance="10" alias="fan-tray1-fru" data_sdr_id="Entity_info.29.1" int_use_elm_offset="0x16" airflow_offset="0x4" no_of_fans="2" max_fan_speed="23540" />
+        <bmc_eeprom instance="11" alias="fan-tray2-fru" data_sdr_id="Entity_info.29.2" int_use_elm_offset="0x16" airflow_offset="0x4" no_of_fans="2" max_fan_speed="23540" />
+        <bmc_eeprom instance="12" alias="fan-tray3-fru" data_sdr_id="Entity_info.29.3" int_use_elm_offset="0x16" airflow_offset="0x4" no_of_fans="2" max_fan_speed="23540" />
+        <bmc_eeprom instance="13" alias="fan-tray4-fru" data_sdr_id="Entity_info.29.4" int_use_elm_offset="0x16" airflow_offset="0x4" no_of_fans="2" max_fan_speed="23540" />
+        <bmc_eeprom instance="14" alias="psu1-fru" data_sdr_id="Entity_info.10.1" int_use_elm_offset="0x13" airflow_offset="0x6" psu_type_offset="0x7" no_of_fans="1" max_fan_speed="23540" />
+        <bmc_eeprom instance="15" alias="psu2-fru" data_sdr_id="Entity_info.10.2" int_use_elm_offset="0x13" airflow_offset="0x6" psu_type_offset="0x7" no_of_fans="1" max_fan_speed="23540" />
+        <bmc_temp instance="16" alias="CPU_temp" data_sdr_id="CPU_temp"  />
+        <bmc_temp instance="17" alias="NPU_Near_temp" data_sdr_id="NPU_Near_temp"  />
+        <bmc_temp instance="18" alias="PT_Left_temp" data_sdr_id="PT_Left_temp"  />
+        <bmc_temp instance="19" alias="PT_Right_temp" data_sdr_id="PT_Right_temp"  />
+        <bmc_temp instance="20" alias="PT_Mid_temp" data_sdr_id="PT_Mid_temp"  />
+        <bmc_temp instance="21" alias="ILET_AF_temp" data_sdr_id="ILET_AF_temp"  />
+        <bmc_temp instance="22" alias="PSU1_temp" data_sdr_id="PSU1_temp"  />
+        <bmc_temp instance="23" alias="PSU1_AF_temp" data_sdr_id="PSU1_AF_temp"  />
+        <bmc_temp instance="24" alias="PSU2_temp" data_sdr_id="PSU2_temp"  />
+        <bmc_temp instance="25" alias="PSU2_AF_temp" data_sdr_id="PSU2_AF_temp"  />
+      </bmc_dev>
+   </bmc_io_bus>
+  <fpga_pci_bus instance="0" bus_name="fpga_pci_bus" fpga_sysfs_name="/sys/bus/pci/devices/0000:04:00.0/resource0" >
+      <sdi_cpld instance="5" alias="fpga_sys_led" start_addr="0x0024" end_addr="0x6000">
+          <sdi_cpld_pin instance="1" addr="0x0024" offset="3" bus_name="beacon_led" direction="out" level="0" polarity="normal">
+              <sdi_mono_color_pin_led instance="0" default_state="0" alias="locator_function_enable_led" />
+          </sdi_cpld_pin>
+          <sdi_cpld_pin instance="2" addr="0x0024" offset="0" bus_name="stack_mode_led" direction="out" level="1" polarity="normal">
+                <sdi_mono_color_pin_led instance="1" default_state="0" alias="stack_mode_led" />
+          </sdi_cpld_pin>
+          <sdi_cpld_pin_group instance="137" start_addr="0x0024" start_offset="4" end_offset="5" bus_name="sys_led" direction="out" level="1" polarity="normal">
+                <sdi_mono_color_pin_led instance="2" led_on_value="2" led_off_value="1" alias="system_critical_led"/>
+                <sdi_mono_color_pin_led instance="3" led_on_value="3" led_off_value="1" alias="system_noncritical_led"/>
+          </sdi_cpld_pin_group>
+          <sdi_cpld_pin instance="3" addr="0x0028" offset="0x6" bus_name="digit_led_blink" direction="out" level="0" polarity="normal" />
+          <sdi_cpld_pin instance="4" addr="0x0028" offset="0x5" bus_name="digit_led_control" direction="out" level="0" polarity="normal" />
+          <sdi_cpld_pin instance="5" addr="0x0028" offset="0x4" bus_name="digit_led_dotpoint" direction="out" level="0" polarity="normal" />
+
+          <sdi_cpld_pin_group instance="138" start_addr="0x0028" start_offset="0" end_offset="3" bus_name="digit_led" direction="out" level="0" polarity="normal">
+                <seven_segment_led instance="4" led_control_bus="digit_led_control" alias="stack_led" />
+          </sdi_cpld_pin_group>
+	    <sdi_cpld_pin_group instance="1" start_addr="0x4000" start_offset="0x5" end_offset="0x5" bus_name="qsfp_mod_sel1" direction="out" level="0x0" polarity="normal"/>
+	    <sdi_cpld_pin_group instance="2" start_addr="0x4000" start_offset="0x4" end_offset="0x4" bus_name="qsfp_reset1" direction="out" level="0x0" polarity="inverted"/>
+	    <sdi_cpld_pin_group instance="3" start_addr="0x4000" start_offset="0x6" end_offset="0x6" bus_name="qsfp_lpmode1" direction="out" level="0x1" polarity="normal"/>
+	    <sdi_cpld_pin_group instance="4" start_addr="0x4004" start_offset="0x0" end_offset="0x7" bus_name="qsfp_presence1" direction="in" polarity="inverted"/>
+            <sdi_cpld_pin_group instance="5" start_addr="0x4010" start_offset="0x5" end_offset="0x5" bus_name="qsfp_mod_sel2" direction="out" level="0x0" polarity="normal"/>
+            <sdi_cpld_pin_group instance="6" start_addr="0x4010" start_offset="0x4" end_offset="0x4" bus_name="qsfp_reset2"  direction="out" level="0x0" polarity="inverted"/>
+            <sdi_cpld_pin_group instance="7" start_addr="0x4010" start_offset="0x6" end_offset="0x6" bus_name="qsfp_lpmode2" direction="out" level="0x1" polarity="normal"/>
+            <sdi_cpld_pin_group instance="8" start_addr="0x4014" start_offset="0x0" end_offset="0x7" bus_name="qsfp_presence2" direction="in" polarity="inverted"/>
+
+            <sdi_cpld_pin_group instance="9"  start_addr="0x4020" start_offset="0x5" end_offset="0x5" bus_name="qsfp_mod_sel3" direction="out" level="0x0" polarity="normal"/>
+            <sdi_cpld_pin_group instance="10" start_addr="0x4020" start_offset="0x4" end_offset="0x4" bus_name="qsfp_reset3" direction="out" level="0x0" polarity="inverted"/>
+            <sdi_cpld_pin_group instance="11" start_addr="0x4020" start_offset="0x6" end_offset="0x6" bus_name="qsfp_lpmode3" direction="out" level="0x1" polarity="normal"/>
+            <sdi_cpld_pin_group instance="12" start_addr="0x4024" start_offset="0x0" end_offset="0x7" bus_name="qsfp_presence3" direction="in" polarity="inverted"/>
+
+            <sdi_cpld_pin_group instance="13" start_addr="0x4030" start_offset="0x5" end_offset="0x5" bus_name="qsfp_mod_sel4" direction="out" level="0x0" polarity="normal"/>
+            <sdi_cpld_pin_group instance="14" start_addr="0x4030" start_offset="0x4" end_offset="0x4" bus_name="qsfp_reset4" direction="out" level="0x0" polarity="inverted"/>
+            <sdi_cpld_pin_group instance="15" start_addr="0x4030" start_offset="0x6" end_offset="0x6" bus_name="qsfp_lpmode4" direction="out" level="0x1" polarity="normal"/>
+            <sdi_cpld_pin_group instance="16" start_addr="0x4034" start_offset="0x0" end_offset="0x7" bus_name="qsfp_presence4" direction="in" polarity="inverted"/>
+
+            <sdi_cpld_pin_group instance="17" start_addr="0x4040" start_offset="0x5" end_offset="0x5" bus_name="qsfp_mod_sel5" direction="out" level="0x0" polarity="normal"/>
+            <sdi_cpld_pin_group instance="18" start_addr="0x4040" start_offset="0x4" end_offset="0x4" bus_name="qsfp_reset5" direction="out" level="0x0" polarity="inverted"/>
+            <sdi_cpld_pin_group instance="19" start_addr="0x4040" start_offset="0x6" end_offset="0x6" bus_name="qsfp_lpmode5" direction="out" level="0x1" polarity="normal"/>
+            <sdi_cpld_pin_group instance="20" start_addr="0x4044" start_offset="0x0" end_offset="0x7" bus_name="qsfp_presence5" direction="in" polarity="inverted"/>
+
+            <sdi_cpld_pin_group instance="21" start_addr="0x4050" start_offset="0x5" end_offset="0x5" bus_name="qsfp_mod_sel6" direction="out" level="0x0" polarity="normal"/>
+            <sdi_cpld_pin_group instance="22" start_addr="0x4050" start_offset="0x4" end_offset="0x4" bus_name="qsfp_reset6" direction="out" level="0x0" polarity="inverted"/>
+            <sdi_cpld_pin_group instance="23" start_addr="0x4050" start_offset="0x6" end_offset="0x6" bus_name="qsfp_lpmode6" direction="out" level="0x1" polarity="normal"/>
+            <sdi_cpld_pin_group instance="24" start_addr="0x4054" start_offset="0x0" end_offset="0x7" bus_name="qsfp_presence6" direction="in" polarity="inverted"/>
+
+            <sdi_cpld_pin_group instance="25" start_addr="0x4060" start_offset="0x5" end_offset="0x5" bus_name="qsfp_mod_sel7" direction="out" level="0x0" polarity="normal"/>
+            <sdi_cpld_pin_group instance="26" start_addr="0x4060" start_offset="0x4" end_offset="0x4" bus_name="qsfp_reset7" direction="out" level="0x0" polarity="inverted"/>
+            <sdi_cpld_pin_group instance="27" start_addr="0x4060" start_offset="0x6" end_offset="0x6" bus_name="qsfp_lpmode7" direction="out" level="0x1" polarity="normal"/>
+            <sdi_cpld_pin_group instance="28" start_addr="0x4064" start_offset="0x0" end_offset="0x7" bus_name="qsfp_presence7" direction="in" polarity="inverted"/>
+
+            <sdi_cpld_pin_group instance="29" start_addr="0x4070" start_offset="0x5" end_offset="0x5" bus_name="qsfp_mod_sel8" direction="out" level="0x0" polarity="normal"/>
+            <sdi_cpld_pin_group instance="30" start_addr="0x4070" start_offset="0x4" end_offset="0x4" bus_name="qsfp_reset8" direction="out" level="0x0" polarity="inverted"/>
+            <sdi_cpld_pin_group instance="31" start_addr="0x4070" start_offset="0x6" end_offset="0x6" bus_name="qsfp_lpmode8" direction="out" level="0x1" polarity="normal"/>
+            <sdi_cpld_pin_group instance="32" start_addr="0x4074" start_offset="0x0" end_offset="0x7" bus_name="qsfp_presence8" direction="in" polarity="inverted"/>
+
+            <sdi_cpld_pin_group instance="33" start_addr="0x4080" start_offset="0x5" end_offset="0x5" bus_name="qsfp_mod_sel9" direction="out" level="0x0" polarity="normal"/>
+            <sdi_cpld_pin_group instance="34" start_addr="0x4080" start_offset="0x4" end_offset="0x4" bus_name="qsfp_reset9" direction="out" level="0x0" polarity="inverted"/>
+            <sdi_cpld_pin_group instance="35" start_addr="0x4080" start_offset="0x6" end_offset="0x6" bus_name="qsfp_lpmode9" direction="out" level="0x1" polarity="normal"/>
+            <sdi_cpld_pin_group instance="36" start_addr="0x4084" start_offset="0x0" end_offset="0x7" bus_name="qsfp_presence9" direction="in" polarity="inverted"/>
+
+            <sdi_cpld_pin_group instance="37" start_addr="0x4090" start_offset="0x5" end_offset="0x5" bus_name="qsfp_mod_sel10" direction="out" level="0x0" polarity="normal"/>
+            <sdi_cpld_pin_group instance="38" start_addr="0x4090" start_offset="0x4" end_offset="0x4" bus_name="qsfp_reset10" direction="out" level="0x0" polarity="inverted"/>
+            <sdi_cpld_pin_group instance="39" start_addr="0x4090" start_offset="0x6" end_offset="0x6" bus_name="qsfp_lpmode10" direction="out" level="0x1" polarity="normal"/>
+            <sdi_cpld_pin_group instance="40" start_addr="0x4094" start_offset="0x0" end_offset="0x7" bus_name="qsfp_presence10" direction="in" polarity="inverted"/>
+
+            <sdi_cpld_pin_group instance="41" start_addr="0x40a0" start_offset="0x5" end_offset="0x5" bus_name="qsfp_mod_sel11" direction="out" level="0x0" polarity="normal"/>
+            <sdi_cpld_pin_group instance="42" start_addr="0x40a0" start_offset="0x4" end_offset="0x4" bus_name="qsfp_reset11" direction="out" level="0x0" polarity="inverted"/>
+            <sdi_cpld_pin_group instance="43" start_addr="0x40a0" start_offset="0x6" end_offset="0x6" bus_name="qsfp_lpmode11" direction="out" level="0x1" polarity="normal"/>
+            <sdi_cpld_pin_group instance="44" start_addr="0x40a4" start_offset="0x0" end_offset="0x7" bus_name="qsfp_presence11" direction="in" polarity="inverted"/>
+
+            <sdi_cpld_pin_group instance="45" start_addr="0x40b0" start_offset="0x5" end_offset="0x5" bus_name="qsfp_mod_sel12" direction="out" level="0x0" polarity="normal"/>
+            <sdi_cpld_pin_group instance="46" start_addr="0x40b0" start_offset="0x4" end_offset="0x4" bus_name="qsfp_reset12" direction="out" level="0x0" polarity="inverted"/>
+            <sdi_cpld_pin_group instance="47" start_addr="0x40b0" start_offset="0x6" end_offset="0x6" bus_name="qsfp_lpmode12" direction="out" level="0x1" polarity="normal"/>
+            <sdi_cpld_pin_group instance="48" start_addr="0x40b4" start_offset="0x0" end_offset="0x7" bus_name="qsfp_presence12" direction="in" polarity="inverted"/>
+
+            <sdi_cpld_pin_group instance="49" start_addr="0x40c0" start_offset="0x5" end_offset="0x5" bus_name="qsfp_mod_sel3" direction="out" level="0x0" polarity="normal"/>
+            <sdi_cpld_pin_group instance="50" start_addr="0x40c0" start_offset="0x4" end_offset="0x4" bus_name="qsfp_reset13" direction="out" level="0x0" polarity="inverted"/>
+            <sdi_cpld_pin_group instance="51" start_addr="0x40c0" start_offset="0x6" end_offset="0x6" bus_name="qsfp_lpmode13" direction="out" level="0x1" polarity="normal"/>
+            <sdi_cpld_pin_group instance="52" start_addr="0x40c4" start_offset="0x0" end_offset="0x7" bus_name="qsfp_presence13" direction="in" polarity="inverted"/>
+
+            <sdi_cpld_pin_group instance="53" start_addr="0x40d0" start_offset="0x5" end_offset="0x5" bus_name="qsfp_mod_sel14" direction="out" level="0x0" polarity="normal"/>
+            <sdi_cpld_pin_group instance="54" start_addr="0x40d0" start_offset="0x4" end_offset="0x4" bus_name="qsfp_reset14" direction="out" level="0x0" polarity="inverted"/>
+            <sdi_cpld_pin_group instance="55" start_addr="0x40d0" start_offset="0x6" end_offset="0x6" bus_name="qsfp_lpmode14" direction="out" level="0x1" polarity="normal"/>
+            <sdi_cpld_pin_group instance="56" start_addr="0x40d4" start_offset="0x0" end_offset="0x7" bus_name="qsfp_presence14" direction="in" polarity="inverted"/>
+
+            <sdi_cpld_pin_group instance="57" start_addr="0x40e0" start_offset="0x5" end_offset="0x5" bus_name="qsfp_mod_sel15" direction="out" level="0x0" polarity="normal"/>
+            <sdi_cpld_pin_group instance="58" start_addr="0x40e0" start_offset="0x4" end_offset="0x4" bus_name="qsfp_reset15" direction="out" level="0x0" polarity="inverted"/>
+            <sdi_cpld_pin_group instance="59" start_addr="0x40e0" start_offset="0x6" end_offset="0x6" bus_name="qsfp_lpmode15" direction="out" level="0x1" polarity="normal"/>
+            <sdi_cpld_pin_group instance="60" start_addr="0x40e4" start_offset="0x0" end_offset="0x7" bus_name="qsfp_presence15" direction="in" polarity="inverted"/>
+
+            <sdi_cpld_pin_group instance="61" start_addr="0x40f0" start_offset="0x5" end_offset="0x5" bus_name="qsfp_mod_sel16" direction="out" level="0x0" polarity="normal"/>
+            <sdi_cpld_pin_group instance="62" start_addr="0x40f0" start_offset="0x4" end_offset="0x4" bus_name="qsfp_reset16" direction="out" level="0x0" polarity="inverted"/>
+            <sdi_cpld_pin_group instance="63" start_addr="0x40f0" start_offset="0x6" end_offset="0x6" bus_name="qsfp_lpmode16" direction="out" level="0x1" polarity="normal"/>
+            <sdi_cpld_pin_group instance="64" start_addr="0x40f4" start_offset="0x0" end_offset="0x7" bus_name="qsfp_presence16" direction="in" polarity="inverted"/>
+
+            <sdi_cpld_pin_group instance="65" start_addr="0x4100" start_offset="0x5" end_offset="0x5" bus_name="qsfp_mod_sel17" direction="out" level="0x0" polarity="normal"/>
+            <sdi_cpld_pin_group instance="66" start_addr="0x4100" start_offset="0x4" end_offset="0x4" bus_name="qsfp_reset17" direction="out" level="0x0" polarity="inverted"/>
+            <sdi_cpld_pin_group instance="67" start_addr="0x4100" start_offset="0x6" end_offset="0x6" bus_name="qsfp_lpmode17" direction="out" level="0x1" polarity="normal"/>
+            <sdi_cpld_pin_group instance="68" start_addr="0x4104" start_offset="0x0" end_offset="0x7" bus_name="qsfp_presence17" direction="in" polarity="inverted"/>
+
+            <sdi_cpld_pin_group instance="69" start_addr="0x4110" start_offset="0x5" end_offset="0x5" bus_name="qsfp_mod_sel18" direction="out" level="0x0" polarity="normal"/>
+            <sdi_cpld_pin_group instance="70" start_addr="0x4110" start_offset="0x4" end_offset="0x4" bus_name="qsfp_reset18" direction="out" level="0x0" polarity="inverted"/>
+            <sdi_cpld_pin_group instance="71" start_addr="0x4110" start_offset="0x6" end_offset="0x6" bus_name="qsfp_lpmode18" direction="out" level="0x1" polarity="normal"/>
+            <sdi_cpld_pin_group instance="72" start_addr="0x4114" start_offset="0x0" end_offset="0x7" bus_name="qsfp_presence18" direction="in" polarity="inverted"/>
+
+            <sdi_cpld_pin_group instance="73" start_addr="0x4120" start_offset="0x5" end_offset="0x5" bus_name="qsfp_mod_sel19" direction="out" level="0x0" polarity="normal"/>
+            <sdi_cpld_pin_group instance="74" start_addr="0x4120" start_offset="0x4" end_offset="0x4" bus_name="qsfp_reset19" direction="out" level="0x0" polarity="inverted"/>
+            <sdi_cpld_pin_group instance="75" start_addr="0x4120" start_offset="0x6" end_offset="0x6" bus_name="qsfp_lpmode19" direction="out" level="0x1" polarity="normal"/>
+            <sdi_cpld_pin_group instance="76" start_addr="0x4124" start_offset="0x0" end_offset="0x7" bus_name="qsfp_presence19" direction="in" polarity="inverted"/>
+
+            <sdi_cpld_pin_group instance="77" start_addr="0x4130" start_offset="0x5" end_offset="0x5" bus_name="qsfp_mod_sel20" direction="out" level="0x0" polarity="normal"/>
+            <sdi_cpld_pin_group instance="78" start_addr="0x4130" start_offset="0x4" end_offset="0x4" bus_name="qsfp_reset20" direction="out" level="0x0" polarity="inverted"/>
+            <sdi_cpld_pin_group instance="79" start_addr="0x4130" start_offset="0x6" end_offset="0x6" bus_name="qsfp_lpmode20" direction="out" level="0x1" polarity="normal"/>
+            <sdi_cpld_pin_group instance="80" start_addr="0x4134" start_offset="0x0" end_offset="0x7" bus_name="qsfp_presence20" direction="in" polarity="inverted"/>
+
+            <sdi_cpld_pin_group instance="81" start_addr="0x4140" start_offset="0x5" end_offset="0x5" bus_name="qsfp_mod_sel21" direction="out" level="0x0" polarity="normal"/>
+            <sdi_cpld_pin_group instance="82" start_addr="0x4140" start_offset="0x4" end_offset="0x4" bus_name="qsfp_reset21" direction="out" level="0x0" polarity="inverted"/>
+            <sdi_cpld_pin_group instance="83" start_addr="0x4140" start_offset="0x6" end_offset="0x6" bus_name="qsfp_lpmode21" direction="out" level="0x1" polarity="normal"/>
+            <sdi_cpld_pin_group instance="84" start_addr="0x4144" start_offset="0x0" end_offset="0x7" bus_name="qsfp_presence21" direction="in" polarity="inverted"/>
+
+            <sdi_cpld_pin_group instance="85" start_addr="0x4150" start_offset="0x5" end_offset="0x5" bus_name="qsfp_mod_sel22" direction="out" level="0x0" polarity="normal"/>
+            <sdi_cpld_pin_group instance="86" start_addr="0x4150" start_offset="0x4" end_offset="0x4" bus_name="qsfp_reset22" direction="out" level="0x0" polarity="inverted"/>
+            <sdi_cpld_pin_group instance="87" start_addr="0x4150" start_offset="0x6" end_offset="0x6" bus_name="qsfp_lpmode22" direction="out" level="0x1" polarity="normal"/>
+            <sdi_cpld_pin_group instance="88" start_addr="0x4154" start_offset="0x0" end_offset="0x7" bus_name="qsfp_presence22" direction="in" polarity="inverted"/>
+
+            <sdi_cpld_pin_group instance="89" start_addr="0x4160" start_offset="0x5" end_offset="0x5" bus_name="qsfp_mod_sel23" direction="out" level="0x0" polarity="normal"/>
+            <sdi_cpld_pin_group instance="90" start_addr="0x4160" start_offset="0x4" end_offset="0x4" bus_name="qsfp_reset23" direction="out" level="0x0" polarity="inverted"/>
+            <sdi_cpld_pin_group instance="91" start_addr="0x4160" start_offset="0x6" end_offset="0x6" bus_name="qsfp_lpmode23" direction="out" level="0x1" polarity="normal"/>
+            <sdi_cpld_pin_group instance="92" start_addr="0x4164" start_offset="0x0" end_offset="0x7" bus_name="qsfp_presence23" direction="in" polarity="inverted"/>
+
+            <sdi_cpld_pin_group instance="93" start_addr="0x4170" start_offset="0x5" end_offset="0x5" bus_name="qsfp_mod_sel24" direction="out" level="0x0" polarity="normal"/>
+            <sdi_cpld_pin_group instance="94" start_addr="0x4170" start_offset="0x4" end_offset="0x4" bus_name="qsfp_reset24" direction="out" level="0x0" polarity="inverted"/>
+            <sdi_cpld_pin_group instance="95" start_addr="0x4170" start_offset="0x6" end_offset="0x6" bus_name="qsfp_lpmode24" direction="out" level="0x1" polarity="normal"/>
+            <sdi_cpld_pin_group instance="96" start_addr="0x4174" start_offset="0x0" end_offset="0x7" bus_name="qsfp_presence24" direction="in" polarity="inverted"/>
+
+            <sdi_cpld_pin_group instance="97" start_addr="0x4180" start_offset="0x5" end_offset="0x5" bus_name="qsfp_mod_sel25" direction="out" level="0x0" polarity="normal"/>
+            <sdi_cpld_pin_group instance="98" start_addr="0x4180" start_offset="0x4" end_offset="0x4" bus_name="qsfp_reset25" direction="out" level="0x0" polarity="inverted"/>
+            <sdi_cpld_pin_group instance="99" start_addr="0x4180" start_offset="0x6" end_offset="0x6" bus_name="qsfp_lpmode25" direction="out" level="0x1" polarity="normal"/>
+            <sdi_cpld_pin_group instance="100" start_addr="0x4184" start_offset="0x0" end_offset="0x7" bus_name="qsfp_presence25" direction="in" polarity="inverted"/>
+
+            <sdi_cpld_pin_group instance="101" start_addr="0x4190" start_offset="0x5" end_offset="0x5" bus_name="qsfp_mod_sel26" direction="out" level="0x0" polarity="normal"/>
+            <sdi_cpld_pin_group instance="102" start_addr="0x4190" start_offset="0x4" end_offset="0x4" bus_name="qsfp_reset26" direction="out" level="0x0" polarity="inverted"/>
+            <sdi_cpld_pin_group instance="103" start_addr="0x4190" start_offset="0x6" end_offset="0x6" bus_name="qsfp_lpmode26" direction="out" level="0x1" polarity="normal"/>
+            <sdi_cpld_pin_group instance="104" start_addr="0x4194" start_offset="0x0" end_offset="0x7" bus_name="qsfp_presence26" direction="in" polarity="inverted"/>
+
+            <sdi_cpld_pin_group instance="105" start_addr="0x41a0" start_offset="0x5" end_offset="0x5" bus_name="qsfp_mod_sel27" direction="out" level="0x0" polarity="normal"/>
+            <sdi_cpld_pin_group instance="106" start_addr="0x41a0" start_offset="0x4" end_offset="0x4" bus_name="qsfp_reset27" direction="out" level="0x0" polarity="inverted"/>
+            <sdi_cpld_pin_group instance="107" start_addr="0x41a0" start_offset="0x6" end_offset="0x6" bus_name="qsfp_lpmode27" direction="out" level="0x1" polarity="normal"/>
+            <sdi_cpld_pin_group instance="108" start_addr="0x41a4" start_offset="0x0" end_offset="0x7" bus_name="qsfp_presence27" direction="in" polarity="inverted"/>
+
+            <sdi_cpld_pin_group instance="109" start_addr="0x41b0" start_offset="0x5" end_offset="0x5" bus_name="qsfp_mod_sel28" direction="out" level="0x0" polarity="normal"/>
+            <sdi_cpld_pin_group instance="110" start_addr="0x41b0" start_offset="0x4" end_offset="0x4" bus_name="qsfp_reset28" direction="out" level="0x0" polarity="inverted"/>
+            <sdi_cpld_pin_group instance="111" start_addr="0x41b0" start_offset="0x6" end_offset="0x6" bus_name="qsfp_lpmode28" direction="out" level="0x1" polarity="normal"/>
+            <sdi_cpld_pin_group instance="112" start_addr="0x41b4" start_offset="0x0" end_offset="0x7" bus_name="qsfp_presence28" direction="in" polarity="inverted"/>
+
+            <sdi_cpld_pin_group instance="113" start_addr="0x41c0" start_offset="0x5" end_offset="0x5" bus_name="qsfp_mod_sel29" direction="out" level="0x0" polarity="normal"/>
+            <sdi_cpld_pin_group instance="114" start_addr="0x41c0" start_offset="0x4" end_offset="0x4" bus_name="qsfp_reset29" direction="out" level="0x0" polarity="inverted"/>
+            <sdi_cpld_pin_group instance="115" start_addr="0x41c0" start_offset="0x6" end_offset="0x6" bus_name="qsfp_lpmode29" direction="out" level="0x1" polarity="normal"/>
+            <sdi_cpld_pin_group instance="116" start_addr="0x41c4" start_offset="0x0" end_offset="0x7" bus_name="qsfp_presence29" direction="in" polarity="inverted"/>
+
+            <sdi_cpld_pin_group instance="117" start_addr="0x41d0" start_offset="0x5" end_offset="0x5" bus_name="qsfp_mod_sel30" direction="out" level="0x0" polarity="normal"/>
+            <sdi_cpld_pin_group instance="118" start_addr="0x41d0" start_offset="0x4" end_offset="0x4" bus_name="qsfp_reset30" direction="out" level="0x0" polarity="inverted"/>
+            <sdi_cpld_pin_group instance="119" start_addr="0x41d0" start_offset="0x6" end_offset="0x6" bus_name="qsfp_lpmode30" direction="out" level="0x1" polarity="normal"/>
+            <sdi_cpld_pin_group instance="120" start_addr="0x41d4" start_offset="0x0" end_offset="0x7" bus_name="qsfp_presence30" direction="in" polarity="inverted"/>
+
+            <sdi_cpld_pin_group instance="121" start_addr="0x41e0" start_offset="0x5" end_offset="0x5" bus_name="qsfp_mod_sel31" direction="out" level="0x0" polarity="normal"/>
+            <sdi_cpld_pin_group instance="122" start_addr="0x41e0" start_offset="0x4" end_offset="0x4" bus_name="qsfp_reset31" direction="out" level="0x0" polarity="inverted"/>
+            <sdi_cpld_pin_group instance="123" start_addr="0x41e0" start_offset="0x6" end_offset="0x6" bus_name="qsfp_lpmode31" direction="out" level="0x1" polarity="normal"/>
+            <sdi_cpld_pin_group instance="124" start_addr="0x41e4" start_offset="0x0" end_offset="0x7" bus_name="qsfp_presence31" direction="in" polarity="inverted"/>
+
+            <sdi_cpld_pin_group instance="125" start_addr="0x41f0" start_offset="0x5" end_offset="0x5" bus_name="qsfp_mod_sel32" direction="out" level="0x0" polarity="normal"/>
+            <sdi_cpld_pin_group instance="126" start_addr="0x41f0" start_offset="0x4" end_offset="0x4" bus_name="qsfp_reset32" direction="out" level="0x0" polarity="inverted"/>
+            <sdi_cpld_pin_group instance="127" start_addr="0x41f0" start_offset="0x6" end_offset="0x6" bus_name="qsfp_lpmode32" direction="out" level="0x1" polarity="normal"/>
+            <sdi_cpld_pin_group instance="128" start_addr="0x41f4" start_offset="0x0" end_offset="0x7" bus_name="qsfp_presence32" direction="in" polarity="inverted"/>
+
+            <sdi_cpld_pin_group instance="129" start_addr="0x4200" start_offset="0x0" end_offset="0x0" bus_name="sfp_tx_control1" direction="out" level="0x0" polarity="normal"/>
+            <sdi_cpld_pin_group instance="130" start_addr="0x4204" start_offset="0x1" end_offset="0x1" bus_name="sfp_rx_los1" direction="in"  polarity="normal"/>
+            <sdi_cpld_pin_group instance="131" start_addr="0x4204" start_offset="0x2" end_offset="0x2" bus_name="sfp_tx_fault1" direction="in" polarity="inverted"/>
+            <sdi_cpld_pin_group instance="132" start_addr="0x4204" start_offset="0x0" end_offset="0x7" bus_name="sfp_presence1" direction="in" polarity="inverted"/>
+
+            <sdi_cpld_pin_group instance="133" start_addr="0x4210" start_offset="0x0" end_offset="0x0" bus_name="sfp_tx_control2" direction="out" level="0x0" polarity="normal"/>
+            <sdi_cpld_pin_group instance="134" start_addr="0x4214" start_offset="0x1" end_offset="0x1" bus_name="sfp_rx_los2" direction="in"  polarity="normal"/>
+            <sdi_cpld_pin_group instance="135" start_addr="0x4214" start_offset="0x2" end_offset="0x2" bus_name="sfp_tx_fault2" direction="in" polarity="inverted"/>
+            <sdi_cpld_pin_group instance="136" start_addr="0x4214" start_offset="0x0" end_offset="0x7" bus_name="sfp_presence2" direction="in" polarity="inverted"/>
+      </sdi_cpld>
+  </fpga_pci_bus>
+
+  <sys_i2c instance="2" dev_name="/dev/i2c-2" bus_name="smbus_2">
+	  <qsfp instance="1" addr="0x50" port_type="QSFP28" mod_sel_bus="qsfp_mod_sel1" mod_sel_value="0x0"  mod_pres_bus="qsfp_presence1" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset1" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode1" mod_lpmode_bitmask="0x0"/>
+  </sys_i2c>
+  <sys_i2c instance="3" dev_name="/dev/i2c-3" bus_name="smbus_3">
+	  <qsfp instance="2" addr="0x50" port_type="QSFP28" mod_sel_bus="qsfp_mod_sel2" mod_sel_value="0x0"  mod_pres_bus="qsfp_presence2" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset2" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode2" mod_lpmode_bitmask="0x0"/>
+  </sys_i2c>
+  <sys_i2c instance="4" dev_name="/dev/i2c-4" bus_name="smbus_4">
+	  <qsfp instance="3" addr="0x50" port_type="QSFP28" mod_sel_bus="qsfp_mod_sel3" mod_sel_value="0x0"  mod_pres_bus="qsfp_presence3" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset3" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode3" mod_lpmode_bitmask="0x0"/>
+  </sys_i2c>
+  <sys_i2c instance="5" dev_name="/dev/i2c-5" bus_name="smbus_5">
+	  <qsfp instance="4" addr="0x50" port_type="QSFP28" mod_sel_bus="qsfp_mod_sel4" mod_sel_value="0x0"  mod_pres_bus="qsfp_presence4" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset4" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode4" mod_lpmode_bitmask="0x0"/>
+  </sys_i2c>
+  <sys_i2c instance="6" dev_name="/dev/i2c-6" bus_name="smbus_6">
+	  <qsfp instance="5" addr="0x50" port_type="QSFP28" mod_sel_bus="qsfp_mod_sel5" mod_sel_value="0x0"  mod_pres_bus="qsfp_presence5" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset5" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode5" mod_lpmode_bitmask="0x0"/>
+  </sys_i2c>
+  <sys_i2c instance="7" dev_name="/dev/i2c-7" bus_name="smbus_7">
+	  <qsfp instance="6" addr="0x50" port_type="QSFP28" mod_sel_bus="qsfp_mod_sel6" mod_sel_value="0x0"  mod_pres_bus="qsfp_presence6" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset6" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode6" mod_lpmode_bitmask="0x0"/>
+  </sys_i2c>
+  <sys_i2c instance="8" dev_name="/dev/i2c-8" bus_name="smbus_8">
+	  <qsfp instance="7" addr="0x50" port_type="QSFP28" mod_sel_bus="qsfp_mod_sel7" mod_sel_value="0x0"  mod_pres_bus="qsfp_presence7" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset7" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode7" mod_lpmode_bitmask="0x0"/>
+  </sys_i2c>
+  <sys_i2c instance="9" dev_name="/dev/i2c-9" bus_name="smbus_9">
+	  <qsfp instance="8" addr="0x50" port_type="QSFP28" mod_sel_bus="qsfp_mod_sel8" mod_sel_value="0x0"  mod_pres_bus="qsfp_presence8" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset8" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode8" mod_lpmode_bitmask="0x0"/>
+  </sys_i2c>
+
+  <sys_i2c instance="10" dev_name="/dev/i2c-10" bus_name="smbus_10">
+	  <qsfp instance="9" addr="0x50" port_type="QSFP28" mod_sel_bus="qsfp_mod_sel9" mod_sel_value="0x0"  mod_pres_bus="qsfp_presence9" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset9" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode9" mod_lpmode_bitmask="0x0"/>
+  </sys_i2c>
+  <sys_i2c instance="11" dev_name="/dev/i2c-11" bus_name="smbus_11">
+	  <qsfp instance="10" addr="0x50" port_type="QSFP28" mod_sel_bus="qsfp_mod_sel10" mod_sel_value="0x0"  mod_pres_bus="qsfp_presence10" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset10" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode10" mod_lpmode_bitmask="0x0"/>
+  </sys_i2c>
+  <sys_i2c instance="12" dev_name="/dev/i2c-12" bus_name="smbus_12">
+	  <qsfp instance="11" addr="0x50" port_type="QSFP28" mod_sel_bus="qsfp_mod_sel11" mod_sel_value="0x0"  mod_pres_bus="qsfp_presence11" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset11" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode11" mod_lpmode_bitmask="0x0"/>
+  </sys_i2c>
+  <sys_i2c instance="13" dev_name="/dev/i2c-13" bus_name="smbus_13">
+	  <qsfp instance="12" addr="0x50" port_type="QSFP28" mod_sel_bus="qsfp_mod_sel12" mod_sel_value="0x0"  mod_pres_bus="qsfp_presence12" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset12" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode12" mod_lpmode_bitmask="0x0"/>
+  </sys_i2c>
+  <sys_i2c instance="14" dev_name="/dev/i2c-14" bus_name="smbus_14">
+	  <qsfp instance="13" addr="0x50" port_type="QSFP28" mod_sel_bus="qsfp_mod_sel13" mod_sel_value="0x0"  mod_pres_bus="qsfp_presence13" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset13" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode13" mod_lpmode_bitmask="0x0"/>
+  </sys_i2c>
+  <sys_i2c instance="15" dev_name="/dev/i2c-15" bus_name="smbus_15">
+	  <qsfp instance="14" addr="0x50" port_type="QSFP28" mod_sel_bus="qsfp_mod_sel14" mod_sel_value="0x0"  mod_pres_bus="qsfp_presence14" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset14" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode14" mod_lpmode_bitmask="0x0"/>
+  </sys_i2c>
+  <sys_i2c instance="16" dev_name="/dev/i2c-16" bus_name="smbus_16">
+	  <qsfp instance="15" addr="0x50" port_type="QSFP28" mod_sel_bus="qsfp_mod_sel15" mod_sel_value="0x0"  mod_pres_bus="qsfp_presence15" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset15" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode15" mod_lpmode_bitmask="0x0"/>
+  </sys_i2c>
+  <sys_i2c instance="17" dev_name="/dev/i2c-17" bus_name="smbus_17">
+	  <qsfp instance="16" addr="0x50" port_type="QSFP28" mod_sel_bus="qsfp_mod_sel16" mod_sel_value="0x0"  mod_pres_bus="qsfp_presence16" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset16" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode16" mod_lpmode_bitmask="0x0"/>
+  </sys_i2c>
+
+
+  <sys_i2c instance="18" dev_name="/dev/i2c-18" bus_name="smbus_18">
+	  <qsfp instance="17" addr="0x50" port_type="QSFP28" mod_sel_bus="qsfp_mod_se117" mod_sel_value="0x0"  mod_pres_bus="qsfp_presence17" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset17" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode17" mod_lpmode_bitmask="0x0"/>
+  </sys_i2c>
+  <sys_i2c instance="19" dev_name="/dev/i2c-19" bus_name="smbus_19">
+	  <qsfp instance="18" addr="0x50" port_type="QSFP28" mod_sel_bus="qsfp_mod_sel18" mod_sel_value="0x0"  mod_pres_bus="qsfp_presence18" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset18" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode18" mod_lpmode_bitmask="0x0"/>
+  </sys_i2c>
+  <sys_i2c instance="20" dev_name="/dev/i2c-20" bus_name="smbus_20">
+	  <qsfp instance="19" addr="0x50" port_type="QSFP28" mod_sel_bus="qsfp_mod_sel19" mod_sel_value="0x0"  mod_pres_bus="qsfp_presence19" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset19" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode19" mod_lpmode_bitmask="0x0"/>
+  </sys_i2c>
+  <sys_i2c instance="21"  dev_name="/dev/i2c-21" bus_name="smbus_21">
+	  <qsfp instance="20" addr="0x50" port_type="QSFP28" mod_sel_bus="qsfp_mod_sel20" mod_sel_value="0x0"  mod_pres_bus="qsfp_presence20" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset20" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode20" mod_lpmode_bitmask="0x0"/>
+  </sys_i2c>
+  <sys_i2c instance="22"  dev_name="/dev/i2c-22" bus_name="smbus_22">
+	  <qsfp instance="21" addr="0x50" port_type="QSFP28" mod_sel_bus="qsfp_mod_sel21" mod_sel_value="0x0"  mod_pres_bus="qsfp_presence21" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset21" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode21" mod_lpmode_bitmask="0x0"/>
+  </sys_i2c>
+  <sys_i2c instance="23"  dev_name="/dev/i2c-23" bus_name="smbus_23">
+	  <qsfp instance="22" addr="0x50" port_type="QSFP28" mod_sel_bus="qsfp_mod_sel22" mod_sel_value="0x0"  mod_pres_bus="qsfp_presence22" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset22" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode22" mod_lpmode_bitmask="0x0"/>
+  </sys_i2c>
+  <sys_i2c instance="24"  dev_name="/dev/i2c-24" bus_name="smbus_24">
+	  <qsfp instance="23" addr="0x50" port_type="QSFP28" mod_sel_bus="qsfp_mod_sel23" mod_sel_value="0x0"  mod_pres_bus="qsfp_presence23" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset23" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode23" mod_lpmode_bitmask="0x0"/>
+  </sys_i2c>
+  <sys_i2c instance="25"  dev_name="/dev/i2c-25" bus_name="smbus_25" >
+	  <qsfp instance="24" addr="0x50" port_type="QSFP28" mod_sel_bus="qsfp_mod_sel24" mod_sel_value="0x0"  mod_pres_bus="qsfp_presence24" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset24" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode24" mod_lpmode_bitmask="0x0"/>
+  </sys_i2c>
+
+
+  <sys_i2c instance="26" dev_name="/dev/i2c-26" bus_name="smbus_26">
+	  <qsfp instance="25" addr="0x50" port_type="QSFP28" mod_sel_bus="qsfp_mod_se125" mod_sel_value="0x0"  mod_pres_bus="qsfp_presence25" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset25" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode25" mod_lpmode_bitmask="0x0"/>
+  </sys_i2c>
+  <sys_i2c instance="27" dev_name="/dev/i2c-27" bus_name="smbus_27">
+	  <qsfp instance="26" addr="0x50" port_type="QSFP28" mod_sel_bus="qsfp_mod_sel26" mod_sel_value="0x0"  mod_pres_bus="qsfp_presence26" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset26" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode26" mod_lpmode_bitmask="0x0"/>
+  </sys_i2c>
+  <sys_i2c instance="28" dev_name="/dev/i2c-28" bus_name="smbus_28">
+	  <qsfp instance="27" addr="0x50" port_type="QSFP28" mod_sel_bus="qsfp_mod_sel27" mod_sel_value="0x0"  mod_pres_bus="qsfp_presence27" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset27" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode27" mod_lpmode_bitmask="0x0"/>
+  </sys_i2c>
+  <sys_i2c instance="29" dev_name="/dev/i2c-29" bus_name="smbus_29">
+	  <qsfp instance="28" addr="0x50" port_type="QSFP28" mod_sel_bus="qsfp_mod_sel28" mod_sel_value="0x0"  mod_pres_bus="qsfp_presence28" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset28" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode28" mod_lpmode_bitmask="0x0"/>
+  </sys_i2c>
+  <sys_i2c instance="30" dev_name="/dev/i2c-30" bus_name="smbus_30">
+	  <qsfp instance="29" addr="0x50" port_type="QSFP28" mod_sel_bus="qsfp_mod_sel29" mod_sel_value="0x0"  mod_pres_bus="qsfp_presence29" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset29" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode29" mod_lpmode_bitmask="0x0"/>
+  </sys_i2c>
+  <sys_i2c instance="31" dev_name="/dev/i2c-31" bus_name="smbus_31">
+	  <qsfp instance="30" addr="0x50" port_type="QSFP28" mod_sel_bus="qsfp_mod_sel30" mod_sel_value="0x0"  mod_pres_bus="qsfp_presence30" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset30" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode30" mod_lpmode_bitmask="0x0"/>
+  </sys_i2c>
+  <sys_i2c instance="32" dev_name="/dev/i2c-32" bus_name="smbus_32">
+	  <qsfp instance="31" addr="0x50" port_type="QSFP28" mod_sel_bus="qsfp_mod_sel31" mod_sel_value="0x0"  mod_pres_bus="qsfp_presence31" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset31" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode31" mod_lpmode_bitmask="0x0"/>
+  </sys_i2c>
+  <sys_i2c instance="33" dev_name="/dev/i2c-33" bus_name="smbus_33">
+	  <qsfp instance="32" addr="0x50" port_type="QSFP28" mod_sel_bus="qsfp_mod_sel32" mod_sel_value="0x0"  mod_pres_bus="qsfp_presence32" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset32" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode32" mod_lpmode_bitmask="0x0"/>
+  </sys_i2c>
+
+  <sys_i2c instance="34" dev_name="/dev/i2c-34" bus_name="smbus_34">
+	  <sfp instance="1" addr="0x50" mod_sel_bus="module_always_enabled" mod_pres_bus="sfp_presence1" mod_pres_bitmask="0x0" mod_tx_control_bus="sfp_tx_control1" mod_tx_control_bitmask="0x0" mod_rx_los_bus="sfp_rx_los1" mod_rx_los_bitmask="0x1" mod_tx_fault_bus="sfp_tx_fault1" mod_tx_fault_bitmask="0x2"/>
+  </sys_i2c>
+  <sys_i2c instance="35" dev_name="/dev/i2c-35" bus_name="smbus_35">
+	  <sfp instance="2" addr="0x50" mod_sel_bus="module_always_enabled" mod_pres_bus="sfp_presence2" mod_pres_bitmask="0x0" mod_tx_control_bus="sfp_tx_control2" mod_tx_control_bitmask="0x0" mod_rx_los_bus="sfp_rx_los2" mod_rx_los_bitmask="0x1" mod_tx_fault_bus="sfp_tx_fault2" mod_tx_fault_bitmask="0x2"/>
+  </sys_i2c>
+
+</root>

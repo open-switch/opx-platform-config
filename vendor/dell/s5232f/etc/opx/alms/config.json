@@ -1,0 +1,68 @@
+{ "leds": [ "Fantray 1 Present (forward)",
+            "Fantray 1 Fault (forward)",
+            "Fantray 1 Present (reverse)",
+            "Fantray 1 Fault (reverse)",
+            "Fantray 2 Present (forward)",
+            "Fantray 2 Fault (forward)",
+            "Fantray 2 Present (reverse)",
+            "Fantray 2 Fault (reverse)",
+            "Fantray 3 Present (forward)",
+            "Fantray 3 Fault (forward)",
+            "Fantray 3 Present (reverse)",
+            "Fantray 3 Fault (reverse)",
+            "Fantray 4 Present (forward)",
+            "Fantray 4 Fault (forward)",
+            "Fantray 4 Present (reverse)",
+            "Fantray 4 Fault (reverse)",
+            "Fan Fault",
+            "PSU Fault",
+            "Alarm Minor",
+            "Alarm Major"
+          ],
+
+  "conditions": [
+      [ "Fan tray 1 airflow normal present",            "Fantray 1 Present (forward)" ],
+      [ "Fan tray 1 airflow reverse present",           "Fantray 1 Present (reverse)" ],
+      [ "Fan tray 1 airflow normal fan [0-9]+ fault",   "Fantray 1 Fault (forward)" ],
+      [ "Fan tray 1 airflow reverse fan [0-9]+ fault",  "Fantray 1 Fault (reverse)" ],
+      [ "Fan tray 1 airflow normal fault",              "Fantray 1 Fault (forward)" ],
+      [ "Fan tray 1 airflow reverse fault",             "Fantray 1 Fault (reverse)" ],
+
+      [ "Fan tray 2 airflow normal present",            "Fantray 2 Present (forward)" ],
+      [ "Fan tray 2 airflow reverse present",           "Fantray 2 Present (reverse)" ],
+      [ "Fan tray 2 airflow normal fan [0-9]+ fault",   "Fantray 2 Fault (forward)" ],
+      [ "Fan tray 2 airflow reverse fan [0-9]+ fault",  "Fantray 2 Fault (reverse)" ],
+      [ "Fan tray 2 airflow normal fault",              "Fantray 2 Fault (forward)" ],
+      [ "Fan tray 2 airflow reverse fault",             "Fantray 2 Fault (reverse)" ],
+
+      [ "Fan tray 3 airflow normal present",            "Fantray 3 Present (forward)" ],
+      [ "Fan tray 3 airflow reverse present",           "Fantray 3 Present (reverse)" ],
+      [ "Fan tray 3 airflow normal fan [0-9]+ fault",   "Fantray 3 Fault (forward)" ],
+      [ "Fan tray 3 airflow reverse fan [0-9]+ fault",  "Fantray 3 Fault (reverse)" ],
+      [ "Fan tray 3 airflow normal fault",              "Fantray 3 Fault (forward)" ],
+      [ "Fan tray 3 airflow reverse fault",             "Fantray 3 Fault (reverse)" ],
+
+      [ "Fan tray 4 airflow normal present",            "Fantray 4 Present (forward)" ],
+      [ "Fan tray 4 airflow reverse present",           "Fantray 4 Present (reverse)" ],
+      [ "Fan tray 4 airflow normal fan [0-9]+ fault",   "Fantray 4 Fault (forward)" ],
+      [ "Fan tray 4 airflow reverse fan [0-9]+ fault",  "Fantray 4 Fault (reverse)" ],
+      [ "Fan tray 4 airflow normal fault",              "Fantray 4 Fault (forward)" ],
+      [ "Fan tray 4 airflow reverse fault",             "Fantray 4 Fault (reverse)" ],
+
+      [ "Fan tray [0-9]+ airflow .* fan [0-9]+ fault",  "Fan Fault" ],
+      [ "Fan tray [0-9]+ airflow .* incorrect PPID",    "Fan Fault" ],
+      [ "Fan tray [0-9]+ airflow .* incorrect airflow", "Fan Fault" ],
+      [ "Fan tray [0-9]+ airflow .* fault",             "Fan Fault" ],
+      [ "Fan tray [0-9]+ absent",                       "Fan Fault" ],
+      [ "PSU [0-9]+ airflow .* incorrect airflow",      "Fan Fault" ],
+      [ "PSU [0-9]+ airflow .* fan [0-9]+ fault",       "Fan Fault" ],
+
+      [ "PSU [0-9]+ airflow .* incorrect PPID",         "PSU Fault" ],
+      [ "PSU [0-9]+ airflow .* fault",                  "PSU Fault" ],
+      [ "PSU [0-9]+ absent",                            "PSU Fault" ],
+
+      [ "Temperature sensor .* minor",                  "Alarm Minor" ],
+      [ "Temperature sensor .* major",                  "Alarm Major" ],
+      [ "Temperature sensor .* critical",               "Alarm Major" ]
+  ]
+}
