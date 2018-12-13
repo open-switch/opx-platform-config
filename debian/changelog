@@ -1,3 +1,11 @@
+opx-platform-config (1.7.0) unstable; urgency=medium
+
+    * Update: Added Dell EMC S5232F-ON
+    * Update: bcm_env.cfg with 32M dmasize for S5232-ON
+    * Update: init.xml and config.bcm for S5248F-ON and S5296F-ON
+
+ -- Dell EMC <ops-dev@lists.openswitch.net>  Thu, 10 Dec 2018 17:26:00 -0800
+
 opx-platform-config (1.6.2) unstable; urgency=medium
 
   * fix: Fix Dell EMC Z9264F issues
