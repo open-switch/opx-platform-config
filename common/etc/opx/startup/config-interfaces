@@ -14,10 +14,10 @@
 ##		- opx-config-hybrid-group (Z9264F-ON only)
 #   EXAMPLES:
 #   (On a Dell EMC S6010-ON)
-#	opx-config-fanout --port e101-001-0 --mode 4x1 --speed 10g
+#      opx-config-fanout --port e101-001-0 --mode 4x1 --speed 10g
 #
 #   (On a Dell EMC S5296F-ON and S5248F-ON)
-#	opx-config-fanout --pg_name port-group-7 --mode 4x4 --speed 10g
+#      opx-config-fanout --pg_name port-group-7 --mode 4x4 --speed 10g
 #
 #   (On a Dell EMC Z9264F-ON)
 #	opx-config-hybrid-group set hybrid-group profile --name hybrid-group-8 --profile restricted

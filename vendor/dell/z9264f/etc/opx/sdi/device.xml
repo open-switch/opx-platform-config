@@ -27,14 +27,14 @@ permissions and limitations under the License.
         <bmc_fan instance="5" alias="FAN3_Rear" data_sdr_id="FAN3_Rear_rpm" status_sdr_id="Fan3_Rear_state" />
         <bmc_fan instance="6" alias="FAN4_Front" data_sdr_id="FAN4_Front_rpm" status_sdr_id="Fan4_Front_state" />
         <bmc_fan instance="7" alias="FAN4_Rear" data_sdr_id="FAN4_Rear_rpm" status_sdr_id="Fan4_Rear_state" />
-        <bmc_fan instance="8" alias="PSU1_fan" data_sdr_id="PSU1_rpm" status_sdr_id="PSU1_state" />
-        <bmc_fan instance="9" alias="PSU2_fan" data_sdr_id="PSU2_rpm" status_sdr_id="PSU2_state" />
-        <bmc_eeprom instance="10" alias="fan-tray1-fru" data_sdr_id="Entity_info.29.1" int_use_elm_offset="0x16" airflow_offset="0x4" no_of_fans="2" max_fan_speed="13200" />
-        <bmc_eeprom instance="11" alias="fan-tray2-fru" data_sdr_id="Entity_info.29.2" int_use_elm_offset="0x16" airflow_offset="0x4" no_of_fans="2" max_fan_speed="13200" />
-        <bmc_eeprom instance="12" alias="fan-tray3-fru" data_sdr_id="Entity_info.29.3" int_use_elm_offset="0x16" airflow_offset="0x4" no_of_fans="2" max_fan_speed="13200" />
-        <bmc_eeprom instance="13" alias="fan-tray4-fru" data_sdr_id="Entity_info.29.4" int_use_elm_offset="0x16" airflow_offset="0x4" no_of_fans="2" max_fan_speed="13200" />
-        <bmc_eeprom instance="14" alias="psu1-fru" data_sdr_id="Entity_info.10.1" int_use_elm_offset="0x13" airflow_offset="0x6" psu_type_offset="0x7" no_of_fans="1" max_fan_speed="23000" />
-        <bmc_eeprom instance="15" alias="psu2-fru" data_sdr_id="Entity_info.10.2" int_use_elm_offset="0x13" airflow_offset="0x6" psu_type_offset="0x7" no_of_fans="1" max_fan_speed="23000" />
+        <bmc_fan instance="8" alias="PSU1_fan" data_sdr_id="PSU1_rpm" status_sdr_id="PSU1_Fan_state" />
+        <bmc_fan instance="9" alias="PSU2_fan" data_sdr_id="PSU2_rpm" status_sdr_id="PSU2_Fan_state" />
+        <bmc_eeprom instance="10" alias="fan-tray1-fru" data_sdr_id="Entity_info.29.1" int_use_elm_offset="0x16" hdr_sz_offset="0x9" airflow_offset="0x5" no_of_fans="2" max_fan_speed="13200" />
+        <bmc_eeprom instance="11" alias="fan-tray2-fru" data_sdr_id="Entity_info.29.2" int_use_elm_offset="0x16" hdr_sz_offset="0x9" airflow_offset="0x5" no_of_fans="2" max_fan_speed="13200" />
+        <bmc_eeprom instance="12" alias="fan-tray3-fru" data_sdr_id="Entity_info.29.3" int_use_elm_offset="0x16" hdr_sz_offset="0x9" airflow_offset="0x5" no_of_fans="2" max_fan_speed="13200" />
+        <bmc_eeprom instance="13" alias="fan-tray4-fru" data_sdr_id="Entity_info.29.4" int_use_elm_offset="0x16" hdr_sz_offset="0x9" airflow_offset="0x5" no_of_fans="2" max_fan_speed="13200" />
+        <bmc_eeprom instance="14" alias="psu1-fru" data_sdr_id="Entity_info.10.1" int_use_elm_offset="0x13" hdr_sz_offset="0x9" airflow_offset="0x7" psu_type_offset="0x8" no_of_fans="1" max_fan_speed="23000" />
+        <bmc_eeprom instance="15" alias="psu2-fru" data_sdr_id="Entity_info.10.2" int_use_elm_offset="0x13" hdr_sz_offset="0x9" airflow_offset="0x7" psu_type_offset="0x8" no_of_fans="1" max_fan_speed="23000" />
         <bmc_temp instance="16" alias="temp-1" data_sdr_id="PT_Mid_temp"  />
         <bmc_temp instance="17" alias="temp-2" data_sdr_id="NPU_Near_temp"  />
         <bmc_temp instance="18" alias="temp-3" data_sdr_id="PT_Left_temp"  />

@@ -26,4 +26,5 @@
 <ipv6_extended_prefix config_required="1" default_routes="0" max_routes="3072" lpm_block_size="1024"/>
 <l3-table-size max_rifs="12288" rif_block_size="2048" max_nexthops="49152" nexthop_block_size="4096"/>
 <vxlan-riot-config enable="1" max_overlay_rifs="2048" max_overlay_nexthops="8192"/>
+<switch_resilient_hash lag_enabled="true" ecmp_enabled="true"/>
 </switch_config>

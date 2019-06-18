@@ -1,7 +1,7 @@
 common/etc/*						etc
+common/usr/*                        usr
 common-hw/bin/*						usr/bin
 common-hw/sbin/*                                        usr/sbin
-common-hw/lib/udev/rules.d/*                            lib/udev/rules.d
 vendor/dell/s6000/etc/opx/*				etc/opx
 vendor/dell/s6000-hw/bin/*				usr/bin
 vendor/dell/s6000-hw/libexec/*				usr/libexec

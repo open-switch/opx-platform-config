@@ -1,3 +1,21 @@
+opx-platform-config (1.8.0) unstable; urgency=medium
+
+  * bugfix: Dell EMC Z9264F-ON: Correct I2C configuration
+  * Update: Drop the 'dn' prefix from package names
+  * Update: Add executable permission for shutdown script
+  * Update: Dell EMC S5296F-ON: Correct syntax error in SDI device.xml
+  * Bugfix: Tweak I2C bus lock-up recovery script
+  * Update: Change package name for BCM LKM
+  * Update: Add service to check for LPC bus clock failure on Intel
+            Rangeley CPU
+  * Bugfix: Remove udev rule to generate system notification for I2C devices,
+            replace with wait loop in opx_platform_init.sh
+  * Update: Use 'bash' instead of 'sh' in shutdown script
+  * Update: removing support for s5148f
+  * Update: Added new kernel required in opx-common.conf
+
+ -- Dell EMC <ops-dev@lists.openswitch.net>  Wed, 05 Jun 2019 10:31:00 -0800
+
 opx-platform-config (1.7.0+opx1) unstable; urgency=medium
 
     * Update: opx-config-fanout example in startup/config-interfaces script
@@ -14,7 +32,7 @@ opx-platform-config (1.7.0) unstable; urgency=medium
 
 opx-platform-config (1.6.2) unstable; urgency=medium
 
-  * fix: Fix Dell EMC Z9264F issues
+   * fix: Fix Dell EMC Z9264F issues
 
  -- Dell EMC <ops-dev@lists.openswitch.net>  Thu, 29 Nov 2018 17:26:00 -0800
 

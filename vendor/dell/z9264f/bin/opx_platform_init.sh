@@ -15,6 +15,48 @@
 # permissions and limitations under the License.
 
 
+#enable i2c access for media ctrl
+/usr/bin/pcisysfs.py --set --val 0xf407c --offset 0x50 --res /sys/bus/pci/devices/0000\:04\:00.0/resource0
+
+# Check existence of I2C device
+function i2c_chk {
+    test -e /dev/i2c-$1
+}
+
+# Check existence of a range of I2C devices
+function i2c_chk_range {
+    local i
+    i=$1
+    while [[ $i -lt $2 ]]
+    do
+        i2c_chk $i
+        if [[ $? -ne 0 ]]
+        then
+            false
+            return
+        fi
+        i=$(($i + 1))
+    done
+    true
+}
+
+# Wait until a range of I2C devices exist
+function i2c_wait_range {
+    while true
+    do
+        i2c_chk_range $1 $2
+        if [[ $? -eq 0 ]]
+        then
+            break
+        fi
+        sleep 0.5
+    done
+}
+
+# Wait for i2c devices to appear
+i2c_wait_range 0 2
+i2c_wait_range 600 612
+
 # enable linux kernel mux driver to select/deselect port in SDI
 # fpga-ocore enumarete i2c cores from 600 (vitual dev mapping)
 
@@ -27,6 +69,9 @@ echo pca9548 0x74 > /sys/bus/i2c/devices/i2c-608/new_device
 echo pca9548 0x74 > /sys/bus/i2c/devices/i2c-609/new_device
 echo pca9548 0x74 > /sys/bus/i2c/devices/i2c-610/new_device
 echo pca9548 0x74 > /sys/bus/i2c/devices/i2c-611/new_device
+
+# Wait for i2c devices to appear
+i2c_wait_range 2 74
 
 FIRMWARE_VERSION_FILE=/var/log/firmware_versions
 rm -rf ${FIRMWARE_VERSION_FILE}

@@ -63,7 +63,7 @@
 		<entry hwport="19" />
 	</front-panel-port>
 	<front-panel-port id="12" slot="0" npu="0" mac_offset="12" phy_media="12" name="e101-012-0">
-		<entry hwport="26" />
+		<entry hwport="20" />
 	</front-panel-port>
 	<front-panel-port id="13" slot="0" npu="0" mac_offset="13" phy_media="13" name="e101-013-0">
 		<entry hwport="37" />
@@ -201,7 +201,7 @@
 		<entry hwport="25" />
 	</front-panel-port>
 	<front-panel-port id="58" slot="0" npu="0" mac_offset="58" phy_media="58" name="e101-058-0">
-		<entry hwport="20" />
+		<entry hwport="26" />
 	</front-panel-port>
 	<front-panel-port id="59" slot="0" npu="0" mac_offset="59" phy_media="59" name="e101-059-0">
 		<entry hwport="27" />
@@ -392,11 +392,11 @@
 	        <entry fpport="9" />
 	        <entry fpport="10" />
 	        <entry fpport="11" />
-	        <entry fpport="58" />
+	        <entry fpport="12" />
 	        <entry hwport="17" />
 	        <entry hwport="18" />
 	        <entry hwport="19" />
-	        <entry hwport="26" />
+	        <entry hwport="20" />
 		</pg>
 	    <pg id="4" profile_type="ethernet_sfp28" npu="0" name="port-group-4">
 	        <entry fpport="13" />
@@ -510,11 +510,11 @@
 		</pg>
 	    <pg id="15" profile_type="ethernet_sfp28" npu="0" name="port-group-15">
 	        <entry fpport="57" />
-	        <entry fpport="12" />
+	        <entry fpport="58" />
 	        <entry fpport="59" />
 	        <entry fpport="60" />
 	        <entry hwport="25" />
-	        <entry hwport="20" />
+	        <entry hwport="26" />
 	        <entry hwport="27" />
 	        <entry hwport="28" />
 		</pg>

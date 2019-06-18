@@ -1,9 +1,10 @@
 common/etc/*                                            etc
+common/usr/*                                            usr
 common-hw/bin/*                                         usr/bin
 common-hw/sbin/*                                        usr/sbin
-common-hw/lib/udev/rules.d/*                            lib/udev/rules.d
 vendor/dell/s4248fb/etc/opx/*                           etc/opx
 vendor/dell/s4248fb/bin/*				usr/bin
+vendor/dell/s4248fb/libexec/*				usr/libexec
 vendor/dell/s4248fb/etc/modules-load.d/*		etc/modules-load.d
 vendor/dell/s4248fb/etc/opx/sdi/*			etc/opx/sdi
 vendor/dell/s4248fb/lib/systemd/system/*		lib/systemd/system

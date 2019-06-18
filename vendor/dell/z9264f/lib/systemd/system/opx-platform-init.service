@@ -1,7 +1,5 @@
 [Unit]
 Description=Platform initialization service
-After=sys-devices-i2c\x2d603-i2c\x2ddev-i2c\x2d603.device sys-devices-i2c\x2d604-i2c\x2ddev-i2c\x2d604.device sys-devices-i2c\x2d605-i2c\x2ddev-i2c\x2d605.device sys-devices-i2c\x2d606-i2c\x2ddev-i2c\x2d606.device sys-devices-i2c\x2d607-i2c\x2ddev-i2c\x2d607.device sys-devices-i2c\x2d608-i2c\x2ddev-i2c\x2d608.device sys-devices-i2c\x2d609-i2c\x2ddev-i2c\x2d609.device sys-devices-i2c\x2d610-i2c\x2ddev-i2c\x2d610.device sys-devices-i2c\x2d611-i2c\x2ddev-i2c\x2d611.device
-Wants=sys-devices-i2c\x2d603-i2c\x2ddev-i2c\x2d603.device sys-devices-i2c\x2d604-i2c\x2ddev-i2c\x2d604.device sys-devices-i2c\x2d605-i2c\x2ddev-i2c\x2d605.device sys-devices-i2c\x2d606-i2c\x2ddev-i2c\x2d606.device sys-devices-i2c\x2d607-i2c\x2ddev-i2c\x2d607.device sys-devices-i2c\x2d608-i2c\x2ddev-i2c\x2d608.device sys-devices-i2c\x2d609-i2c\x2ddev-i2c\x2d609.device sys-devices-i2c\x2d610-i2c\x2ddev-i2c\x2d610.device sys-devices-i2c\x2d611-i2c\x2ddev-i2c\x2d611.device
 Before=opx-pas.service
 DefaultDependencies=no
 

@@ -1,7 +1,7 @@
 common/etc/*					etc
+common/usr/*                    usr
 common-hw/bin/*					usr/bin
 common-hw/sbin/*                                usr/sbin
-common-hw/lib/udev/rules.d/*		        lib/udev/rules.d
 vendor/dell/s6010/etc/opx/*			etc/opx
 vendor/dell/s6010/bin/*				usr/bin
 vendor/dell/s6010/libexec/*		        usr/libexec

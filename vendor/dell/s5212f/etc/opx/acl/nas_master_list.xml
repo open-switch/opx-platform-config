@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<!-- Copyright (c) 2015 Dell Inc.
+ Licensed under the Apache License, Version 2.0 (the "License"); you may
+ not use this file except in compliance with the License. You may obtain
+ a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+
+ THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR
+ CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT
+ LIMITATION ANY IMPLIED WARRANTIES OR CONDITIONS OF TITLE, FITNESS
+ FOR A PARTICULAR PURPOSE, MERCHANTABLITY OR NON-INFRINGEMENT.
+
+ See the Apache Version 2.0 License for specific language governing
+ permissions and limitations under the License.
+-->
+<root>
+    <INGRESS>
+        <table tag="system-flow" priority="14">
+            <entry tag="bgp-src-port"       cpu-q="9" />
+            <entry tag="bgp-dst-port"       cpu-q="9" />
+            <entry tag="ospf-all"           cpu-q="9"  action="COPY_TO_CPU"/>
+            <entry tag="ospf-all-dr"        cpu-q="9"  action="COPY_TO_CPU"/>
+            <entry tag="ospfv3-all"         cpu-q="9"  action="COPY_TO_CPU"/>
+            <entry tag="ospfv3-all-dr"      cpu-q="9"  action="COPY_TO_CPU"/>
+            <entry tag="ospf-ucast"         cpu-q="6" />
+            <entry tag="ospfv3-ucast"       cpu-q="6" />
+            <entry tag="icmp"               cpu-q="4" />
+            <entry tag="igmp"               cpu-q="4"  action="TRAP_TO_CPU"/>
+            <entry tag="arp-reply"          cpu-q="6"  action="COPY_TO_CPU"/>
+            <entry tag="arp-request"        cpu-q="5"  action="COPY_TO_CPU"/>
+            <entry tag="arp-request-4095"   cpu-q="5"  action="COPY_TO_CPU"/>
+            <entry tag="dhcp-client"        cpu-q="10" action="COPY_TO_CPU"/>
+            <entry tag="dhcp-server"        cpu-q="10" action="COPY_TO_CPU"/>
+            <entry tag="lldp"               cpu-q="8"  action="TRAP_TO_CPU"/>
+            <entry tag="lacp"               cpu-q="7"  action="TRAP_TO_CPU"/>
+            <entry tag="stp"                cpu-q="7"  action="TRAP_TO_CPU"/>
+            <entry tag="ssh"                cpu-q="6" />
+            <entry tag="telnet"             cpu-q="6" />
+            <entry tag="tacacs"             cpu-q="6" />
+            <entry tag="ntp"                cpu-q="6" />
+            <entry tag="ftp"                cpu-q="6" />
+            <entry tag="icmpv6-na"          cpu-q="6" action="COPY_TO_CPU"/>
+            <entry tag="icmpv6-ra"          cpu-q="6" action="COPY_TO_CPU"/>
+            <entry tag="icmpv6-ns"          cpu-q="5" action="COPY_TO_CPU"/>
+            <entry tag="icmpv6-rs"          cpu-q="5" action="COPY_TO_CPU"/>
+            <entry tag="icmpv6-mld-query"   cpu-q="4" action="TRAP_TO_CPU"/>
+            <entry tag="icmpv6-mld-report"  cpu-q="4" action="TRAP_TO_CPU"/>
+            <entry tag="icmpv6-mld-done"    cpu-q="4" action="TRAP_TO_CPU"/>
+            <entry tag="icmpv6"             cpu-q="4" />
+            <entry tag="isis-l1"            cpu-q="9"  action="TRAP_TO_CPU"/>
+            <entry tag="isis-l2"            cpu-q="9"  action="TRAP_TO_CPU"/>
+            <entry tag="isis-all"           cpu-q="9"  action="TRAP_TO_CPU"/>
+        </table>
+    </INGRESS>
+    <EGRESS>
+    </EGRESS>
+</root>

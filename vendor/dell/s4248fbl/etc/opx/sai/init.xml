@@ -40,9 +40,7 @@
             <CPU_PORT_QUEUE queue_count="16" uc_count="0" mc_count="16"/>
         </SWITCH>
         <ACL_CONFIG>
-            <!-- ACL table priority. Table priority is taken from "policy_acl_table.xml" -->
-            <!-- Any changes in "policy_acl_table.xml" has to be reflected here -->
-            <ACL_PRIO system-flow="14" openflow="2" vlt="13" iscsi="1" fcoe="12" fcoe_fport="11"
+            <ACL_PRIO system-flow="14" openflow="2" vlt="13" iscsi_snoop="1" fcoe="12" fcoe_fport="11"
                 fedgov="0" l2_acl="8" v4_acl="9" v6_acl="10" v4_pbr="6" v6_pbr="7"
                 l2_qos="3" v4_qos="4" v6_qos="5" egr_l2_acl="1" egr_v4_acl="2"
                 egr_v6_acl="0"/>
@@ -58,12 +56,12 @@
                 <FP_SLICE slice_id="8" slice_depth="2048"/>
                 <FP_SLICE slice_id="9" slice_depth="2048"/>
                 <FP_SLICE slice_id="10" slice_depth="2048"/>
-                <FP_SLICE slice_id="11" slice_depth="256"/>
-                <FP_SLICE slice_id="12" slice_depth="256"/>
-                <FP_SLICE slice_id="13" slice_depth="256"/>
-                <FP_SLICE slice_id="14" slice_depth="256"/>
+                <FP_SLICE slice_id="11" slice_depth="128"/>
+                <FP_SLICE slice_id="12" slice_depth="128"/>
+                <FP_SLICE slice_id="13" slice_depth="128"/>
+                <FP_SLICE slice_id="14" slice_depth="128"/>
             </ACL_INGRESS_FP>
-            <ACL_EGRESS_FP max_efp_slice="0" depth_per_entry="1">
+            <ACL_EGRESS_FP max_efp_slice="0" depth_per_entry="0">
             </ACL_EGRESS_FP>
         </ACL_CONFIG>
 

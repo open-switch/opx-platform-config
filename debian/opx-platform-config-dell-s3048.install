@@ -1,9 +1,10 @@
 common/etc/*					etc
+common/usr/*                    usr
 common-hw/bin/*					usr/bin
 common-hw/sbin/*                                usr/sbin
-common-hw/lib/udev/rules.d/*		        lib/udev/rules.d
 vendor/dell/s3048/etc/opx/*			etc/opx
 vendor/dell/s3048/bin/*				usr/bin
+vendor/dell/s3048/libexec/*		        usr/libexec
 vendor/dell/s3048/etc/modules-load.d/*		etc/modules-load.d
 vendor/dell/s3048/etc/opx/sai/*			etc/opx/sai
 vendor/dell/s3048/etc/opx/sdi/*			etc/opx/sdi

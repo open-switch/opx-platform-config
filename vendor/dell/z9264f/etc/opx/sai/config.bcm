@@ -31,6 +31,7 @@ parity_correction.0=1
 mmu_lossless.0=0
 pktdma_poll_mode_channel_bitmap=1
 hw_cor_in_max_use_count=0
+l3_max_ecmp_mode.0=1
 
 dport_map_enable=1
 dport_map_port_25=1

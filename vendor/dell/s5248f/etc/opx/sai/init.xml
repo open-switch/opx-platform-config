@@ -1513,13 +1513,13 @@
         </PORT>
 
         <PORT>
-            <ID valid="true" logical_port="67" dport="57" hw_port="65" port_group="14"/>
+            <ID valid="true" logical_port="71" dport="57" hw_port="69" port_group="14"/>
             <SUPPORTED_SPEED speed1G="true" speed10G="true" speed40G="true" speed25G="true" speed50G="true" speed100G="true"/>
             <BREAKOUT support="true" lane_1="true" lane_2="true" lane_4="true"/>
             <LANE speed="100000" count="4" bitmap="0xf"/>
             <TILE_ID tile="1"/>
             <MEDIA_BASED_HW_PROFILE count="5" default_profile="20">
-                <PROFILE id="20" preemp="0x164509"/>
+                <PROFILE id="20" preemp="0x124a08"/>
                 <PROFILE id="21" preemp="0x18420A"/>
                 <PROFILE id="22" preemp="0x18420A"/>
                 <PROFILE id="24" preemp="0x19410A"/>
@@ -1529,13 +1529,13 @@
         </PORT>
 
         <PORT>
-            <ID valid="false" logical_port="68" dport="58" hw_port="66" port_group="14"/>
+            <ID valid="false" logical_port="72" dport="58" hw_port="70" port_group="14"/>
             <SUPPORTED_SPEED speed1G="true" speed10G="true" speed25G="true"/>
             <BREAKOUT support="true" lane_1="true" lane_4="true"/>
             <LANE speed="25000" count="1" bitmap="0x2"/>
             <TILE_ID tile="1"/>
             <MEDIA_BASED_HW_PROFILE count="5" default_profile="20">
-                <PROFILE id="20" preemp="0x164509"/>
+                <PROFILE id="20" preemp="0x124a08"/>
                 <PROFILE id="21" preemp="0x18420A"/>
                 <PROFILE id="22" preemp="0x18420A"/>
                 <PROFILE id="24" preemp="0x19410A"/>
@@ -1545,13 +1545,13 @@
         </PORT>
 
         <PORT>
-            <ID valid="false" logical_port="69" dport="59" hw_port="67" port_group="14"/>
+            <ID valid="false" logical_port="73" dport="59" hw_port="71" port_group="14"/>
             <SUPPORTED_SPEED speed1G="true" speed10G="true" speed25G="true" speed50G="true"/>
             <BREAKOUT support="true" lane_1="true" lane_2="true" lane_4="true"/>
             <LANE speed="25000" count="1" bitmap="0x4"/>
             <TILE_ID tile="1"/>
             <MEDIA_BASED_HW_PROFILE count="5" default_profile="20">
-                <PROFILE id="20" preemp="0x164509"/>
+                <PROFILE id="20" preemp="0x124a08"/>
                 <PROFILE id="21" preemp="0x18420A"/>
                 <PROFILE id="22" preemp="0x18420A"/>
                 <PROFILE id="24" preemp="0x19410A"/>
@@ -1561,13 +1561,13 @@
         </PORT>
 
         <PORT>
-            <ID valid="false" logical_port="70" dport="60" hw_port="68" port_group="14"/>
+            <ID valid="false" logical_port="74" dport="60" hw_port="72" port_group="14"/>
             <SUPPORTED_SPEED speed1G="true" speed10G="true" speed25G="true"/>
             <BREAKOUT support="true" lane_1="true" lane_4="true"/>
             <LANE speed="25000" count="1" bitmap="0x8"/>
             <TILE_ID tile="1"/>
             <MEDIA_BASED_HW_PROFILE count="5" default_profile="20">
-                <PROFILE id="20" preemp="0x164509"/>
+                <PROFILE id="20" preemp="0x124a08"/>
                 <PROFILE id="21" preemp="0x18420A"/>
                 <PROFILE id="22" preemp="0x18420A"/>
                 <PROFILE id="24" preemp="0x19410A"/>
@@ -1577,13 +1577,13 @@
         </PORT>
 
         <PORT>
-            <ID valid="true" logical_port="71" dport="61" hw_port="69" port_group="15"/>
+            <ID valid="true" logical_port="67" dport="61" hw_port="65" port_group="15"/>
             <SUPPORTED_SPEED speed1G="true" speed10G="true" speed40G="true" speed25G="true" speed50G="true" speed100G="true"/>
             <BREAKOUT support="true" lane_1="true" lane_2="true" lane_4="true"/>
             <LANE speed="100000" count="4" bitmap="0xf"/>
             <TILE_ID tile="1"/>
             <MEDIA_BASED_HW_PROFILE count="5" default_profile="20">
-                <PROFILE id="20" preemp="0x124a08"/>
+                <PROFILE id="20" preemp="0x164509"/>
                 <PROFILE id="21" preemp="0x18420A"/>
                 <PROFILE id="22" preemp="0x18420A"/>
                 <PROFILE id="24" preemp="0x19410A"/>
@@ -1593,13 +1593,13 @@
         </PORT>
 
         <PORT>
-            <ID valid="false" logical_port="72" dport="62" hw_port="70" port_group="15"/>
+            <ID valid="false" logical_port="68" dport="62" hw_port="66" port_group="15"/>
             <SUPPORTED_SPEED speed1G="true" speed10G="true" speed25G="true"/>
             <BREAKOUT support="true" lane_1="true" lane_4="true"/>
             <LANE speed="25000" count="1" bitmap="0x2"/>
             <TILE_ID tile="1"/>
             <MEDIA_BASED_HW_PROFILE count="5" default_profile="20">
-                <PROFILE id="20" preemp="0x124a08"/>
+                <PROFILE id="20" preemp="0x164509"/>
                 <PROFILE id="21" preemp="0x18420A"/>
                 <PROFILE id="22" preemp="0x18420A"/>
                 <PROFILE id="24" preemp="0x19410A"/>
@@ -1609,13 +1609,13 @@
         </PORT>
 
         <PORT>
-            <ID valid="false" logical_port="73" dport="63" hw_port="71" port_group="15"/>
+            <ID valid="false" logical_port="69" dport="63" hw_port="67" port_group="15"/>
             <SUPPORTED_SPEED speed1G="true" speed10G="true" speed25G="true" speed50G="true"/>
             <BREAKOUT support="true" lane_1="true" lane_2="true" lane_4="true"/>
             <LANE speed="25000" count="1" bitmap="0x4"/>
             <TILE_ID tile="1"/>
             <MEDIA_BASED_HW_PROFILE count="5" default_profile="20">
-                <PROFILE id="20" preemp="0x124a08"/>
+                <PROFILE id="20" preemp="0x164509"/>
                 <PROFILE id="21" preemp="0x18420A"/>
                 <PROFILE id="22" preemp="0x18420A"/>
                 <PROFILE id="24" preemp="0x19410A"/>
@@ -1625,13 +1625,13 @@
         </PORT>
 
         <PORT>
-            <ID valid="false" logical_port="74" dport="64" hw_port="72" port_group="15"/>
+            <ID valid="false" logical_port="70" dport="64" hw_port="68" port_group="15"/>
             <SUPPORTED_SPEED speed1G="true" speed10G="true" speed25G="true"/>
             <BREAKOUT support="true" lane_1="true" lane_4="true"/>
             <LANE speed="25000" count="1" bitmap="0x8"/>
             <TILE_ID tile="1"/>
             <MEDIA_BASED_HW_PROFILE count="5" default_profile="20">
-                <PROFILE id="20" preemp="0x124a08"/>
+                <PROFILE id="20" preemp="0x164509"/>
                 <PROFILE id="21" preemp="0x18420A"/>
                 <PROFILE id="22" preemp="0x18420A"/>
                 <PROFILE id="24" preemp="0x19410A"/>

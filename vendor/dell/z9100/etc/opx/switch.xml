@@ -21,5 +21,7 @@
                         <entry mode="3" l2_max="8192" l3_max="131072" arp_max="8192"/>
                         <entry mode="4" l2_max="8192" l3_max="16384" arp_max="139264"/>
 </switch_forwarding_mode>
+<switch_resilient_hash ecmp_enabled="true"/>
 <ipv6_extended_prefix config_required="1" default_routes="0" max_routes="3072" lpm_block_size="1024"/>
+<switch_ecmp default_max_ecmp_per_grp="64"/>
 </switch_config>

@@ -1,4 +1,5 @@
 common/etc/*					etc
+common/usr/lib/*                usr/lib
 vendor/dell/s6000/etc/opx/*			etc/opx
 common-hw/sbin/*                                usr/sbin
 vendor/dell/s6000-vm/bin/*			usr/bin

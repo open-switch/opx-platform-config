@@ -838,4 +838,7 @@
         <entry supported-speed="25000" />
     </media-type>
 
+    <media-type id="SFP28 25GBASE SR AOCXXM" speed="25000" autoneg="off" duplex="None">
+        <entry supported-speed="25000" />
+    </media-type>
 </media-npu-setting-info>

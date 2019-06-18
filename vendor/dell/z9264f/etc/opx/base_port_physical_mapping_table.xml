@@ -1,0 +1,879 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 2018 Dell Inc.
+Licensed under the Apache License, Version 2.0 (the "License"); you may
+ not use this file except in compliance with the License. You may obtain
+ a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+
+ THIS CODE IS PROVIDED ON AN  *AS IS* BASIS, WITHOUT WARRANTIES OR
+ CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT
+ LIMITATION ANY IMPLIED WARRANTIES OR CONDITIONS OF TITLE, FITNESS
+ FOR A PARTICULAR PURPOSE, MERCHANTABLITY OR NON-INFRINGEMENT.
+
+ See the Apache Version 2.0 License for specific language governing
+ permissions and limitations under the License.
+-->
+<front-panel>
+  <!-- per platform profile definition is optional. If it is not provided then default value and capabilities
+         Will be used.
+        Default cap is hwport speed = 25000, phy_mode = Ethernet, breakout Cap = Mandatory either in the Profile
+        or in the front panel port.
+    -->
+  <global fc_enabled="false" default_profile="port_profile_2">
+    <profile name="ethernet_sfp" default_breakout="1x1" default_hwport_speed="10000">
+      <hwport_speed_cap value="10000"/>
+      <breakout_cap value="1x1"/>
+    </profile>
+    <profile name="port_profile_1" default_breakout="1x1" default_hwport_speed="25000">
+      <profile_description value  = "The profile supports 4x10g, 4x25g, 1x40g and 1x100g"/>
+      <hwport_speed_cap value="25000"/>
+      <hwport_speed_cap value="10000"/>
+      <breakout_cap value="4x1"/>
+      <breakout_cap value="1x1"/>
+    </profile>
+    <profile name="port_profile_2" default_breakout="1x1" default_hwport_speed="25000">
+      <profile_description value  = "The profile supports 1x40g and 1x100g"/>
+      <hwport_speed_cap value="25000"/>
+      <hwport_speed_cap value="10000"/>
+      <breakout_cap value="2x1"/>
+      <breakout_cap value="1x1"/>
+    </profile>
+    <profile name="port_profile_3" default_breakout="disabled" default_hwport_speed="0">
+      <profile_description value  = "The profile disables the port"/>
+      <hwport_speed_cap value="0"/>
+      <breakout_cap value="disabled"/>
+    </profile>
+    <!-- Following profiles are used to apply it on individual port as per the profile-mode under hybrid-group.
+    	 Odd port - Unrestricted mode - port_profile_2, Restricted mode - port_profile_1
+    	 Even port - Unrestricted mode - port_profile_2, Restricted mode - port_profile_3
+    -->
+    <hybrid_profile name="hybrid_profile_1">
+      <profile_mode name="unrestricted">
+        <port_profile name="port_profile_2"/>
+      </profile_mode>
+      <profile_mode name="restricted">
+        <port_profile name="port_profile_1"/>
+      </profile_mode>
+    </hybrid_profile>
+    <hybrid_profile name="hybrid_profile_2">
+      <profile_mode name="unrestricted">
+        <port_profile name="port_profile_2"/>
+      </profile_mode>
+      <profile_mode name="restricted">
+        <port_profile name="port_profile_3"/>
+      </profile_mode>
+    </hybrid_profile>
+  </global>
+  <front-panel-port id="1" slot="0" npu="0" mac_offset="1" phy_media="1" breakout="false" name="e101-001-0">
+    <entry hwport="49"/>
+    <entry hwport="50"/>
+    <entry hwport="51"/>
+    <entry hwport="52"/>
+  </front-panel-port>
+  <front-panel-port id="2" slot="0" npu="0" mac_offset="5" phy_media="2" breakout="false" name="e101-002-0">
+    <entry hwport="53"/>
+    <entry hwport="54"/>
+    <entry hwport="55"/>
+    <entry hwport="56"/>
+  </front-panel-port>
+  <front-panel-port id="3" slot="0" npu="0" mac_offset="9" phy_media="3" breakout="false" name="e101-003-0">
+    <entry hwport="65"/>
+    <entry hwport="66"/>
+    <entry hwport="67"/>
+    <entry hwport="68"/>
+  </front-panel-port>
+  <front-panel-port id="4" slot="0" npu="0" mac_offset="13" phy_media="4" breakout="false" name="e101-004-0">
+    <entry hwport="69"/>
+    <entry hwport="70"/>
+    <entry hwport="71"/>
+    <entry hwport="72"/>
+  </front-panel-port>
+  <front-panel-port id="5" slot="0" npu="0" mac_offset="17" phy_media="5" breakout="false" name="e101-005-0">
+    <entry hwport="81"/>
+    <entry hwport="82"/>
+    <entry hwport="83"/>
+    <entry hwport="84"/>
+  </front-panel-port>
+  <front-panel-port id="6" slot="0" npu="0" mac_offset="21" phy_media="6" breakout="false" name="e101-006-0">
+    <entry hwport="85"/>
+    <entry hwport="86"/>
+    <entry hwport="87"/>
+    <entry hwport="88"/>
+  </front-panel-port>
+  <front-panel-port id="7" slot="0" npu="0" mac_offset="25" phy_media="7" breakout="false" name="e101-007-0">
+    <entry hwport="97"/>
+    <entry hwport="98"/>
+    <entry hwport="99"/>
+    <entry hwport="100"/>
+  </front-panel-port>
+  <front-panel-port id="8" slot="0" npu="0" mac_offset="29" phy_media="8" breakout="false" name="e101-008-0">
+    <entry hwport="101"/>
+    <entry hwport="102"/>
+    <entry hwport="103"/>
+    <entry hwport="104"/>
+  </front-panel-port>
+  <front-panel-port id="9" slot="0" npu="0" mac_offset="33" phy_media="9" breakout="false" name="e101-009-0">
+    <entry hwport="1"/>
+    <entry hwport="2"/>
+    <entry hwport="3"/>
+    <entry hwport="4"/>
+  </front-panel-port>
+  <front-panel-port id="10" slot="0" npu="0" mac_offset="37" phy_media="10" breakout="false" name="e101-010-0">
+    <entry hwport="5"/>
+    <entry hwport="6"/>
+    <entry hwport="7"/>
+    <entry hwport="8"/>
+  </front-panel-port>
+  <front-panel-port id="11" slot="0" npu="0" mac_offset="41" phy_media="11" breakout="false" name="e101-011-0">
+    <entry hwport="17"/>
+    <entry hwport="18"/>
+    <entry hwport="19"/>
+    <entry hwport="20"/>
+  </front-panel-port>
+  <front-panel-port id="12" slot="0" npu="0" mac_offset="45" phy_media="12" breakout="false" name="e101-012-0">
+    <entry hwport="21"/>
+    <entry hwport="22"/>
+    <entry hwport="23"/>
+    <entry hwport="24"/>
+  </front-panel-port>
+  <front-panel-port id="13" slot="0" npu="0" mac_offset="49" phy_media="13" breakout="false" name="e101-013-0">
+    <entry hwport="33"/>
+    <entry hwport="34"/>
+    <entry hwport="35"/>
+    <entry hwport="36"/>
+  </front-panel-port>
+  <front-panel-port id="14" slot="0" npu="0" mac_offset="53" phy_media="14" breakout="false" name="e101-014-0">
+    <entry hwport="37"/>
+    <entry hwport="38"/>
+    <entry hwport="39"/>
+    <entry hwport="40"/>
+  </front-panel-port>
+  <front-panel-port id="15" slot="0" npu="0" mac_offset="57" phy_media="15" breakout="false" name="e101-015-0">
+    <entry hwport="113"/>
+    <entry hwport="114"/>
+    <entry hwport="115"/>
+    <entry hwport="116"/>
+  </front-panel-port>
+  <front-panel-port id="16" slot="0" npu="0" mac_offset="61" phy_media="16" breakout="false" name="e101-016-0">
+    <entry hwport="117"/>
+    <entry hwport="118"/>
+    <entry hwport="119"/>
+    <entry hwport="120"/>
+  </front-panel-port>
+  <front-panel-port id="17" slot="0" npu="0" mac_offset="65" phy_media="17" breakout="false" name="e101-017-0">
+    <entry hwport="133"/>
+    <entry hwport="134"/>
+    <entry hwport="135"/>
+    <entry hwport="136"/>
+  </front-panel-port>
+  <front-panel-port id="18" slot="0" npu="0" mac_offset="69" phy_media="18" breakout="false" name="e101-018-0">
+    <entry hwport="129"/>
+    <entry hwport="130"/>
+    <entry hwport="131"/>
+    <entry hwport="132"/>
+  </front-panel-port>
+  <front-panel-port id="19" slot="0" npu="0" mac_offset="73" phy_media="19" breakout="false" name="e101-019-0">
+    <entry hwport="213"/>
+    <entry hwport="214"/>
+    <entry hwport="215"/>
+    <entry hwport="216"/>
+  </front-panel-port>
+  <front-panel-port id="20" slot="0" npu="0" mac_offset="77" phy_media="20" breakout="false" name="e101-020-0">
+    <entry hwport="209"/>
+    <entry hwport="210"/>
+    <entry hwport="211"/>
+    <entry hwport="212"/>
+  </front-panel-port>
+  <front-panel-port id="21" slot="0" npu="0" mac_offset="81" phy_media="21" breakout="false" name="e101-021-0">
+    <entry hwport="229"/>
+    <entry hwport="230"/>
+    <entry hwport="231"/>
+    <entry hwport="232"/>
+  </front-panel-port>
+  <front-panel-port id="22" slot="0" npu="0" mac_offset="85" phy_media="22" breakout="false" name="e101-022-0">
+    <entry hwport="225"/>
+    <entry hwport="226"/>
+    <entry hwport="227"/>
+    <entry hwport="228"/>
+  </front-panel-port>
+  <front-panel-port id="23" slot="0" npu="0" mac_offset="89" phy_media="23" breakout="false" name="e101-023-0">
+    <entry hwport="245"/>
+    <entry hwport="246"/>
+    <entry hwport="247"/>
+    <entry hwport="248"/>
+  </front-panel-port>
+  <front-panel-port id="24" slot="0" npu="0" mac_offset="93" phy_media="24" breakout="false" name="e101-024-0">
+    <entry hwport="241"/>
+    <entry hwport="242"/>
+    <entry hwport="243"/>
+    <entry hwport="244"/>
+  </front-panel-port>
+  <front-panel-port id="25" slot="0" npu="0" mac_offset="97" phy_media="25" breakout="false" name="e101-025-0">
+    <entry hwport="149"/>
+    <entry hwport="150"/>
+    <entry hwport="151"/>
+    <entry hwport="152"/>
+  </front-panel-port>
+  <front-panel-port id="26" slot="0" npu="0" mac_offset="101" phy_media="26" breakout="false" name="e101-026-0">
+    <entry hwport="145"/>
+    <entry hwport="146"/>
+    <entry hwport="147"/>
+    <entry hwport="148"/>
+  </front-panel-port>
+  <front-panel-port id="27" slot="0" npu="0" mac_offset="105" phy_media="27" breakout="false" name="e101-027-0">
+    <entry hwport="165"/>
+    <entry hwport="166"/>
+    <entry hwport="167"/>
+    <entry hwport="168"/>
+  </front-panel-port>
+  <front-panel-port id="28" slot="0" npu="0" mac_offset="109" phy_media="28" breakout="false" name="e101-028-0">
+    <entry hwport="161"/>
+    <entry hwport="162"/>
+    <entry hwport="163"/>
+    <entry hwport="164"/>
+  </front-panel-port>
+  <front-panel-port id="29" slot="0" npu="0" mac_offset="113" phy_media="29" breakout="false" name="e101-029-0">
+    <entry hwport="181"/>
+    <entry hwport="182"/>
+    <entry hwport="183"/>
+    <entry hwport="184"/>
+  </front-panel-port>
+  <front-panel-port id="30" slot="0" npu="0" mac_offset="117" phy_media="30" breakout="false" name="e101-030-0">
+    <entry hwport="177"/>
+    <entry hwport="178"/>
+    <entry hwport="179"/>
+    <entry hwport="180"/>
+  </front-panel-port>
+  <front-panel-port id="31" slot="0" npu="0" mac_offset="121" phy_media="31" breakout="false" name="e101-031-0">
+    <entry hwport="197"/>
+    <entry hwport="198"/>
+    <entry hwport="199"/>
+    <entry hwport="200"/>
+  </front-panel-port>
+  <front-panel-port id="32" slot="0" npu="0" mac_offset="125" phy_media="32" breakout="false" name="e101-032-0">
+    <entry hwport="193"/>
+    <entry hwport="194"/>
+    <entry hwport="195"/>
+    <entry hwport="196"/>
+  </front-panel-port>
+  <front-panel-port id="33" slot="0" npu="0" mac_offset="129" phy_media="33" breakout="false" name="e101-033-0">
+    <entry hwport="61"/>
+    <entry hwport="62"/>
+    <entry hwport="63"/>
+    <entry hwport="64"/>
+  </front-panel-port>
+  <front-panel-port id="34" slot="0" npu="0" mac_offset="133" phy_media="34" breakout="false" name="e101-034-0">
+    <entry hwport="57"/>
+    <entry hwport="58"/>
+    <entry hwport="59"/>
+    <entry hwport="60"/>
+  </front-panel-port>
+  <front-panel-port id="35" slot="0" npu="0" mac_offset="137" phy_media="35" breakout="false" name="e101-035-0">
+    <entry hwport="77"/>
+    <entry hwport="78"/>
+    <entry hwport="79"/>
+    <entry hwport="80"/>
+  </front-panel-port>
+  <front-panel-port id="36" slot="0" npu="0" mac_offset="141" phy_media="36" breakout="false" name="e101-036-0">
+    <entry hwport="73"/>
+    <entry hwport="74"/>
+    <entry hwport="75"/>
+    <entry hwport="76"/>
+  </front-panel-port>
+  <front-panel-port id="37" slot="0" npu="0" mac_offset="145" phy_media="37" breakout="false" name="e101-037-0">
+    <entry hwport="93"/>
+    <entry hwport="94"/>
+    <entry hwport="95"/>
+    <entry hwport="96"/>
+  </front-panel-port>
+  <front-panel-port id="38" slot="0" npu="0" mac_offset="149" phy_media="38" breakout="false" name="e101-038-0">
+    <entry hwport="89"/>
+    <entry hwport="90"/>
+    <entry hwport="91"/>
+    <entry hwport="92"/>
+  </front-panel-port>
+  <front-panel-port id="39" slot="0" npu="0" mac_offset="153" phy_media="39" breakout="false" name="e101-039-0">
+    <entry hwport="109"/>
+    <entry hwport="110"/>
+    <entry hwport="111"/>
+    <entry hwport="112"/>
+  </front-panel-port>
+  <front-panel-port id="40" slot="0" npu="0" mac_offset="157" phy_media="40" breakout="false" name="e101-040-0">
+    <entry hwport="105"/>
+    <entry hwport="106"/>
+    <entry hwport="107"/>
+    <entry hwport="108"/>
+  </front-panel-port>
+  <front-panel-port id="41" slot="0" npu="0" mac_offset="161" phy_media="41" breakout="false" name="e101-041-0">
+    <entry hwport="13"/>
+    <entry hwport="14"/>
+    <entry hwport="15"/>
+    <entry hwport="16"/>
+  </front-panel-port>
+  <front-panel-port id="42" slot="0" npu="0" mac_offset="165" phy_media="42" breakout="false" name="e101-042-0">
+    <entry hwport="9"/>
+    <entry hwport="10"/>
+    <entry hwport="11"/>
+    <entry hwport="12"/>
+  </front-panel-port>
+  <front-panel-port id="43" slot="0" npu="0" mac_offset="169" phy_media="43" breakout="false" name="e101-043-0">
+    <entry hwport="29"/>
+    <entry hwport="30"/>
+    <entry hwport="31"/>
+    <entry hwport="32"/>
+  </front-panel-port>
+  <front-panel-port id="44" slot="0" npu="0" mac_offset="173" phy_media="44" breakout="false" name="e101-044-0">
+    <entry hwport="25"/>
+    <entry hwport="26"/>
+    <entry hwport="27"/>
+    <entry hwport="28"/>
+  </front-panel-port>
+  <front-panel-port id="45" slot="0" npu="0" mac_offset="177" phy_media="45" breakout="false" name="e101-045-0">
+    <entry hwport="45"/>
+    <entry hwport="46"/>
+    <entry hwport="47"/>
+    <entry hwport="48"/>
+  </front-panel-port>
+  <front-panel-port id="46" slot="0" npu="0" mac_offset="181" phy_media="46" breakout="false" name="e101-046-0">
+    <entry hwport="41"/>
+    <entry hwport="42"/>
+    <entry hwport="43"/>
+    <entry hwport="44"/>
+  </front-panel-port>
+  <front-panel-port id="47" slot="0" npu="0" mac_offset="185" phy_media="47" breakout="false" name="e101-047-0">
+    <entry hwport="125"/>
+    <entry hwport="126"/>
+    <entry hwport="127"/>
+    <entry hwport="128"/>
+  </front-panel-port>
+  <front-panel-port id="48" slot="0" npu="0" mac_offset="189" phy_media="48" breakout="false" name="e101-048-0">
+    <entry hwport="121"/>
+    <entry hwport="122"/>
+    <entry hwport="123"/>
+    <entry hwport="124"/>
+  </front-panel-port>
+  <front-panel-port id="49" slot="0" npu="0" mac_offset="193" phy_media="49" breakout="false" name="e101-049-0">
+    <entry hwport="137"/>
+    <entry hwport="138"/>
+    <entry hwport="139"/>
+    <entry hwport="140"/>
+  </front-panel-port>
+  <front-panel-port id="50" slot="0" npu="0" mac_offset="197" phy_media="50" breakout="false" name="e101-050-0">
+    <entry hwport="141"/>
+    <entry hwport="142"/>
+    <entry hwport="143"/>
+    <entry hwport="144"/>
+  </front-panel-port>
+  <front-panel-port id="51" slot="0" npu="0" mac_offset="201" phy_media="51" breakout="false" name="e101-051-0">
+    <entry hwport="217"/>
+    <entry hwport="218"/>
+    <entry hwport="219"/>
+    <entry hwport="220"/>
+  </front-panel-port>
+  <front-panel-port id="52" slot="0" npu="0" mac_offset="205" phy_media="52" breakout="false" name="e101-052-0">
+    <entry hwport="221"/>
+    <entry hwport="222"/>
+    <entry hwport="223"/>
+    <entry hwport="224"/>
+  </front-panel-port>
+  <front-panel-port id="53" slot="0" npu="0" mac_offset="209" phy_media="53" breakout="false" name="e101-053-0">
+    <entry hwport="233"/>
+    <entry hwport="234"/>
+    <entry hwport="235"/>
+    <entry hwport="236"/>
+  </front-panel-port>
+  <front-panel-port id="54" slot="0" npu="0" mac_offset="213" phy_media="54" breakout="false" name="e101-054-0">
+    <entry hwport="237"/>
+    <entry hwport="238"/>
+    <entry hwport="239"/>
+    <entry hwport="240"/>
+  </front-panel-port>
+  <front-panel-port id="55" slot="0" npu="0" mac_offset="217" phy_media="55" breakout="false" name="e101-055-0">
+    <entry hwport="249"/>
+    <entry hwport="250"/>
+    <entry hwport="251"/>
+    <entry hwport="252"/>
+  </front-panel-port>
+  <front-panel-port id="56" slot="0" npu="0" mac_offset="221" phy_media="56" breakout="false" name="e101-056-0">
+    <entry hwport="253"/>
+    <entry hwport="254"/>
+    <entry hwport="255"/>
+    <entry hwport="256"/>
+  </front-panel-port>
+  <front-panel-port id="57" slot="0" npu="0" mac_offset="225" phy_media="57" breakout="false" name="e101-057-0">
+    <entry hwport="153"/>
+    <entry hwport="154"/>
+    <entry hwport="155"/>
+    <entry hwport="156"/>
+  </front-panel-port>
+  <front-panel-port id="58" slot="0" npu="0" mac_offset="229" phy_media="58" breakout="false" name="e101-058-0">
+    <entry hwport="157"/>
+    <entry hwport="158"/>
+    <entry hwport="159"/>
+    <entry hwport="160"/>
+  </front-panel-port>
+  <front-panel-port id="59" slot="0" npu="0" mac_offset="233" phy_media="59" breakout="false" name="e101-059-0">
+    <entry hwport="169"/>
+    <entry hwport="170"/>
+    <entry hwport="171"/>
+    <entry hwport="172"/>
+  </front-panel-port>
+  <front-panel-port id="60" slot="0" npu="0" mac_offset="237" phy_media="60" breakout="false" name="e101-060-0">
+    <entry hwport="173"/>
+    <entry hwport="174"/>
+    <entry hwport="175"/>
+    <entry hwport="176"/>
+  </front-panel-port>
+  <front-panel-port id="61" slot="0" npu="0" mac_offset="241" phy_media="61" breakout="false" name="e101-061-0">
+    <entry hwport="185"/>
+    <entry hwport="186"/>
+    <entry hwport="187"/>
+    <entry hwport="188"/>
+  </front-panel-port>
+  <front-panel-port id="62" slot="0" npu="0" mac_offset="245" phy_media="62" breakout="false" name="e101-062-0">
+    <entry hwport="189"/>
+    <entry hwport="190"/>
+    <entry hwport="191"/>
+    <entry hwport="192"/>
+  </front-panel-port>
+  <front-panel-port id="63" slot="0" npu="0" mac_offset="249" phy_media="63" breakout="false" name="e101-063-0">
+    <entry hwport="201"/>
+    <entry hwport="202"/>
+    <entry hwport="203"/>
+    <entry hwport="204"/>
+  </front-panel-port>
+  <front-panel-port id="64" slot="0" npu="0" mac_offset="253" phy_media="64" breakout="false" name="e101-064-0">
+    <entry hwport="205"/>
+    <entry hwport="206"/>
+    <entry hwport="207"/>
+    <entry hwport="208"/>
+  </front-panel-port>
+  <front-panel-port id="65" profile_type="ethernet_sfp" slot="0" npu="0" mac_offset="257" phy_media="65" breakout="false" name="e101-065-0">
+    <entry hwport="257"/>
+  </front-panel-port>
+  <front-panel-port id="66" profile_type="ethernet_sfp" slot="0" npu="0" mac_offset="258" phy_media="66" breakout="false" name="e101-066-0">
+    <entry hwport="259"/>
+  </front-panel-port>
+  <!-- Hybrid group is a set of front panel ports and their respective HW ports. 
+       Profile_mode - Front panel ports will be initialized with this profile mode (unrestrcited / restricted)
+       Supported_profiles - list of profile modes supported by this hybrid group
+       hybrid_profile_type - hybrid profile (list of port-profile) supported on individual front panel port. 
+  -->
+  <hybrid-group>
+    <hg id="1" npu="0" name="hybrid-group-1" profile_mode="unrestricted">
+      <entry supported_profiles="unrestricted"/><entry supported_profiles="restricted"/>
+      <entry fpport="1" hybrid_profile_type="hybrid_profile_1"/>
+      <entry hwport="49"/>
+      <entry hwport="50"/>
+      <entry hwport="51"/>
+      <entry hwport="52"/>
+      <entry fpport="2" hybrid_profile_type="hybrid_profile_2"/>
+      <entry hwport="53"/>
+      <entry hwport="54"/>
+      <entry hwport="55"/>
+      <entry hwport="56"/>
+    </hg>
+    <hg id="2" npu="0" name="hybrid-group-2" profile_mode="unrestricted">
+      <entry supported_profiles="unrestricted"/><entry supported_profiles="restricted"/>
+      <entry fpport="3" hybrid_profile_type="hybrid_profile_1"/>
+      <entry hwport="65"/>
+      <entry hwport="66"/>
+      <entry hwport="67"/>
+      <entry hwport="68"/>
+      <entry fpport="4" hybrid_profile_type="hybrid_profile_2"/>
+      <entry hwport="69"/>
+      <entry hwport="70"/>
+      <entry hwport="71"/>
+      <entry hwport="72"/>
+    </hg>
+    <hg id="3" npu="0" name="hybrid-group-3" profile_mode="unrestricted">
+      <entry supported_profiles="unrestricted"/><entry supported_profiles="restricted"/>
+      <entry fpport="5" hybrid_profile_type="hybrid_profile_1"/>
+      <entry hwport="81"/>
+      <entry hwport="82"/>
+      <entry hwport="83"/>
+      <entry hwport="84"/>
+      <entry fpport="6" hybrid_profile_type="hybrid_profile_2"/>
+      <entry hwport="85"/>
+      <entry hwport="86"/>
+      <entry hwport="87"/>
+      <entry hwport="88"/>
+    </hg>
+    <hg id="4" npu="0" name="hybrid-group-4" profile_mode="unrestricted">
+      <entry supported_profiles="unrestricted"/><entry supported_profiles="restricted"/>
+      <entry fpport="7" hybrid_profile_type="hybrid_profile_1"/>
+      <entry hwport="97"/>
+      <entry hwport="98"/>
+      <entry hwport="99"/>
+      <entry hwport="100"/>
+      <entry fpport="8" hybrid_profile_type="hybrid_profile_2"/>
+      <entry hwport="101"/>
+      <entry hwport="102"/>
+      <entry hwport="103"/>
+      <entry hwport="104"/>
+    </hg>
+    <hg id="5" npu="0" name="hybrid-group-5" profile_mode="unrestricted">
+      <entry supported_profiles="unrestricted"/><entry supported_profiles="restricted"/>
+      <entry fpport="9" hybrid_profile_type="hybrid_profile_1"/>
+      <entry hwport="1"/>
+      <entry hwport="2"/>
+      <entry hwport="3"/>
+      <entry hwport="4"/>
+      <entry fpport="10" hybrid_profile_type="hybrid_profile_2"/>
+      <entry hwport="5"/>
+      <entry hwport="6"/>
+      <entry hwport="7"/>
+      <entry hwport="8"/>
+    </hg>
+    <hg id="6" npu="0" name="hybrid-group-6" profile_mode="unrestricted">
+      <entry supported_profiles="unrestricted"/><entry supported_profiles="restricted"/>
+      <entry fpport="11" hybrid_profile_type="hybrid_profile_1"/>
+      <entry hwport="17"/>
+      <entry hwport="18"/>
+      <entry hwport="19"/>
+      <entry hwport="20"/>
+      <entry fpport="12" hybrid_profile_type="hybrid_profile_2"/>
+      <entry hwport="21"/>
+      <entry hwport="22"/>
+      <entry hwport="23"/>
+      <entry hwport="24"/>
+    </hg>
+    <hg id="7" npu="0" name="hybrid-group-7" profile_mode="unrestricted">
+      <entry supported_profiles="unrestricted"/><entry supported_profiles="restricted"/>
+      <entry fpport="13" hybrid_profile_type="hybrid_profile_1"/>
+      <entry hwport="33"/>
+      <entry hwport="34"/>
+      <entry hwport="35"/>
+      <entry hwport="36"/>
+      <entry fpport="14" hybrid_profile_type="hybrid_profile_2"/>
+      <entry hwport="37"/>
+      <entry hwport="38"/>
+      <entry hwport="39"/>
+      <entry hwport="40"/>
+    </hg>
+    <hg id="8" npu="0" name="hybrid-group-8" profile_mode="unrestricted">
+      <entry supported_profiles="unrestricted"/><entry supported_profiles="restricted"/>
+      <entry fpport="15" hybrid_profile_type="hybrid_profile_1"/>
+      <entry hwport="113"/>
+      <entry hwport="114"/>
+      <entry hwport="115"/>
+      <entry hwport="116"/>
+      <entry fpport="16" hybrid_profile_type="hybrid_profile_2"/>
+      <entry hwport="117"/>
+      <entry hwport="118"/>
+      <entry hwport="119"/>
+      <entry hwport="120"/>
+    </hg>
+    <hg id="9" npu="0" name="hybrid-group-9" profile_mode="unrestricted">
+      <entry supported_profiles="unrestricted"/><entry supported_profiles="restricted"/>
+      <entry fpport="17" hybrid_profile_type="hybrid_profile_1"/>
+      <entry hwport="133"/>
+      <entry hwport="134"/>
+      <entry hwport="135"/>
+      <entry hwport="136"/>
+      <entry fpport="18" hybrid_profile_type="hybrid_profile_2"/>
+      <entry hwport="129"/>
+      <entry hwport="130"/>
+      <entry hwport="131"/>
+      <entry hwport="132"/>
+    </hg>
+    <hg id="10" npu="0" name="hybrid-group-10" profile_mode="unrestricted">
+      <entry supported_profiles="unrestricted"/><entry supported_profiles="restricted"/>
+      <entry fpport="19" hybrid_profile_type="hybrid_profile_1"/>
+      <entry hwport="213"/>
+      <entry hwport="214"/>
+      <entry hwport="215"/>
+      <entry hwport="216"/>
+      <entry fpport="20" hybrid_profile_type="hybrid_profile_2"/>
+      <entry hwport="209"/>
+      <entry hwport="210"/>
+      <entry hwport="211"/>
+      <entry hwport="212"/>
+    </hg>
+    <hg id="11" npu="0" name="hybrid-group-11" profile_mode="unrestricted">
+      <entry supported_profiles="unrestricted"/><entry supported_profiles="restricted"/>
+      <entry fpport="21" hybrid_profile_type="hybrid_profile_1"/>
+      <entry hwport="229"/>
+      <entry hwport="230"/>
+      <entry hwport="231"/>
+      <entry hwport="232"/>
+      <entry fpport="22" hybrid_profile_type="hybrid_profile_2"/>
+      <entry hwport="225"/>
+      <entry hwport="226"/>
+      <entry hwport="227"/>
+      <entry hwport="228"/>
+    </hg>
+    <hg id="12" npu="0" name="hybrid-group-12" profile_mode="unrestricted">
+      <entry supported_profiles="unrestricted"/><entry supported_profiles="restricted"/>
+      <entry fpport="23" hybrid_profile_type="hybrid_profile_1"/>
+      <entry hwport="245"/>
+      <entry hwport="246"/>
+      <entry hwport="247"/>
+      <entry hwport="248"/>
+      <entry fpport="24" hybrid_profile_type="hybrid_profile_2"/>
+      <entry hwport="241"/>
+      <entry hwport="242"/>
+      <entry hwport="243"/>
+      <entry hwport="244"/>
+    </hg>
+    <hg id="13" npu="0" name="hybrid-group-13" profile_mode="unrestricted">
+      <entry supported_profiles="unrestricted"/><entry supported_profiles="restricted"/>
+      <entry fpport="25" hybrid_profile_type="hybrid_profile_1"/>
+      <entry hwport="149"/>
+      <entry hwport="150"/>
+      <entry hwport="151"/>
+      <entry hwport="152"/>
+      <entry fpport="26" hybrid_profile_type="hybrid_profile_2"/>
+      <entry hwport="145"/>
+      <entry hwport="146"/>
+      <entry hwport="147"/>
+      <entry hwport="148"/>
+    </hg>
+    <hg id="14" npu="0" name="hybrid-group-14" profile_mode="unrestricted">
+      <entry supported_profiles="unrestricted"/><entry supported_profiles="restricted"/>
+      <entry fpport="27" hybrid_profile_type="hybrid_profile_1"/>
+      <entry hwport="165"/>
+      <entry hwport="166"/>
+      <entry hwport="167"/>
+      <entry hwport="168"/>
+      <entry fpport="28" hybrid_profile_type="hybrid_profile_2"/>
+      <entry hwport="161"/>
+      <entry hwport="162"/>
+      <entry hwport="163"/>
+      <entry hwport="164"/>
+    </hg>
+    <hg id="15" npu="0" name="hybrid-group-15" profile_mode="unrestricted">
+      <entry supported_profiles="unrestricted"/><entry supported_profiles="restricted"/>
+      <entry fpport="29" hybrid_profile_type="hybrid_profile_1"/>
+      <entry hwport="181"/>
+      <entry hwport="182"/>
+      <entry hwport="183"/>
+      <entry hwport="184"/>
+      <entry fpport="30" hybrid_profile_type="hybrid_profile_2"/>
+      <entry hwport="177"/>
+      <entry hwport="178"/>
+      <entry hwport="179"/>
+      <entry hwport="180"/>
+    </hg>
+    <hg id="16" npu="0" name="hybrid-group-16" profile_mode="unrestricted">
+      <entry supported_profiles="unrestricted"/><entry supported_profiles="restricted"/>
+      <entry fpport="31" hybrid_profile_type="hybrid_profile_1"/>
+      <entry hwport="197"/>
+      <entry hwport="198"/>
+      <entry hwport="199"/>
+      <entry hwport="200"/>
+      <entry fpport="32" hybrid_profile_type="hybrid_profile_2"/>
+      <entry hwport="193"/>
+      <entry hwport="194"/>
+      <entry hwport="195"/>
+      <entry hwport="196"/>
+    </hg>
+    <hg id="17" npu="0" name="hybrid-group-17" profile_mode="unrestricted">
+      <entry supported_profiles="unrestricted"/><entry supported_profiles="restricted"/>
+      <entry fpport="33" hybrid_profile_type="hybrid_profile_1"/>
+      <entry hwport="61"/>
+      <entry hwport="62"/>
+      <entry hwport="63"/>
+      <entry hwport="64"/>
+      <entry fpport="34" hybrid_profile_type="hybrid_profile_2"/>
+      <entry hwport="57"/>
+      <entry hwport="58"/>
+      <entry hwport="59"/>
+      <entry hwport="60"/>
+    </hg>
+    <hg id="18" npu="0" name="hybrid-group-18" profile_mode="unrestricted">
+      <entry supported_profiles="unrestricted"/><entry supported_profiles="restricted"/>
+      <entry fpport="35" hybrid_profile_type="hybrid_profile_1"/>
+      <entry hwport="77"/>
+      <entry hwport="78"/>
+      <entry hwport="79"/>
+      <entry hwport="80"/>
+      <entry fpport="36" hybrid_profile_type="hybrid_profile_2"/>
+      <entry hwport="73"/>
+      <entry hwport="74"/>
+      <entry hwport="75"/>
+      <entry hwport="76"/>
+    </hg>
+    <hg id="19" npu="0" name="hybrid-group-19" profile_mode="unrestricted">
+      <entry supported_profiles="unrestricted"/><entry supported_profiles="restricted"/>
+      <entry fpport="37" hybrid_profile_type="hybrid_profile_1"/>
+      <entry hwport="93"/>
+      <entry hwport="94"/>
+      <entry hwport="95"/>
+      <entry hwport="96"/>
+      <entry fpport="38" hybrid_profile_type="hybrid_profile_2"/>
+      <entry hwport="89"/>
+      <entry hwport="90"/>
+      <entry hwport="91"/>
+      <entry hwport="92"/>
+    </hg>
+    <hg id="20" npu="0" name="hybrid-group-20" profile_mode="unrestricted">
+      <entry supported_profiles="unrestricted"/><entry supported_profiles="restricted"/>
+      <entry fpport="39" hybrid_profile_type="hybrid_profile_1"/>
+      <entry hwport="109"/>
+      <entry hwport="110"/>
+      <entry hwport="111"/>
+      <entry hwport="112"/>
+      <entry fpport="40" hybrid_profile_type="hybrid_profile_2"/>
+      <entry hwport="105"/>
+      <entry hwport="106"/>
+      <entry hwport="107"/>
+      <entry hwport="108"/>
+    </hg>
+    <hg id="21" npu="0" name="hybrid-group-21" profile_mode="unrestricted">
+      <entry supported_profiles="unrestricted"/><entry supported_profiles="restricted"/>
+      <entry fpport="41" hybrid_profile_type="hybrid_profile_1"/>
+      <entry hwport="13"/>
+      <entry hwport="14"/>
+      <entry hwport="15"/>
+      <entry hwport="16"/>
+      <entry fpport="42" hybrid_profile_type="hybrid_profile_2"/>
+      <entry hwport="9"/>
+      <entry hwport="10"/>
+      <entry hwport="11"/>
+      <entry hwport="12"/>
+    </hg>
+    <hg id="22" npu="0" name="hybrid-group-22" profile_mode="unrestricted">
+      <entry supported_profiles="unrestricted"/><entry supported_profiles="restricted"/>
+      <entry fpport="43" hybrid_profile_type="hybrid_profile_1"/>
+      <entry hwport="29"/>
+      <entry hwport="30"/>
+      <entry hwport="31"/>
+      <entry hwport="32"/>
+      <entry fpport="44" hybrid_profile_type="hybrid_profile_2"/>
+      <entry hwport="25"/>
+      <entry hwport="26"/>
+      <entry hwport="27"/>
+      <entry hwport="28"/>
+    </hg>
+    <hg id="23" npu="0" name="hybrid-group-23" profile_mode="unrestricted">
+      <entry supported_profiles="unrestricted"/><entry supported_profiles="restricted"/>
+      <entry fpport="45" hybrid_profile_type="hybrid_profile_1"/>
+      <entry hwport="45"/>
+      <entry hwport="46"/>
+      <entry hwport="47"/>
+      <entry hwport="48"/>
+      <entry fpport="46" hybrid_profile_type="hybrid_profile_2"/>
+      <entry hwport="41"/>
+      <entry hwport="42"/>
+      <entry hwport="43"/>
+      <entry hwport="44"/>
+    </hg>
+    <hg id="24" npu="0" name="hybrid-group-24" profile_mode="unrestricted">
+      <entry supported_profiles="unrestricted"/><entry supported_profiles="restricted"/>
+      <entry fpport="47" hybrid_profile_type="hybrid_profile_1"/>
+      <entry hwport="125"/>
+      <entry hwport="126"/>
+      <entry hwport="127"/>
+      <entry hwport="128"/>
+      <entry fpport="48" hybrid_profile_type="hybrid_profile_2"/>
+      <entry hwport="121"/>
+      <entry hwport="122"/>
+      <entry hwport="123"/>
+      <entry hwport="124"/>
+    </hg>
+    <hg id="25" npu="0" name="hybrid-group-25" profile_mode="unrestricted">
+      <entry supported_profiles="unrestricted"/><entry supported_profiles="restricted"/>
+      <entry fpport="49" hybrid_profile_type="hybrid_profile_1"/>
+      <entry hwport="137"/>
+      <entry hwport="138"/>
+      <entry hwport="139"/>
+      <entry hwport="140"/>
+      <entry fpport="50" hybrid_profile_type="hybrid_profile_2"/>
+      <entry hwport="141"/>
+      <entry hwport="142"/>
+      <entry hwport="143"/>
+      <entry hwport="144"/>
+    </hg>
+    <hg id="26" npu="0" name="hybrid-group-26" profile_mode="unrestricted">
+      <entry supported_profiles="unrestricted"/><entry supported_profiles="restricted"/>
+      <entry fpport="51" hybrid_profile_type="hybrid_profile_1"/>
+      <entry hwport="217"/>
+      <entry hwport="218"/>
+      <entry hwport="219"/>
+      <entry hwport="220"/>
+      <entry fpport="52" hybrid_profile_type="hybrid_profile_2"/>
+      <entry hwport="221"/>
+      <entry hwport="222"/>
+      <entry hwport="223"/>
+      <entry hwport="224"/>
+    </hg>
+    <hg id="27" npu="0" name="hybrid-group-27" profile_mode="unrestricted">
+      <entry supported_profiles="unrestricted"/><entry supported_profiles="restricted"/>
+      <entry fpport="53" hybrid_profile_type="hybrid_profile_1"/>
+      <entry hwport="233"/>
+      <entry hwport="234"/>
+      <entry hwport="235"/>
+      <entry hwport="236"/>
+      <entry fpport="54" hybrid_profile_type="hybrid_profile_2"/>
+      <entry hwport="237"/>
+      <entry hwport="238"/>
+      <entry hwport="239"/>
+      <entry hwport="240"/>
+    </hg>
+    <hg id="28" npu="0" name="hybrid-group-28" profile_mode="unrestricted">
+      <entry supported_profiles="unrestricted"/><entry supported_profiles="restricted"/>
+      <entry fpport="55" hybrid_profile_type="hybrid_profile_1"/>
+      <entry hwport="249"/>
+      <entry hwport="250"/>
+      <entry hwport="251"/>
+      <entry hwport="252"/>
+      <entry fpport="56" hybrid_profile_type="hybrid_profile_2"/>
+      <entry hwport="253"/>
+      <entry hwport="254"/>
+      <entry hwport="255"/>
+      <entry hwport="256"/>
+    </hg>
+    <hg id="29" npu="0" name="hybrid-group-29" profile_mode="unrestricted">
+      <entry supported_profiles="unrestricted"/><entry supported_profiles="restricted"/>
+      <entry fpport="57" hybrid_profile_type="hybrid_profile_1"/>
+      <entry hwport="153"/>
+      <entry hwport="154"/>
+      <entry hwport="155"/>
+      <entry hwport="156"/>
+      <entry fpport="58" hybrid_profile_type="hybrid_profile_2"/>
+      <entry hwport="157"/>
+      <entry hwport="158"/>
+      <entry hwport="159"/>
+      <entry hwport="160"/>
+    </hg>
+    <hg id="30" npu="0" name="hybrid-group-30" profile_mode="unrestricted">
+      <entry supported_profiles="unrestricted"/><entry supported_profiles="restricted"/>
+      <entry fpport="59" hybrid_profile_type="hybrid_profile_1"/>
+      <entry hwport="169"/>
+      <entry hwport="170"/>
+      <entry hwport="171"/>
+      <entry hwport="172"/>
+      <entry fpport="60" hybrid_profile_type="hybrid_profile_2"/>
+      <entry hwport="173"/>
+      <entry hwport="174"/>
+      <entry hwport="175"/>
+      <entry hwport="176"/>
+    </hg>
+    <hg id="31" npu="0" name="hybrid-group-31" profile_mode="unrestricted">
+      <entry supported_profiles="unrestricted"/><entry supported_profiles="restricted"/>
+      <entry fpport="61" hybrid_profile_type="hybrid_profile_1"/>
+      <entry hwport="185"/>
+      <entry hwport="186"/>
+      <entry hwport="187"/>
+      <entry hwport="188"/>
+      <entry fpport="62" hybrid_profile_type="hybrid_profile_2"/>
+      <entry hwport="189"/>
+      <entry hwport="190"/>
+      <entry hwport="191"/>
+      <entry hwport="192"/>
+    </hg>
+    <hg id="32" npu="0" name="hybrid-group-32" profile_mode="unrestricted">
+      <entry supported_profiles="unrestricted"/><entry supported_profiles="restricted"/>
+      <entry fpport="63" hybrid_profile_type="hybrid_profile_1"/>
+      <entry hwport="201"/>
+      <entry hwport="202"/>
+      <entry hwport="203"/>
+      <entry hwport="204"/>
+      <entry fpport="64" hybrid_profile_type="hybrid_profile_2"/>
+      <entry hwport="205"/>
+      <entry hwport="206"/>
+      <entry hwport="207"/>
+      <entry hwport="208"/>
+    </hg>
+  </hybrid-group>
+</front-panel>

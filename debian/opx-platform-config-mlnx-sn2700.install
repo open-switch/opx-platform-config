@@ -1,4 +1,5 @@
 common/etc/*                            etc
+common/usr/*                            usr
 vendor/mlnx/sn2700/etc/opx/*            etc/opx
 common-hw/sbin/*                        usr/sbin
 vendor/mlnx/sn2700/bin/*                usr/bin

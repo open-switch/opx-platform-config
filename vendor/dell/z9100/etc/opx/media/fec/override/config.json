@@ -9,27 +9,31 @@
         },
         "QSFP28 4x(25GBASE CR) 3.0M":
         {
-            "100g": ["fec-profile-3"]
+            "100g, 50g, 25g": ["fec-profile-3"]
         },
         "QSFP28 4x(25GBASE CR) 4.0M":
         {
-            "100g": ["fec-profile-3"]
+            "100g, 50g, 25g": ["fec-profile-3"]
         },
         "QSFP28 4x(25GBASE CR) 5.0M":
         {
-            "100g": ["fec-profile-3"]
+            "100g, 50g, 25g": ["fec-profile-3"]
         },
         "QSFP28 2x(25GBASE CR) 3.0M":
         {
-            "100g": ["fec-profile-3"]
+            "100g, 50g, 25g": ["fec-profile-3"]
         },
         "QSFP28 2x(25GBASE CR) 4.0M":
         {
-            "100g": ["fec-profile-3"]
+            "100g, 50g, 25g": ["fec-profile-3"]
         },
         "QSFP28 2x(25GBASE CR) 5.0M":
         {
-            "100g": ["fec-profile-3"]
+            "100g, 50g, 25g": ["fec-profile-3"]
+        },
+        "SFP28 25GBASE CR 3.0M":
+        {
+             "25g": ["fec-profile-3"]
         },
         "SFP28 25GBASE CR 5.0M":
         {
@@ -41,11 +45,11 @@
         },
         "QSFP28-DEPOP 50GBASE CR2 5.0M":
         {
-             "50g": ["fec-profile-3"]
+             "50g, 25g": ["fec-profile-3"]
         },
         "QSFP28-DEPOP 50GBASE CR2 3.0M":
         {
-             "50g": ["fec-profile-3"]
+             "50g, 25g": ["fec-profile-3"]
         },
         "SFP28 25GBASE SR":
         {

@@ -41,6 +41,7 @@
 
         <!-- ACL configuration -->
         <ACL_CONFIG>
+            <ACL_PRIO system-flow="14" iscsi_cos="15"/>
             <ACL_INGRESS_FP max_ifp_slice="12" depth_per_entry="1">
                 <FP_SLICE slice_id="0" slice_depth="2048"/>
                 <FP_SLICE slice_id="1" slice_depth="2048"/>

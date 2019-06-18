@@ -1,9 +1,10 @@
 common/etc/*                                            etc
+common/usr/*                                            usr
 common-hw/bin/*                                         usr/bin
 common-hw/sbin/*                                        usr/sbin
-common-hw/lib/udev/rules.d/*                            lib/udev/rules.d
 vendor/dell/s4128f/etc/opx/*                            etc/opx
 vendor/dell/s4128f/bin/*				usr/bin
+vendor/dell/s4128f/libexec/*				usr/libexec
 vendor/dell/s4128f/etc/modules-load.d/*		        etc/modules-load.d
 vendor/dell/s4128f/etc/opx/sai/*			etc/opx/sai
 vendor/dell/s4128f/etc/opx/sdi/*			etc/opx/sdi

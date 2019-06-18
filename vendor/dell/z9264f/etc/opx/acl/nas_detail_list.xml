@@ -28,6 +28,8 @@
           <allow-match>ICMP_TYPE</allow-match>
           <allow-match>ICMP_CODE</allow-match>
           <allow-match>DST_IPV6</allow-match>
+          <allow-match>MCAST_ROUTE_DST_HIT</allow-match>
+          <allow-match>ROUTER_INTERFACE_USER_MARK</allow-match>
      </table>
 
      <entry tag="bgp-src-port">

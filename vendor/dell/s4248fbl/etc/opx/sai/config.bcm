@@ -13,7 +13,6 @@ bcm886xx_ocb_databuffer_size.BCM88675=256
 bcm886xx_ocb_enable.BCM88650=1
 bcm886xx_ocb_enable.BCM88675=1
 bcm886xx_ocb_repartition.BCM88650=0
-bcm886xx_pdm_mode.BCM88650=0
 bcm886xx_rx_use_hw_trap_id.BCM88650=1
 bcm886xx_rx_use_hw_trap_id.BCM88670=1
 bcm886xx_rx_use_hw_trap_id.BCM88675=1
@@ -890,9 +889,6 @@ mld_lane_swap_lane1_ce.BCM88650=21
 mld_lane_swap_lane20_ce.BCM88650=0
 mld_lane_swap_lane21_ce.BCM88650=1
 mpls_entropy_label_indicator_enable=0
-multicast_nbr_full_dbuff.BCM88470=JERICHO_INIT_FMC_NO_REP_DBUFF_MODE
-multicast_nbr_full_dbuff.BCM88650=ARAD_INIT_FMC_4K_REP_64K_DBUFF_MODE
-multicast_nbr_full_dbuff.BCM88675=JERICHO_INIT_FMC_4K_REP_256K_DBUFF_MODE
 nif_ref_clock.BCM88640_A0=312500
 number_of_trunks.BCM88650=256
 num_erp_tm_ports.BCM88640_A0=1
@@ -1514,7 +1510,7 @@ custom_feature_dynamic_port=1
 bcm886xx_qos_l3_l2_marking=1
 
 # Reduce trap action size
-custom_feature_reduced_trap_action=1
+custom_feature_reduced_trap_action=0
 custom_feature_injection_with_user_header_enable=1
 custom_feature_user_header_always_remove=1
 field_class_id_size_0=8
@@ -1525,12 +1521,12 @@ field_class_id_size_3=0
 #Enable multiple my mac termination for VLT
 l3_multiple_mymac_termination_enable=1
 
-bcm886xx_pdm_mode.BCM88375=1
 custom_feature_l3_mc_use_tcam=0
 ipmc_lookup_model=1
 
 bcm886xx_erspan_tunnel_enable=1
 bcm886xx_vxlan_enable=1
+bcm886xx_roo_enable=1
 
 bcm886xx_vxlan_tunnel_lookup_mode=2
 # Separate control-Q

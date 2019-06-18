@@ -27,8 +27,8 @@ permissions and limitations under the License.
         <bmc_fan instance="5" alias="FAN3_Rear"   data_sdr_id="FAN3_Rear_rpm"    status_sdr_id="FAN3_Rear_stat" />
         <bmc_fan instance="6" alias="FAN4_Front"  data_sdr_id="FAN4_Front_rpm"   status_sdr_id="FAN4_Front_stat" />
         <bmc_fan instance="7" alias="FAN4_Rear"   data_sdr_id="FAN4_Rear_rpm"    status_sdr_id="FAN4_Rear_stat" />
-        <bmc_fan instance="8" alias="PSU1_fan"    data_sdr_id="PSU1_rpm"         status_sdr_id="PSU1_stat" />
-        <bmc_fan instance="9" alias="PSU2_fan"    data_sdr_id="PSU2_rpm"         status_sdr_id="PSU2_stat" />
+        <bmc_fan instance="8" alias="PSU1_fan"    data_sdr_id="PSU1_rpm"         status_sdr_id="PSU1_Fan_state" />
+        <bmc_fan instance="9" alias="PSU2_fan"    data_sdr_id="PSU2_rpm"         status_sdr_id="PSU2_Fan_state" />
         <bmc_eeprom instance="10" alias="fan-tray1-fru" data_sdr_id="Entity_info.29.1" int_use_elm_offset="0x16" airflow_offset="0x4" no_of_fans="2" max_fan_speed="23540" />
         <bmc_eeprom instance="11" alias="fan-tray2-fru" data_sdr_id="Entity_info.29.2" int_use_elm_offset="0x16" airflow_offset="0x4" no_of_fans="2" max_fan_speed="23540" />
         <bmc_eeprom instance="12" alias="fan-tray3-fru" data_sdr_id="Entity_info.29.3" int_use_elm_offset="0x16" airflow_offset="0x4" no_of_fans="2" max_fan_speed="23540" />
@@ -495,21 +495,21 @@ permissions and limitations under the License.
 
 
   <sys_i2c instance="50" dev_name="/dev/i2c-50" bus_name="smbus_50">
-	  <qsfp instance="1" addr="0x50" port_type="QSFP28" mod_sel_bus="qsfp_mod_sel1" mod_sel_value="0x0"  mod_pres_bus="qsfp_presence1" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset1" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode1" mod_lpmode_bitmask="0x0"/>
+	  <qsfp instance="1" addr="0x50" port_type="QSFP28-DD" mod_sel_bus="qsfp_mod_sel1" mod_sel_value="0x0"  mod_pres_bus="qsfp_presence1" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset1" mod_reset_bitmask="0x0"  mod_reset_delay_ms="0x1" mod_lpmode_bus="qsfp_lpmode1" mod_lpmode_bitmask="0x0"/>
   </sys_i2c>	
 <sys_i2c instance="51" dev_name="/dev/i2c-51" bus_name="smbus_51">
-	  <qsfp instance="2" addr="0x50" port_type="QSFP28" mod_sel_bus="qsfp_mod_sel2" mod_sel_value="0x0"  mod_pres_bus="qsfp_presence2" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset2" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode2" mod_lpmode_bitmask="0x0"/>
+	  <qsfp instance="2" addr="0x50" port_type="QSFP28-DD" mod_sel_bus="qsfp_mod_sel2" mod_sel_value="0x0"  mod_pres_bus="qsfp_presence2" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset2" mod_reset_bitmask="0x0"  mod_reset_delay_ms="0x1" mod_lpmode_bus="qsfp_lpmode2" mod_lpmode_bitmask="0x0"/>
   </sys_i2c>
   <sys_i2c instance="52" dev_name="/dev/i2c-52" bus_name="smbus_52">
-	  <qsfp instance="3" addr="0x50" port_type="QSFP28" mod_sel_bus="qsfp_mod_sel3" mod_sel_value="0x0"  mod_pres_bus="qsfp_presence3" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset3" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode3" mod_lpmode_bitmask="0x0"/>
+	  <qsfp instance="3" addr="0x50" port_type="QSFP28" mod_sel_bus="qsfp_mod_sel3" mod_sel_value="0x0"  mod_pres_bus="qsfp_presence3" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset3" mod_reset_bitmask="0x0"  mod_reset_delay_ms="0x1" mod_lpmode_bus="qsfp_lpmode3" mod_lpmode_bitmask="0x0"/>
   </sys_i2c>
   <sys_i2c instance="53" dev_name="/dev/i2c-53" bus_name="smbus_53">
-	  <qsfp instance="4" addr="0x50" port_type="QSFP28" mod_sel_bus="qsfp_mod_sel4" mod_sel_value="0x0"  mod_pres_bus="qsfp_presence4" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset4" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode4" mod_lpmode_bitmask="0x0"/>
+	  <qsfp instance="4" addr="0x50" port_type="QSFP28" mod_sel_bus="qsfp_mod_sel4" mod_sel_value="0x0"  mod_pres_bus="qsfp_presence4" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset4" mod_reset_bitmask="0x0"  mod_reset_delay_ms="0x1" mod_lpmode_bus="qsfp_lpmode4" mod_lpmode_bitmask="0x0"/>
   </sys_i2c>
   <sys_i2c instance="54" dev_name="/dev/i2c-54" bus_name="smbus_54">
-	  <qsfp instance="5" addr="0x50" port_type="QSFP28" mod_sel_bus="qsfp_mod_sel5" mod_sel_value="0x0"  mod_pres_bus="qsfp_presence5" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset5" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode5" mod_lpmode_bitmask="0x0"/>
+	  <qsfp instance="5" addr="0x50" port_type="QSFP28" mod_sel_bus="qsfp_mod_sel5" mod_sel_value="0x0"  mod_pres_bus="qsfp_presence5" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset5" mod_reset_bitmask="0x0"  mod_reset_delay_ms="0x1" mod_lpmode_bus="qsfp_lpmode5" mod_lpmode_bitmask="0x0"/>
   </sys_i2c>
   <sys_i2c instance="55" dev_name="/dev/i2c-55" bus_name="smbus_55">
-	  <qsfp instance="6" addr="0x50" port_type="QSFP28" mod_sel_bus="qsfp_mod_sel6" mod_sel_value="0x0"  mod_pres_bus="qsfp_presence6" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset6" mod_reset_bitmask="0x0"  mod_lpmode_bus="qsfp_lpmode6" mod_lpmode_bitmask="0x0"/>
+	  <qsfp instance="6" addr="0x50" port_type="QSFP28" mod_sel_bus="qsfp_mod_sel6" mod_sel_value="0x0"  mod_pres_bus="qsfp_presence6" mod_pres_bitmask="0x4" mod_reset_bus="qsfp_reset6" mod_reset_bitmask="0x0"  mod_reset_delay_ms="0x1" mod_lpmode_bus="qsfp_lpmode6" mod_lpmode_bitmask="0x0"/>
   </sys_i2c>
 </root>

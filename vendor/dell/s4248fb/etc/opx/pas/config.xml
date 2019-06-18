@@ -26,6 +26,7 @@
         <subcat id="media-channel"/>
         <subcat id="media-config"/>
         <subcat id="pld" entity-type="card"/>
+        <subcat id="nvram"/>
 
         <entity entity-type="psu" poll-interval="2000"/>
         <entity entity-type="fan-tray" poll-interval="2000"/>

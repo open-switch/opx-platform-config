@@ -13,8 +13,14 @@
  permissions and limitations under the License.
 -->
 <mac-address-allocation>
-    <interface type="management" base-offset="0" offset-range="1" />
-    <interface type="front-panel" base-offset="1" offset-range="104" />
-    <interface type="lag" base-offset="105" offset-range="1" />
-    <interface type="vlan" base-offset="106" offset-range="1" />
+    <application name="interface">
+        <mac-range type="management" base-offset="0" offset-range="1" />
+        <mac-range type="front-panel" base-offset="1" offset-range="104" />
+        <mac-range type="lag" base-offset="105" offset-range="1" />
+        <mac-range type="vlan" base-offset="106" offset-range="1" />
+        <mac-range type="virtual-network" base-offset="107" offset-range="2" />
+    </application>
+    <application name="vrf">
+        <mac-range type="routing" base-offset="109" offset-range="1" />
+    </application>
 </mac-address-allocation>

@@ -1,2 +1,4 @@
+/etc/opx/base_port_physical_mapping_table.xml	/etc/opx/profile-1-base_port_physical_mapping_table.xml
+/etc/opx/base_port_physical_mapping_table.xml	/etc/opx/profile-2-base_port_physical_mapping_table.xml
 /etc/opx/sai/init.xml	/etc/opx/sai/profile-1-init.xml
 /etc/opx/sai/init.xml	/etc/opx/sai/profile-2-init.xml

@@ -45,6 +45,7 @@
 
         <!-- ACL configuration -->
         <ACL_CONFIG>
+            <ACL_PRIO system-flow="14" iscsi_cos="15"/>
             <ACL_INGRESS_FP max_ifp_slice="12" depth_per_entry="2">
                 <FP_SLICE slice_id="0" slice_depth="512"/>
                 <FP_SLICE slice_id="1" slice_depth="512"/>
@@ -7850,7 +7851,7 @@
 
         <PORT instance="0x1FE">
             <ID valid="true" logical_port="100" hw_port="257" port_group="64"/>
-            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <SUPPORTED_SPEED speed100M="true" speed1G="true" speed10G="true"/>
             <BREAKOUT support="false" lane_1="true"/>
             <LANE speed="10000" count="1" bitmap="0xf"/>
             <TILE_ID tile="2"/>
@@ -7859,7 +7860,7 @@
 
         <PORT instance="0x2FE">
             <ID valid="true" logical_port="66" hw_port="259" port_group="65"/>
-            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <SUPPORTED_SPEED speed100M="true" speed1G="true" speed10G="true"/>
             <BREAKOUT support="false" lane_1="true"/>
             <LANE speed="10000" count="1" bitmap="0xf"/>
             <TILE_ID tile="1"/>

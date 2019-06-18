@@ -22,6 +22,7 @@
     <entry mode="3" l2_max="32768" l3_max="131072" arp_max="16384"/>
     <entry mode="4" l2_max="98304" l3_max="16384" arp_max="212992"/>
 </switch_forwarding_mode>
+<switch_multicast_config l2mc_vlan_port_lookup_enabled="1" />
 <vxlan-riot-config enable="1"/>
 <deep_buffer_mode config_required="1" default_dbm="0"/>
 </switch_config>

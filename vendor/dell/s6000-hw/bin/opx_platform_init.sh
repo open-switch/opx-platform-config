@@ -17,10 +17,49 @@
 
 . /etc/opx/opx-environment.sh
 
+# Check existence of I2C device
+function i2c_chk {
+    test -e /dev/i2c-$1
+}
+
+# Check existence of a range of I2C devices
+function i2c_chk_range {
+    local i
+    i=$1
+    while [[ $i -lt $2 ]]
+    do
+        i2c_chk $i
+        if [[ $? -ne 0 ]]
+        then
+            false
+            return
+        fi
+        i=$(($i + 1))
+    done
+    true
+}
+
+# Wait until a range of I2C devices exist
+function i2c_wait_range {
+    while true
+    do
+        i2c_chk_range $1 $2
+        if [[ $? -eq 0 ]]
+        then
+            break
+        fi
+        sleep 0.5
+    done
+}
+
+# Wait for i2c devices to appear
+i2c_wait_range 0 3
+
 /usr/bin/pcisysfs.py --set --val 0x00000005 --offset 0x300 --res "/sys/devices/pci0000:00/0000:00:13.1/resource0"
 #SM Bus HCLK divider register set 0x59 to tune 90khz frequency
 /usr/bin/portiocfg.py --set --offset 0x402 --val 0x59
 /usr/bin/portiocfg.py --set --offset 0x403 --val 0x0
+sleep 0.5
 
 # Put firmware verions of PLDs in a file
 FIRMWARE_VERSION_FILE=/var/log/firmware_versions

@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 2018 Dell Inc.
+ Licensed under the Apache License, Version 2.0 (the "License"); you may
+ not use this file except in compliance with the License. You may obtain
+ a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+
+ THIS CODE IS PROVIDED ON AN  *AS IS* BASIS, WITHOUT WARRANTIES OR
+ CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT
+ LIMITATION ANY IMPLIED WARRANTIES OR CONDITIONS OF TITLE, FITNESS
+ FOR A PARTICULAR PURPOSE, MERCHANTABLITY OR NON-INFRINGEMENT.
+
+ See the Apache Version 2.0 License for specific language governing
+ permissions and limitations under the License.
+-->
+<front-panel>
+
+    <global fc_enabled="false" default_profile= "ethernet_sfp28">
+        <profile name="ethernet_qsfp28" default_breakout="1x1" default_hwport_speed="25000">
+            <hwport_speed_cap value="10000"/>
+            <hwport_speed_cap value="25000"/>
+            <breakout_cap value="4x1"/>
+            <breakout_cap value="2x1"/>
+            <breakout_cap value="1x1"/>
+        </profile>
+        <profile name="ethernet_sfp28" default_breakout="4x4" default_hwport_speed="25000">
+            <hwport_speed_cap value="25000"/>
+            <hwport_speed_cap value="10000"/>
+            <breakout_cap value="4x4"/>
+        </profile>
+        <profile name="ethernet_ddqsfp28" default_breakout="2x2" default_hwport_speed="25000">
+            <hwport_speed_cap value="25000"/>
+            <hwport_speed_cap value="10000"/>
+            <breakout_cap value="8x2"/>
+            <breakout_cap value="4x2"/>
+            <breakout_cap value="2x2"/>
+        </profile>
+    </global>
+
+	<front-panel-port id="1" slot="0" npu="0" mac_offset="1" phy_media="1" name="e101-001-0">
+		<entry hwport="29" />
+	</front-panel-port>
+	<front-panel-port id="2" slot="0" npu="0" mac_offset="2" phy_media="2" name="e101-002-0">
+		<entry hwport="30" />
+	</front-panel-port>
+	<front-panel-port id="3" slot="0" npu="0" mac_offset="3" phy_media="3" name="e101-003-0">
+		<entry hwport="31" />
+	</front-panel-port>
+	<front-panel-port id="4" slot="0" npu="0" mac_offset="4" phy_media="4" name="e101-004-0">
+		<entry hwport="32" />
+	</front-panel-port>
+	<front-panel-port id="5" slot="0" npu="0" mac_offset="5" phy_media="5" name="e101-005-0">
+		<entry hwport="33" />
+	</front-panel-port>
+	<front-panel-port id="6" slot="0" npu="0" mac_offset="6" phy_media="6" name="e101-006-0">
+		<entry hwport="34" />
+	</front-panel-port>
+	<front-panel-port id="7" slot="0" npu="0" mac_offset="7" phy_media="7" name="e101-007-0">
+		<entry hwport="35" />
+	</front-panel-port>
+	<front-panel-port id="8" slot="0" npu="0" mac_offset="8" phy_media="8" name="e101-008-0">
+		<entry hwport="36" />
+	</front-panel-port>
+	<front-panel-port id="9" slot="0" npu="0" mac_offset="9" phy_media="9" name="e101-009-0">
+		<entry hwport="37" />
+	</front-panel-port>
+	<front-panel-port id="10" slot="0" npu="0" mac_offset="10" phy_media="10" name="e101-010-0">
+		<entry hwport="38" />
+	</front-panel-port>
+	<front-panel-port id="11" slot="0" npu="0" mac_offset="11" phy_media="11" name="e101-011-0">
+		<entry hwport="39" />
+	</front-panel-port>
+	<front-panel-port id="12" slot="0" npu="0" mac_offset="12" phy_media="12" name="e101-012-0">
+		<entry hwport="40" />
+	</front-panel-port>
+	<front-panel-port id="13" profile_type="ethernet_qsfp28" slot="0" npu="0" mac_offset="13" phy_media="13" name="e101-013-0">
+		<entry hwport="41" />
+		<entry hwport="42" />
+		<entry hwport="43" />
+		<entry hwport="44" />
+	</front-panel-port>
+	<front-panel-port id="14" profile_type="ethernet_qsfp28" slot="0" npu="0" mac_offset="14" phy_media="14" name="e101-014-0">
+		<entry hwport="45" />
+		<entry hwport="46" />
+		<entry hwport="47" />
+		<entry hwport="48" />
+	</front-panel-port>
+	<front-panel-port id="15" profile_type="ethernet_qsfp28" slot="0" npu="0" mac_offset="15" phy_media="15" name="e101-015-0">
+		<entry hwport="49" />
+		<entry hwport="50" />
+		<entry hwport="51" />
+		<entry hwport="52" />
+	</front-panel-port>
+	
+	<port-group>
+	    <pg id="1" profile_type="ethernet_sfp28" npu="0" name="port-group-1">
+	        <entry fpport="1" />
+	        <entry fpport="2" />
+	        <entry fpport="3" />
+	        <entry fpport="4" />
+	        <entry hwport="29" />
+	        <entry hwport="30" />
+	        <entry hwport="31" />
+	        <entry hwport="32" />
+		</pg>
+	    <pg id="2" profile_type="ethernet_sfp28" npu="0" name="port-group-2">
+	        <entry fpport="5" />
+	        <entry fpport="6" />
+	        <entry fpport="7" />
+	        <entry fpport="8" />
+	        <entry hwport="33" />
+	        <entry hwport="34" />
+	        <entry hwport="35" />
+	        <entry hwport="36" />
+		</pg>
+	    <pg id="3" profile_type="ethernet_sfp28" npu="0" name="port-group-3">
+	        <entry fpport="9" />
+	        <entry fpport="10" />
+	        <entry fpport="11" />
+	        <entry fpport="12" />
+	        <entry hwport="37" />
+	        <entry hwport="38" />
+	        <entry hwport="39" />
+	        <entry hwport="40" />
+		</pg>
+            <pg id="4" profile_type="ethernet_qsfp28" npu="0" name="port-group-4">
+                <entry fpport="13" />
+                <entry hwport="41" />
+                <entry hwport="42" />
+                <entry hwport="43" />
+                <entry hwport="44" />
+                </pg>
+            <pg id="5" profile_type="ethernet_qsfp28" npu="0" name="port-group-5">
+                <entry fpport="14" />
+                <entry hwport="45" />
+                <entry hwport="46" />
+                <entry hwport="47" />
+                <entry hwport="48" />
+                </pg>
+            <pg id="6" profile_type="ethernet_qsfp28" npu="0" name="port-group-6">
+                <entry fpport="15" />
+                <entry hwport="49" />
+                <entry hwport="50" />
+                <entry hwport="51" />
+                <entry hwport="52" />
+                </pg>
+         </port-group>
+</front-panel>

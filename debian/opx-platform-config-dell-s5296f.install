@@ -1,7 +1,7 @@
 common/etc/*                                            etc
+common/usr/*                                            usr
 common-hw/bin/*                                         usr/bin
 common-hw/sbin/*                                        usr/sbin
-common-hw/lib/udev/rules.d/*                            lib/udev/rules.d
 vendor/dell/s5296f/etc/opx/*                            etc/opx
 vendor/dell/s5296f/bin/*                                usr/bin
 vendor/dell/s5296f/etc/modules-load.d/*                 etc/modules-load.d

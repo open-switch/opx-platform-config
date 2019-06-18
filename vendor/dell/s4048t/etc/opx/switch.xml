@@ -17,13 +17,15 @@
 <switch id="0" npus="0" />
 
 <switch_forwarding_mode default_mode="1">
-                        <entry mode="1" l2_max="163840" l3_max="32768" arp_max="147456"/>
-                        <entry mode="2" l2_max="294912" l3_max="32768" arp_max="16384"/>
-                        <entry mode="3" l2_max="32768" l3_max="393216" arp_max="16384"/>
-                        <entry mode="4" l2_max="32768" l3_max="32768" arp_max="278528"/>
+                        <entry mode="1" l2_max="163840" l3_max="16384" arp_max="147456"/>
+                        <entry mode="2" l2_max="294912" l3_max="16384" arp_max="16384"/>
+                        <entry mode="3" l2_max="32768" l3_max="131072" arp_max="16384"/>
+                        <entry mode="4" l2_max="98304" l3_max="16384" arp_max="212992"/>
 </switch_forwarding_mode>
 
 <ipv6_extended_prefix config_required="1" default_routes="0" max_routes="3072" lpm_block_size="1024"/>
-<l3-table-size max_rifs="16384" rif_block_size="2048" max_nexthops="65536" nexthop_block_size="4096"/>
-<vxlan-riot-config enable="1" max_overlay_rifs="2048" max_overlay_nexthops="12288"/>
+<l3-table-size max_rifs="12288" rif_block_size="2048" max_nexthops="49152" nexthop_block_size="4096"/>
+<vxlan-riot-config enable="1" max_overlay_rifs="2048" max_overlay_nexthops="8192"/>
+<switch_resilient_hash lag_enabled="true" ecmp_enabled="true"/>
+<switch_ecmp default_max_ecmp_per_grp="64"/>
 </switch_config>

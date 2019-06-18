@@ -1,0 +1,15 @@
+[Unit]
+Description=Check for LPC clock failure on Rangeley CPU
+Wants=opx-cps.service
+After=opx-cps.service
+DefaultDependencies=no
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/opx_lpc_bus_check.py
+
+# Resource Limitations
+LimitNOFILE=16384
+
+[Install]
+WantedBy=multi-user.target

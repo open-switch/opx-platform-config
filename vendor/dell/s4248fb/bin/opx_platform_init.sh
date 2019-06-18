@@ -13,14 +13,64 @@
 # See the Apache Version 2.0 License for specific language governing
 # permissions and limitations under the License.
 
-echo pca9547 0x70 >/sys/devices/pci0000:00/0000:00:13.0/i2c-?/new_device
+# Disable native linux igb
+/sbin/rmmod igb
+# Enable custom igb deb package
+/sbin/insmod  /lib/modules/`uname -r`/updates/igb.ko
+
+# Check existence of I2C device
+function i2c_chk {
+    test -e /dev/i2c-$1
+}
+
+# Check existence of a range of I2C devices
+function i2c_chk_range {
+    local i
+    i=$1
+    while [[ $i -lt $2 ]]
+    do
+        i2c_chk $i
+        if [[ $? -ne 0 ]]
+        then
+            false
+            return
+        fi
+        i=$(($i + 1))
+    done
+    true
+}
+
+# Wait until a range of I2C devices exist
+function i2c_wait_range {
+    while true
+    do
+        i2c_chk_range $1 $2
+        if [[ $? -eq 0 ]]
+        then
+            break
+        fi
+        sleep 0.5
+    done
+}
+
+# Wait for i2c devices to appear
+i2c_wait_range 0 2
+
+#SMBus Controller 2.0 SPGT register to 0x00000005 to tune 80KHz frequency
+/usr/bin/pcisysfs.py --set --val 0x00000005 --offset 0x300 --res "/sys/devices/pci0000:00/0000:00:13.0/resource0"
 sleep 0.5
+
+echo pca9547 0x70 >/sys/devices/pci0000:00/0000:00:13.0/i2c-?/new_device
+
+# Wait for i2c devices to appear
+i2c_wait_range 2 10
+
 echo pca9548 0x71 > /sys/bus/i2c/devices/i2c-4/new_device
 echo pca9548 0x71 > /sys/bus/i2c/devices/i2c-6/new_device
 echo pca9548 0x72 > /sys/bus/i2c/devices/i2c-9/new_device
 
-#SMBus Controller 2.0 SPGT register to 0x00000005 to tune 80KHz frequency
-/usr/bin/pcisysfs.py --set --val 0x00000005 --offset 0x300 --res "/sys/devices/pci0000:00/0000:00:13.0/resource0"
+# Wait for i2c devices to appear
+i2c_wait_range 10 34
 
 # Now create a file to hold the firmware versions.
 FIRMWARE_VERSION_FILE=/var/log/firmware_versions

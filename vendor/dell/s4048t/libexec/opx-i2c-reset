@@ -1,0 +1,67 @@
+#!/bin/bash
+# Copyright (c) 2018 Dell EMC
+#
+# Licensed under the Apache License, Version 2.0 (the "License"); you may
+# not use this file except in compliance with the License. You may obtain
+# a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
+#
+# THIS CODE IS PROVIDED ON AN  *AS IS* BASIS, WITHOUT WARRANTIES OR
+# CONDITIONS OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT
+# LIMITATION ANY IMPLIED WARRANTIES OR CONDITIONS OF TITLE, FITNESS
+# FOR A PARTICULAR PURPOSE, MERCHANTABLITY OR NON-INFRINGEMENT.
+#
+# See the Apache Version 2.0 License for specific language governing
+# permissions and limitations under the License.
+
+log_event()
+{
+    msg="Attempting to recover i2c bus hang during oper:$2, data_type:$3 and command:$4"
+
+    # Log the message using the logger command
+    logger -p NOTICE $msg
+}
+
+# Script to unfreeze a stuck I2C controller, by bit-banging a STOP cycle on the bus
+
+# log the event
+log_event "$@"
+
+# Clear the ERRSTS
+
+/usr/bin/pcisysfs.py --set --val 0xffffffff --offset 0x018 --res /sys/devices/pci0000\:00/0000\:00\:13.0/resource0
+
+# Enable I2C bit-banging, SCL=1, SDA=1
+/usr/bin/pcisysfs.py --set --val 0x80000003 --offset 0x388 --res /sys/devices/pci0000\:00/0000\:00\:13.0/resource0
+
+sleep 0.01
+
+while true; do
+    # Bit-bang an I2C STOP cycle
+
+    # SCL=0, SDA=0
+    /usr/bin/pcisysfs.py --set --val 0x80000000 --offset 0x388 --res /sys/devices/pci0000\:00/0000\:00\:13.0/resource0
+
+    sleep 0.01
+
+    # SCL=1, SDA=0
+    /usr/bin/pcisysfs.py --set --val 0x80000002 --offset 0x388 --res /sys/devices/pci0000\:00/0000\:00\:13.0/resource0
+
+    sleep 0.01
+
+    # SCL=1, SDA=1
+    /usr/bin/pcisysfs.py --set --val 0x80000003 --offset 0x388 --res /sys/devices/pci0000\:00/0000\:00\:13.0/resource0
+
+    sleep 1
+
+    # Check I2C MSTS.IP ("in progress") status bit; done if 0
+    msts=$((`/usr/bin/pcisysfs.py --get --offset 0x10c --res /sys/devices/pci0000\:00/0000\:00\:13.0/resource0 | sed 's/^.*:/0x/'`))
+    ip=$((msts&1))
+    if [ $ip = 0 ]; then
+        break
+    fi
+done
+
+# Disable I2C bit-banging
+/usr/bin/pcisysfs.py --set --val 0x00000003 --offset 0x388 --res /sys/devices/pci0000\:00/0000\:00\:13.0/resource0
+
+logger -p NOTICE "Recovered from i2c bus hang"
