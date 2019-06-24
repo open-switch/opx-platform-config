@@ -160,17 +160,6 @@ Architecture: all
 Depends: open-source-bcm-modules-esw, sai-bcm-esw, opx-platform-config-dell-s5248f, opx-core
 Description: All packages for Dell Networking S5248F-ON
 
-Package: opx-platform-config-dell-s5232f
-Architecture: all
-Replaces: opx-nas-acl, logrotate, rsyslog, redis-server
-Depends: open-source-dell-igb, open-source-i2c-ismt, i2c-tools, dmidecode, libopx-sdi-sys1 (>= 1.5.1+opx3)
-Description: Platform-specific files and packages for Dell Networking S5248F-ON
-
-Package: opx-dell-s5232f
-Architecture: all
-Depends: open-source-bcm-modules-esw, sai-bcm-esw, opx-platform-config-dell-s5232f, opx-core
-Description: All packages for Dell Networking S5232F-ON
-
 Package: opx-platform-config-dell-s5296f
 Architecture: all
 Replaces: opx-nas-acl, logrotate, rsyslog, redis-server
@@ -258,3 +247,14 @@ Package: opx-dell-s5224f
 Architecture: all
 Depends: open-source-bcm-modules-esw, sai-bcm-esw, opx-platform-config-dell-s5224f, opx-core
 Description: All packages for Dell Networking S5224F-ON
+
+Package: opx-platform-config-dell-s5232f
+Architecture: all
+Replaces: opx-nas-acl, logrotate, rsyslog, redis-server
+Depends: open-source-dell-igb, open-source-ocore-fpga, i2c-tools, dmidecode, libopx-sdi-sys1 (>= 1.5.1+opx3)
+Description: Platform-specific files and packages for Dell Networking S5248F-ON
+
+Package: opx-dell-s5232f
+Architecture: all
+Depends: open-source-bcm-modules-esw, sai-bcm-esw, opx-platform-config-dell-s5232f, opx-core
+Description: All packages for Dell Networking S5232F-ON

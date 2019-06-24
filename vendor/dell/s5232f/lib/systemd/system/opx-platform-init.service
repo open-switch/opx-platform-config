@@ -1,7 +1,5 @@
 [Unit]
 Description=Platform initialization service
-After=sys-devices-pci0000:00-0000:00:13.0-i2c\x2d0-i2c\x2ddev-i2c\x2d0.device sys-devices-pci0000:00-0000:00:1f.3-i2c\x2d1-i2c\x2ddev-i2c\x2d1.device
-Wants=sys-devices-pci0000:00-0000:00:13.0-i2c\x2d0-i2c\x2ddev-i2c\x2d0.device sys-devices-pci0000:00-0000:00:1f.3-i2c\x2d1-i2c\x2ddev-i2c\x2d1.device
 Before=opx-pas.service
 DefaultDependencies=no
 

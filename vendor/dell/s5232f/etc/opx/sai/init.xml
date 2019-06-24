@@ -4074,7 +4074,7 @@
 
         <PORT>
             <ID valid="true" logical_port="130" dport="129" hw_port="128" port_group="32"/>
-            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <SUPPORTED_SPEED speed100M="true" speed1G="true" speed10G="true"/>
             <BREAKOUT support="true" lane_1="true"/>
             <LANE speed="10000" count="1" bitmap="0x1"/>
             <TILE_ID tile="1"/>
@@ -4092,7 +4092,7 @@
 
         <PORT>
             <ID valid="true" logical_port="66" dport="130" hw_port="129" port_group="33"/>
-            <SUPPORTED_SPEED speed1G="true" speed10G="true"/>
+            <SUPPORTED_SPEED speed100M="true" speed1G="true" speed10G="true"/>
             <BREAKOUT support="true" lane_1="true"/>
             <LANE speed="10000" count="1" bitmap="0x1"/>
             <TILE_ID tile="1"/>

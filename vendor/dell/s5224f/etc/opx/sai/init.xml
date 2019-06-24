@@ -1294,8 +1294,8 @@
 
         <LED_PROGRAM processors="1" ARM_M0_proc="1">
         <LED instance="0" fw_count="2">
-        <LED_FW_LOAD command="m0 load 0 0x0 /etc/opt/dell/os10/sai/linkscan_led_fw.bin"/>
-        <LED_FW_LOAD command="m0 load 0 0x3800 /etc/opt/dell/os10/sai/custom_led.bin"/>
+        <LED_FW_LOAD command="m0 load 0 0x0 /etc/opx/sai/linkscan_led_fw.bin"/>
+        <LED_FW_LOAD command="m0 load 0 0x3800 /etc/opx/sai/custom_led.bin"/>
         </LED>
         </LED_PROGRAM>
 
